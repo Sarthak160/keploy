@@ -4,29 +4,32 @@ package grpcserver
 
 import (
 	"context"
+	"net"
+	"time"
+
 	proto "go.keploy.io/server/grpc/regression"
 	regression2 "go.keploy.io/server/pkg/service/regression"
 	"go.keploy.io/server/pkg/service/run"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
-	"net"
 )
 
-type server struct {
+type Server struct {
 	logger *zap.Logger
 	svc    regression2.Service
 	run    run.Service
+	proto.UnimplementedEndServiceServer
 }
 
-func main() {
+func New(logger *zap.Logger, svc regression2.Service, run run.Service) {
 	listener, err := net.Listen("tcp", ":4040")
 	if err != nil {
 		panic(err)
 	}
 
 	srv := grpc.NewServer()
-	proto.RegisterEndServiceServer(srv, &server{})
+	proto.RegisterEndServiceServer(srv, &Server{logger: logger, svc: svc, run: run})
 	reflection.Register(srv)
 
 	if e := srv.Serve(listener); e != nil {
@@ -35,14 +38,21 @@ func main() {
 
 }
 
-func (srv *server) End(ctx context.Context, request *proto.Endrequest) (*proto.Endresponse, error) {
+func (srv *Server) End(ctx context.Context, request *proto.Endrequest) (*proto.Endresponse, error) {
+	stat := run.TestRunStatusFailed
+	id := request.Id
+	if request.Status == "true" {
+		stat = run.TestRunStatusPassed
+	}
+	now := time.Now().Unix()
 
+	err := srv.run.Put(ctx, run.TestRun{
+		ID:      id,
+		Updated: now,
+		Status:  stat,
+	})
+	if err != nil {
+		return &proto.Endresponse{Message: err.Error()}, nil
+	}
+	return &proto.Endresponse{Message: "OK"}, nil
 }
-
-// func (s *server) Multiply(ctx context.Context, request *proto.Request) (*proto.Response, error) {
-// 	a, b := request.GetA(), request.GetB()
-
-// 	result := a * b
-
-// 	return &proto.Response{Result: result}, nil
-// }

@@ -2,16 +2,26 @@ syntax = "proto3";
 option go_package = "go.keploy.io/server/grpc/regression";
 package end;
 
-message endrequest {
+message endRequest {
     string status = 1;
     string id = 2;
 }
 
-message endresponse {
+message endResponse {
     string message = 1;
 }
 
+message startRequest {
+    string total = 1;
+    string app = 2;
+}
+
+message startResponse {
+    string id = 1;
+}
+
 service EndService{
-    rpc End (endrequest) returns (endresponse);
+    rpc End (endRequest) returns (endResponse);
+    rpc Start (startRequest) returns (startResponse);
 }
 
