@@ -1,16 +1,16 @@
-package regression
+package grpcserver
 
 // this will be the server file for the grpc connection
 
 import (
-	// "context"
+	"context"
+	proto "go.keploy.io/server/grpc/regression"
 	regression2 "go.keploy.io/server/pkg/service/regression"
 	"go.keploy.io/server/pkg/service/run"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 	"net"
-	proto "go.keploy.io/server/grpc/regression"
 )
 
 type server struct {
@@ -26,7 +26,7 @@ func main() {
 	}
 
 	srv := grpc.NewServer()
-	proto.RegisterAddServiceServer(srv, &server{})
+	proto.RegisterEndServiceServer(srv, &server{})
 	reflection.Register(srv)
 
 	if e := srv.Serve(listener); e != nil {
@@ -35,9 +35,9 @@ func main() {
 
 }
 
-// func (srv *server) End(ctx context.Context, request *proto.Request) (*proto.Response, error) {
-	
-// }
+func (srv *server) End(ctx context.Context, request *proto.Endrequest) (*proto.Endresponse, error) {
+
+}
 
 // func (s *server) Multiply(ctx context.Context, request *proto.Request) (*proto.Response, error) {
 // 	a, b := request.GetA(), request.GetB()
