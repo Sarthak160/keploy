@@ -38,7 +38,7 @@ func New(logger *zap.Logger, svc regression2.Service, run run.Service) {
 
 }
 
-func (srv *Server) End(ctx context.Context, request *proto.Endrequest) (*proto.Endresponse, error) {
+func (srv *Server) End(ctx context.Context, request *proto.EndRequest) (*proto.EndResponse, error) {
 	stat := run.TestRunStatusFailed
 	id := request.Id
 	if request.Status == "true" {
@@ -52,7 +52,7 @@ func (srv *Server) End(ctx context.Context, request *proto.Endrequest) (*proto.E
 		Status:  stat,
 	})
 	if err != nil {
-		return &proto.Endresponse{Message: err.Error()}, nil
+		return &proto.EndResponse{Message: err.Error()}, nil
 	}
-	return &proto.Endresponse{Message: "OK"}, nil
+	return &proto.EndResponse{Message: "OK"}, nil
 }

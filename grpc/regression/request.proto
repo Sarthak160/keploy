@@ -1,7 +1,7 @@
 syntax = "proto3";
 option go_package = "go.keploy.io/server/grpc/regression";
-import public "grpc/models.http.proto";
-import "grpc/models.dep.proto";
+import public "grpc/regression/models.http.proto";
+import "grpc/regression/models.dep.proto";
 package proto;
 
 message TestCaseReq {
