@@ -6,13 +6,15 @@ import (
 	"context"
 	"net"
 	"time"
-
+	"strconv"
 	proto "go.keploy.io/server/grpc/regression"
+	"go.keploy.io/server/graph"
 	regression2 "go.keploy.io/server/pkg/service/regression"
 	"go.keploy.io/server/pkg/service/run"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
+	"github.com/google/uuid"
 )
 
 type Server struct {
@@ -56,3 +58,38 @@ func (srv *Server) End(ctx context.Context, request *proto.EndRequest) (*proto.E
 	}
 	return &proto.EndResponse{Message: "OK"}, nil
 }
+
+
+
+func (srv *Server) Start(ctx context.Context,request *proto.StartRequest)(*proto.StartResponse, error) {
+	t:=request.Total
+	total, err := strconv.Atoi(t)
+	if err != nil {
+		return &proto.StartResponse{Id: err.Error()}, nil
+	}
+	app:=request.App
+	if app == "" {
+		return nil,nil
+	}
+	id := uuid.New().String()
+	now := time.Now().Unix()
+	err = srv.run.Put(ctx, run.TestRun{
+		ID:      id,
+		Created: now,
+		Updated: now,
+		Status:  run.TestRunStatusRunning,
+		CID:     graph.DEFAULT_COMPANY,
+		App:     app,
+		User:    graph.DEFAULT_USER,
+		Total:   total,
+	})
+	if err != nil {
+		return &proto.StartResponse{Id: err.Error()}, nil
+	}
+	//check
+	return &proto.StartResponse{Id: err.Error()}, nil
+}
+
+// func (srv *Server) GetTC(ctx context.Context,request *proto.StartRequest)(*proto.StartResponse, error) {
+
+// }
