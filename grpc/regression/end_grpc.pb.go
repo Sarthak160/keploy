@@ -24,6 +24,7 @@ const _ = grpc.SupportPackageIsVersion7
 type EndServiceClient interface {
 	End(ctx context.Context, in *EndRequest, opts ...grpc.CallOption) (*EndResponse, error)
 	Start(ctx context.Context, in *StartRequest, opts ...grpc.CallOption) (*StartResponse, error)
+	GetTC(ctx context.Context, in *GetTCRequest, opts ...grpc.CallOption) (*TestCase, error)
 }
 
 type endServiceClient struct {
@@ -52,12 +53,22 @@ func (c *endServiceClient) Start(ctx context.Context, in *StartRequest, opts ...
 	return out, nil
 }
 
+func (c *endServiceClient) GetTC(ctx context.Context, in *GetTCRequest, opts ...grpc.CallOption) (*TestCase, error) {
+	out := new(TestCase)
+	err := c.cc.Invoke(ctx, "/end.EndService/GetTC", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // EndServiceServer is the server API for EndService service.
 // All implementations must embed UnimplementedEndServiceServer
 // for forward compatibility
 type EndServiceServer interface {
 	End(context.Context, *EndRequest) (*EndResponse, error)
 	Start(context.Context, *StartRequest) (*StartResponse, error)
+	GetTC(context.Context, *GetTCRequest) (*TestCase, error)
 	mustEmbedUnimplementedEndServiceServer()
 }
 
@@ -70,6 +81,9 @@ func (UnimplementedEndServiceServer) End(context.Context, *EndRequest) (*EndResp
 }
 func (UnimplementedEndServiceServer) Start(context.Context, *StartRequest) (*StartResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Start not implemented")
+}
+func (UnimplementedEndServiceServer) GetTC(context.Context, *GetTCRequest) (*TestCase, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTC not implemented")
 }
 func (UnimplementedEndServiceServer) mustEmbedUnimplementedEndServiceServer() {}
 
@@ -120,6 +134,24 @@ func _EndService_Start_Handler(srv interface{}, ctx context.Context, dec func(in
 	return interceptor(ctx, in, info, handler)
 }
 
+func _EndService_GetTC_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTCRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EndServiceServer).GetTC(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/end.EndService/GetTC",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EndServiceServer).GetTC(ctx, req.(*GetTCRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // EndService_ServiceDesc is the grpc.ServiceDesc for EndService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -134,6 +166,10 @@ var EndService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Start",
 			Handler:    _EndService_Start_Handler,
+		},
+		{
+			MethodName: "GetTC",
+			Handler:    _EndService_GetTC_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

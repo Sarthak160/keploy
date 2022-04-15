@@ -4,17 +4,19 @@ package grpcserver
 
 import (
 	"context"
+	"errors"
 	"net"
-	"time"
 	"strconv"
-	proto "go.keploy.io/server/grpc/regression"
+	"time"
+
+	"github.com/google/uuid"
 	"go.keploy.io/server/graph"
+	proto "go.keploy.io/server/grpc/regression"
 	regression2 "go.keploy.io/server/pkg/service/regression"
 	"go.keploy.io/server/pkg/service/run"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
-	"github.com/google/uuid"
 )
 
 type Server struct {
@@ -59,17 +61,15 @@ func (srv *Server) End(ctx context.Context, request *proto.EndRequest) (*proto.E
 	return &proto.EndResponse{Message: "OK"}, nil
 }
 
-
-
-func (srv *Server) Start(ctx context.Context,request *proto.StartRequest)(*proto.StartResponse, error) {
-	t:=request.Total
+func (srv *Server) Start(ctx context.Context, request *proto.StartRequest) (*proto.StartResponse, error) {
+	t := request.Total
 	total, err := strconv.Atoi(t)
 	if err != nil {
-		return &proto.StartResponse{Id: err.Error()}, nil
+		return nil, err
 	}
-	app:=request.App
+	app := request.App
 	if app == "" {
-		return nil,nil
+		return nil, errors.New("app is required in request")
 	}
 	id := uuid.New().String()
 	now := time.Now().Unix()
@@ -84,10 +84,10 @@ func (srv *Server) Start(ctx context.Context,request *proto.StartRequest)(*proto
 		Total:   total,
 	})
 	if err != nil {
-		return &proto.StartResponse{Id: err.Error()}, nil
+		return nil, err
 	}
 	//check
-	return &proto.StartResponse{Id: err.Error()}, nil
+	return &proto.StartResponse{Id: id}, nil
 }
 
 // func (srv *Server) GetTC(ctx context.Context,request *proto.StartRequest)(*proto.StartResponse, error) {
