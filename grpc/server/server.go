@@ -161,11 +161,11 @@ func (srv *Server) GetTC(ctx context.Context, request *proto.GetTCRequest) (*pro
 	if err != nil {
 		return nil, err
 	}
-	ptcs,err:= toProtoTC(tcs)
+	ptcs, err := toProtoTC(tcs)
 	if err != nil {
 		return nil, err
 	}
-	return ptcs,nil
+	return ptcs, nil
 	// reqHeader := helper(map[string][]string(tcs.HttpReq.Header))
 	// respHeader := helper(map[string][]string(tcs.HttpResp.Header))
 	// deps := []*proto.Dependency{}
@@ -245,34 +245,78 @@ func (srv *Server) GetTCS(ctx context.Context, request *proto.GetTCSRequest) (*p
 	}
 	var ptcs []*proto.TestCase
 	for i := 0; i < len(tcs); i++ {
-		ptc,err:= toProtoTC(tcs[i])
+		ptc, err := toProtoTC(tcs[i])
 		if err != nil {
 			return nil, err
 		}
-		ptcs = append(ptcs,ptc)
+		ptcs = append(ptcs, ptc)
 	}
 
 	return &proto.GetTCSResponse{Tcs: ptcs}, nil
 }
 
-func (srv *Server) PostTC(ctx context.Context, request *proto.TestCaseReq) (*proto.PostTCResponse, error) {
-	data := &proto.TestCaseReq{
-		Captured:   request.Captured,
-		AppID:      request.AppID,
-		URI:        request.URI,
-		HttpReq:    request.HttpReq,
-		HttpResp:   request.HttpResp,
-		Dependency: request.Dependency,
+func getHttpHeader(m map[string]*proto.StrArr) (res map[string][]string) {
+	for k, v := range m {
+		res[k] = v.Value
 	}
+	return
+}
+
+func (srv *Server) PostTC(ctx context.Context, request *proto.TestCaseReq) (*proto.PostTCResponse, error) {
+
+	deps := []models.Dependency{}
+	for _, j := range request.Dependency {
+		data := [][]byte{}
+		for _, k := range j.Data {
+			data = append(data, k.Bin)
+		}
+		deps = append(deps, models.Dependency{
+			Name: j.Name,
+			Type: models.DependencyType(j.Type),
+			Meta: j.Meta,
+			Data: data,
+		})
+	}
+
 	now := time.Now().UTC().Unix()
-	var ptcs []*proto.TestCase
-	// for i := 0; i < len(tcs); i++ {
-	// 	ptc,err:= toProtoTC(tcs[i])
-	// 	if err != nil {
-	// 		return nil, err
-	// 	}
-	// 	ptcs = append(ptcs,ptc)
-	// }
-	inserted, err := srv.svc.Put(ctx, graph.DEFAULT_COMPANY,[]*proto.TestCase )
+	inserted, err := srv.svc.Put(ctx, graph.DEFAULT_COMPANY, []models.TestCase{{
+		ID:       uuid.New().String(),
+		Created:  now,
+		Updated:  now,
+		Captured: request.Captured,
+		URI:      request.URI,
+		AppID:    request.AppID,
+		HttpReq: models.HttpReq{
+			Method:     models.Method(request.HttpReq.Method),
+			ProtoMajor: int(request.HttpReq.ProtoMajor),
+			ProtoMinor: int(request.HttpReq.ProtoMinor),
+			URL:        request.HttpReq.URL,
+			URLParams:  request.HttpReq.URLParams,
+			Body:       request.HttpReq.Body,
+			Header:     getHttpHeader(request.HttpReq.Header),
+		},
+		HttpResp: models.HttpResp{
+			StatusCode: int(request.HttpResp.StatusCode),
+			Body:       request.HttpResp.Body,
+			Header:     getHttpHeader(request.HttpResp.Header),
+		},
+		Deps: deps,
+	}})
+
+	if err != nil {
+		srv.logger.Error("error putting testcase", zap.Error(err))
+		return nil, err
+
+	}
+
+	// rg.logger.Debug("testcase inserted",zap.Any("testcase ids",inserted))
+	if len(inserted) == 0 {
+		srv.logger.Error("unknown failure while inserting testcase")
+		return nil, err
+	}
+
+	return &proto.PostTCResponse{
+		TcsId: map[string]string{"id": inserted[0]},
+	}, nil
 
 }

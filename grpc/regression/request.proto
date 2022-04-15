@@ -10,7 +10,7 @@ message TestCaseReq {
     string URI = 3;
     models.HttpReq HttpReq = 4;
     models.HttpResp HttpResp = 5;
-    models.Dependency Dependency = 6;
+    repeated models.Dependency Dependency = 6;
   }
 
 // message abc {
