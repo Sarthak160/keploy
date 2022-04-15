@@ -35,7 +35,7 @@ message TestCase {
   string URI = 7;
   models.HttpReq HttpReq = 8;
   models.HttpResp HttpResp = 9;
-  models.Dependency Deps = 10;
+  repeated models.Dependency Deps = 10;
   map<string, models.StrArr> allKeys = 11;
   map<string, models.StrArr> anchors = 12;
   repeated string noise = 13;

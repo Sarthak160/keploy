@@ -90,6 +90,71 @@ func (srv *Server) Start(ctx context.Context, request *proto.StartRequest) (*pro
 	return &proto.StartResponse{Id: id}, nil
 }
 
-// func (srv *Server) GetTC(ctx context.Context,request *proto.StartRequest)(*proto.StartResponse, error) {
+func helper(m map[string][]string) (res map[string]*proto.StrArr) {
+	for k, v := range m {
+		arr := &proto.StrArr{}
+		arr.Value = append(arr.Value, v...)
+		res[k] = arr
+	}
+	return
+}
 
-// }
+func (srv *Server) GetTC(ctx context.Context, request *proto.GetTCRequest) (*proto.TestCase, error) {
+	id := request.Id
+	app := request.App
+	tcs, err := srv.svc.Get(ctx, graph.DEFAULT_COMPANY, app, id)
+	if err != nil {
+		return nil, err
+	}
+	tcs, err = srv.svc.Get(ctx, graph.DEFAULT_COMPANY, app, id)
+	if err != nil {
+		return nil, err
+	}
+	reqHeader := helper(map[string][]string(tcs.HttpReq.Header))
+	respHeader := helper(map[string][]string(tcs.HttpResp.Header))
+	deps := []*proto.Dependency{}
+	allKeys := helper(map[string][]string(tcs.AllKeys))
+	anchors := helper(map[string][]string(tcs.Anchors))
+	for _, j := range tcs.Deps {
+		data := []*proto.DataBytes{}
+		for _, k := range j.Data {
+			data = append(data, &proto.DataBytes{
+				Bin: k,
+			})
+		}
+		deps = append(deps, &proto.Dependency{
+			Name: j.Name,
+			Type: string(j.Type),
+			Meta: j.Meta,
+			Data: data,
+		})
+	}
+	return &proto.TestCase{
+		Id:       tcs.ID,
+		Created:  tcs.Created,
+		Updated:  tcs.Updated,
+		Captured: tcs.Captured,
+		CID:      tcs.CID,
+		AppID:    tcs.AppID,
+		URI:      tcs.URI,
+		HttpReq: &proto.HttpReq{
+			Method:     string(tcs.HttpReq.Method),
+			ProtoMajor: int64(tcs.HttpReq.ProtoMajor),
+			ProtoMinor: int64(tcs.HttpReq.ProtoMinor),
+			URL:        tcs.HttpReq.URL,
+			URLParams:  tcs.HttpReq.URLParams,
+			Header:     reqHeader,
+			Body:       tcs.HttpReq.Body,
+		},
+		HttpResp: &proto.HttpResp{
+			StatusCode: int64(tcs.HttpResp.StatusCode),
+			Header:     respHeader,
+			Body:       tcs.HttpResp.Body,
+		},
+		Deps:    deps,
+		AllKeys: allKeys,
+		Anchors: anchors,
+		Noise:   tcs.Noise,
+	}, nil
+
+}

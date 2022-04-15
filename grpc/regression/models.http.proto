@@ -24,7 +24,7 @@ message StrArr {
 }
 
 message HttpResp {
-    string StatusCode = 1;
-    string Header  = 2;
+    int64 StatusCode = 1;
+    map<string, StrArr> Header  = 2;
     string Body = 3; 
 }
