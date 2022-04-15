@@ -25,10 +25,24 @@ message getTCRequest {
     string id = 1;
     string app = 2;
 }
+message getTCSRequest{
+    string app = 1;
+    string  offset = 2;
+    string limit  = 3;
+}
+message getTCSResponse{
+    repeated proto.TestCase tcs = 1; 
+}
+message postTCResponse{
+    map<string,string> tcsId = 1;
+}
+
 
 service EndService{
     rpc End (endRequest) returns (endResponse);
     rpc Start (startRequest) returns (startResponse);
     rpc GetTC (getTCRequest) returns (proto.TestCase);
+    rpc GetTCS (getTCSRequest) returns (getTCSResponse);
+    rpc PostTC (proto.TestCaseReq) returns (postTCResponse);
 }
 

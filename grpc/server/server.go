@@ -158,3 +158,45 @@ func (srv *Server) GetTC(ctx context.Context, request *proto.GetTCRequest) (*pro
 	}, nil
 
 }
+
+func (srv *Server) GetTCS(ctx context.Context, request *proto.GetTCSRequest) (*proto.GetTCSResponse, error) {
+	app := request.App
+	if app == "" {
+		return nil, errors.New("app is required in request")
+	}
+	offsetStr:=request.Offset
+	limitStr:=request.Limit
+	var (
+		offset int
+		limit  int
+		err    error
+	)
+	if offsetStr != "" {
+		offset, err = strconv.Atoi(offsetStr)
+		if err != nil {
+			srv.logger.Error("request for fetching testcases in converting offset to integer")
+		}
+	}
+	if limitStr != "" {
+		limit, err = strconv.Atoi(limitStr)
+		if err != nil {
+			srv.logger.Error("request for fetching testcases in converting limit to integer")
+		}
+	}
+	tcs, err := srv.svc.GetAll(ctx, graph.DEFAULT_COMPANY, app, &offset, &limit)
+	if err != nil {
+		return nil, err
+	}
+	print(tcs)
+	
+	return &proto.GetTCSResponse{Tcs: nil}, nil
+}
+
+// func (srv *Server) PostTC(ctx context.Context, request *proto.TestCaseReq) (*proto.PostTCResponse, error)  {
+// 	// data:= &proto.TestCaseReq{
+// 	// 	Captured :request.Captured,
+// 	// 	AppID:request.AppID,
+// 	// 	URI:request.URI,
+// 	// 	HttpReq: request.HttpReq,
+// 	// }
+// }
