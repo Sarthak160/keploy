@@ -36,6 +36,12 @@ message getTCSResponse{
 message postTCResponse{
     map<string,string> tcsId = 1;
 }
+message deNoiseResponse {
+    string message = 1;
+}
+message testResponse{
+    map<string,bool> pass = 1;
+}
 
 
 service EndService{
@@ -44,5 +50,7 @@ service EndService{
     rpc GetTC (getTCRequest) returns (proto.TestCase);
     rpc GetTCS (getTCSRequest) returns (getTCSResponse);
     rpc PostTC (proto.TestCaseReq) returns (postTCResponse);
+    rpc DeNoise (proto.TestReq) returns(deNoiseResponse);
+    rpc Test (proto.TestReq) returns (testResponse);
 }
 

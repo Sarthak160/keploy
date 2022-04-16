@@ -90,7 +90,13 @@ func (srv *Server) Start(ctx context.Context, request *proto.StartRequest) (*pro
 	//check
 	return &proto.StartResponse{Id: id}, nil
 }
-
+func helper2(m map[string]*proto.StrArr) (res map[string][]string) {
+	for k, v := range m {
+		arr := v.Value
+		res[k] = arr
+	}
+	return res
+}
 func helper(m map[string][]string) (res map[string]*proto.StrArr) {
 	for k, v := range m {
 		arr := &proto.StrArr{}
@@ -319,4 +325,25 @@ func (srv *Server) PostTC(ctx context.Context, request *proto.TestCaseReq) (*pro
 		TcsId: map[string]string{"id": inserted[0]},
 	}, nil
 
+}
+
+// map[string]*StrArr --> map[string][]string
+func (srv *Server) DeNoise(ctx context.Context, request *proto.TestReq) (*proto.DeNoiseResponse, error) {
+
+	err := srv.svc.DeNoise(ctx, graph.DEFAULT_COMPANY, request.ID, request.AppID, request.Resp.Body, helper2(request.Resp.Header))
+	if err != nil {
+		return &proto.DeNoiseResponse{Message: err.Error()}, nil
+	}
+	return &proto.DeNoiseResponse{Message: "OK"}, nil
+}
+
+func (srv *Server) Test(ctx context.Context, request *proto.TestReq) (*proto.TestResponse, error) {
+
+	pass, err := srv.svc.Test(ctx, graph.DEFAULT_COMPANY, request.AppID, request.RunID, request.ID, models.HttpResp{})
+	if err != nil {
+		return nil, err
+	}
+	return &proto.TestResponse{
+		Pass: map[string]bool{"pass": pass},
+	}, nil
 }
