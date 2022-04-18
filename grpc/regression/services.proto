@@ -1,7 +1,7 @@
 syntax = "proto3";
 option go_package = "go.keploy.io/server/grpc/regression";
 import public "grpc/regression/request.proto";
-package end;
+package services;
 
 message endRequest {
     string status = 1;
@@ -44,7 +44,7 @@ message testResponse{
 }
 
 
-service EndService{
+service GrpcService{
     rpc End (endRequest) returns (endResponse);
     rpc Start (startRequest) returns (startResponse);
     rpc GetTC (getTCRequest) returns (proto.TestCase);

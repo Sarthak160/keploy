@@ -90,12 +90,15 @@ func (srv *Server) Start(ctx context.Context, request *proto.StartRequest) (*pro
 	//check
 	return &proto.StartResponse{Id: id}, nil
 }
+
+// map[string]*StrArr --> map[string][]string
 func getStringMap(m map[string]*proto.StrArr) (res map[string][]string) {
 	for k, v := range m {
 		res[k] = v.Value
 	}
 	return res
 }
+
 func getProtoMap(m map[string][]string) (res map[string]*proto.StrArr) {
 	for k, v := range m {
 		arr := &proto.StrArr{}
@@ -280,7 +283,7 @@ func (srv *Server) PostTC(ctx context.Context, request *proto.TestCaseReq) (*pro
 
 }
 
-// map[string]*StrArr --> map[string][]string
+
 func (srv *Server) DeNoise(ctx context.Context, request *proto.TestReq) (*proto.DeNoiseResponse, error) {
 
 	err := srv.svc.DeNoise(ctx, graph.DEFAULT_COMPANY, request.ID, request.AppID, request.Resp.Body, getStringMap(request.Resp.Header))
