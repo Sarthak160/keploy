@@ -5,7 +5,6 @@ package grpcserver
 import (
 	"context"
 	"errors"
-	"net"
 	"strconv"
 	"time"
 
@@ -28,18 +27,18 @@ type Server struct {
 }
 
 func New(logger *zap.Logger, svc regression2.Service, run run.Service) {
-	listener, err := net.Listen("tcp", ":4040")
-	if err != nil {
-		panic(err)
-	}
+	// listener, err := net.Listen("tcp", ":4040")
+	// if err != nil {
+	// 	panic(err)
+	// }
 
 	srv := grpc.NewServer()
 	proto.RegisterGrpcServiceServer(srv, &Server{logger: logger, svc: svc, run: run})
 	reflection.Register(srv)
 
-	if e := srv.Serve(listener); e != nil {
-		panic(e)
-	}
+	// if e := srv.Serve(listener); e != nil {
+	// 	panic(e)
+	// }
 
 }
 
@@ -283,7 +282,6 @@ func (srv *Server) PostTC(ctx context.Context, request *proto.TestCaseReq) (*pro
 
 }
 
-
 func (srv *Server) DeNoise(ctx context.Context, request *proto.TestReq) (*proto.DeNoiseResponse, error) {
 
 	err := srv.svc.DeNoise(ctx, graph.DEFAULT_COMPANY, request.ID, request.AppID, request.Resp.Body, getStringMap(request.Resp.Header))
@@ -297,8 +295,8 @@ func (srv *Server) Test(ctx context.Context, request *proto.TestReq) (*proto.Tes
 
 	pass, err := srv.svc.Test(ctx, graph.DEFAULT_COMPANY, request.AppID, request.RunID, request.ID, models.HttpResp{
 		StatusCode: int(request.Resp.StatusCode),
-		Header: getStringMap(request.Resp.Header),
-		Body: request.Resp.Body,
+		Header:     getStringMap(request.Resp.Header),
+		Body:       request.Resp.Body,
 	})
 	if err != nil {
 		return nil, err

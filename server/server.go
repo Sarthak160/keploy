@@ -4,6 +4,7 @@ import (
 	"math/rand"
 	"net/http"
 	"time"
+
 	// "log"
 	// "fmt"
 	// "context"
@@ -19,6 +20,7 @@ import (
 	"github.com/keploy/go-sdk/keploy"
 	"go.keploy.io/server/graph"
 	"go.keploy.io/server/graph/generated"
+	"go.keploy.io/server/grpc/grpcserver"
 	"go.keploy.io/server/http/regression"
 	"go.keploy.io/server/pkg/platform/mgo"
 	regression2 "go.keploy.io/server/pkg/service/regression"
@@ -81,16 +83,14 @@ func Server() *chi.Mux {
 				UrlRegex: "^/api",
 			},
 			Timeout: 80 * time.Second,
-
 		},
 		Server: keploy.ServerConfig{
 			LicenseKey: conf.APIKey,
 			// URL: "http://localhost:8081/api",
 
 		},
-		
 	})
-
+	grpcserver.New(logger, regSrv, runSrv)
 	kchi.ChiV5(kApp, r)
 
 	r.Use(cors.Handler(cors.Options{
