@@ -1,7 +1,10 @@
 package server
 
 import (
+	// "fmt"
+	"log"
 	"math/rand"
+	"net"
 	"net/http"
 	"time"
 
@@ -18,6 +21,7 @@ import (
 	"github.com/keploy/go-sdk/integrations/kchi"
 	"github.com/keploy/go-sdk/integrations/kmongo"
 	"github.com/keploy/go-sdk/keploy"
+	"github.com/soheilhy/cmux"
 	"go.keploy.io/server/graph"
 	"go.keploy.io/server/graph/generated"
 	"go.keploy.io/server/grpc/grpcserver"
@@ -27,6 +31,7 @@ import (
 	"go.keploy.io/server/pkg/service/run"
 	"go.keploy.io/server/web"
 	"go.uber.org/zap"
+	"golang.org/x/sync/errgroup"
 )
 
 // const defaultPort = "8080"
@@ -90,7 +95,6 @@ func Server() *chi.Mux {
 
 		},
 	})
-	grpcserver.New(logger, regSrv, runSrv)
 	kchi.ChiV5(kApp, r)
 
 	r.Use(cors.Handler(cors.Options{
@@ -105,7 +109,6 @@ func Server() *chi.Mux {
 	r.Get("/healthz", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("ok"))
 	})
-
 	r.Handle("/*", web.Handler())
 
 	// add api routes
@@ -114,5 +117,34 @@ func Server() *chi.Mux {
 		r.Handle("/", playground.Handler("keploy graphql backend", "/api/query"))
 		r.Handle("/query", srv)
 	})
+
+	listener, err := net.Listen("tcp", ":8081")
+	if err != nil {
+		panic(err)
+	}
+
+	m := cmux.New(listener)
+	grpcListener := m.MatchWithWriters(cmux.HTTP2MatchHeaderFieldSendSettings("content-type", "application/grpc"))
+	// grpcListener := m.Match(cmux.HTTP2HeaderField("content-type", "application/grpc"))
+	httpListener := m.Match(cmux.HTTP1Fast())
+
+	g := new(errgroup.Group)
+	g.Go(func() error { return grpcserver.New(logger, regSrv, runSrv, grpcListener) })
+	g.Go(func() error {
+
+		srv := http.Server{Handler: r}
+		err := srv.Serve(httpListener)
+		// (":"+"8081", r)
+		return err
+	})
+	g.Go(func() error { return m.Serve() })
+	log.Println("connect to http://localhost:8081/ for GraphQL playground", g.Wait())
+	// grpcserver.New(logger, regSrv, runSrv, listener)
+	// r.Post("/grpc", func(w http.ResponseWriter, r *http.Request) {
+	// 	fmt.Println("in /grpc")
+	// 	r.ProtoMajor = 2
+	// 	grpcSrv.ServeHTTP(w, r)
+	// })
+
 	return r
 }

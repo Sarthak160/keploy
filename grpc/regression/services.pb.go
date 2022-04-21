@@ -441,10 +441,6 @@ func (x *TestCase) GetNoise() []string {
 	return nil
 }
 
-// message MessageName {
-//   repeated int64 b = 1;
-//   bytes c = 2;
-// }
 type Method struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
