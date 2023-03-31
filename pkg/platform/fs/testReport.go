@@ -81,6 +81,7 @@ func (fe *testReport) Write(ctx context.Context, path string, doc models.TestRep
 	}
 
 	_, err := createMockFile(path, doc.Name)
+	
 	if err != nil {
 		return err
 	}

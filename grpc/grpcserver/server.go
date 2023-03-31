@@ -113,6 +113,8 @@ func (srv *Server) End(ctx context.Context, request *proto.EndRequest) (*proto.E
 	if err != nil {
 		return &proto.EndResponse{Message: err.Error()}, nil
 	}
+	dedup:=models.Dedup{}
+	dedup.Deduplication()
 	return &proto.EndResponse{Message: "OK"}, nil
 }
 
@@ -300,6 +302,20 @@ func (srv *Server) PostTC(ctx context.Context, request *proto.TestCaseReq) (*pro
 			Data: data,
 		})
 	}
+
+	// dedup := models.Dedup{}
+	// if request.DedupSpec != nil {
+	// 	dedup = models.Dedup{
+	// 		Branch_covered: int(request.DedupSpec.BranchCovered),
+	// 		Branch_total:   int(request.DedupSpec.BranchTotal),
+	// 		Line_path:      string(request.DedupSpec.LinePath),
+	// 		Methods_covered: int(request.DedupSpec.MethodsCovered),
+	// 		Lines_total:    int(request.DedupSpec.LinesTotal),
+	// 	}
+	// }
+	// compute deduplication for the testcase
+	
+	
 	now := time.Now().UTC().Unix()
 	tc := models.TestCase{
 		ID:       uuid.New().String(),
@@ -345,6 +361,10 @@ func (srv *Server) PostTC(ctx context.Context, request *proto.TestCaseReq) (*pro
 			Err:  request.GrpcResp.Err,
 		}
 	}
+	
+	
+	
+
 	inserted, err := srv.tcSvc.Insert(ctx, []models.TestCase{tc}, request.TestCasePath, request.MockPath, graph.DEFAULT_COMPANY, request.Remove, request.Replace)
 	if err != nil {
 		srv.logger.Error("error putting testcase", zap.Error(err))
@@ -382,6 +402,17 @@ func (srv *Server) Test(ctx context.Context, request *proto.TestReq) (*proto.Tes
 		pass bool
 		err  error
 	)
+	dedup := models.Dedup{}
+	if request.DedupSpec != nil {
+		dedup = models.Dedup{
+			Branch_covered: int(request.DedupSpec.BranchCovered),
+			Branch_total:   int(request.DedupSpec.BranchTotal),
+			Line_path:      string(request.DedupSpec.LinePath),
+			Methods_covered: int(request.DedupSpec.MethodsCovered),
+			Lines_total:    int(request.DedupSpec.LinesTotal),
+		}
+	}
+	
 	switch request.Type {
 	case string(models.HTTP):
 		pass, err = srv.svc.Test(ctx, graph.DEFAULT_COMPANY, request.AppID, request.RunID, request.ID, request.TestCasePath, request.MockPath, models.HttpResp{
@@ -398,6 +429,9 @@ func (srv *Server) Test(ctx context.Context, request *proto.TestReq) (*proto.Tes
 			Err:  request.GrpcResp.Err,
 		}, graph.DEFAULT_COMPANY, request.AppID, request.RunID, request.ID, request.TestCasePath, request.MockPath)
 	}
+	
+	dedup.Compute(request.ID)
+	
 
 	// pass, err := srv.svc.Test(ctx, graph.DEFAULT_COMPANY, request.AppID, request.RunID, request.ID, request.TestCasePath, request.MockPath, models.HttpResp{
 	// 	StatusCode:    int(request.Resp.StatusCode),
