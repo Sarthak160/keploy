@@ -1,0 +1,32 @@
+version: api.keploy.io/v1beta2
+kind: Http
+name: test-2
+spec:
+    metadata: {}
+    req:
+        method: POST
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:8010/product
+        header:
+            Accept: '*/*'
+            Content-Length: "42"
+            Content-Type: application/json
+            User-Agent: curl/7.88.1
+        body: "{\n    \"name\":\"hat-13\", \n    \"price\": 500\n}"
+        body_type: ""
+    resp:
+        status_code: 201
+        header:
+            Content-Length: "37"
+            Content-Type: application/json
+            Date: Thu, 27 Jul 2023 08:46:53 GMT
+        body: '{"id":89,"name":"hat-13","price":500}'
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+    objects: []
+    assertions:
+        noise: []
+    created: 1690447614

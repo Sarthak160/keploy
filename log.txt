@@ -1,0 +1,32 @@
+2023-07-21T12:08:36.941Z	INFO	hooks/loader.go:549	🐰 Keploy:keploy initialized and probes added to the kernel.
+2023-07-21T12:08:36.941Z	DEBUG	hooks/loader.go:560	🐰 Keploy:	{"Keploy Inode number": 4026531836}
+2023-07-21T12:08:36.941Z	DEBUG	hooks/loader.go:211	🐰 Keploy:Sending keploy pid to kernel	{"pid": 657280}
+2023-07-21T12:08:36.941Z	DEBUG	hooks/loader.go:563	🐰 Keploy:Keploy Pid sent successfully...
+2023-07-21T12:08:37.872Z	DEBUG	proxy/proxy.go:194	🐰 Keploy:Proxy IPv4:Port 2887713571:16789
+2023-07-21T12:08:37.873Z	DEBUG	proxy/proxy.go:195	🐰 Keploy:Proxy IPV6:Port Addr [0 0 0 1]:16789
+2023-07-21T12:08:37.873Z	INFO	proxy/proxy.go:196	🐰 Keploy:Proxy started at port:16789
+2023-07-21T12:08:37.873Z	DEBUG	hooks/launch.go:126	🐰 Keploy:Running user application on Linux	{"pid of keploy": 657280}
+2023-07-21T12:08:37.873Z	DEBUG	hooks/launch.go:139	🐰 Keploy:Waiting for any error from user application
+2023-07-21T12:08:37.873Z	DEBUG	proxy/proxy.go:313	🐰 Keploy:	{"ProxyAddress4": "172.31.3.35"}
+2023-07-21T12:08:37.873Z	DEBUG	proxy/proxy.go:316	🐰 Keploy:	{"ProxyAddress6": "::1"}
+2023-07-21T12:08:37.873Z	DEBUG	proxy/proxy.go:325	🐰 Keploy:Proxy server is listening on :[::]:16789
+2023-07-21T12:08:37.873Z	DEBUG	proxy/proxy.go:326	🐰 Keploy:Proxy will accept both ipv4 and ipv6 connections	{"Ipv4": "172.31.3.35", "Ipv6": "::1"}
+2023/07/21 12:08:37 😃 Connected to 8010 port !!
+2023-07-21T12:08:44.873Z	DEBUG	hooks/launch.go:141	🐰 Keploy:After running user application
+2023-07-21T12:08:44.873Z	DEBUG	hooks/launch.go:154	🐰 Keploy:Now setting app pids
+🐰 Keploy: Output of pidof [54 53 56 48 53 50 10]
+🐰 Keploy: Output of pidof 658052
+Pid of application: 658052
+2023-07-21T12:08:44.886Z	DEBUG	hooks/launch.go:164	🐰 Keploy:PID of application:	{"App pid": 658052}
+2023-07-21T12:08:44.886Z	INFO	hooks/launch.go:175	🐰 Keploy:User application started successfully
+2023-07-21T12:08:44.886Z	INFO	hooks/loader.go:231	🐰 Keploy:Received signal, exiting program..
+2023-07-21T12:08:44.886Z	INFO	hooks/loader.go:234	🐰 Keploy:Received signal, exiting program..
+2023-07-21T12:08:44.886Z	ERROR	hooks/ringBufReader.go:89	🐰 Keploy:failed to receive signal from ringbuf socketDataEvent reader	{"error": "epoll wait: file already closed"}
+go.keploy.io/server/pkg/hooks.socketDataEventCallback
+	/home/ubuntu/sarthak/keploy/pkg/hooks/ringBufReader.go:89
+2023-07-21T12:08:44.888Z	INFO	hooks/loader.go:256	🐰 Keploy:User application stopped successfully...
+2023-07-21T12:08:45.226Z	INFO	hooks/loader.go:288	🐰 Keploy:eBPF resources released successfully...
+2023-07-21T12:08:45.226Z	ERROR	proxy/proxy.go:338	🐰 Keploy:failed to accept connection to the proxy	{"error": "accept tcp [::]:16789: use of closed network connection"}
+go.keploy.io/server/pkg/proxy.(*ProxySet).startProxy
+	/home/ubuntu/sarthak/keploy/pkg/proxy/proxy.go:338
+2023-07-21T12:08:45.226Z	INFO	proxy/proxy.go:745	🐰 Keploy:proxy stopped...

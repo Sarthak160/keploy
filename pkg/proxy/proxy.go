@@ -27,6 +27,7 @@ import (
 	"go.keploy.io/server/pkg/models"
 	"go.keploy.io/server/pkg/proxy/integrations/httpparser"
 	"go.keploy.io/server/pkg/proxy/integrations/mongoparser"
+	"go.keploy.io/server/pkg/proxy/integrations/psqlparser"
 	"go.keploy.io/server/pkg/proxy/util"
 	"go.uber.org/zap"
 
@@ -207,11 +208,6 @@ func isPortAvailable(port uint32) bool {
 	return true
 }
 
-// const (
-// 	caCertPath       = "pkg/proxy/ca.crt" // Your CA certificate file path
-// 	caPrivateKeyPath = "pkg/proxy/ca.key" // Your CA private key file path
-// )
-
 var caStorePath = map[string]string{
 	"Ubuntu":   "/usr/local/share/ca-certificates/",
 	"Pop!_OS":  "/usr/local/share/ca-certificates/",
@@ -324,13 +320,6 @@ func (ps *ProxySet) startProxy() {
 	ps.logger.Debug(Emoji + fmt.Sprintf("Proxy server is listening on %s", fmt.Sprintf(":%v", listener.Addr())))
 	ps.logger.Debug(Emoji+"Proxy will accept both ipv4 and ipv6 connections", zap.Any("Ipv4", proxyAddress4), zap.Any("Ipv6", proxyAddress6))
 
-	// TODO: integerate method For TLS connections
-	// config := &tls.Config{
-	// 	GetCertificate: certForClient,
-	// }
-	// listener = tls.NewListener(listener, config)
-
-	// retry := 0
 	for {
 		conn, err := listener.Accept()
 		if err != nil {
@@ -403,26 +392,6 @@ func (ps *ProxySet) ServeDNS(w dns.ResponseWriter, r *dns.Msg) {
 		ps.logger.Debug(Emoji, zap.Any("Received Query", question.Name))
 
 		// 	answers := resolveDNSQuery(question.Name, ps.logger, ps.DnsServerTimeout)
-		// 	println("[ServeDNS]: answers:", answers)
-		// 	if answers == nil {
-		// 		fmt.Println("answers is nil because failed dns resolution")
-		// 		answers = []dns.RR{}
-		// 	} else {
-		// 		println("[ServeDNS]: length of answers:", len(answers))
-		// 	}
-		// 	// var answers []dns.RR
-		// 	if len(answers) == 0 {
-		// 		// If resolution failed, return a default A record with Proxy IP
-		// 		defaultAnswer := &dns.A{
-		// 			Hdr: dns.RR_Header{Name: question.Name, Rrtype: dns.TypeA, Class: dns.ClassINET, Ttl: 3600},
-		// 			A:   net.ParseIP(util.ToIP4AddressStr(ps.IP)),
-		// 		}
-		// 		answers = append(answers, defaultAnswer)
-		// 		fmt.Printf("\nSending our proxy ip address:%+v\n", answers)
-		// 	}
-		// 	msg.Answer = append(msg.Answer, answers...)
-		// }
-
 		// Check if the answer is cached
 		cache.RLock()
 		answers, found := cache.m[question.Name]
@@ -624,19 +593,6 @@ func (ps *ProxySet) handleConnection(conn net.Conn, port uint32) {
 
 	//Dialing for tls connection
 	if models.GetMode() != models.MODE_TEST {
-		// if isTLS {
-		// 	ps.logger.Info(Emoji, zap.Any("isTLS", isTLS))
-		// 	config := &tls.Config{
-		// 		InsecureSkipVerify: false,
-		// 		ServerName:         destinationUrl,
-		// 	}
-		// 	dst, err = tls.Dial("tcp", fmt.Sprintf("%v:%v", destinationUrl, destInfo.DestPort), config)
-		// 	if err != nil {
-		// 		ps.logger.Error(Emoji+"failed to dial the connection to destination server", zap.Error(err), zap.Any("proxy port", port), zap.Any("server address", actualAddress))
-		// 		conn.Close()
-		// 		return
-		// 	}
-		// } else {
 		dst, err = net.Dial("tcp", actualAddress)
 		if err != nil {
 			ps.logger.Error(Emoji+"failed to dial the connection to destination server", zap.Error(err), zap.Any("proxy port", port), zap.Any("server address", actualAddress))
@@ -645,7 +601,6 @@ func (ps *ProxySet) handleConnection(conn net.Conn, port uint32) {
 		}
 		// }
 	}
-
 
 	switch {
 	case httpparser.IsOutgoingHTTP(buffer):
@@ -665,14 +620,19 @@ func (ps *ProxySet) handleConnection(conn net.Conn, port uint32) {
 		// fmt.Println("before mongo egress call, deps array: ", deps)
 
 		mongoparser.ProcessOutgoingMongo(buffer, conn, dst, ps.hook, ps.logger)
-		// fmt.Println("after mongo egress call, deps array: ", deps)
+	// fmt.Println("after mongo egress call, deps array: ", deps)
 
-		// ps.hook.SetDeps(deps)
+	// ps.hook.SetDeps(deps)
 
-		// deps := mongoparser.CaptureMongoMessage(buffer, conn, dst, ps.logger)
-		// for _, v := range deps {
-		// 	ps.hook.AppendDeps(v)
-		// }
+	// deps := mongoparser.CaptureMongoMessage(buffer, conn, dst, ps.logger)
+	// for _, v := range deps {
+	// 	ps.hook.AppendDeps(v)
+	// }
+
+	case psqlparser.IsOutgoingPSQL(buffer):
+		fmt.Println("into psql desp mode, before passing")
+		psqlparser.ProcessOutgoingPSQL(buffer, conn, dst, ps.hook, ps.logger)
+
 	default:
 		fmt.Println("into default desp mode, before passing")
 		err = callNext(buffer, conn, dst, ps.logger)

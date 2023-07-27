@@ -1,0 +1,37 @@
+version: api.keploy.io/v1beta2
+kind: Http
+name: test-10
+spec:
+    metadata: {}
+    req:
+        method: POST
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:8086/api/employees
+        header:
+            Accept: '*/*'
+            Content-Length: "100"
+            Content-Type: application/json
+            User-Agent: curl/7.88.1
+        body: |-
+            {
+                "firstName": "Myke",
+                "lastName": "Tyson",
+                "email": "mt@gmail.com",
+                "timestamp":1
+            }
+        body_type: ""
+    resp:
+        status_code: 500
+        header:
+            Content-Type: application/json
+            Date: Fri, 14 Jul 2023 13:12:45 GMT
+        body: '{"timestamp":"2023-07-14T13:12:45.088+00:00","message":"Could not open JPA EntityManager for transaction; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to acquire JDBC Connection","details":"uri=/api/employees"}'
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+    objects: []
+    assertions:
+        noise: []
+    created: 1689340366

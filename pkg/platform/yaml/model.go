@@ -109,6 +109,30 @@ func encodeMocks(mocks []*models.Mock, logger *zap.Logger) ([]NetworkTrafficDoc,
 				logger.Error(Emoji+"failed to marshal binary input-output of external call into yaml", zap.Error(err))
 				return nil, err
 			}
+		case models.Postgres:
+			var postgresSpec spec.PostgresSpec
+			if m.Spec.PostgresReq != nil {
+				postgresSpec = spec.PostgresSpec{
+					PostgresReq:  *m.Spec.PostgresReq,
+					// PostgresResp: *m.Spec.PostgresResp,
+				}
+			}
+			if m.Spec.PostgresResp != nil {
+				postgresSpec = spec.PostgresSpec{
+					// PostgresReq:  *m.Spec.PostgresReq,
+					PostgresResp: *m.Spec.PostgresResp,
+				}
+			}
+			// postgresSpec = spec.PostgresSpec{
+			// 	PostgresReq:  *m.Spec.PostgresReq,
+			// 	PostgresResp: *m.Spec.PostgresResp,
+			// }
+			err := yamlDoc.Spec.Encode(postgresSpec)
+			if err != nil {
+				logger.Error(Emoji+"failed to marshal postgres of external call into yaml", zap.Error(err))
+				return nil, err
+			}
+
 		default:
 			logger.Error(Emoji + "failed to marshal the recorded mock into yaml due to invalid kind of mock")
 			return nil, errors.New("type of mock is invalid")
