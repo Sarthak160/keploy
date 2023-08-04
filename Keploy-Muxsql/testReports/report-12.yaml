@@ -1,0 +1,147 @@
+version: api.keploy.io/v1beta1
+name: report-12
+status: PASSED
+success: 2
+failure: 0
+total: 2
+tests:
+    - kind: Http
+      name: report-12
+      status: PASSED
+      started: 1691142606
+      completed: 1691142607
+      test_case_path: /home/newsarthak.linux/mycodes/keploy/Keploy
+      mock_path: ""
+      test_case_id: test-1
+      req:
+        method: POST
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:8010/product
+        header:
+            Accept: '*/*'
+            Content-Length: "48"
+            Content-Type: application/json
+            Host: localhost:8010
+            User-Agent: curl/7.81.0
+        body: "{\n    \"name\":\"dfsdtGubbles\", \n    \"price\": 123\n}"
+        body_type: ""
+      resp:
+        status_code: 201
+        header:
+            Content-Length: "43"
+            Content-Type: application/json
+            Date: Fri, 04 Aug 2023 09:42:26 GMT
+        body: '{"id":24,"name":"dfsdtGubbles","price":123}'
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+      result:
+        status_code:
+            normal: true
+            expected: 201
+            actual: 201
+        headers_result:
+            - normal: true
+              expected:
+                key: Content-Length
+                value:
+                    - "43"
+              actual:
+                key: Content-Length
+                value:
+                    - "43"
+            - normal: true
+              expected:
+                key: Content-Type
+                value:
+                    - application/json
+              actual:
+                key: Content-Type
+                value:
+                    - application/json
+            - normal: true
+              expected:
+                key: Date
+                value:
+                    - Fri, 04 Aug 2023 09:42:26 GMT
+              actual:
+                key: Date
+                value:
+                    - Fri, 04 Aug 2023 09:50:06 GMT
+        body_result:
+            - normal: true
+              type: JSON
+              expected: '{"id":24,"name":"dfsdtGubbles","price":123}'
+              actual: '{"id":24,"name":"dfsdtGubbles","price":123}'
+        dep_result: []
+    - kind: Http
+      name: report-12
+      status: PASSED
+      started: 1691142607
+      completed: 1691142608
+      test_case_path: /home/newsarthak.linux/mycodes/keploy/Keploy
+      mock_path: ""
+      test_case_id: test-2
+      req:
+        method: GET
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:8010/products
+        header:
+            Accept: '*/*'
+            Host: localhost:8010
+            User-Agent: curl/7.81.0
+        body: ""
+        body_type: ""
+      resp:
+        status_code: 200
+        header:
+            Content-Length: "382"
+            Content-Type: application/json
+            Date: Fri, 04 Aug 2023 09:42:33 GMT
+        body: '[{"id":1,"name":"Bubbles","price":123},{"id":2,"name":"Fubbles","price":123},{"id":3,"name":"Fubbles","price":123},{"id":4,"name":"Fubbles","price":123},{"id":5,"name":"Fubbles","price":123},{"id":6,"name":"Fubbles","price":123},{"id":7,"name":"Fubbles","price":123},{"id":8,"name":"Gubbles","price":123},{"id":9,"name":"Gubbles","price":123},{"id":10,"name":"Gubbles","price":123}]'
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+      result:
+        status_code:
+            normal: true
+            expected: 200
+            actual: 200
+        headers_result:
+            - normal: true
+              expected:
+                key: Date
+                value:
+                    - Fri, 04 Aug 2023 09:42:33 GMT
+              actual:
+                key: Date
+                value:
+                    - Fri, 04 Aug 2023 09:50:07 GMT
+            - normal: true
+              expected:
+                key: Content-Length
+                value:
+                    - "382"
+              actual:
+                key: Content-Length
+                value:
+                    - "382"
+            - normal: true
+              expected:
+                key: Content-Type
+                value:
+                    - application/json
+              actual:
+                key: Content-Type
+                value:
+                    - application/json
+        body_result:
+            - normal: true
+              type: JSON
+              expected: '[{"id":1,"name":"Bubbles","price":123},{"id":2,"name":"Fubbles","price":123},{"id":3,"name":"Fubbles","price":123},{"id":4,"name":"Fubbles","price":123},{"id":5,"name":"Fubbles","price":123},{"id":6,"name":"Fubbles","price":123},{"id":7,"name":"Fubbles","price":123},{"id":8,"name":"Gubbles","price":123},{"id":9,"name":"Gubbles","price":123},{"id":10,"name":"Gubbles","price":123}]'
+              actual: '[{"id":1,"name":"Bubbles","price":123},{"id":2,"name":"Fubbles","price":123},{"id":3,"name":"Fubbles","price":123},{"id":4,"name":"Fubbles","price":123},{"id":5,"name":"Fubbles","price":123},{"id":6,"name":"Fubbles","price":123},{"id":7,"name":"Fubbles","price":123},{"id":8,"name":"Gubbles","price":123},{"id":9,"name":"Gubbles","price":123},{"id":10,"name":"Gubbles","price":123}]'
+        dep_result: []

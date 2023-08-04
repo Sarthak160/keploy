@@ -1,0 +1,98 @@
+version: api.keploy.io/v1beta2
+kind: Mongo
+name: mocks
+spec:
+    metadata:
+        operation: '{ OpMsg flags: 0, sections: [{ SectionSingle msg: {"update":"url-shortener","ordered":true,"writeConcern":{"w":"majority"},"lsid":{"id":{"$binary":{"base64":"iSZNUxIxQviLOcd9RkHY9Q==","subType":"04"}}},"$db":"keploy"} }, { SectionSingle identifier: updates , msgs: [ {"q":{"_id":"Lhr4BWAi"},"u":{"$set":{"_id":"Lhr4BWAi","created":{"$date":{"$numberLong":"1690803753241"}},"updated":{"$date":{"$numberLong":"1690803753241"}},"url":"https://google.com"}},"upsert":true} ] }], checksum: 0 }'
+    requests:
+        - header:
+            length: 301
+            requestId: 5
+            responseTo: 0
+            Opcode: 2013
+          message:
+            flagBits: 0
+            sections:
+                - '{ SectionSingle msg: {"update":"url-shortener","ordered":true,"writeConcern":{"w":"majority"},"lsid":{"id":{"$binary":{"base64":"iSZNUxIxQviLOcd9RkHY9Q==","subType":"04"}}},"$db":"keploy"} }'
+                - '{ SectionSingle identifier: updates , msgs: [ {"q":{"_id":"Lhr4BWAi"},"u":{"$set":{"_id":"Lhr4BWAi","created":{"$date":{"$numberLong":"1690803753241"}},"updated":{"$date":{"$numberLong":"1690803753241"}},"url":"https://google.com"}},"upsert":true} ] }'
+            checksum: 0
+          read_delay: 423237
+    responses:
+        - header:
+            length: 60
+            requestId: 36
+            responseTo: 5
+            Opcode: 2013
+          message:
+            flagBits: 0
+            sections:
+                - '{ SectionSingle msg: {"n":{"$numberInt":"1"},"nModified":{"$numberInt":"1"},"ok":{"$numberDouble":"1.0"}} }'
+            checksum: 0
+          read_delay: 3277691
+    created: 1690803753
+---
+version: api.keploy.io/v1beta2
+kind: Mongo
+name: mocks
+spec:
+    metadata:
+        operation: '{ OpMsg flags: 0, sections: [{ SectionSingle msg: {"update":"url-shortener","ordered":true,"writeConcern":{"w":"majority"},"lsid":{"id":{"$binary":{"base64":"xr5uie8iS96y8I91OksHLA==","subType":"04"}}},"$db":"keploy"} }, { SectionSingle identifier: updates , msgs: [ {"q":{"_id":"Lhr4BWAi"},"u":{"$set":{"_id":"Lhr4BWAi","created":{"$date":{"$numberLong":"1690803764729"}},"updated":{"$date":{"$numberLong":"1690803764729"}},"url":"https://google.com"}},"upsert":true} ] }], checksum: 0 }'
+    requests:
+        - header:
+            length: 301
+            requestId: 10
+            responseTo: 0
+            Opcode: 2013
+          message:
+            flagBits: 0
+            sections:
+                - '{ SectionSingle msg: {"update":"url-shortener","ordered":true,"writeConcern":{"w":"majority"},"lsid":{"id":{"$binary":{"base64":"xr5uie8iS96y8I91OksHLA==","subType":"04"}}},"$db":"keploy"} }'
+                - '{ SectionSingle identifier: updates , msgs: [ {"q":{"_id":"Lhr4BWAi"},"u":{"$set":{"_id":"Lhr4BWAi","created":{"$date":{"$numberLong":"1690803764729"}},"updated":{"$date":{"$numberLong":"1690803764729"}},"url":"https://google.com"}},"upsert":true} ] }'
+            checksum: 0
+          read_delay: 300782
+    responses:
+        - header:
+            length: 60
+            requestId: 40
+            responseTo: 10
+            Opcode: 2013
+          message:
+            flagBits: 0
+            sections:
+                - '{ SectionSingle msg: {"n":{"$numberInt":"1"},"nModified":{"$numberInt":"1"},"ok":{"$numberDouble":"1.0"}} }'
+            checksum: 0
+          read_delay: 3304644
+    created: 1690803764
+---
+version: api.keploy.io/v1beta2
+kind: Mongo
+name: mocks
+spec:
+    metadata:
+        operation: '{ OpMsg flags: 0, sections: [{ SectionSingle msg: {"update":"url-shortener","ordered":true,"writeConcern":{"w":"majority"},"lsid":{"id":{"$binary":{"base64":"4U3SMTnwTpKiDFayeojyMQ==","subType":"04"}}},"$db":"keploy"} }, { SectionSingle identifier: updates , msgs: [ {"q":{"_id":"4KepjkTT"},"u":{"$set":{"_id":"4KepjkTT","created":{"$date":{"$numberLong":"1690803773855"}},"updated":{"$date":{"$numberLong":"1690803773855"}},"url":"https://github.com"}},"upsert":true} ] }], checksum: 0 }'
+    requests:
+        - header:
+            length: 301
+            requestId: 15
+            responseTo: 0
+            Opcode: 2013
+          message:
+            flagBits: 0
+            sections:
+                - '{ SectionSingle msg: {"update":"url-shortener","ordered":true,"writeConcern":{"w":"majority"},"lsid":{"id":{"$binary":{"base64":"4U3SMTnwTpKiDFayeojyMQ==","subType":"04"}}},"$db":"keploy"} }'
+                - '{ SectionSingle identifier: updates , msgs: [ {"q":{"_id":"4KepjkTT"},"u":{"$set":{"_id":"4KepjkTT","created":{"$date":{"$numberLong":"1690803773855"}},"updated":{"$date":{"$numberLong":"1690803773855"}},"url":"https://github.com"}},"upsert":true} ] }'
+            checksum: 0
+          read_delay: 28166
+    responses:
+        - header:
+            length: 112
+            requestId: 44
+            responseTo: 15
+            Opcode: 2013
+          message:
+            flagBits: 0
+            sections:
+                - '{ SectionSingle msg: {"n":{"$numberInt":"1"},"upserted":[{"index":{"$numberInt":"0"},"_id":"4KepjkTT"}],"nModified":{"$numberInt":"0"},"ok":{"$numberDouble":"1.0"}} }'
+            checksum: 0
+          read_delay: 3287391
+    created: 1690803773

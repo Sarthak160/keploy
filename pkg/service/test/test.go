@@ -98,6 +98,7 @@ func (t *tester) Test(path, testReportPath string, appCmd, appContainer, appNetw
 
 		t.logger.Debug(fmt.Sprintf("the config mocks for %s are: %v\nthe testcase mocks are: %v", sessionIndex, configMocks, tcsMocks))
 		// fmt.Println("the mocks are: ", configMocks, tcsMocks)
+		// Setting the tc mocks and config mocks after reading from yaml
 		loadedHooks.SetConfigMocks(configMocks)
 		loadedHooks.SetTcsMocks(tcsMocks)
 
@@ -158,7 +159,7 @@ func (t *tester) Test(path, testReportPath string, appCmd, appContainer, appNetw
 		}
 
 		t.logger.Info(Emoji, zap.Any("no of test cases", len(tcs)))
-		time.Sleep(time.Duration(Delay))
+		time.Sleep(time.Duration(Delay) * time.Second)
 		for _, tc := range tcs {
 			switch tc.Kind {
 			case models.HTTP:

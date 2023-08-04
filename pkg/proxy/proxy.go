@@ -8,7 +8,6 @@ import (
 	"crypto/x509"
 	"embed"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"math/rand"
 	"net"
@@ -28,6 +27,7 @@ import (
 	"go.keploy.io/server/pkg/models"
 	"go.keploy.io/server/pkg/proxy/integrations/httpparser"
 	"go.keploy.io/server/pkg/proxy/integrations/mongoparser"
+	"go.keploy.io/server/pkg/proxy/integrations/psqlparser"
 	"go.keploy.io/server/pkg/proxy/util"
 	"go.uber.org/zap"
 
@@ -59,38 +59,13 @@ type Conn struct {
 
 func (c *Conn) Read(b []byte) (n int, err error) {
 	return c.r.Read(b)
-
-	// buffer, err := readBytes(c.conn)
-	// if err != nil {
-	// 	return 0, err
-	// }
-	// b = buffer
-	// if len(buffer) == 0 && len(c.buffer) != 0 {
-	// 	b = c.buffer
-	// } else {
-	// 	c.buffer = buffer
-	// }
-	// if c.ReadComplete {
-	// 	b = c.buffer[c.pointer:(c.pointer + len(b))]
-
-	// 	return 257, nil
-	// }
-	// n, err = c.Conn.Read(b)
-	// if n > 0 {
-	// 	c.buffer = append(c.buffer, b...)
-	// }
-	// if err != nil {
-	// 	return n, err
-	// }
-
-	// return n, nil
 }
 func (ps *ProxySet) SetHook(hook *hooks.Hook) {
 	ps.hook = hook
 }
 
 func getDistroInfo() string {
-	osRelease, err := ioutil.ReadFile("/etc/os-release")
+	osRelease, err := os.ReadFile("/etc/os-release")
 	if err != nil {
 		fmt.Println(Emoji+"Error reading /etc/os-release:", err)
 		return ""
@@ -632,19 +607,7 @@ func (ps *ProxySet) handleConnection(conn net.Conn, port uint32) {
 	destConnId := 0
 	if models.GetMode() != models.MODE_TEST {
 		destConnId = rand.Intn(101)
-		// if isTLS {
-		// 	ps.logger.Info(Emoji, zap.Any("isTLS", isTLS))
-		// 	config := &tls.Config{
-		// 		InsecureSkipVerify: false,
-		// 		ServerName:         destinationUrl,
-		// 	}
-		// 	dst, err = tls.Dial("tcp", fmt.Sprintf("%v:%v", destinationUrl, destInfo.DestPort), config)
-		// 	if err != nil {
-		// 		ps.logger.Error(Emoji+"failed to dial the connection to destination server", zap.Error(err), zap.Any("proxy port", port), zap.Any("server address", actualAddress))
-		// 		conn.Close()
-		// 		return
-		// 	}
-		// } else {
+
 		dst, err = net.Dial("tcp", actualAddress)
 		if err != nil {
 			ps.logger.Error(Emoji+"failed to dial the connection to destination server", zap.Error(err), zap.Any("proxy port", port), zap.Any("server address", actualAddress))
@@ -657,30 +620,14 @@ func (ps *ProxySet) handleConnection(conn net.Conn, port uint32) {
 
 	switch {
 	case httpparser.IsOutgoingHTTP(buffer):
-		// capture the otutgoing http text messages]
-		// if models.GetMode() == models.MODE_RECORD {
-		// deps = append(deps, httpparser.CaptureHTTPMessage(buffer, conn, dst, ps.logger))
-		// ps.hook.AppendDeps(httpparser.CaptureHTTPMessage(buffer, conn, dst, ps.logger))
-		// }
-		// var deps []*models.Mock = ps.hook.GetDeps()
-		// fmt.Println("before http egress call, deps array: ", deps)
 		httpparser.ProcessOutgoingHttp(buffer, conn, dst, ps.hook, ps.logger)
-		// fmt.Println("after http egress call, deps array: ", deps)
 
-		// ps.hook.SetDeps(deps)
 	case mongoparser.IsOutgoingMongo(buffer):
-		// var deps []*models.Mock = ps.hook.GetDeps()
-		// fmt.Println("before mongo egress call, deps array: ", deps)
-
 		mongoparser.ProcessOutgoingMongo(clientConnId, destConnId, buffer, conn, dst, ps.hook, connEstablishedAt, readRequestDelay, ps.logger)
-		// fmt.Println("after mongo egress call, deps array: ", deps)
 
-		// ps.hook.SetDeps(deps)
-
-		// deps := mongoparser.CaptureMongoMessage(buffer, conn, dst, ps.logger)
-		// for _, v := range deps {
-		// 	ps.hook.AppendDeps(v)
-		// }
+	case psqlparser.IsOutgoingPSQL(buffer):
+		fmt.Println("into psql desp mode, before passing")
+		psqlparser.ProcessOutgoingPSQL(buffer, conn, dst, ps.hook, ps.logger)
 	default:
 		// fmt.Println("into default desp mode, before passing")
 		err = callNext(buffer, conn, dst, ps.logger)

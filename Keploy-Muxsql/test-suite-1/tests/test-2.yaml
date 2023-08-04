@@ -1,0 +1,31 @@
+version: api.keploy.io/v1beta2
+kind: Http
+name: test-2
+spec:
+    metadata: {}
+    req:
+        method: GET
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:8010/products
+        header:
+            Accept: '*/*'
+            Host: localhost:8010
+            User-Agent: curl/7.81.0
+        body: ""
+        body_type: ""
+    resp:
+        status_code: 200
+        header:
+            Content-Length: "382"
+            Content-Type: application/json
+            Date: Fri, 04 Aug 2023 09:42:33 GMT
+        body: '[{"id":1,"name":"Bubbles","price":123},{"id":2,"name":"Fubbles","price":123},{"id":3,"name":"Fubbles","price":123},{"id":4,"name":"Fubbles","price":123},{"id":5,"name":"Fubbles","price":123},{"id":6,"name":"Fubbles","price":123},{"id":7,"name":"Fubbles","price":123},{"id":8,"name":"Gubbles","price":123},{"id":9,"name":"Gubbles","price":123},{"id":10,"name":"Gubbles","price":123}]'
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+    objects: []
+    assertions:
+        noise: []
+    created: 1691142153
