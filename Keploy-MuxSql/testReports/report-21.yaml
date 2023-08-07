@@ -1,0 +1,78 @@
+version: api.keploy.io/v1beta1
+name: report-21
+status: PASSED
+success: 1
+failure: 0
+total: 1
+tests:
+    - kind: Http
+      name: report-21
+      status: PASSED
+      started: 1691343301
+      completed: 1691343302
+      test_case_path: /home/newsarthak.linux/mycodes/keploy/Keploy
+      mock_path: ""
+      test_case_id: test-1
+      req:
+        method: POST
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:8010/product
+        header:
+            Accept: '*/*'
+            Content-Length: "48"
+            Content-Type: application/json
+            Host: localhost:8010
+            User-Agent: curl/7.81.0
+        body: "{\n    \"name\":\"dfsdtGubbles\", \n    \"price\": 123\n}"
+        body_type: ""
+      resp:
+        status_code: 201
+        header:
+            Content-Length: "43"
+            Content-Type: application/json
+            Date: Fri, 04 Aug 2023 08:01:06 GMT
+        body: '{"id":23,"name":"dfsdtGubbles","price":123}'
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+      result:
+        status_code:
+            normal: true
+            expected: 201
+            actual: 201
+        headers_result:
+            - normal: true
+              expected:
+                key: Content-Type
+                value:
+                    - application/json
+              actual:
+                key: Content-Type
+                value:
+                    - application/json
+            - normal: true
+              expected:
+                key: Date
+                value:
+                    - Fri, 04 Aug 2023 08:01:06 GMT
+              actual:
+                key: Date
+                value:
+                    - Sun, 06 Aug 2023 17:35:01 GMT
+            - normal: true
+              expected:
+                key: Content-Length
+                value:
+                    - "43"
+              actual:
+                key: Content-Length
+                value:
+                    - "43"
+        body_result:
+            - normal: true
+              type: JSON
+              expected: '{"id":23,"name":"dfsdtGubbles","price":123}'
+              actual: '{"id":23,"name":"dfsdtGubbles","price":123}'
+        dep_result: []

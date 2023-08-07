@@ -13,7 +13,9 @@ import (
 	// "fmt"
 	"go.keploy.io/server/pkg/proxy/util"
 	// "bytes"
+	"encoding/binary"
 
+	"errors"
 	"go.keploy.io/server/pkg/hooks"
 	"go.keploy.io/server/pkg/models"
 	"go.uber.org/zap"
@@ -119,14 +121,49 @@ func startProxy(buffer []byte, clientConn, destConn net.Conn, logger *zap.Logger
 	}
 }
 
-func PostgresDecoder(encoded string) ([]byte,error) {
+func PostgresDecoder(encoded string) ([]byte, error) {
 	// decode the base 64 encoded string to buffer ..
 
 	data, err := base64.StdEncoding.DecodeString(encoded)
 	if err != nil {
-		fmt.Println(Emoji+"failed to decode the data",err )
-		return nil,err
+		fmt.Println(Emoji+"failed to decode the data", err)
+		return nil, err
 	}
-	println("Decoded data is :",string(data))
-	return data,nil
+	println("Decoded data is :", string(data))
+	return data, nil
+}
+
+func PostgresEncoder(buffer []byte) string {
+	// encode the buffer to base 64 string ..
+	encoded := base64.StdEncoding.EncodeToString(buffer)
+	return encoded
+}
+
+func IdentifyPacket(data []byte) (models.Packet, error) {
+	// At least 4 bytes are required to determine the length
+	if len(data) < 4 {
+		return nil, errors.New("data too short")
+	}
+
+	// Read the length (first 32 bits)
+	length := binary.BigEndian.Uint32(data[:4])
+
+	// If the length is followed by the protocol version, it's a StartupPacket
+	if length > 4 && len(data) >= int(length) && binary.BigEndian.Uint32(data[4:8]) == models.ProtocolVersionNumber {
+		return &models.StartupPacket{
+			Length:          length,
+			ProtocolVersion: binary.BigEndian.Uint32(data[4:8]),
+		}, nil
+	}
+
+	// If we have an ASCII identifier, then it's likely a regular packet. Further validations can be added.
+	if len(data) > 5 && len(data) >= int(length)+1 {
+		return &models.RegularPacket{
+			Identifier: data[4],
+			Length:     length,
+			Payload:    data[5 : length+1],
+		}, nil
+	}
+
+	return nil, errors.New("unknown packet type or data too short for declared length")
 }

@@ -1,0 +1,74 @@
+version: api.keploy.io/v1beta1
+name: report-15
+status: FAILED
+success: 0
+failure: 1
+total: 1
+tests:
+    - kind: Http
+      name: report-15
+      status: FAILED
+      started: 1691394970
+      completed: 1691394972
+      test_case_path: /home/newsarthak.linux/mycodes/keploy/Keploy
+      mock_path: ""
+      test_case_id: test-1
+      req:
+        method: POST
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:8080/api/employees
+        header:
+            Accept: '*/*'
+            Content-Length: "102"
+            Content-Type: application/json
+            Host: localhost:8080
+            User-Agent: curl/7.81.0
+        body: |-
+            {
+                "firstName": "RITKKe",
+                "lastName": "Tyson",
+                "email": "mt@gmail.com",
+                "timestamp":1
+            }
+        body_type: ""
+      resp:
+        status_code: 200
+        header:
+            Content-Type: application/json
+            Date: Sun, 06 Aug 2023 15:57:09 GMT
+        body: '{"id":14,"firstName":"RITKKe","lastName":"Tyson","email":"mt@gmail.com","timestamp":1691337429}'
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+      result:
+        status_code:
+            normal: false
+            expected: 200
+            actual: 500
+        headers_result:
+            - normal: true
+              expected:
+                key: Content-Type
+                value:
+                    - application/json
+              actual:
+                key: Content-Type
+                value:
+                    - application/json
+            - normal: true
+              expected:
+                key: Date
+                value:
+                    - Sun, 06 Aug 2023 15:57:09 GMT
+              actual:
+                key: Date
+                value:
+                    - Mon, 07 Aug 2023 07:56:10 GMT
+        body_result:
+            - normal: false
+              type: JSON
+              expected: '{"id":14,"firstName":"RITKKe","lastName":"Tyson","email":"mt@gmail.com","timestamp":1691337429}'
+              actual: '{"timestamp":"2023-08-07T07:56:10.339+00:00","message":"Received resultset tuples, but no field structure for them; nested exception is java.lang.IllegalStateException: Received resultset tuples, but no field structure for them","details":"uri=/api/employees"}'
+        dep_result: []

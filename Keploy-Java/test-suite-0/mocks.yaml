@@ -1,0 +1,77 @@
+version: api.keploy.io/v1beta1
+kind: Postgres
+name: mocks
+spec:
+    postgresReq:
+        identfier: PostgresReq
+        length: 44
+        payload: UAAAAAgAAAAAQgAAAAwAAAAAAAAAAEQAAAAGUABFAAAACQAAAAABUwAAAAQ=
+    postgresResp:
+        identfier: ""
+        length: 0
+        payload: ""
+---
+version: api.keploy.io/v1beta1
+kind: Postgres
+name: mocks
+spec:
+    postgresReq:
+        identfier: PostgresReq
+        length: 26
+        payload: MQAAAAQyAAAABG4AAAAESQAAAARaAAAABUk=
+    postgresResp:
+        identfier: ""
+        length: 0
+        payload: ""
+---
+version: api.keploy.io/v1beta1
+kind: Postgres
+name: mocks
+spec:
+    postgresReq:
+        identfier: PostgresReq
+        length: 251
+        payload: UAAAAA0AQkVHSU4AAABCAAAADAAAAAAAAAAARQAAAAkAAAAAAFAAAAB7AGluc2VydCBpbnRvIGVtcGxveWVlcyAoZW1haWwsIGZpcnN0X25hbWUsIGxhc3RfbmFtZSwgdGltZXN0YW1wKSB2YWx1ZXMgKCQxLCAkMiwgJDMsICQ0KQpSRVRVUk5JTkcgKgAABAAABBMAAAQTAAAEEwAAABRCAAAAQwAAAAQAAAAAAAAAAQAEAAAADG10QGdtYWlsLmNvbQAAAAZSSVRLS2UAAAAFVHlzb24AAAAIAAAAAGTPwtUAAEQAAAAGUABFAAAACQAAAAAAUwAAAAQ=
+    postgresResp:
+        identfier: ""
+        length: 0
+        payload: ""
+---
+version: api.keploy.io/v1beta1
+kind: Postgres
+name: mocks
+spec:
+    postgresReq:
+        identfier: PostgresReq
+        length: 252
+        payload: MQAAAAQyAAAABEMAAAAKQkVHSU4AMQAAAAQyAAAABFQAAACIAAVpZAAAAEADAAEAAAAUAAj/////AABlbWFpbAAAAEADAAIAAAQT//8AAAEDAABmaXJzdF9uYW1lAAAAQAMAAwAABBP//wAAAQMAAGxhc3RfbmFtZQAAAEADAAQAAAQT//8AAAEDAAB0aW1lc3RhbXAAAABAAwAFAAAAFAAI/////wAARAAAAD0ABQAAAAIxNAAAAAxtdEBnbWFpbC5jb20AAAAGUklUS0tlAAAABVR5c29uAAAACjE2OTEzMzc0MjlDAAAAD0lOU0VSVCAwIDEAWgAAAAVU
+    postgresResp:
+        identfier: ""
+        length: 0
+        payload: ""
+---
+version: api.keploy.io/v1beta1
+kind: Postgres
+name: mocks
+spec:
+    postgresReq:
+        identfier: PostgresReq
+        length: 49
+        payload: UAAAABFTXzEAQ09NTUlUAAAAQgAAAA8AU18xAAAAAAAAAEUAAAAJAAAAAAFTAAAABA==
+    postgresResp:
+        identfier: ""
+        length: 0
+        payload: ""
+---
+version: api.keploy.io/v1beta1
+kind: Postgres
+name: mocks
+spec:
+    postgresReq:
+        identfier: PostgresReq
+        length: 28
+        payload: MQAAAAQyAAAABEMAAAALQ09NTUlUAFoAAAAFSQ==
+    postgresResp:
+        identfier: ""
+        length: 0
+        payload: ""
