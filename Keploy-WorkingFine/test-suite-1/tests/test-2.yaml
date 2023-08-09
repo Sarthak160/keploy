@@ -7,22 +7,27 @@ spec:
         method: POST
         proto_major: 1
         proto_minor: 1
-        url: http://localhost:8010/product
+        url: http://localhost:8080/api/employees
         header:
             Accept: '*/*'
-            Content-Length: "41"
+            Content-Length: "104"
             Content-Type: application/json
-            Host: localhost:8010
+            Host: localhost:8080
             User-Agent: curl/7.81.0
-        body: "{\n    \"name\":\"Banana\", \n    \"price\": 45\n}"
+        body: |-
+            {
+                "firstName": "Gourav",
+                "lastName": "Kumar",
+                "email": "mcxt@gmail.com",
+                "timestamp":1
+            }
         body_type: ""
     resp:
-        status_code: 201
+        status_code: 200
         header:
-            Content-Length: "36"
             Content-Type: application/json
-            Date: Wed, 09 Aug 2023 08:01:02 GMT
-        body: '{"id":27,"name":"Banana","price":45}'
+            Date: Wed, 09 Aug 2023 06:57:43 GMT
+        body: '{"id":52,"firstName":"Gourav","lastName":"Kumar","email":"mcxt@gmail.com"}'
         body_type: ""
         status_message: ""
         proto_major: 0
@@ -30,4 +35,4 @@ spec:
     objects: []
     assertions:
         noise: []
-    created: 1691568063
+    created: 1691564266

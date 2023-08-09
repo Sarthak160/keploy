@@ -4,25 +4,23 @@ name: test-1
 spec:
     metadata: {}
     req:
-        method: POST
+        method: GET
         proto_major: 1
         proto_minor: 1
-        url: http://localhost:8010/product
+        url: http://localhost:8010/products
         header:
             Accept: '*/*'
-            Content-Length: "48"
-            Content-Type: application/json
             Host: localhost:8010
             User-Agent: curl/7.81.0
-        body: "{\n    \"name\":\"trtGubbles\", \n    \"price\": 12355\n}"
+        body: ""
         body_type: ""
     resp:
-        status_code: 201
+        status_code: 200
         header:
-            Content-Length: "43"
+            Content-Length: "382"
             Content-Type: application/json
-            Date: Mon, 07 Aug 2023 12:58:32 GMT
-        body: '{"id":25,"name":"trtGubbles","price":12355}'
+            Date: Wed, 09 Aug 2023 08:00:43 GMT
+        body: '[{"id":1,"name":"Bubbles","price":123},{"id":2,"name":"Fubbles","price":123},{"id":3,"name":"Fubbles","price":123},{"id":4,"name":"Fubbles","price":123},{"id":5,"name":"Fubbles","price":123},{"id":6,"name":"Fubbles","price":123},{"id":7,"name":"Fubbles","price":123},{"id":8,"name":"Gubbles","price":123},{"id":9,"name":"Gubbles","price":123},{"id":10,"name":"Gubbles","price":123}]'
         body_type: ""
         status_message: ""
         proto_major: 0
@@ -30,4 +28,4 @@ spec:
     objects: []
     assertions:
         noise: []
-    created: 1691413112
+    created: 1691568043

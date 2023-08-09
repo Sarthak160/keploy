@@ -1,0 +1,194 @@
+version: api.keploy.io/v1beta1
+kind: Postgres
+name: config
+spec:
+    postgresReq:
+        identfier: PostgresReq
+        length: 1
+        payload: Tg==
+    postgresResp:
+        identfier: ""
+        length: 0
+        payload: ""
+---
+version: api.keploy.io/v1beta1
+kind: Postgres
+name: config
+spec:
+    postgresReq:
+        identfier: PostgresReq
+        length: 120
+        payload: AAAAeAADAAB1c2VyAGtlcGxveS11c2VyAGRhdGFiYXNlAGtlcGxveS10ZXN0AGNsaWVudF9lbmNvZGluZwBVVEY4AERhdGVTdHlsZQBJU08AVGltZVpvbmUARXRjL1VUQwBleHRyYV9mbG9hdF9kaWdpdHMAMgAA
+    postgresResp:
+        identfier: ""
+        length: 0
+        payload: ""
+---
+version: api.keploy.io/v1beta1
+kind: Postgres
+name: config
+spec:
+    postgresReq:
+        identfier: PostgresReq
+        length: 13
+        payload: UgAAAAwAAAAF9X5Seg==
+    postgresResp:
+        identfier: ""
+        length: 0
+        payload: ""
+---
+version: api.keploy.io/v1beta1
+kind: Postgres
+name: config
+spec:
+    postgresReq:
+        identfier: PostgresReq
+        length: 41
+        payload: cAAAAChtZDU1OGNiN2RjZTZkY2VmM2I0MTk5ZWI4MzcxMjYxZWNkOQA=
+    postgresResp:
+        identfier: ""
+        length: 0
+        payload: ""
+---
+version: api.keploy.io/v1beta1
+kind: Postgres
+name: config
+spec:
+    postgresReq:
+        identfier: PostgresReq
+        length: 349
+        payload: UgAAAAgAAAAAUwAAABZhcHBsaWNhdGlvbl9uYW1lAABTAAAAGWNsaWVudF9lbmNvZGluZwBVVEY4AFMAAAAXRGF0ZVN0eWxlAElTTywgTURZAFMAAAAZaW50ZWdlcl9kYXRldGltZXMAb24AUwAAABtJbnRlcnZhbFN0eWxlAHBvc3RncmVzAFMAAAAUaXNfc3VwZXJ1c2VyAG9uAFMAAAAZc2VydmVyX2VuY29kaW5nAFVURjgAUwAAADFzZXJ2ZXJfdmVyc2lvbgAxMC41IChEZWJpYW4gMTAuNS0yLnBnZGc5MCsxKQBTAAAAJnNlc3Npb25fYXV0aG9yaXphdGlvbgBrZXBsb3ktdXNlcgBTAAAAI3N0YW5kYXJkX2NvbmZvcm1pbmdfc3RyaW5ncwBvbgBTAAAAFVRpbWVab25lAEV0Yy9VVEMASwAAAAwAAAeRW+FDwloAAAAFSQ==
+    postgresResp:
+        identfier: ""
+        length: 0
+        payload: ""
+---
+version: api.keploy.io/v1beta1
+kind: Postgres
+name: config
+spec:
+    postgresReq:
+        identfier: PostgresReq
+        length: 63
+        payload: UAAAACIAU0VUIGV4dHJhX2Zsb2F0X2RpZ2l0cyA9IDMAAABCAAAADAAAAAAAAAAARQAAAAkAAAAAAVMAAAAE
+    postgresResp:
+        identfier: ""
+        length: 0
+        payload: ""
+---
+version: api.keploy.io/v1beta1
+kind: Postgres
+name: config
+spec:
+    postgresReq:
+        identfier: PostgresReq
+        length: 25
+        payload: MQAAAAQyAAAABEMAAAAIU0VUAFoAAAAFSQ==
+    postgresResp:
+        identfier: ""
+        length: 0
+        payload: ""
+---
+version: api.keploy.io/v1beta1
+kind: Postgres
+name: config
+spec:
+    postgresReq:
+        identfier: PostgresReq
+        length: 84
+        payload: UAAAADcAU0VUIGFwcGxpY2F0aW9uX25hbWUgPSAnUG9zdGdyZVNRTCBKREJDIERyaXZlcicAAABCAAAADAAAAAAAAAAARQAAAAkAAAAAAVMAAAAE
+    postgresResp:
+        identfier: ""
+        length: 0
+        payload: ""
+---
+version: api.keploy.io/v1beta1
+kind: Postgres
+name: config
+spec:
+    postgresReq:
+        identfier: PostgresReq
+        length: 70
+        payload: MQAAAAQyAAAABFMAAAAsYXBwbGljYXRpb25fbmFtZQBQb3N0Z3JlU1FMIEpEQkMgRHJpdmVyAEMAAAAIU0VUAFoAAAAFSQ==
+    postgresResp:
+        identfier: ""
+        length: 0
+        payload: ""
+---
+version: api.keploy.io/v1beta1
+kind: Postgres
+name: config
+spec:
+    postgresReq:
+        identfier: PostgresReq
+        length: 67
+        payload: UAAAAB8Ac2VsZWN0IGN1cnJlbnRfc2NoZW1hKCkAAABCAAAADAAAAAAAAAAARAAAAAZQAEUAAAAJAAAAAABTAAAABA==
+    postgresResp:
+        identfier: ""
+        length: 0
+        payload: ""
+---
+version: api.keploy.io/v1beta1
+kind: Postgres
+name: config
+spec:
+    postgresReq:
+        identfier: PostgresReq
+        length: 87
+        payload: ""
+    postgresResp:
+        identfier: ""
+        length: 0
+        payload: ""
+---
+version: api.keploy.io/v1beta1
+kind: Postgres
+name: config
+spec:
+    postgresReq:
+        identfier: PostgresReq
+        length: 67
+        payload: UAAAAB8Ac2VsZWN0IGN1cnJlbnRfc2NoZW1hKCkAAABCAAAADAAAAAAAAAAARAAAAAZQAEUAAAAJAAAAAABTAAAABA==
+    postgresResp:
+        identfier: ""
+        length: 0
+        payload: ""
+---
+version: api.keploy.io/v1beta1
+kind: Postgres
+name: config
+spec:
+    postgresReq:
+        identfier: PostgresReq
+        length: 87
+        payload: MQAAAAQyAAAABFQAAAAnAAFjdXJyZW50X3NjaGVtYQAAAAAAAAAAAAATAED/////AABEAAAAEAABAAAABnB1YmxpY0MAAAANU0VMRUNUIDEAWgAAAAVJ
+    postgresResp:
+        identfier: ""
+        length: 0
+        payload: ""
+---
+version: api.keploy.io/v1beta1
+kind: Postgres
+name: config
+spec:
+    postgresReq:
+        identfier: PostgresReq
+        length: 5
+        payload: WAAAAAQ=
+    postgresResp:
+        identfier: ""
+        length: 0
+        payload: ""
+---
+version: api.keploy.io/v1beta1
+kind: Postgres
+name: config
+spec:
+    postgresReq:
+        identfier: PostgresReq
+        length: 0
+        payload: ""
+    postgresResp:
+        identfier: ""
+        length: 0
+        payload: ""

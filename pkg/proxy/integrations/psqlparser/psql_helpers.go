@@ -129,7 +129,7 @@ func PostgresDecoder(encoded string) ([]byte, error) {
 		fmt.Println(Emoji+"failed to decode the data", err)
 		return nil, err
 	}
-	println("Decoded data is :", string(data))
+	// println("Decoded data is :", string(data))
 	return data, nil
 }
 
@@ -166,4 +166,24 @@ func IdentifyPacket(data []byte) (models.Packet, error) {
 	}
 
 	return nil, errors.New("unknown packet type or data too short for declared length")
+}
+
+// improve the matching by the headers , and the body of the request. Use pgproto3 library to encode and decode 
+func tempMatching(configMocks,tcsMocks []*models.Mock,reqBuff []byte) (bool,string) {
+	//first check if the request is a startup packet
+	for _, mock := range configMocks {
+		encoded,_:=PostgresDecoder(mock.Spec.PostgresReq.Payload)
+		if string(encoded) == string(reqBuff) {
+			return true, mock.Spec.PostgresResp.Payload
+		}
+	}
+
+	// from mocks
+	for _, mock := range tcsMocks {
+		encoded,_:=PostgresDecoder(mock.Spec.PostgresReq.Payload)
+		if string(encoded) == string(reqBuff) {
+			return true, mock.Spec.PostgresResp.Payload
+		}
+	}
+	return false,""
 }

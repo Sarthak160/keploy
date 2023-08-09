@@ -1,0 +1,184 @@
+version: api.keploy.io/v1beta1
+name: report-1
+status: PASSED
+success: 3
+failure: 0
+total: 3
+tests:
+    - kind: Http
+      name: report-1
+      status: PASSED
+      started: 1691521612
+      completed: 1691521614
+      test_case_path: /home/newsarthak.linux/mycodes/keploy/Keploy
+      mock_path: ""
+      test_case_id: test-1
+      req:
+        method: GET
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:8080/api/employees/8
+        header:
+            Accept: '*/*'
+            Host: localhost:8080
+            User-Agent: curl/7.81.0
+        body: ""
+        body_type: ""
+      resp:
+        status_code: 200
+        header:
+            Content-Type: application/json
+            Date: Tue, 08 Aug 2023 19:05:55 GMT
+        body: '{"id":8,"firstName":"RITKKe","lastName":"Tyson","email":"mt@gmail.com","timestamp":1691154867}'
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+      result:
+        status_code:
+            normal: true
+            expected: 200
+            actual: 200
+        headers_result:
+            - normal: true
+              expected:
+                key: Content-Type
+                value:
+                    - application/json
+              actual:
+                key: Content-Type
+                value:
+                    - application/json
+            - normal: true
+              expected:
+                key: Date
+                value:
+                    - Tue, 08 Aug 2023 19:05:55 GMT
+              actual:
+                key: Date
+                value:
+                    - Tue, 08 Aug 2023 19:06:53 GMT
+        body_result:
+            - normal: true
+              type: JSON
+              expected: '{"id":8,"firstName":"RITKKe","lastName":"Tyson","email":"mt@gmail.com","timestamp":1691154867}'
+              actual: '{"id":8,"firstName":"RITKKe","lastName":"Tyson","email":"mt@gmail.com","timestamp":1691154867}'
+        dep_result: []
+    - kind: Http
+      name: report-1
+      status: PASSED
+      started: 1691521614
+      completed: 1691521616
+      test_case_path: /home/newsarthak.linux/mycodes/keploy/Keploy
+      mock_path: ""
+      test_case_id: test-2
+      req:
+        method: GET
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:8080/api/employees/1
+        header:
+            Accept: '*/*'
+            Host: localhost:8080
+            User-Agent: curl/7.81.0
+        body: ""
+        body_type: ""
+      resp:
+        status_code: 200
+        header:
+            Content-Type: application/json
+            Date: Tue, 08 Aug 2023 19:06:00 GMT
+        body: '{"id":1,"firstName":"Myke","lastName":"Tyson","email":"mt@gmail.com","timestamp":1690896828}'
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+      result:
+        status_code:
+            normal: true
+            expected: 200
+            actual: 200
+        headers_result:
+            - normal: true
+              expected:
+                key: Content-Type
+                value:
+                    - application/json
+              actual:
+                key: Content-Type
+                value:
+                    - application/json
+            - normal: true
+              expected:
+                key: Date
+                value:
+                    - Tue, 08 Aug 2023 19:06:00 GMT
+              actual:
+                key: Date
+                value:
+                    - Tue, 08 Aug 2023 19:06:54 GMT
+        body_result:
+            - normal: true
+              type: JSON
+              expected: '{"id":1,"firstName":"Myke","lastName":"Tyson","email":"mt@gmail.com","timestamp":1690896828}'
+              actual: '{"id":1,"firstName":"Myke","lastName":"Tyson","email":"mt@gmail.com","timestamp":1690896828}'
+        dep_result: []
+    - kind: Http
+      name: report-1
+      status: PASSED
+      started: 1691521616
+      completed: 1691521618
+      test_case_path: /home/newsarthak.linux/mycodes/keploy/Keploy
+      mock_path: ""
+      test_case_id: test-3
+      req:
+        method: GET
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:8080/api/employees/44
+        header:
+            Accept: '*/*'
+            Host: localhost:8080
+            User-Agent: curl/7.81.0
+        body: ""
+        body_type: ""
+      resp:
+        status_code: 200
+        header:
+            Content-Type: application/json
+            Date: Tue, 08 Aug 2023 19:06:06 GMT
+        body: '{"id":44,"firstName":"Sarthak","lastName":"Tyson","email":"mcxt@gmail.com","timestamp":1691494987}'
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+      result:
+        status_code:
+            normal: true
+            expected: 200
+            actual: 200
+        headers_result:
+            - normal: true
+              expected:
+                key: Content-Type
+                value:
+                    - application/json
+              actual:
+                key: Content-Type
+                value:
+                    - application/json
+            - normal: true
+              expected:
+                key: Date
+                value:
+                    - Tue, 08 Aug 2023 19:06:06 GMT
+              actual:
+                key: Date
+                value:
+                    - Tue, 08 Aug 2023 19:06:56 GMT
+        body_result:
+            - normal: true
+              type: JSON
+              expected: '{"id":44,"firstName":"Sarthak","lastName":"Tyson","email":"mcxt@gmail.com","timestamp":1691494987}'
+              actual: '{"id":44,"firstName":"Sarthak","lastName":"Tyson","email":"mcxt@gmail.com","timestamp":1691494987}'
+        dep_result: []

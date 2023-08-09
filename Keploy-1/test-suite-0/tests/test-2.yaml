@@ -10,19 +10,19 @@ spec:
         url: http://localhost:8010/product
         header:
             Accept: '*/*'
-            Content-Length: "41"
+            Content-Length: "48"
             Content-Type: application/json
             Host: localhost:8010
             User-Agent: curl/7.81.0
-        body: "{\n    \"name\":\"Banana\", \n    \"price\": 45\n}"
+        body: "{\n    \"name\":\"trtGubbles\", \n    \"price\": 12355\n}"
         body_type: ""
     resp:
         status_code: 201
         header:
-            Content-Length: "36"
+            Content-Length: "43"
             Content-Type: application/json
-            Date: Wed, 09 Aug 2023 08:01:02 GMT
-        body: '{"id":27,"name":"Banana","price":45}'
+            Date: Mon, 07 Aug 2023 12:58:57 GMT
+        body: '{"id":26,"name":"trtGubbles","price":12355}'
         body_type: ""
         status_message: ""
         proto_major: 0
@@ -30,4 +30,4 @@ spec:
     objects: []
     assertions:
         noise: []
-    created: 1691568063
+    created: 1691413137

@@ -1,160 +1,18 @@
 version: api.keploy.io/v1beta1
 name: report-1
 status: PASSED
-success: 3
+success: 2
 failure: 0
-total: 3
+total: 2
 tests:
     - kind: Http
       name: report-1
       status: PASSED
-      started: 1691413225
-      completed: 1691413226
+      started: 1691568108
+      completed: 1691568109
       test_case_path: /home/newsarthak.linux/mycodes/keploy/Keploy
       mock_path: ""
       test_case_id: test-1
-      req:
-        method: POST
-        proto_major: 1
-        proto_minor: 1
-        url: http://localhost:8010/product
-        header:
-            Accept: '*/*'
-            Content-Length: "48"
-            Content-Type: application/json
-            Host: localhost:8010
-            User-Agent: curl/7.81.0
-        body: "{\n    \"name\":\"trtGubbles\", \n    \"price\": 12355\n}"
-        body_type: ""
-      resp:
-        status_code: 201
-        header:
-            Content-Length: "43"
-            Content-Type: application/json
-            Date: Mon, 07 Aug 2023 12:58:32 GMT
-        body: '{"id":25,"name":"trtGubbles","price":12355}'
-        body_type: ""
-        status_message: ""
-        proto_major: 0
-        proto_minor: 0
-      result:
-        status_code:
-            normal: true
-            expected: 201
-            actual: 201
-        headers_result:
-            - normal: true
-              expected:
-                key: Date
-                value:
-                    - Mon, 07 Aug 2023 12:58:32 GMT
-              actual:
-                key: Date
-                value:
-                    - Mon, 07 Aug 2023 13:00:25 GMT
-            - normal: true
-              expected:
-                key: Content-Length
-                value:
-                    - "43"
-              actual:
-                key: Content-Length
-                value:
-                    - "43"
-            - normal: true
-              expected:
-                key: Content-Type
-                value:
-                    - application/json
-              actual:
-                key: Content-Type
-                value:
-                    - application/json
-        body_result:
-            - normal: true
-              type: JSON
-              expected: '{"id":25,"name":"trtGubbles","price":12355}'
-              actual: '{"id":25,"name":"trtGubbles","price":12355}'
-        dep_result: []
-    - kind: Http
-      name: report-1
-      status: PASSED
-      started: 1691413226
-      completed: 1691413227
-      test_case_path: /home/newsarthak.linux/mycodes/keploy/Keploy
-      mock_path: ""
-      test_case_id: test-2
-      req:
-        method: POST
-        proto_major: 1
-        proto_minor: 1
-        url: http://localhost:8010/product
-        header:
-            Accept: '*/*'
-            Content-Length: "48"
-            Content-Type: application/json
-            Host: localhost:8010
-            User-Agent: curl/7.81.0
-        body: "{\n    \"name\":\"trtGubbles\", \n    \"price\": 12355\n}"
-        body_type: ""
-      resp:
-        status_code: 201
-        header:
-            Content-Length: "43"
-            Content-Type: application/json
-            Date: Mon, 07 Aug 2023 12:58:57 GMT
-        body: '{"id":26,"name":"trtGubbles","price":12355}'
-        body_type: ""
-        status_message: ""
-        proto_major: 0
-        proto_minor: 0
-      result:
-        status_code:
-            normal: true
-            expected: 201
-            actual: 201
-        headers_result:
-            - normal: true
-              expected:
-                key: Date
-                value:
-                    - Mon, 07 Aug 2023 12:58:57 GMT
-              actual:
-                key: Date
-                value:
-                    - Mon, 07 Aug 2023 13:00:26 GMT
-            - normal: true
-              expected:
-                key: Content-Length
-                value:
-                    - "43"
-              actual:
-                key: Content-Length
-                value:
-                    - "43"
-            - normal: true
-              expected:
-                key: Content-Type
-                value:
-                    - application/json
-              actual:
-                key: Content-Type
-                value:
-                    - application/json
-        body_result:
-            - normal: true
-              type: JSON
-              expected: '{"id":26,"name":"trtGubbles","price":12355}'
-              actual: '{"id":26,"name":"trtGubbles","price":12355}'
-        dep_result: []
-    - kind: Http
-      name: report-1
-      status: PASSED
-      started: 1691413227
-      completed: 1691413228
-      test_case_path: /home/newsarthak.linux/mycodes/keploy/Keploy
-      mock_path: ""
-      test_case_id: test-3
       req:
         method: GET
         proto_major: 1
@@ -171,7 +29,7 @@ tests:
         header:
             Content-Length: "382"
             Content-Type: application/json
-            Date: Mon, 07 Aug 2023 12:59:05 GMT
+            Date: Wed, 09 Aug 2023 08:00:43 GMT
         body: '[{"id":1,"name":"Bubbles","price":123},{"id":2,"name":"Fubbles","price":123},{"id":3,"name":"Fubbles","price":123},{"id":4,"name":"Fubbles","price":123},{"id":5,"name":"Fubbles","price":123},{"id":6,"name":"Fubbles","price":123},{"id":7,"name":"Fubbles","price":123},{"id":8,"name":"Gubbles","price":123},{"id":9,"name":"Gubbles","price":123},{"id":10,"name":"Gubbles","price":123}]'
         body_type: ""
         status_message: ""
@@ -205,14 +63,85 @@ tests:
               expected:
                 key: Date
                 value:
-                    - Mon, 07 Aug 2023 12:59:05 GMT
+                    - Wed, 09 Aug 2023 08:00:43 GMT
               actual:
                 key: Date
                 value:
-                    - Mon, 07 Aug 2023 13:00:27 GMT
+                    - Wed, 09 Aug 2023 08:01:48 GMT
         body_result:
             - normal: true
               type: JSON
               expected: '[{"id":1,"name":"Bubbles","price":123},{"id":2,"name":"Fubbles","price":123},{"id":3,"name":"Fubbles","price":123},{"id":4,"name":"Fubbles","price":123},{"id":5,"name":"Fubbles","price":123},{"id":6,"name":"Fubbles","price":123},{"id":7,"name":"Fubbles","price":123},{"id":8,"name":"Gubbles","price":123},{"id":9,"name":"Gubbles","price":123},{"id":10,"name":"Gubbles","price":123}]'
               actual: '[{"id":1,"name":"Bubbles","price":123},{"id":2,"name":"Fubbles","price":123},{"id":3,"name":"Fubbles","price":123},{"id":4,"name":"Fubbles","price":123},{"id":5,"name":"Fubbles","price":123},{"id":6,"name":"Fubbles","price":123},{"id":7,"name":"Fubbles","price":123},{"id":8,"name":"Gubbles","price":123},{"id":9,"name":"Gubbles","price":123},{"id":10,"name":"Gubbles","price":123}]'
+        dep_result: []
+    - kind: Http
+      name: report-1
+      status: PASSED
+      started: 1691568109
+      completed: 1691568110
+      test_case_path: /home/newsarthak.linux/mycodes/keploy/Keploy
+      mock_path: ""
+      test_case_id: test-2
+      req:
+        method: POST
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:8010/product
+        header:
+            Accept: '*/*'
+            Content-Length: "41"
+            Content-Type: application/json
+            Host: localhost:8010
+            User-Agent: curl/7.81.0
+        body: "{\n    \"name\":\"Banana\", \n    \"price\": 45\n}"
+        body_type: ""
+      resp:
+        status_code: 201
+        header:
+            Content-Length: "36"
+            Content-Type: application/json
+            Date: Wed, 09 Aug 2023 08:01:02 GMT
+        body: '{"id":27,"name":"Banana","price":45}'
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+      result:
+        status_code:
+            normal: true
+            expected: 201
+            actual: 201
+        headers_result:
+            - normal: true
+              expected:
+                key: Content-Length
+                value:
+                    - "36"
+              actual:
+                key: Content-Length
+                value:
+                    - "36"
+            - normal: true
+              expected:
+                key: Content-Type
+                value:
+                    - application/json
+              actual:
+                key: Content-Type
+                value:
+                    - application/json
+            - normal: true
+              expected:
+                key: Date
+                value:
+                    - Wed, 09 Aug 2023 08:01:02 GMT
+              actual:
+                key: Date
+                value:
+                    - Wed, 09 Aug 2023 08:01:49 GMT
+        body_result:
+            - normal: true
+              type: JSON
+              expected: '{"id":27,"name":"Banana","price":45}'
+              actual: '{"id":27,"name":"Banana","price":45}'
         dep_result: []

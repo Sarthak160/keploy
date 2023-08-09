@@ -1,0 +1,30 @@
+version: api.keploy.io/v1beta2
+kind: Http
+name: test-2
+spec:
+    metadata: {}
+    req:
+        method: GET
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:8080/api/employees
+        header:
+            Accept: '*/*'
+            Host: localhost:8080
+            User-Agent: curl/7.81.0
+        body: ""
+        body_type: ""
+    resp:
+        status_code: 200
+        header:
+            Content-Type: application/json
+            Date: Wed, 09 Aug 2023 06:40:09 GMT
+        body: '[{"id":1,"firstName":"Myke","lastName":"Tyson","email":"mt@gmail.com"},{"id":2,"firstName":"Myke","lastName":"Tyson","email":"mt@gmail.com"},{"id":3,"firstName":"Myke","lastName":"Tyson","email":"mt@gmail.com"},{"id":4,"firstName":"Myke","lastName":"Tyson","email":"mt@gmail.com"},{"id":5,"firstName":"Myke","lastName":"Tyson","email":"mt@gmail.com"},{"id":6,"firstName":"Myke","lastName":"Tyson","email":"mt@gmail.com"},{"id":7,"firstName":"Myke","lastName":"Tyson","email":"mt@gmail.com"},{"id":8,"firstName":"RITKKe","lastName":"Tyson","email":"mt@gmail.com"},{"id":9,"firstName":"RITKKe","lastName":"Tyson","email":"mt@gmail.com"},{"id":10,"firstName":"RITKKe","lastName":"Tyson","email":"mt@gmail.com"},{"id":11,"firstName":"RITKKe","lastName":"Tyson","email":"mt@gmail.com"},{"id":12,"firstName":"RITKKe","lastName":"Tyson","email":"mt@gmail.com"},{"id":13,"firstName":"RITKKe","lastName":"Tyson","email":"mt@gmail.com"},{"id":14,"firstName":"RITKKe","lastName":"Tyson","email":"mt@gmail.com"},{"id":15,"firstName":"Myke","lastName":"Tyson","email":"mt@gmail.com"},{"id":16,"firstName":"Myke","lastName":"Tyson","email":"mt@gmail.com"},{"id":17,"firstName":"Myke","lastName":"Tyson","email":"mt@gmail.com"},{"id":18,"firstName":"Myke","lastName":"Tyson","email":"mt@gmail.com"},{"id":19,"firstName":"Myke","lastName":"Tyson","email":"mt@gmail.com"},{"id":20,"firstName":"Myke","lastName":"Tyson","email":"mt@gmail.com"},{"id":21,"firstName":"Myke","lastName":"Tyson","email":"mt@gmail.com"},{"id":22,"firstName":"Myke","lastName":"Tyson","email":"mt@gmail.com"},{"id":23,"firstName":"HIsd","lastName":"Tyson","email":"mcxt@gmail.com"},{"id":24,"firstName":"HIsd","lastName":"Tyson","email":"mcxt@gmail.com"},{"id":25,"firstName":"HIsd","lastName":"Tyson","email":"mcxt@gmail.com"},{"id":26,"firstName":"Sarthak","lastName":"Tyson","email":"mcxt@gmail.com"},{"id":27,"firstName":"Sarthak","lastName":"Tyson","email":"mcxt@gmail.com"},{"id":28,"firstName":"Sarthak","lastName":"Tyson","email":"mcxt@gmail.com"},{"id":29,"firstName":"Sarthak","lastName":"Tyson","email":"mcxt@gmail.com"},{"id":30,"firstName":"Sarthak","lastName":"Tyson","email":"mcxt@gmail.com"},{"id":31,"firstName":"Sarthak","lastName":"Tyson","email":"mcxt@gmail.com"},{"id":32,"firstName":"Sarthak","lastName":"Tyson","email":"mcxt@gmail.com"},{"id":33,"firstName":"Sarthakdsadfasdfas","lastName":"Tyson","email":"mcxt@gmail.com"},{"id":34,"firstName":"Sarthakdsadfasdfas","lastName":"Tyson","email":"mcxt@gmail.com"},{"id":35,"firstName":"Sarthakdsadfasdfas","lastName":"Tyson","email":"mcxt@gmail.com"},{"id":36,"firstName":"Sarthakdsadfasdfas","lastName":"Tyson","email":"mcxt@gmail.com"},{"id":37,"firstName":"Sarthakdsadfasdfas","lastName":"Tyson","email":"mcxt@gmail.com"},{"id":38,"firstName":"Sarthakdsadfasdfas","lastName":"Tyson","email":"mcxt@gmail.com"},{"id":39,"firstName":"Sarthakdsadfasdfas","lastName":"Tyson","email":"mcxt@gmail.com"},{"id":40,"firstName":"Sarthakdsadfasdfas","lastName":"Tyson","email":"mcxt@gmail.com"},{"id":41,"firstName":"Sarthakdsadfasdfas","lastName":"Tyson","email":"mcxt@gmail.com"},{"id":42,"firstName":"Sarthakdsadfasdfas","lastName":"Tyson","email":"mcxt@gmail.com"},{"id":43,"firstName":"Sarthak","lastName":"Tyson","email":"mcxt@gmail.com"},{"id":44,"firstName":"Sarthak","lastName":"Tyson","email":"mcxt@gmail.com"},{"id":45,"firstName":"Sarthak","lastName":"Shyngle","email":"mcxt@gmail.com"},{"id":46,"firstName":"Sarthak","lastName":"Shyngle","email":"mcxt@gmail.com"},{"id":47,"firstName":"Sarthak","lastName":"Shyngle","email":"mcxt@gmail.com"},{"id":48,"firstName":"Gourav","lastName":"Kumar","email":"mcxt@gmail.com"},{"id":49,"firstName":"Gourav","lastName":"Kumar","email":"mcxt@gmail.com"}]'
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+    objects: []
+    assertions:
+        noise: []
+    created: 1691563211

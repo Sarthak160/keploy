@@ -142,19 +142,10 @@ func EncodeMock(mock *models.Mock, logger *zap.Logger) (*NetworkTrafficDoc, erro
 			if mock.Spec.PostgresReq != nil {
 				postgresSpec = spec.PostgresSpec{
 					PostgresReq:  *mock.Spec.PostgresReq,
-					// PostgresResp: *m.Spec.PostgresResp,
-				}
-			}
-			if mock.Spec.PostgresResp != nil {
-				postgresSpec = spec.PostgresSpec{
-					// PostgresReq:  *m.Spec.PostgresReq,
 					PostgresResp: *mock.Spec.PostgresResp,
 				}
 			}
-			// postgresSpec = spec.PostgresSpec{
-			// 	PostgresReq:  *m.Spec.PostgresReq,
-			// 	PostgresResp: *m.Spec.PostgresResp,
-			// }
+			
 			err := yamlDoc.Spec.Encode(postgresSpec)
 			if err != nil {
 				logger.Error(Emoji+"failed to marshal postgres of external call into yaml", zap.Error(err))

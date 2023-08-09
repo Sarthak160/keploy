@@ -1,0 +1,74 @@
+version: api.keploy.io/v1beta1
+name: report-3
+status: FAILED
+success: 0
+failure: 1
+total: 1
+tests:
+    - kind: Http
+      name: report-3
+      status: FAILED
+      started: 1691501523
+      completed: 1691501525
+      test_case_path: /home/newsarthak.linux/mycodes/keploy/Keploy
+      mock_path: ""
+      test_case_id: test-1
+      req:
+        method: POST
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:8080/api/employees
+        header:
+            Accept: '*/*'
+            Content-Length: "107"
+            Content-Type: application/json
+            Host: localhost:8080
+            User-Agent: curl/7.81.0
+        body: |-
+            {
+                "firstName": "Sarthak",
+                "lastName": "Shyngle",
+                "email": "mcxt@gmail.com",
+                "timestamp":1
+            }
+        body_type: ""
+      resp:
+        status_code: 200
+        header:
+            Content-Type: application/json
+            Date: Tue, 08 Aug 2023 13:05:08 GMT
+        body: '{"id":45,"firstName":"Sarthak","lastName":"Shyngle","email":"mcxt@gmail.com","timestamp":1691499908}'
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+      result:
+        status_code:
+            normal: false
+            expected: 200
+            actual: 500
+        headers_result:
+            - normal: true
+              expected:
+                key: Content-Type
+                value:
+                    - application/json
+              actual:
+                key: Content-Type
+                value:
+                    - application/json
+            - normal: true
+              expected:
+                key: Date
+                value:
+                    - Tue, 08 Aug 2023 13:05:08 GMT
+              actual:
+                key: Date
+                value:
+                    - Tue, 08 Aug 2023 13:32:03 GMT
+        body_result:
+            - normal: false
+              type: JSON
+              expected: '{"id":45,"firstName":"Sarthak","lastName":"Shyngle","email":"mcxt@gmail.com","timestamp":1691499908}'
+              actual: '{"timestamp":"2023-08-08T13:32:03.970+00:00","message":"could not execute statement; nested exception is org.hibernate.exception.JDBCConnectionException: could not execute statement","details":"uri=/api/employees"}'
+        dep_result: []
