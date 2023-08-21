@@ -1,0 +1,289 @@
+    1 0.000000000 44.241.135.119 → 192.168.1.12 TCP 66 443 → 52598 [ACK] Seq=1 Ack=1 Win=269 Len=0 TSval=2256289623 TSecr=3678692679
+    2 4.151703276 192.168.1.12 → 13.232.193.230 TLSv1.2 120 Application Data
+    3 4.169447341 13.232.193.230 → 192.168.1.12 TLSv1.2 122 Application Data
+    4 4.169514695 192.168.1.12 → 13.232.193.230 TCP 66 38366 → 443 [ACK] Seq=55 Ack=57 Win=501 Len=0 TSval=2667902705 TSecr=2111605701
+    5 6.479279510 192.168.1.12 → 35.160.191.166 TCP 66 33262 → 443 [ACK] Seq=1 Ack=1 Win=501 Len=0 TSval=1298245786 TSecr=1771985357
+    6 6.733797624 35.160.191.166 → 192.168.1.12 TCP 66 [TCP ACKed unseen segment] 443 → 33262 [ACK] Seq=1 Ack=2 Win=156 Len=0 TSval=1772032504 TSecr=1298198594
+    7 7.736287335 192.168.1.12 → 44.241.135.119 TLSv1.2 126 Application Data
+    8 7.736364855 192.168.1.12 → 44.241.135.119 TCP 2946 [TCP segment of a reassembled PDU]
+    9 7.737043904 192.168.1.12 → 44.241.135.119 TLSv1.2 528 Application Data
+   10 7.976728423 44.241.135.119 → 192.168.1.12 TCP 66 443 → 52598 [ACK] Seq=1 Ack=61 Win=269 Len=0 TSval=2256297599 TSecr=3678700697
+   11 7.976729057 44.241.135.119 → 192.168.1.12 TCP 66 443 → 52598 [ACK] Seq=1 Ack=1501 Win=339 Len=0 TSval=2256297599 TSecr=3678700697
+   12 7.977001920 44.241.135.119 → 192.168.1.12 TCP 66 443 → 52598 [ACK] Seq=1 Ack=2941 Win=409 Len=0 TSval=2256297600 TSecr=3678700697
+   13 7.977002090 44.241.135.119 → 192.168.1.12 TCP 66 443 → 52598 [ACK] Seq=1 Ack=3403 Win=420 Len=0 TSval=2256297600 TSecr=3678700697
+   14 7.988228670 44.241.135.119 → 192.168.1.12 TLSv1.2 129 Application Data
+   15 7.988304438 192.168.1.12 → 44.241.135.119 TCP 66 52598 → 443 [ACK] Seq=3403 Ack=64 Win=501 Len=0 TSval=3678700949 TSecr=2256297612
+   16 9.034631952 13.127.99.68 → 192.168.1.12 TCP 66 443 → 34656 [ACK] Seq=1 Ack=1 Win=8 Len=0 TSval=1027325475 TSecr=3343625207
+   17 9.034695699 192.168.1.12 → 13.127.99.68 TCP 66 [TCP ACKed unseen segment] 34656 → 443 [ACK] Seq=1 Ack=2 Win=501 Len=0 TSval=3343685238 TSecr=1027310661
+   18 9.799474960 192.168.1.12 → 3.220.42.39  NTP 270 NTP Version 4, client
+   19 9.902029204 192.168.1.12 → 52.10.183.132 NTP 270 NTP Version 4, client
+   20 10.009423114  3.220.42.39 → 192.168.1.12 NTP 270 NTP Version 4, server
+   21 10.147688358 52.10.183.132 → 192.168.1.12 NTP 270 NTP Version 4, server
+   22 10.242583301 192.168.1.12 → 3.134.129.152 NTP 270 NTP Version 4, client
+   23 10.445343528 192.168.1.12 → 172.105.40.86 NTP 90 NTP Version 4, client
+   24 10.472335255 172.105.40.86 → 192.168.1.12 NTP 90 NTP Version 4, server
+   25 10.478206315 3.134.129.152 → 192.168.1.12 NTP 270 NTP Version 4, server
+   26 11.775177176 192.168.1.12 → 185.125.190.58 NTP 90 NTP Version 4, client
+   27 12.018108623 185.125.190.58 → 192.168.1.12 NTP 90 NTP Version 4, server
+   28 14.151357920 192.168.1.12 → 13.232.193.230 TLSv1.2 120 Application Data
+   29 14.168312359 13.232.193.230 → 192.168.1.12 TLSv1.2 122 Application Data
+   30 14.168342677 192.168.1.12 → 13.232.193.230 TCP 66 38366 → 443 [ACK] Seq=109 Ack=113 Win=501 Len=0 TSval=2667912704 TSecr=2111615700
+   31 19.284874990 35.160.191.166 → 192.168.1.12 TLSv1.2 112 [TCP ACKed unseen segment] , Application Data
+   32 19.284875376 35.160.191.166 → 192.168.1.12 TLSv1.2 97 [TCP ACKed unseen segment] , Encrypted Alert
+   33 19.284875433 35.160.191.166 → 192.168.1.12 TCP 66 [TCP ACKed unseen segment] 443 → 33262 [FIN, ACK] Seq=78 Ack=2 Win=156 Len=0 TSval=1772045055 TSecr=1298198594
+   34 19.285031137 192.168.1.12 → 35.160.191.166 TCP 66 [TCP Previous segment not captured] 33262 → 443 [ACK] Seq=2 Ack=79 Win=501 Len=0 TSval=1298258591 TSecr=1772045055
+   35 19.285245373 192.168.1.12 → 35.160.191.166 TCP 66 33262 → 443 [FIN, ACK] Seq=2 Ack=79 Win=501 Len=0 TSval=1298258592 TSecr=1772045055
+   36 19.540227659 35.160.191.166 → 192.168.1.12 TCP 66 [TCP ACKed unseen segment] 443 → 33262 [ACK] Seq=79 Ack=3 Win=156 Len=0 TSval=1772045310 TSecr=1298258592
+   37 19.879237114 192.168.1.12 → 185.125.190.56 NTP 90 NTP Version 4, client
+   38 20.115276571 185.125.190.56 → 192.168.1.12 NTP 90 NTP Version 4, server
+   39 20.230119347 192.168.1.12 → 20.42.65.88  TLSv1.2 180 Application Data
+   40 20.230255174 192.168.1.12 → 20.42.65.88  TLSv1.2 2934 Application Data
+   41 20.230273516 192.168.1.12 → 20.42.65.88  TCP 2934 53880 → 443 [PSH, ACK] Seq=3007 Ack=1 Win=501 Len=2880 [TCP segment of a reassembled PDU]
+   42 20.231016668 192.168.1.12 → 20.42.65.88  TCP 2934 53880 → 443 [PSH, ACK] Seq=5887 Ack=1 Win=501 Len=2880 [TCP segment of a reassembled PDU]
+   43 20.231068319 192.168.1.12 → 20.42.65.88  TLSv1.2 2242 Application Data
+   44 20.470708210  20.42.65.88 → 192.168.1.12 TCP 54 443 → 53880 [ACK] Seq=1 Ack=3007 Win=2053 Len=0
+   45 20.470708751  20.42.65.88 → 192.168.1.12 TLSv1.2 100 Application Data
+   46 20.471386707  20.42.65.88 → 192.168.1.12 TCP 54 443 → 53880 [ACK] Seq=47 Ack=7327 Win=2053 Len=0
+   47 20.472844952  20.42.65.88 → 192.168.1.12 TCP 54 443 → 53880 [ACK] Seq=47 Ack=8767 Win=2047 Len=0
+   48 20.472845757  20.42.65.88 → 192.168.1.12 TCP 54 443 → 53880 [ACK] Seq=47 Ack=10955 Win=2053 Len=0
+   49 20.472845832  20.42.65.88 → 192.168.1.12 TLSv1.2 109 Application Data
+   50 20.472954111  20.42.65.88 → 192.168.1.12 TLSv1.2 109 Application Data
+   51 20.472954186  20.42.65.88 → 192.168.1.12 TLSv1.2 109 Application Data
+   52 20.472954597  20.42.65.88 → 192.168.1.12 TLSv1.2 109 Application Data
+   53 20.472954672  20.42.65.88 → 192.168.1.12 TLSv1.2 109 Application Data
+   54 20.472954746  20.42.65.88 → 192.168.1.12 TLSv1.2 96 Application Data
+   55 20.473140826 192.168.1.12 → 20.42.65.88  TCP 54 53880 → 443 [ACK] Seq=10955 Ack=364 Win=501 Len=0
+   56 20.473302424  20.42.65.88 → 192.168.1.12 TLSv1.2 158 Application Data
+   57 20.476048559 192.168.1.12 → 20.42.65.88  TLSv1.2 96 Application Data
+   58 20.770431169  20.42.65.88 → 192.168.1.12 TCP 54 443 → 53880 [ACK] Seq=468 Ack=10997 Win=2053 Len=0
+   59 20.819117522 192.168.1.12 → 20.42.65.88  TCP 54 53894 → 443 [ACK] Seq=1 Ack=1 Win=501 Len=0
+   60 21.056530026  20.42.65.88 → 192.168.1.12 TCP 54 [TCP ACKed unseen segment] 443 → 53894 [ACK] Seq=1 Ack=2 Win=2050 Len=0
+   61 22.646551733 192.168.1.12 → 20.42.65.88  TLSv1.2 179 Application Data
+   62 22.646615412 192.168.1.12 → 20.42.65.88  TLSv1.2 2242 Application Data
+   63 22.863128508 192.168.1.12 → 13.249.221.28 TCP 66 35600 → 443 [ACK] Seq=1 Ack=1 Win=501 Len=0 TSval=4274850241 TSecr=2233022575
+   64 22.866136438 13.249.221.28 → 192.168.1.12 TCP 66 [TCP ACKed unseen segment] 443 → 35600 [ACK] Seq=1 Ack=2 Win=133 Len=0 TSval=2233067627 TSecr=4274623022
+   65 22.867085147 192.168.1.12 → 13.127.99.68 TCP 66 49996 → 443 [ACK] Seq=1 Ack=1 Win=501 Len=0 TSval=3343699071 TSecr=2533217761
+   66 22.886792888  20.42.65.88 → 192.168.1.12 TCP 54 443 → 53880 [ACK] Seq=468 Ack=13310 Win=2053 Len=0
+   67 22.886793231  20.42.65.88 → 192.168.1.12 TLSv1.2 109 Application Data
+   68 22.886793250  20.42.65.88 → 192.168.1.12 TLSv1.2 96 Application Data
+   69 22.886960392 192.168.1.12 → 20.42.65.88  TCP 54 53880 → 443 [ACK] Seq=13310 Ack=565 Win=501 Len=0
+   70 22.887227167  20.42.65.88 → 192.168.1.12 TLSv1.2 158 Application Data
+   71 22.892591844 13.127.99.68 → 192.168.1.12 TCP 66 [TCP ACKed unseen segment] 443 → 49996 [ACK] Seq=1 Ack=2 Win=8 Len=0 TSval=2533262816 TSecr=3343669871
+   72 22.931205772 192.168.1.12 → 20.42.65.88  TCP 54 53880 → 443 [ACK] Seq=13310 Ack=669 Win=501 Len=0
+   73 23.201673117  192.168.1.9 → 224.0.0.251  MDNS 287 Standard query response 0x0000 PTR, cache flush Android.local PTR, cache flush Android.local A, cache flush 192.168.1.9 AAAA, cache flush fe80::f4b7:2dff:feba:2800 NSEC, cache flush 9.1.168.192.in-addr.arpa NSEC, cache flush 0.0.8.2.A.B.E.F.F.F.D.2.7.B.4.F.0.0.0.0.0.0.0.0.0.0.0.0.0.8.E.F.ip6.arpa NSEC, cache flush Android.local
+   74 23.202241873 fe80::f4b7:2dff:feba:2800 → ff02::fb     MDNS 307 Standard query response 0x0000 PTR, cache flush Android.local PTR, cache flush Android.local A, cache flush 192.168.1.9 AAAA, cache flush fe80::f4b7:2dff:feba:2800 NSEC, cache flush 9.1.168.192.in-addr.arpa NSEC, cache flush 0.0.8.2.A.B.E.F.F.F.D.2.7.B.4.F.0.0.0.0.0.0.0.0.0.0.0.0.0.8.E.F.ip6.arpa NSEC, cache flush Android.local
+   75 24.151649546 192.168.1.12 → 13.232.193.230 TLSv1.2 120 Application Data
+   76 24.168608253 13.232.193.230 → 192.168.1.12 TLSv1.2 122 Application Data
+   77 24.168672769 192.168.1.12 → 13.232.193.230 TCP 66 38366 → 443 [ACK] Seq=163 Ack=169 Win=501 Len=0 TSval=2667922704 TSecr=2111625700
+   78 24.292810329 GXIntern_65:c0:08 → IntelCor_c8:69:87 ARP 42 Who has 192.168.1.12? Tell 192.168.1.1
+   79 24.292833132 IntelCor_c8:69:87 → GXIntern_65:c0:08 ARP 42 192.168.1.12 is at 88:d8:2e:c8:69:87
+   80 25.716906506 192.168.1.12 → 20.42.65.88  TLSv1.2 174 Application Data
+   81 25.716935655 192.168.1.12 → 20.42.65.88  TLSv1.2 2242 Application Data
+   82 25.957767994  20.42.65.88 → 192.168.1.12 TCP 54 443 → 53880 [ACK] Seq=669 Ack=15618 Win=2053 Len=0
+   83 25.957768597  20.42.65.88 → 192.168.1.12 TLSv1.2 109 Application Data
+   84 25.957841749 192.168.1.12 → 20.42.65.88  TCP 54 53880 → 443 [ACK] Seq=15618 Ack=724 Win=501 Len=0
+   85 25.957768657  20.42.65.88 → 192.168.1.12 TLSv1.2 96 Application Data
+   86 25.957871690 192.168.1.12 → 20.42.65.88  TCP 54 53880 → 443 [ACK] Seq=15618 Ack=766 Win=501 Len=0
+   87 25.958085611  20.42.65.88 → 192.168.1.12 TLSv1.2 158 Application Data
+   88 25.958103447 192.168.1.12 → 20.42.65.88  TCP 54 53880 → 443 [ACK] Seq=15618 Ack=870 Win=501 Len=0
+   89 25.960334818 192.168.1.12 → 20.42.65.88  TLSv1.2 96 Application Data
+   90 26.241123212  20.42.65.88 → 192.168.1.12 TCP 54 443 → 53880 [ACK] Seq=870 Ack=15660 Win=2053 Len=0
+   91 34.152093707 192.168.1.12 → 13.232.193.230 TLSv1.2 120 Application Data
+   92 34.169079410 13.232.193.230 → 192.168.1.12 TLSv1.2 122 Application Data
+   93 34.169135003 192.168.1.12 → 13.232.193.230 TCP 66 38366 → 443 [ACK] Seq=217 Ack=225 Win=501 Len=0 TSval=2667932705 TSecr=2111635701
+   94 35.643670643 13.249.221.28 → 192.168.1.12 TLSv1.2 105 [TCP ACKed unseen segment] , Application Data
+   95 35.643671159 13.249.221.28 → 192.168.1.12 TCP 66 [TCP ACKed unseen segment] 443 → 35600 [FIN, ACK] Seq=40 Ack=2 Win=133 Len=0 TSval=2233080404 TSecr=4274623022
+   96 35.643993881 192.168.1.12 → 13.249.221.28 TCP 66 [TCP Previous segment not captured] 35600 → 443 [FIN, ACK] Seq=2 Ack=41 Win=501 Len=0 TSval=4274863021 TSecr=2233080404
+   97 35.646270249 13.249.221.28 → 192.168.1.12 TCP 66 [TCP ACKed unseen segment] 443 → 35600 [ACK] Seq=41 Ack=3 Win=133 Len=0 TSval=2233080407 TSecr=4274863021
+   98 37.199155205 192.168.1.12 → 52.139.250.209 TCP 66 58620 → 443 [ACK] Seq=1 Ack=1 Win=501 Len=0 TSval=2180781886 TSecr=3017146457
+   99 37.240691246 52.139.250.209 → 192.168.1.12 TCP 66 [TCP ACKed unseen segment] 443 → 58620 [ACK] Seq=1 Ack=2 Win=501 Len=0 TSval=3017191513 TSecr=2178753974
+  100 37.711137087 192.168.1.12 → 140.82.114.25 TCP 66 44768 → 443 [ACK] Seq=1 Ack=1 Win=501 Len=0 TSval=1067259793 TSecr=1685663840
+  101 37.983624723 140.82.114.25 → 192.168.1.12 TCP 66 [TCP ACKed unseen segment] 443 → 44768 [ACK] Seq=1 Ack=2 Win=70 Len=0 TSval=1685709351 TSecr=1067214280
+  102 39.251116558 192.168.1.12 → 13.127.99.68 TCP 66 [TCP Keep-Alive] [TCP ACKed unseen segment] 34656 → 443 [ACK] Seq=0 Ack=2 Win=501 Len=0 TSval=3343715455 TSecr=1027310661
+  103 39.278261309 13.127.99.68 → 192.168.1.12 TCP 66 [TCP Previous segment not captured] 443 → 34656 [ACK] Seq=2 Ack=1 Win=8 Len=0 TSval=1027355718 TSecr=3343685238
+  104 42.575220347 192.168.1.12 → 140.82.114.26 TCP 66 58854 → 443 [ACK] Seq=1 Ack=1 Win=501 Len=0 TSval=2025765024 TSecr=464497298
+  105 42.813355049 140.82.114.26 → 192.168.1.12 TCP 66 [TCP ACKed unseen segment] 443 → 58854 [ACK] Seq=1 Ack=2 Win=70 Len=0 TSval=464542548 TSecr=2025719772
+  106 44.151672019 192.168.1.12 → 13.232.193.230 TLSv1.2 120 Application Data
+  107 44.169796642 13.232.193.230 → 192.168.1.12 TLSv1.2 122 Application Data
+  108 44.169852142 192.168.1.12 → 13.232.193.230 TCP 66 38366 → 443 [ACK] Seq=271 Ack=281 Win=501 Len=0 TSval=2667942705 TSecr=2111645701
+  109 46.911886243 192.168.1.12 → 20.42.65.88  TLSv1.2 174 Application Data
+  110 46.911955205 192.168.1.12 → 20.42.65.88  TLSv1.2 2288 Application Data, Application Data
+  111 47.152975631  20.42.65.88 → 192.168.1.12 TCP 54 443 → 53880 [ACK] Seq=870 Ack=18014 Win=2053 Len=0
+  112 47.152976307  20.42.65.88 → 192.168.1.12 TLSv1.2 100 Application Data
+  113 47.152976383  20.42.65.88 → 192.168.1.12 TLSv1.2 109 Application Data
+  114 47.152976460  20.42.65.88 → 192.168.1.12 TLSv1.2 96 Application Data
+  115 47.153076629  20.42.65.88 → 192.168.1.12 TLSv1.2 158 Application Data
+  116 47.153324280 192.168.1.12 → 20.42.65.88  TCP 54 53880 → 443 [ACK] Seq=18014 Ack=1117 Win=501 Len=0
+  117 47.156277909 192.168.1.12 → 20.42.65.88  TLSv1.2 96 Application Data
+  118 47.451184540  20.42.65.88 → 192.168.1.12 TCP 54 443 → 53880 [ACK] Seq=1117 Ack=18056 Win=2053 Len=0
+  119 49.809618866      0.0.0.0 → 224.0.0.1    IGMPv2 46 Membership Query, general
+  120 49.809619139      fe80::1 → ff02::1      ICMPv6 86 Multicast Listener Query
+  121 49.831148400  20.42.65.88 → 192.168.1.12 TCP 54 [TCP ACKed unseen segment] 443 → 53894 [RST, ACK] Seq=1 Ack=2 Win=0 Len=0
+  122 50.029208112 192.168.1.12 → 20.42.65.88  TLSv1.2 179 Application Data
+  123 50.029249328 192.168.1.12 → 20.42.65.88  TLSv1.2 2204 Application Data
+  124 50.270096559  20.42.65.88 → 192.168.1.12 TCP 54 443 → 53880 [ACK] Seq=1117 Ack=20331 Win=2053 Len=0
+  125 50.270097067  20.42.65.88 → 192.168.1.12 TLSv1.2 109 Application Data
+  126 50.270097132  20.42.65.88 → 192.168.1.12 TLSv1.2 96 Application Data
+  127 50.270097202  20.42.65.88 → 192.168.1.12 TLSv1.2 158 Application Data
+  128 50.270424303 192.168.1.12 → 20.42.65.88  TCP 54 53880 → 443 [ACK] Seq=20331 Ack=1318 Win=501 Len=0
+  129 50.767208411 fe80::d11e:84d5:43ef:42a8 → ff02::fb     ICMPv6 86 Multicast Listener Report
+  130 51.251126514 fe80::d11e:84d5:43ef:42a8 → ff02::1:ffef:42a8 ICMPv6 86 Multicast Listener Report
+  131 52.199744262 140.82.114.25 → 192.168.1.12 TLSv1.2 92 [TCP ACKed unseen segment] , Application Data
+  132 52.200210040 192.168.1.12 → 140.82.114.25 TLSv1.2 96 [TCP Previous segment not captured] , Application Data
+  133 52.473516643 140.82.114.25 → 192.168.1.12 TCP 66 [TCP ACKed unseen segment] 443 → 44768 [ACK] Seq=27 Ack=32 Win=70 Len=0 TSval=1685723840 TSecr=1067274282
+  134 53.075264135 192.168.1.12 → 224.0.0.251  IGMPv2 46 Membership Report group 224.0.0.251
+  135 53.075316802 192.168.1.12 → 44.241.135.119 TCP 66 [TCP Keep-Alive] 52598 → 443 [ACK] Seq=3402 Ack=64 Win=501 Len=0 TSval=3678746036 TSecr=2256297612
+  136 53.320138562 44.241.135.119 → 192.168.1.12 TCP 66 [TCP Keep-Alive ACK] 443 → 52598 [ACK] Seq=64 Ack=3403 Win=420 Len=0 TSval=2256342943 TSecr=3678700949
+  137 53.448413612 192.168.1.12 → 192.168.1.1  DNS 93 Standard query 0x5312 A safebrowsing.brave.com OPT
+  138 53.448528087 192.168.1.12 → 192.168.1.1  DNS 93 Standard query 0xe510 HTTPS safebrowsing.brave.com OPT
+  139 53.453005305  192.168.1.1 → 192.168.1.12 DNS 494 Standard query response 0x5312 A safebrowsing.brave.com CNAME d1bvmdanhrl7qk.cloudfront.net A 18.161.111.100 A 18.161.111.63 A 18.161.111.24 A 18.161.111.112 NS ns-1156.awsdns-16.org NS ns-498.awsdns-62.com NS ns-790.awsdns-34.net NS ns-1859.awsdns-40.co.uk A 205.251.195.22 A 205.251.196.132 A 205.251.199.67 AAAA 2600:9000:5301:f200::1 AAAA 2600:9000:5303:1600::1 AAAA 2600:9000:5304:8400::1 AAAA 2600:9000:5307:4300::1 OPT
+  140 53.453841794  192.168.1.1 → 192.168.1.12 DNS 214 Standard query response 0xe510 HTTPS safebrowsing.brave.com CNAME d1bvmdanhrl7qk.cloudfront.net SOA ns-498.awsdns-62.com OPT
+  141 53.454272695 192.168.1.12 → 192.168.1.1  DNS 100 Standard query 0x8335 HTTPS d1bvmdanhrl7qk.cloudfront.net OPT
+  142 53.458359654  192.168.1.1 → 192.168.1.12 DNS 181 Standard query response 0x8335 HTTPS d1bvmdanhrl7qk.cloudfront.net SOA ns-498.awsdns-62.com OPT
+  143 53.459205953 192.168.1.12 → 18.161.111.100 TCP 74 48182 → 443 [SYN] Seq=0 Win=64240 Len=0 MSS=1460 SACK_PERM=1 TSval=2971161300 TSecr=0 WS=128
+  144 53.590837036 18.161.111.100 → 192.168.1.12 TCP 74 443 → 48182 [SYN, ACK] Seq=0 Ack=1 Win=65535 Len=0 MSS=1440 SACK_PERM=1 TSval=1601852668 TSecr=2971161300 WS=512
+  145 53.590921091 192.168.1.12 → 18.161.111.100 TCP 66 48182 → 443 [ACK] Seq=1 Ack=1 Win=64256 Len=0 TSval=2971161431 TSecr=1601852668
+  146 53.591415199 192.168.1.12 → 18.161.111.100 TLSv1 583 Client Hello
+  147 53.722435433 18.161.111.100 → 192.168.1.12 TCP 66 443 → 48182 [ACK] Seq=1 Ack=518 Win=67072 Len=0 TSval=1601852800 TSecr=2971161432
+  148 53.722436161 18.161.111.100 → 192.168.1.12 TLSv1.3 300 Server Hello, Change Cipher Spec, Application Data, Application Data
+  149 53.722549757 192.168.1.12 → 18.161.111.100 TCP 66 48182 → 443 [ACK] Seq=518 Ack=235 Win=64128 Len=0 TSval=2971161563 TSecr=1601852800
+  150 53.728044694 192.168.1.12 → 18.161.111.100 TLSv1.3 130 Change Cipher Spec, Application Data
+  151 53.728223268 192.168.1.12 → 18.161.111.100 TLSv1.3 164 Application Data
+  152 53.728505967 192.168.1.12 → 18.161.111.100 TLSv1.3 701 Application Data
+  153 53.862812411 18.161.111.100 → 192.168.1.12 TCP 66 443 → 48182 [ACK] Seq=235 Ack=1315 Win=68096 Len=0 TSval=1601852937 TSecr=2971161568
+  154 53.862813055 18.161.111.100 → 192.168.1.12 TLSv1.3 212 Application Data
+  155 53.862813123 18.161.111.100 → 192.168.1.12 TLSv1.3 137 Application Data
+  156 53.863122232 192.168.1.12 → 18.161.111.100 TCP 66 48182 → 443 [ACK] Seq=1315 Ack=452 Win=64128 Len=0 TSval=2971161703 TSecr=1601852937
+  157 53.863356778 192.168.1.12 → 18.161.111.100 TLSv1.3 97 Application Data
+  158 54.035582013 18.161.111.100 → 192.168.1.12 TLSv1.3 1210 Application Data
+  159 54.035582533 18.161.111.100 → 192.168.1.12 TLSv1.3 97 Application Data
+  160 54.035818604 192.168.1.12 → 18.161.111.100 TCP 66 48182 → 443 [ACK] Seq=1346 Ack=1627 Win=64128 Len=0 TSval=2971161876 TSecr=1601853113
+  161 54.151621442 192.168.1.12 → 13.232.193.230 TLSv1.2 120 Application Data
+  162 54.168521423 13.232.193.230 → 192.168.1.12 TLSv1.2 122 Application Data
+  163 54.168536351 192.168.1.12 → 13.232.193.230 TCP 66 38366 → 443 [ACK] Seq=325 Ack=337 Win=501 Len=0 TSval=2667952704 TSecr=2111655700
+  164 55.107931410 13.127.99.68 → 192.168.1.12 TCP 66 [TCP Keep-Alive] [TCP ACKed unseen segment] 443 → 49996 [ACK] Seq=0 Ack=2 Win=8 Len=0 TSval=2533295031 TSecr=3343669871
+  165 55.107965607 192.168.1.12 → 13.127.99.68 TCP 66 [TCP Previous segment not captured] 49996 → 443 [ACK] Seq=2 Ack=1 Win=501 Len=0 TSval=3343731311 TSecr=2533262816
+  166 56.158504591  192.168.1.9 → 224.0.0.251  IGMPv2 46 Membership Report group 224.0.0.251
+  167 56.232857740 192.168.1.12 → 20.42.65.88  TLSv1.2 174 Application Data
+  168 56.232890883 192.168.1.12 → 20.42.65.88  TLSv1.2 2242 Application Data
+  169 56.473457395  20.42.65.88 → 192.168.1.12 TCP 54 443 → 53880 [ACK] Seq=1318 Ack=22639 Win=2053 Len=0
+  170 56.473457658  20.42.65.88 → 192.168.1.12 TLSv1.2 109 Application Data
+  171 56.473457710  20.42.65.88 → 192.168.1.12 TLSv1.2 96 Application Data
+  172 56.473589419 192.168.1.12 → 20.42.65.88  TCP 54 53880 → 443 [ACK] Seq=22639 Ack=1415 Win=501 Len=0
+  173 56.473919067  20.42.65.88 → 192.168.1.12 TLSv1.2 154 Application Data
+  174 56.475633305 192.168.1.12 → 20.42.65.88  TLSv1.2 96 Application Data
+  175 56.766372458  20.42.65.88 → 192.168.1.12 TCP 54 443 → 53880 [ACK] Seq=1515 Ack=22681 Win=2053 Len=0
+  176 57.207876321 GXIntern_65:c0:08 → IntelCor_c8:69:87 ARP 42 Who has 192.168.1.12? Tell 192.168.1.1
+  177 57.207896808 IntelCor_c8:69:87 → GXIntern_65:c0:08 ARP 42 192.168.1.12 is at 88:d8:2e:c8:69:87
+  178 57.324200370 140.82.114.26 → 192.168.1.12 TLSv1.2 92 [TCP ACKed unseen segment] , Application Data
+  179 57.324616983 192.168.1.12 → 140.82.114.26 TLSv1.2 96 [TCP Previous segment not captured] , Application Data
+  180 57.562623594 140.82.114.26 → 192.168.1.12 TCP 66 [TCP ACKed unseen segment] 443 → 58854 [ACK] Seq=27 Ack=32 Win=70 Len=0 TSval=464557297 TSecr=2025779773
+  181 60.225731793 13.232.193.230 → 192.168.1.12 TLSv1.2 158 Application Data
+  182 60.225801584 192.168.1.12 → 13.232.193.230 TCP 66 38366 → 443 [ACK] Seq=325 Ack=429 Win=501 Len=0 TSval=2667958761 TSecr=2111661757
+  183 60.320582265 192.168.1.12 → 20.42.65.88  TLSv1.2 174 Application Data
+  184 60.320647362 192.168.1.12 → 20.42.65.88  TLSv1.2 2242 Application Data
+  185 60.561078472  20.42.65.88 → 192.168.1.12 TCP 54 443 → 53880 [ACK] Seq=1515 Ack=24989 Win=2053 Len=0
+  186 60.561078806  20.42.65.88 → 192.168.1.12 TLSv1.2 109 Application Data
+  187 60.561078858  20.42.65.88 → 192.168.1.12 TLSv1.2 96 Application Data
+  188 60.561365843 192.168.1.12 → 20.42.65.88  TCP 54 53880 → 443 [ACK] Seq=24989 Ack=1612 Win=501 Len=0
+  189 60.562166518  20.42.65.88 → 192.168.1.12 TLSv1.2 154 Application Data
+  190 60.603230668 192.168.1.12 → 20.42.65.88  TCP 54 53880 → 443 [ACK] Seq=24989 Ack=1712 Win=501 Len=0
+  191 60.712639893 192.168.1.12 → 192.168.1.255 NBNS 92 Name query NB WORKGROUP<1d>
+  192 60.964548954 192.168.1.12 → 192.168.1.255 NBNS 92 Name query NB WORKGROUP<1b>
+  193 61.216874441 192.168.1.12 → 192.168.1.255 NBNS 92 Name query NB WORKGROUP<20>
+  194 61.600284847 fe80::d11e:84d5:43ef:42a8 → ff02::fb     MDNS 180 Standard query 0x0000 PTR _ftp._tcp.local, "QM" question PTR _nfs._tcp.local, "QM" question PTR _afpovertcp._tcp.local, "QM" question PTR _smb._tcp.local, "QM" question PTR _sftp-ssh._tcp.local, "QM" question PTR _webdavs._tcp.local, "QM" question PTR _webdav._tcp.local, "QM" question
+  195 61.600344587 192.168.1.12 → 224.0.0.251  MDNS 160 Standard query 0x0000 PTR _ftp._tcp.local, "QM" question PTR _nfs._tcp.local, "QM" question PTR _afpovertcp._tcp.local, "QM" question PTR _smb._tcp.local, "QM" question PTR _sftp-ssh._tcp.local, "QM" question PTR _webdavs._tcp.local, "QM" question PTR _webdav._tcp.local, "QM" question
+  196 61.601595166 fe80::d11e:84d5:43ef:42a8 → ff02::fb     MDNS 180 Standard query 0x0000 PTR _ftp._tcp.local, "QM" question PTR _nfs._tcp.local, "QM" question PTR _afpovertcp._tcp.local, "QM" question PTR _smb._tcp.local, "QM" question PTR _sftp-ssh._tcp.local, "QM" question PTR _webdavs._tcp.local, "QM" question PTR _webdav._tcp.local, "QM" question
+  197 61.601667096 192.168.1.12 → 224.0.0.251  MDNS 160 Standard query 0x0000 PTR _ftp._tcp.local, "QM" question PTR _nfs._tcp.local, "QM" question PTR _afpovertcp._tcp.local, "QM" question PTR _smb._tcp.local, "QM" question PTR _sftp-ssh._tcp.local, "QM" question PTR _webdavs._tcp.local, "QM" question PTR _webdav._tcp.local, "QM" question
+  198 62.605433492 fe80::d11e:84d5:43ef:42a8 → ff02::fb     MDNS 180 Standard query 0x0000 PTR _ftp._tcp.local, "QM" question PTR _nfs._tcp.local, "QM" question PTR _afpovertcp._tcp.local, "QM" question PTR _smb._tcp.local, "QM" question PTR _sftp-ssh._tcp.local, "QM" question PTR _webdavs._tcp.local, "QM" question PTR _webdav._tcp.local, "QM" question
+  199 62.605506071 192.168.1.12 → 224.0.0.251  MDNS 160 Standard query 0x0000 PTR _ftp._tcp.local, "QM" question PTR _nfs._tcp.local, "QM" question PTR _afpovertcp._tcp.local, "QM" question PTR _smb._tcp.local, "QM" question PTR _sftp-ssh._tcp.local, "QM" question PTR _webdavs._tcp.local, "QM" question PTR _webdav._tcp.local, "QM" question
+  200 62.606838739 fe80::d11e:84d5:43ef:42a8 → ff02::fb     MDNS 180 Standard query 0x0000 PTR _ftp._tcp.local, "QM" question PTR _nfs._tcp.local, "QM" question PTR _afpovertcp._tcp.local, "QM" question PTR _smb._tcp.local, "QM" question PTR _sftp-ssh._tcp.local, "QM" question PTR _webdavs._tcp.local, "QM" question PTR _webdav._tcp.local, "QM" question
+  201 62.606839226 192.168.1.12 → 224.0.0.251  MDNS 160 Standard query 0x0000 PTR _ftp._tcp.local, "QM" question PTR _nfs._tcp.local, "QM" question PTR _afpovertcp._tcp.local, "QM" question PTR _smb._tcp.local, "QM" question PTR _sftp-ssh._tcp.local, "QM" question PTR _webdavs._tcp.local, "QM" question PTR _webdav._tcp.local, "QM" question
+  202 64.151716075 192.168.1.12 → 13.232.193.230 TLSv1.2 120 Application Data
+  203 64.173341950 13.232.193.230 → 192.168.1.12 TLSv1.2 122 Application Data
+  204 64.173388136 192.168.1.12 → 13.232.193.230 TCP 66 38366 → 443 [ACK] Seq=379 Ack=485 Win=501 Len=0 TSval=2667962709 TSecr=2111665700
+  205 64.614812406 fe80::d11e:84d5:43ef:42a8 → ff02::fb     MDNS 180 Standard query 0x0000 PTR _ftp._tcp.local, "QM" question PTR _nfs._tcp.local, "QM" question PTR _afpovertcp._tcp.local, "QM" question PTR _smb._tcp.local, "QM" question PTR _sftp-ssh._tcp.local, "QM" question PTR _webdavs._tcp.local, "QM" question PTR _webdav._tcp.local, "QM" question
+  206 64.614886339 192.168.1.12 → 224.0.0.251  MDNS 160 Standard query 0x0000 PTR _ftp._tcp.local, "QM" question PTR _nfs._tcp.local, "QM" question PTR _afpovertcp._tcp.local, "QM" question PTR _smb._tcp.local, "QM" question PTR _sftp-ssh._tcp.local, "QM" question PTR _webdavs._tcp.local, "QM" question PTR _webdav._tcp.local, "QM" question
+  207 64.616138041 fe80::d11e:84d5:43ef:42a8 → ff02::fb     MDNS 180 Standard query 0x0000 PTR _ftp._tcp.local, "QM" question PTR _nfs._tcp.local, "QM" question PTR _afpovertcp._tcp.local, "QM" question PTR _smb._tcp.local, "QM" question PTR _sftp-ssh._tcp.local, "QM" question PTR _webdavs._tcp.local, "QM" question PTR _webdav._tcp.local, "QM" question
+  208 64.616181653 192.168.1.12 → 224.0.0.251  MDNS 160 Standard query 0x0000 PTR _ftp._tcp.local, "QM" question PTR _nfs._tcp.local, "QM" question PTR _afpovertcp._tcp.local, "QM" question PTR _smb._tcp.local, "QM" question PTR _sftp-ssh._tcp.local, "QM" question PTR _webdavs._tcp.local, "QM" question PTR _webdav._tcp.local, "QM" question
+  209 66.562967488 192.168.1.12 → 20.42.65.88  TLSv1.2 174 Application Data
+  210 66.563027704 192.168.1.12 → 20.42.65.88  TLSv1.2 2242 Application Data
+  211 66.804023946  20.42.65.88 → 192.168.1.12 TCP 54 443 → 53880 [ACK] Seq=1712 Ack=27297 Win=2053 Len=0
+  212 66.804024387  20.42.65.88 → 192.168.1.12 TLSv1.2 109 Application Data
+  213 66.804089025 192.168.1.12 → 20.42.65.88  TCP 54 53880 → 443 [ACK] Seq=27297 Ack=1767 Win=501 Len=0
+  214 66.804024444  20.42.65.88 → 192.168.1.12 TLSv1.2 96 Application Data
+  215 66.804115801 192.168.1.12 → 20.42.65.88  TCP 54 53880 → 443 [ACK] Seq=27297 Ack=1809 Win=501 Len=0
+  216 66.804804476  20.42.65.88 → 192.168.1.12 TLSv1.2 158 Application Data
+  217 66.804823487 192.168.1.12 → 20.42.65.88  TCP 54 53880 → 443 [ACK] Seq=27297 Ack=1913 Win=501 Len=0
+  218 66.806707507 192.168.1.12 → 20.42.65.88  TLSv1.2 96 Application Data
+  219 67.095734741  20.42.65.88 → 192.168.1.12 TCP 54 443 → 53880 [ACK] Seq=1913 Ack=27339 Win=2053 Len=0
+  220 67.919107891 192.168.1.12 → 13.127.99.68 TCP 66 [TCP Keep-Alive] 49996 → 443 [ACK] Seq=1 Ack=1 Win=501 Len=0 TSval=3343744123 TSecr=2533262816
+  221 67.952195266 13.127.99.68 → 192.168.1.12 TCP 66 [TCP Keep-Alive ACK] 443 → 49996 [ACK] Seq=1 Ack=2 Win=8 Len=0 TSval=2533307868 TSecr=3343731311
+  222 67.988764191 44.241.135.119 → 192.168.1.12 TLSv1.2 112 Application Data
+  223 67.988799961 192.168.1.12 → 44.241.135.119 TCP 66 52598 → 443 [ACK] Seq=3403 Ack=110 Win=501 Len=0 TSval=3678760949 TSecr=2256357612
+  224 67.988764577 44.241.135.119 → 192.168.1.12 TLSv1.2 97 Encrypted Alert
+  225 67.988813723 192.168.1.12 → 44.241.135.119 TCP 66 52598 → 443 [ACK] Seq=3403 Ack=141 Win=501 Len=0 TSval=3678760949 TSecr=2256357612
+  226 67.988764590 44.241.135.119 → 192.168.1.12 TCP 66 443 → 52598 [FIN, ACK] Seq=141 Ack=3403 Win=420 Len=0 TSval=2256357612 TSecr=3678700949
+  227 67.988921265 192.168.1.12 → 44.241.135.119 TCP 66 52598 → 443 [FIN, ACK] Seq=3403 Ack=142 Win=501 Len=0 TSval=3678760949 TSecr=2256357612
+  228 68.228762953 44.241.135.119 → 192.168.1.12 TCP 66 443 → 52598 [ACK] Seq=142 Ack=3404 Win=420 Len=0 TSval=2256357852 TSecr=3678760949
+  229 68.617318694 fe80::d11e:84d5:43ef:42a8 → ff02::fb     MDNS 180 Standard query 0x0000 PTR _ftp._tcp.local, "QM" question PTR _nfs._tcp.local, "QM" question PTR _afpovertcp._tcp.local, "QM" question PTR _smb._tcp.local, "QM" question PTR _sftp-ssh._tcp.local, "QM" question PTR _webdavs._tcp.local, "QM" question PTR _webdav._tcp.local, "QM" question
+  230 68.617400666 192.168.1.12 → 224.0.0.251  MDNS 160 Standard query 0x0000 PTR _ftp._tcp.local, "QM" question PTR _nfs._tcp.local, "QM" question PTR _afpovertcp._tcp.local, "QM" question PTR _smb._tcp.local, "QM" question PTR _sftp-ssh._tcp.local, "QM" question PTR _webdavs._tcp.local, "QM" question PTR _webdav._tcp.local, "QM" question
+  231 68.618643139 fe80::d11e:84d5:43ef:42a8 → ff02::fb     MDNS 180 Standard query 0x0000 PTR _ftp._tcp.local, "QM" question PTR _nfs._tcp.local, "QM" question PTR _afpovertcp._tcp.local, "QM" question PTR _smb._tcp.local, "QM" question PTR _sftp-ssh._tcp.local, "QM" question PTR _webdavs._tcp.local, "QM" question PTR _webdav._tcp.local, "QM" question
+  232 68.618677560 192.168.1.12 → 224.0.0.251  MDNS 160 Standard query 0x0000 PTR _ftp._tcp.local, "QM" question PTR _nfs._tcp.local, "QM" question PTR _afpovertcp._tcp.local, "QM" question PTR _smb._tcp.local, "QM" question PTR _sftp-ssh._tcp.local, "QM" question PTR _webdavs._tcp.local, "QM" question PTR _webdav._tcp.local, "QM" question
+  233 70.402858352 13.127.99.68 → 192.168.1.12 TCP 66 [TCP Keep-Alive] 443 → 34656 [ACK] Seq=1 Ack=1 Win=8 Len=0 TSval=1027386843 TSecr=3343685238
+  234 70.402920189 192.168.1.12 → 13.127.99.68 TCP 66 [TCP Keep-Alive ACK] 34656 → 443 [ACK] Seq=1 Ack=2 Win=501 Len=0 TSval=3343746606 TSecr=1027355718
+  235 71.203584156 192.168.1.12 → 20.42.65.88  TLSv1.2 174 Application Data
+  236 71.203651685 192.168.1.12 → 20.42.65.88  TLSv1.2 2242 Application Data
+  237 71.444095103  20.42.65.88 → 192.168.1.12 TCP 54 443 → 53880 [ACK] Seq=1913 Ack=29647 Win=2053 Len=0
+  238 71.444095660  20.42.65.88 → 192.168.1.12 TLSv1.2 109 Application Data
+  239 71.444095724  20.42.65.88 → 192.168.1.12 TLSv1.2 96 Application Data
+  240 71.444309879 192.168.1.12 → 20.42.65.88  TCP 54 53880 → 443 [ACK] Seq=29647 Ack=2010 Win=501 Len=0
+  241 71.444318632  20.42.65.88 → 192.168.1.12 TLSv1.2 154 Application Data
+  242 71.487221585 192.168.1.12 → 20.42.65.88  TCP 54 53880 → 443 [ACK] Seq=29647 Ack=2110 Win=501 Len=0
+  243 74.151842478 192.168.1.12 → 13.232.193.230 TLSv1.2 120 Application Data
+  244 74.169039980 13.232.193.230 → 192.168.1.12 TLSv1.2 122 Application Data
+  245 74.169086953 192.168.1.12 → 13.232.193.230 TCP 66 38366 → 443 [ACK] Seq=433 Ack=541 Win=501 Len=0 TSval=2667972705 TSecr=2111675701
+  246 76.621328671 fe80::d11e:84d5:43ef:42a8 → ff02::fb     MDNS 180 Standard query 0x0000 PTR _ftp._tcp.local, "QM" question PTR _nfs._tcp.local, "QM" question PTR _afpovertcp._tcp.local, "QM" question PTR _smb._tcp.local, "QM" question PTR _sftp-ssh._tcp.local, "QM" question PTR _webdavs._tcp.local, "QM" question PTR _webdav._tcp.local, "QM" question
+  247 76.621397585 192.168.1.12 → 224.0.0.251  MDNS 160 Standard query 0x0000 PTR _ftp._tcp.local, "QM" question PTR _nfs._tcp.local, "QM" question PTR _afpovertcp._tcp.local, "QM" question PTR _smb._tcp.local, "QM" question PTR _sftp-ssh._tcp.local, "QM" question PTR _webdavs._tcp.local, "QM" question PTR _webdav._tcp.local, "QM" question
+  248 76.622955227 fe80::d11e:84d5:43ef:42a8 → ff02::fb     MDNS 180 Standard query 0x0000 PTR _ftp._tcp.local, "QM" question PTR _nfs._tcp.local, "QM" question PTR _afpovertcp._tcp.local, "QM" question PTR _smb._tcp.local, "QM" question PTR _sftp-ssh._tcp.local, "QM" question PTR _webdavs._tcp.local, "QM" question PTR _webdav._tcp.local, "QM" question
+  249 76.623004267 192.168.1.12 → 224.0.0.251  MDNS 160 Standard query 0x0000 PTR _ftp._tcp.local, "QM" question PTR _nfs._tcp.local, "QM" question PTR _afpovertcp._tcp.local, "QM" question PTR _smb._tcp.local, "QM" question PTR _sftp-ssh._tcp.local, "QM" question PTR _webdavs._tcp.local, "QM" question PTR _webdav._tcp.local, "QM" question
+  250 82.259104520 192.168.1.12 → 52.139.250.209 TCP 66 [TCP Dup ACK 98#1] 58620 → 443 [ACK] Seq=1 Ack=1 Win=501 Len=0 TSval=2180826946 TSecr=3017191513
+  251 82.300316501 52.139.250.209 → 192.168.1.12 TCP 66 [TCP Dup ACK 99#1] [TCP ACKed unseen segment] 443 → 58620 [ACK] Seq=1 Ack=2 Win=501 Len=0 TSval=3017236573 TSecr=2178753974
+  252 84.151662909 192.168.1.12 → 13.232.193.230 TLSv1.2 120 Application Data
+  253 84.169327592 13.232.193.230 → 192.168.1.12 TLSv1.2 122 Application Data
+  254 84.169389675 192.168.1.12 → 13.232.193.230 TCP 66 38366 → 443 [ACK] Seq=487 Ack=597 Win=501 Len=0 TSval=2667982705 TSecr=2111685701
+  255 84.303103565 192.168.1.12 → 13.127.99.68 TCP 66 [TCP Keep-Alive] 34656 → 443 [ACK] Seq=0 Ack=2 Win=501 Len=0 TSval=3343760507 TSecr=1027355718
+  256 84.329220226 13.127.99.68 → 192.168.1.12 TCP 66 [TCP Keep-Alive ACK] 443 → 34656 [ACK] Seq=2 Ack=1 Win=8 Len=0 TSval=1027400769 TSecr=3343746606
+  257 84.892241239 192.168.1.12 → 192.168.1.1  DNS 85 Standard query 0x12d3 A 204.pop-os.org OPT
+  258 84.892310047 192.168.1.12 → 192.168.1.1  DNS 85 Standard query 0x59f2 AAAA 204.pop-os.org OPT
+  259 84.897909039  192.168.1.1 → 192.168.1.12 DNS 622 Standard query response 0x59f2 AAAA 204.pop-os.org AAAA 2600:9000:2149:a000:16:ce8a:5480:93a1 AAAA 2600:9000:2149:fa00:16:ce8a:5480:93a1 AAAA 2600:9000:2149:e200:16:ce8a:5480:93a1 AAAA 2600:9000:2149:d400:16:ce8a:5480:93a1 AAAA 2600:9000:2149:5800:16:ce8a:5480:93a1 AAAA 2600:9000:2149:9200:16:ce8a:5480:93a1 AAAA 2600:9000:2149:a600:16:ce8a:5480:93a1 AAAA 2600:9000:2149:2c00:16:ce8a:5480:93a1 NS ns-893.awsdns-47.net NS ns-1778.awsdns-30.co.uk NS ns-1501.awsdns-59.org NS ns-479.awsdns-59.com A 205.251.193.223 A 205.251.195.125 A 205.251.197.221 A 205.251.198.242 AAAA 2600:9000:5301:df00::1 AAAA 2600:9000:5303:7d00::1 AAAA 2600:9000:5305:dd00::1 AAAA 2600:9000:5306:f200::1 OPT
+  260 84.898136398  192.168.1.1 → 192.168.1.12 DNS 430 Standard query response 0x12d3 A 204.pop-os.org A 99.86.20.122 A 99.86.20.70 A 99.86.20.20 A 99.86.20.21 NS ns-1501.awsdns-59.org NS ns-479.awsdns-59.com NS ns-1778.awsdns-30.co.uk NS ns-893.awsdns-47.net A 205.251.197.221 A 205.251.198.242 AAAA 2600:9000:5301:df00::1 AAAA 2600:9000:5303:7d00::1 AAAA 2600:9000:5305:dd00::1 AAAA 2600:9000:5306:f200::1 OPT
+  261 85.111413075 192.168.1.12 → 20.42.65.88  TLSv1.2 174 Application Data
+  262 85.111454102 192.168.1.12 → 20.42.65.88  TLSv1.2 2288 Application Data, Application Data
+  263 85.352397090  20.42.65.88 → 192.168.1.12 TCP 54 443 → 53880 [ACK] Seq=2110 Ack=32001 Win=2053 Len=0
+  264 85.352397576  20.42.65.88 → 192.168.1.12 TLSv1.2 100 Application Data
+  265 85.352459566 192.168.1.12 → 20.42.65.88  TCP 54 53880 → 443 [ACK] Seq=32001 Ack=2156 Win=501 Len=0
+  266 85.352397633  20.42.65.88 → 192.168.1.12 TLSv1.2 109 Application Data
+  267 85.352488092 192.168.1.12 → 20.42.65.88  TCP 54 53880 → 443 [ACK] Seq=32001 Ack=2211 Win=501 Len=0
+  268 85.352397689  20.42.65.88 → 192.168.1.12 TLSv1.2 96 Application Data
+  269 85.352496950 192.168.1.12 → 20.42.65.88  TCP 54 53880 → 443 [ACK] Seq=32001 Ack=2253 Win=501 Len=0
+  270 85.352663442  20.42.65.88 → 192.168.1.12 TLSv1.2 158 Application Data
+  271 85.352684581 192.168.1.12 → 20.42.65.88  TCP 54 53880 → 443 [ACK] Seq=32001 Ack=2357 Win=501 Len=0
+  272 85.354894341 192.168.1.12 → 20.42.65.88  TLSv1.2 96 Application Data
+  273 85.548380837 fe80::d11e:84d5:43ef:42a8 → ff02::1:2    DHCPv6 106 Information-request XID: 0x02a23a CID: 00049be2215f4cf02516900c3d5675c2b679 
+  274 85.645340536  20.42.65.88 → 192.168.1.12 TCP 54 443 → 53880 [ACK] Seq=2357 Ack=32043 Win=2053 Len=0
+  275 86.425325216 fe80::d11e:84d5:43ef:42a8 → 2600:9000:2149:9200:16:ce8a:5480:93a1 TCP 94 59820 → 80 [SYN] Seq=0 Win=64800 Len=0 MSS=1440 SACK_PERM=1 TSval=3018022410 TSecr=0 WS=128
+  276 86.426762855      fe80::1 → fe80::d11e:84d5:43ef:42a8 ICMPv6 142 Destination Unreachable (no route to destination)
+  277 86.426949222 fe80::d11e:84d5:43ef:42a8 → 2600:9000:2149:a600:16:ce8a:5480:93a1 TCP 94 40256 → 80 [SYN] Seq=0 Win=64800 Len=0 MSS=1440 SACK_PERM=1 TSval=3419746900 TSecr=0 WS=128
+  278 86.427984947      fe80::1 → fe80::d11e:84d5:43ef:42a8 ICMPv6 142 Destination Unreachable (no route to destination)
+  279 86.428069934 fe80::d11e:84d5:43ef:42a8 → 2600:9000:2149:e200:16:ce8a:5480:93a1 TCP 94 35522 → 80 [SYN] Seq=0 Win=64800 Len=0 MSS=1440 SACK_PERM=1 TSval=1098783303 TSecr=0 WS=128
+  280 86.428942607      fe80::1 → fe80::d11e:84d5:43ef:42a8 ICMPv6 142 Destination Unreachable (no route to destination)
+  281 86.429010904 fe80::d11e:84d5:43ef:42a8 → 2600:9000:2149:fa00:16:ce8a:5480:93a1 TCP 94 37642 → 80 [SYN] Seq=0 Win=64800 Len=0 MSS=1440 SACK_PERM=1 TSval=3182288462 TSecr=0 WS=128
+  282 86.429909546      fe80::1 → fe80::d11e:84d5:43ef:42a8 ICMPv6 142 Destination Unreachable (no route to destination)
+  283 86.429973482 fe80::d11e:84d5:43ef:42a8 → 2600:9000:2149:d400:16:ce8a:5480:93a1 TCP 94 53072 → 80 [SYN] Seq=0 Win=64800 Len=0 MSS=1440 SACK_PERM=1 TSval=1457544063 TSecr=0 WS=128
+  284 86.430815624      fe80::1 → fe80::d11e:84d5:43ef:42a8 ICMPv6 142 Destination Unreachable (no route to destination)
+  285 86.430882802 fe80::d11e:84d5:43ef:42a8 → 2600:9000:2149:2c00:16:ce8a:5480:93a1 TCP 94 44012 → 80 [SYN] Seq=0 Win=64800 Len=0 MSS=1440 SACK_PERM=1 TSval=3090138904 TSecr=0 WS=128
+  286 86.431807318      fe80::1 → fe80::d11e:84d5:43ef:42a8 ICMPv6 142 Destination Unreachable (no route to destination)
+  287 86.431878988 fe80::d11e:84d5:43ef:42a8 → 2600:9000:2149:a000:16:ce8a:5480:93a1 TCP 94 50628 → 80 [SYN] Seq=0 Win=64800 Len=0 MSS=1440 SACK_PERM=1 TSval=3699878572 TSecr=0 WS=128
+  288 87.243050259  192.168.1.9 → 224.0.0.251  MDNS 287 Standard query response 0x0000 PTR, cache flush Android.local PTR, cache flush Android.local A, cache flush 192.168.1.9 AAAA, cache flush fe80::f4b7:2dff:feba:2800 NSEC, cache flush 9.1.168.192.in-addr.arpa NSEC, cache flush 0.0.8.2.A.B.E.F.F.F.D.2.7.B.4.F.0.0.0.0.0.0.0.0.0.0.0.0.0.8.E.F.ip6.arpa NSEC, cache flush Android.local
+  289 87.243364565 fe80::f4b7:2dff:feba:2800 → ff02::fb     MDNS 307 Standard query response 0x0000 PTR, cache flush Android.local PTR, cache flush Android.local A, cache flush 192.168.1.9 AAAA, cache flush fe80::f4b7:2dff:feba:2800 NSEC, cache flush 9.1.168.192.in-addr.arpa NSEC, cache flush 0.0.8.2.A.B.E.F.F.F.D.2.7.B.4.F.0.0.0.0.0.0.0.0.0.0.0.0.0.8.E.F.ip6.arpa NSEC, cache flush Android.local

@@ -72,6 +72,7 @@ require (
 	github.com/agnivade/levenshtein v1.1.1
 	github.com/glaslos/ssdeep v0.3.3
 	github.com/go-git/go-git/v5 v5.8.1
+	github.com/google/gopacket v1.1.19
 	github.com/hashicorp/go-version v1.6.0
 	github.com/jackc/pgproto3/v2 v2.3.2
 )

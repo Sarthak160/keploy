@@ -1,6 +1,6 @@
 version: api.keploy.io/v1beta2
 kind: Http
-name: test-2
+name: test-1
 spec:
     metadata: {}
     req:
@@ -26,8 +26,8 @@ spec:
         status_code: 200
         header:
             Content-Type: application/json
-            Date: Mon, 21 Aug 2023 06:57:32 GMT
-        body: '{"id":10,"firstName":"Myke","lastName":"Tyson","email":"mt@gmail.com","timestamp":1692601052}'
+            Date: Sun, 20 Aug 2023 20:44:20 GMT
+        body: '{"id":8,"firstName":"Myke","lastName":"Tyson","email":"mt@gmail.com","timestamp":1692564260}'
         body_type: ""
         status_message: ""
         proto_major: 0
@@ -36,4 +36,4 @@ spec:
     assertions:
         noise:
             - header.Date
-    created: 1692601054
+    created: 1692564262

@@ -1,13 +1,13 @@
 version: api.keploy.io/v1beta2
 kind: Http
-name: test-3
+name: test-2
 spec:
     metadata: {}
     req:
         method: GET
         proto_major: 1
         proto_minor: 1
-        url: http://localhost:8080/api/employees/5
+        url: http://localhost:8080/api/employees/3
         header:
             Accept: '*/*'
             Host: localhost:8080
@@ -18,8 +18,8 @@ spec:
         status_code: 200
         header:
             Content-Type: application/json
-            Date: Mon, 21 Aug 2023 06:57:36 GMT
-        body: '{"id":5,"firstName":"Myke","lastName":"Tyson","email":"mt@gmail.com","timestamp":1692544003}'
+            Date: Sun, 20 Aug 2023 20:44:28 GMT
+        body: '{"id":3,"firstName":"Myke","lastName":"Tyson","email":"mt@gmail.com","timestamp":1692544001}'
         body_type: ""
         status_message: ""
         proto_major: 0
@@ -28,4 +28,4 @@ spec:
     assertions:
         noise:
             - header.Date
-    created: 1692601058
+    created: 1692564269

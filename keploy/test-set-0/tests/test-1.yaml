@@ -4,35 +4,28 @@ name: test-1
 spec:
     metadata: {}
     req:
-        method: POST
+        method: GET
         proto_major: 1
         proto_minor: 1
-        url: http://localhost:8080/api/employees
+        url: http://localhost:8080/api/employees/1
         header:
             Accept: '*/*'
-            Content-Length: "109"
-            Content-Type: application/json
             Host: localhost:8080
             User-Agent: curl/7.81.0
-        body: |-
-            {
-                "firstName": "Ritik",
-                "lastName": "Jain",
-                "email": "gouravkrosx@gmail.com",
-                "timestamp":1
-            }
+        body: ""
         body_type: ""
     resp:
         status_code: 200
         header:
             Content-Type: application/json
-            Date: Wed, 16 Aug 2023 07:57:44 GMT
-        body: '{"id":6,"firstName":"Ritik","lastName":"Jain","email":"gouravkrosx@gmail.com","timestamp":1692172664}'
+            Date: Mon, 21 Aug 2023 06:57:21 GMT
+        body: '{"id":1,"firstName":"Myke","lastName":"Tyson","email":"mt@gmail.com","timestamp":1692543997}'
         body_type: ""
         status_message: ""
         proto_major: 0
         proto_minor: 0
     objects: []
     assertions:
-        noise: []
-    created: 1692172666
+        noise:
+            - header.Date
+    created: 1692601043

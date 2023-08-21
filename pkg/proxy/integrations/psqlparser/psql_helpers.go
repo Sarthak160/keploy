@@ -3,7 +3,6 @@ package psqlparser
 import (
 	"encoding/base64"
 	"fmt"
-	"net"
 
 	// "time"
 	// "sync"
@@ -12,17 +11,15 @@ import (
 	// "encoding/json"
 
 	// "fmt"
-	"go.keploy.io/server/pkg/proxy/util"
+
 	// "bytes"
 	"encoding/binary"
 	"errors"
-	"io"
 	"unicode"
 
 	"github.com/agnivade/levenshtein"
 	"go.keploy.io/server/pkg/hooks"
 	"go.keploy.io/server/pkg/models"
-	"go.uber.org/zap"
 )
 
 func remainingBits(superset, subset []byte) []byte {
@@ -47,81 +44,6 @@ func remainingBits(superset, subset []byte) []byte {
 	}
 
 	return difference
-}
-
-func startProxy(buffer []byte, clientConn, destConn net.Conn, logger *zap.Logger, h *hooks.Hook) []*models.Mock {
-
-	logger.Info(Emoji + "Encoding outgoing Postgres call !!")
-	// write the request message to the postgres server
-	_, err := destConn.Write(buffer)
-	if err != nil {
-		logger.Error(Emoji+"failed to write the request buffer to postgres server", zap.Error(err), zap.String("postgres server address", destConn.RemoteAddr().String()))
-		return nil
-	}
-
-	// // read reply message from the postgres server
-	responseBuffer, err := util.ReadBytes(destConn)
-	if err != nil {
-		logger.Error(Emoji+"failed to read reply from the postgres server", zap.Error(err), zap.String("postgres server address", destConn.RemoteAddr().String()))
-		return nil
-	}
-
-	// write the reply to postgres client
-	_, err = clientConn.Write(responseBuffer)
-	if err != nil {
-		logger.Error(Emoji+"failed to write the reply message to postgres client", zap.Error(err))
-		return nil
-	}
-
-	clientToDest := make(chan []byte)
-	destToClient := make(chan []byte)
-
-	// Client to Destination communication
-	go func() {
-		defer clientConn.Close()
-		for data := range clientToDest {
-			_, err := destConn.Write(data)
-			if err != nil {
-				fmt.Printf("Error writing to destination server: %v", err)
-				return
-			}
-		}
-	}()
-
-	// Destination to Client communication
-	go func() {
-		defer destConn.Close()
-		for {
-			bytesRead, err := destConn.Read(buffer)
-			if err != nil {
-				if err != io.EOF {
-					fmt.Printf("Error reading from destination server: %v", err)
-				}
-				return
-			}
-			destToClient <- buffer[:bytesRead]
-		}
-	}()
-
-	// Main loop for client-destination server communication
-	for {
-		bytesRead, err := clientConn.Read(buffer)
-		if err != nil {
-			if err != io.EOF {
-				fmt.Printf("Error reading from client: %v", err)
-			}
-			return nil
-		}
-		clientToDest <- buffer[:bytesRead]
-
-		// Read from destToClient channel and send back to client
-		response := <-destToClient
-		_, err = clientConn.Write(response)
-		if err != nil {
-			fmt.Printf("Error writing to client: %v", err)
-			return nil
-		}
-	}
 }
 
 func PostgresDecoder(encoded string) ([]byte, error) {
@@ -261,38 +183,38 @@ func IsAsciiPrintable(s string) bool {
 
 func Fuzzymatch(configMocks, tcsMocks []*models.Mock, reqBuff []byte, h *hooks.Hook) (bool, string) {
 	com := PostgresEncoder(reqBuff)
-	for idx, mock := range configMocks {
+	for idx, mock := range tcsMocks {
 		encoded, _ := PostgresDecoder(mock.Spec.PostgresReq.Payload)
 
 		if string(encoded) == string(reqBuff) || mock.Spec.PostgresReq.Payload == com {
 			fmt.Println("matched in first loop")
-			configMocks = append(configMocks[:idx], configMocks[idx+1:]...)
-			h.SetConfigMocks(configMocks)
+			tcsMocks = append(tcsMocks[:idx], tcsMocks[idx+1:]...)
+			h.SetTcsMocks(tcsMocks)
 			return true, mock.Spec.PostgresResp.Payload
 		}
 	}
 	// convert all the configmocks to string array
-	mockString := make([]string, len(configMocks))
-	for i := 0; i < len(configMocks); i++ {
-		mockString[i] = string(configMocks[i].Spec.PostgresReq.Payload)
+	mockString := make([]string, len(tcsMocks))
+	for i := 0; i < len(tcsMocks); i++ {
+		mockString[i] = string(tcsMocks[i].Spec.PostgresReq.Payload)
 	}
 	// find the closest match
 	if IsAsciiPrintable(string(reqBuff)) {
 		fmt.Println("Inside String Match")
 		idx := findStringMatch(string(reqBuff), mockString)
 		if idx != -1 {
-			nMatch := configMocks[idx].Spec.PostgresResp.Payload
-			configMocks = append(configMocks[:idx], configMocks[idx+1:]...)
-			h.SetConfigMocks(configMocks)
+			nMatch := tcsMocks[idx].Spec.PostgresResp.Payload
+			tcsMocks = append(tcsMocks[:idx], tcsMocks[idx+1:]...)
+			h.SetTcsMocks(tcsMocks)
 			fmt.Println("Returning mock from String Match !!")
 			return true, nMatch
 		}
 	}
-	idx := findBinaryMatch(configMocks, reqBuff, h)
+	idx := findBinaryMatch(tcsMocks, reqBuff, h)
 	if idx != -1 {
-		nMatch := configMocks[idx].Spec.PostgresResp.Payload
-		configMocks = append(configMocks[:idx], configMocks[idx+1:]...)
-		h.SetConfigMocks(configMocks)
+		nMatch := tcsMocks[idx].Spec.PostgresResp.Payload
+		tcsMocks = append(tcsMocks[:idx], tcsMocks[idx+1:]...)
+		h.SetTcsMocks(tcsMocks)
 		return true, nMatch
 	}
 	return false, ""
@@ -309,7 +231,7 @@ func findBinaryMatch(configMocks []*models.Mock, reqBuff []byte, h *hooks.Hook) 
 		shingles1 := CreateShingles(encoded, k)
 		shingles2 := CreateShingles(reqBuff, k)
 		similarity := JaccardSimilarity(shingles1, shingles2)
-		fmt.Printf("Jaccard Similarity: %f\n", similarity)
+	
 		if mxSim < similarity {
 			mxSim = similarity
 			mxIdx = idx

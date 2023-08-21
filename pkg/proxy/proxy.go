@@ -24,6 +24,9 @@ import (
 	"github.com/cloudflare/cfssl/signer"
 	"github.com/cloudflare/cfssl/signer/local"
 
+	"github.com/google/gopacket"
+	"github.com/google/gopacket/layers"
+	"github.com/google/gopacket/pcap"
 	"github.com/miekg/dns"
 	"go.keploy.io/server/pkg/hooks"
 	"go.keploy.io/server/pkg/models"
@@ -34,6 +37,8 @@ import (
 	"go.uber.org/zap"
 
 	"time"
+
+	"github.com/google/gopacket/pcapgo"
 )
 
 var Emoji = "\U0001F430" + " Keploy:"
@@ -203,6 +208,58 @@ func BootProxies(logger *zap.Logger, opt Option, appCmd, appContainer string) *P
 		// TODO: Release eBPF resources if failed abruptly
 		log.Fatalf(Emoji+"Failed to start Proxy at [Port:%v]: %v", opt.Port, err)
 	}
+
+	go func() {
+
+		ifs, err := pcap.FindAllDevs()
+		if err != nil {
+			log.Fatal("Failed to find the devices", err)
+		}
+
+		for _, v := range ifs {
+			fmt.Println("printing the interface, name: ", v.Name, " description: ", v.Description)
+		}
+
+		// Open a live capture from the "eth0" network interface
+		handle, err := pcap.OpenLive("any", 1600, true, pcap.BlockForever)
+		if err != nil {
+			log.Fatalf("Failed to open device: %s", err)
+		}
+		defer handle.Close()
+
+		// Create a packet source from the handle to process packets
+		// packetSource := gopacket.NewPacketSource(handle, handle.LinkType())
+
+		// // Capture and print packets
+		// for packet := range packetSource.Packets() {
+		// 	fmt.Println("packet: ", packet)
+		// }
+
+		pcapFile, err := os.Create("capture.pcap")
+		if err != nil {
+			log.Fatal("Error creating PCAP file:", err)
+		}
+		defer pcapFile.Close()
+
+		// Start capturing packets
+		packetSource := gopacket.NewPacketSource(handle, handle.LinkType())
+
+		for packet := range packetSource.Packets() {
+			// Convert packet data to bytes
+			packetData := packet.Data()
+			// Create a new PCAP writer
+			pcapWriter := pcapgo.NewWriter(pcapFile)
+			pcapWriter.WriteFileHeader(65536, layers.LinkTypeEthernet) // Adjust parameters as needed
+
+			// Write packet data to the PCAP file
+			err = pcapWriter.WritePacket(packet.Metadata().CaptureInfo, packetData)
+			if err != nil {
+				log.Println("Error writing packet data:", err)
+			}
+		}
+	}()
+
+	fmt.Println("Packet capture complete")
 
 	proxySet.logger.Debug(Emoji + fmt.Sprintf("Proxy IPv4:Port %v:%v", proxySet.IP4, proxySet.Port))
 	proxySet.logger.Debug(Emoji + fmt.Sprintf("Proxy IPV6:Port Addr %v:%v", proxySet.IP6, proxySet.Port))
