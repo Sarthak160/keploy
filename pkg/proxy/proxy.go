@@ -791,7 +791,7 @@ func (ps *ProxySet) handleConnection(conn net.Conn, port uint32, ctx context.Con
 
 	remoteAddr := conn.RemoteAddr().(*net.TCPAddr)
 	sourcePort := remoteAddr.Port
-
+	
 	ps.logger.Debug("Inside handleConnection of proxyServer", zap.Any("source port", sourcePort), zap.Any("Time", time.Now().Unix()))
 
 	//TODO:  fix this bug, getting source port same as proxy port.
@@ -807,9 +807,6 @@ func (ps *ProxySet) handleConnection(conn net.Conn, port uint32, ctx context.Con
 	}
 
 	if destInfo.IpVersion == 4 {
-		// fmt.Println("destInfo--->", destInfo.DestIp4)
-		// ipStr := uint32ToIP(destInfo.DestIp4)
-		// fmt.Println("ipStr--->", ipStr)
 		ps.logger.Debug("", zap.Any("DestIp4", destInfo.DestIp4), zap.Any("DestPort", destInfo.DestPort), zap.Any("KernelPid", destInfo.KernelPid))
 	} else if destInfo.IpVersion == 6 {
 		ps.logger.Debug("", zap.Any("DestIp6", destInfo.DestIp6), zap.Any("DestPort", destInfo.DestPort), zap.Any("KernelPid", destInfo.KernelPid))
@@ -899,8 +896,8 @@ func (ps *ProxySet) handleConnection(conn net.Conn, port uint32, ctx context.Con
 		certFile := ps.MtlsCertPath
 		keyFile := ps.MtlsKeyPath
 		cert, err := tls.LoadX509KeyPair(certFile, keyFile)
-		if err != nil {
-			log.Fatalf("failed to load client certificate: %v", err)
+		if err != nil && models.GetMode() != models.MODE_TEST{
+			ps.logger.Error("failed to load the certificate and key pair", zap.Error(err))
 		}
 		//Dialing for tls connection
 		destConnId := getNextID()
@@ -912,7 +909,6 @@ func (ps *ProxySet) handleConnection(conn net.Conn, port uint32, ctx context.Con
 				ServerName:         destinationUrl,
 				Certificates:       []tls.Certificate{cert},
 			}
-
 			if ps.MtlsHostName != "" {
 				// ip, _, err := net.SplitHostPort(ps.MtlsHostName)
 				// if err != nil {
@@ -1033,6 +1029,7 @@ func (ps *ProxySet) callNext(requestBuffer []byte, clientConn, destConn net.Conn
 }
 
 func (ps *ProxySet) StopProxyServer() {
+	time.Sleep(3*time.Second)
 	ps.connMutex.Lock()
 	for _, clientConn := range ps.clientConnections {
 		clientConn.Close()

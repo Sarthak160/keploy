@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"io/ioutil"
+	"os"
 	"path/filepath"
 	"time"
 
@@ -215,7 +216,7 @@ type Compose struct {
 
 // CheckNetworkInfo returns information about network name and also about whether the network is external or not in a docker-compose file.
 func (idc *internalDockerClient) CheckNetworkInfo(filePath string) (bool, bool, string) {
-	data, err := ioutil.ReadFile(filePath)
+	data, err := os.ReadFile(filePath)
 	if err != nil {
 		idc.logger.Error("error reading file", zap.Any("filePath", filePath), zap.Error(err))
 		return false, false, ""
@@ -293,7 +294,7 @@ func (idc *internalDockerClient) CheckNetworkInfo(filePath string) (bool, bool, 
 
 // MakeNetworkExternal makes the existing network of the user docker compose file external and save it to a new file
 func (idc *internalDockerClient) MakeNetworkExternal(dockerComposefilePath, newComposeFile string) error {
-	data, err := ioutil.ReadFile(dockerComposefilePath)
+	data, err := os.ReadFile(dockerComposefilePath)
 	if err != nil {
 		return err
 	}
@@ -350,7 +351,7 @@ func (idc *internalDockerClient) MakeNetworkExternal(dockerComposefilePath, newC
 	}
 
 	newFilePath := filepath.Join(filepath.Dir(dockerComposefilePath), newComposeFile)
-	err = ioutil.WriteFile(newFilePath, newData, 0644)
+	err = os.WriteFile(newFilePath, newData, 0644)
 	if err != nil {
 		return err
 	}
@@ -361,7 +362,7 @@ func (idc *internalDockerClient) MakeNetworkExternal(dockerComposefilePath, newC
 // AddNetworkToCompose adds the keploy-network network to the new docker compose file and copy rest of the contents from
 // existing user docker compose file
 func (idc *internalDockerClient) AddNetworkToCompose(dockerComposefilePath, newComposeFile string) error {
-	data, err := ioutil.ReadFile(dockerComposefilePath)
+	data, err := os.ReadFile(dockerComposefilePath)
 	if err != nil {
 		return err
 	}

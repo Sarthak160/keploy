@@ -1,0 +1,1625 @@
+
+       ▓██▓▄
+    ▓▓▓▓██▓█▓▄
+     ████████▓▒
+          ▀▓▓███▄      ▄▄   ▄               ▌
+         ▄▌▌▓▓████▄    ██ ▓█▀  ▄▌▀▄  ▓▓▌▄   ▓█  ▄▌▓▓▌▄ ▌▌   ▓
+       ▓█████████▌▓▓   ██▓█▄  ▓█▄▓▓ ▐█▌  ██ ▓█  █▌  ██  █▌ █▓
+      ▓▓▓▓▀▀▀▀▓▓▓▓▓▓▌  ██  █▓  ▓▌▄▄ ▐█▓▄▓█▀ █▓█ ▀█▄▄█▀   █▓█
+       ▓▌                           ▐█▌                   █▌
+        ▓
+  
+version: 2-dev
+
+2023/12/22 12:00:04 listen tcp 127.0.0.1:6060: bind: address already in use
+🐰 Keploy: 2023-12-22T12:00:04Z 	[34mINFO[0m	cmd/test.go:224	continuing without configuration file because file not found
+Warning: delay is set to 5 seconds, incase your app takes more time to start use --delay to set custom delay
+Example usage:
+ sudo -E env PATH=$PATH keploy test -c "/path/to/user/app" --delay 6
+🐰 Keploy: 2023-12-22T12:00:04Z 	[34mINFO[0m	cmd/test.go:270		{"keploy test and mock path": "/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/keploy", "keploy testReport path": "/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/keploy/testReports"}
+🐰 Keploy: 2023-12-22T12:00:04Z 	[35mDEBUG[0m	cmd/test.go:287	the ports are	{"ports": []}
+🐰 Keploy: 2023-12-22T12:00:04Z 	[35mDEBUG[0m	cmd/test.go:294	the configuration for mocking mongo connection	{"password": "default123"}
+🐰 Keploy: 2023-12-22T12:00:05Z 	[34mINFO[0m	hooks/loader.go:748	keploy initialized and probes added to the kernel.
+🐰 Keploy: 2023-12-22T12:00:05Z 	[35mDEBUG[0m	hooks/loader.go:759		{"Keploy Inode number": 4026531836}
+🐰 Keploy: 2023-12-22T12:00:05Z 	[35mDEBUG[0m	hooks/loader.go:268	Sending keploy pid to kernel	{"pid": 2572412}
+🐰 Keploy: 2023-12-22T12:00:05Z 	[35mDEBUG[0m	hooks/loader.go:762	Keploy Pid sent successfully...
+🐰 Keploy: 2023-12-22T12:00:05Z 	[35mDEBUG[0m	proxy/proxy.go:261		{"isJavaServe": false}
+🐰 Keploy: 2023-12-22T12:00:05Z 	[35mDEBUG[0m	proxy/proxy.go:266	checking java path from default java home
+🐰 Keploy: 2023-12-22T12:00:05Z 	[35mDEBUG[0m	proxy/proxy.go:281		{"java_home": "/usr/lib/jvm/java-17-openjdk-arm64", "caCertsPath": "/usr/lib/jvm/java-17-openjdk-arm64/lib/security/cacerts", "caPath": "/usr/local/share/ca-certificates/ca.crt"}
+🐰 Keploy: 2023-12-22T12:00:06Z 	[34mINFO[0m	proxy/proxy.go:284	Java detected and CA already exists	{"path": "/usr/lib/jvm/java-17-openjdk-arm64/lib/security/cacerts"}
+🐰 Keploy: 2023-12-22T12:00:06Z 	[35mDEBUG[0m	proxy/proxy.go:261		{"isJavaServe": false}
+🐰 Keploy: 2023-12-22T12:00:06Z 	[35mDEBUG[0m	proxy/proxy.go:266	checking java path from default java home
+🐰 Keploy: 2023-12-22T12:00:06Z 	[35mDEBUG[0m	proxy/proxy.go:281		{"java_home": "/usr/lib/jvm/java-17-openjdk-arm64", "caCertsPath": "/usr/lib/jvm/java-17-openjdk-arm64/lib/security/cacerts", "caPath": "/etc/ssl/certs/ca.crt"}
+🐰 Keploy: 2023-12-22T12:00:06Z 	[34mINFO[0m	proxy/proxy.go:284	Java detected and CA already exists	{"path": "/usr/lib/jvm/java-17-openjdk-arm64/lib/security/cacerts"}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:445	Running Dns Server in Test mode...
+🐰 Keploy: 2023-12-22T12:00:09Z 	[34mINFO[0m	proxy/proxy.go:446	Keploy has hijacked the DNS resolution mechanism, your application may misbehave in keploy test mode if you have provided wrong domain name in your application code.
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:458	Proxy IPv4:Port 3232236815:16789
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:556		{"ProxyAddress4": "192.168.5.15"}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[34mINFO[0m	proxy/proxy.go:617	starting DNS server at addr :16789
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:459	Proxy IPV6:Port Addr [0 0 0 1]:16789
+🐰 Keploy: 2023-12-22T12:00:09Z 	[34mINFO[0m	proxy/proxy.go:460	Proxy started at port:16789
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	test/test.go:109	the session indices are:[test-set-1]
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:559		{"ProxyAddress6": "::1"}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:568	Proxy server is listening on :[::]:16789
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:569	Proxy will accept both ipv4 and ipv6 connections	{"Ipv4": "192.168.5.15", "Ipv6": "::1"}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	yaml/yaml.go:228	no tests are recorded for the session	{"index": "test-set-1"}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	test/test.go:242	the testcases for test-set-1 are: []
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	test/test.go:250	the config mocks for test-set-1 are: []
+the testcase mocks are: [0x40025e2000 0x40025e2160 0x40025e22c0 0x40025e2420 0x40025e2580 0x40025e26e0 0x40025e2840 0x40025e29a0 0x40025e2b00 0x40025e2c60 0x40025e2dc0 0x40025e2f20 0x40025e3080 0x40025e31e0 0x40025e3340 0x40025e34a0 0x40025e3600 0x40025e3760 0x40025e38c0 0x40025e3a20 0x40025e3b80 0x40025e3ce0 0x40025e3e40 0x40025fc000 0x40025fc160 0x40025fc2c0 0x40025fc420 0x40025fc580 0x40025fc6e0 0x40025fc840 0x40025fc9a0 0x40025fcb00 0x40025fcc60 0x40025fcdc0 0x40025fcf20 0x40025fd080 0x40025fd1e0 0x40025fd340 0x40025fd4a0 0x40025fd600 0x40025fd760 0x40025fd8c0 0x40025fda20 0x40025fdb80 0x40025fdce0 0x40025fde40 0x400260e000 0x400260e160 0x400260e2c0]
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	test/test.go:254		{"app pid": 0}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[34mINFO[0m	test/test.go:259	running user application for	{"test-set": "test-set-1"}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	hooks/launch.go:227	Running user application on Linux	{"pid of keploy": 2572412}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	util/util.go:90	the path to the generated keploy directory	{"path": "/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/keploy/testReports"}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	hooks/launch.go:507		{"executing cmd": "/Users/sarthak_1/Documents/Keploy/v2/v2-final/sample-controller/sample-controller -kubeconfig=/home/newsarthak.linux/.kube/config"}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[34mINFO[0m	test/test.go:309		{"no of test cases": 0, "test-set": "test-set-1"}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	test/test.go:310	the delay is 5s
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	test/test.go:313	the number of testcases for the test set	{"count": 0, "test-set": "test-set-1"}
+I1222 12:00:09.592359 2573386 controller.go:124] "Setting up event handlers"
+I1222 12:00:09.595811 2573386 controller.go:173] "Starting Foo controller"
+I1222 12:00:09.597565 2573386 controller.go:176] "Waiting for informer caches to sync"
+This is the req url GET : https://192.168.49.2:8443/apis/samplecontroller.k8s.io/v1alpha1/foos?limit=500&resourceVersion=0
+-------------------
+This is the req header map[Accept:[application/json, */*] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+This is the req url GET : https://192.168.49.2:8443/apis/apps/v1/deployments?limit=500&resourceVersion=0
+-------------------
+This is the req header map[Accept:[application/json, */*] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:789		{"PID in proxy:": 2572412}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:790		{"Filtering in Proxy": false}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:795	Inside handleConnection of proxyServer	{"source port": 40714, "Time": 1703246409}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:810		{"DestIp4": 3232248066, "DestPort": 8443, "KernelPid": 2573386}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	hooks/loader.go:228	successfully removed entry from redirect proxy map	{"(Key)/SourcePort": 40714}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:789		{"PID in proxy:": 2572412}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:790		{"Filtering in Proxy": false}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:795	Inside handleConnection of proxyServer	{"source port": 40700, "Time": 1703246409}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:810		{"DestIp4": 3232248066, "DestPort": 8443, "KernelPid": 2573386}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	hooks/loader.go:228	successfully removed entry from redirect proxy map	{"(Key)/SourcePort": 40700}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:880	received buffer	{"size": 220, "buffer": "R0VUIC9hcGlzL2FwcHMvdjEvZGVwbG95bWVudHM/bGltaXQ9NTAwJnJlc291cmNlVmVyc2lvbj0wIEhUVFAvMS4xDQpIb3N0OiAxOTIuMTY4LjQ5LjI6ODQ0Mw0KVXNlci1BZ2VudDogc2FtcGxlLWNvbnRyb2xsZXIvdjAuMC4wIChsaW51eC9hcm02NCkga3ViZXJuZXRlcy8kRm9ybWF0DQpBY2NlcHQ6IGFwcGxpY2F0aW9uL2pzb24sICovKg0KQWNjZXB0LUVuY29kaW5nOiBnemlwDQoNCg==", "connectionID": 0}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:881	the clientConnId: 0
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:880	received buffer	{"size": 238, "buffer": "R0VUIC9hcGlzL3NhbXBsZWNvbnRyb2xsZXIuazhzLmlvL3YxYWxwaGExL2Zvb3M/bGltaXQ9NTAwJnJlc291cmNlVmVyc2lvbj0wIEhUVFAvMS4xDQpIb3N0OiAxOTIuMTY4LjQ5LjI6ODQ0Mw0KVXNlci1BZ2VudDogc2FtcGxlLWNvbnRyb2xsZXIvdjAuMC4wIChsaW51eC9hcm02NCkga3ViZXJuZXRlcy8kRm9ybWF0DQpBY2NlcHQ6IGFwcGxpY2F0aW9uL2pzb24sICovKg0KQWNjZXB0LUVuY29kaW5nOiBnemlwDQoNCg==", "connectionID": 1}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:881	the clientConnId: 1
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:906		{"Client IP Address": "192.168.5.15:40714", "Client ConnectionID": 0, "Destination IP Address": "192.168.49.2:8443", "Destination ConnectionID": 2, "isTLS": true}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:906		{"Client IP Address": "192.168.5.15:40700", "Client ConnectionID": 1, "Destination IP Address": "192.168.49.2:8443", "Destination ConnectionID": 3, "isTLS": true}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:437	query params not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:437	query params not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+This is the req url GET : https://192.168.49.2:8443/apis/samplecontroller.k8s.io/v1alpha1/foos?allowWatchBookmarks=true&resourceVersion=453&timeout=7m39s&timeoutSeconds=459&watch=true
+-------------------
+This is the req header map[Accept:[application/json, */*] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+This is the req url GET : https://192.168.49.2:8443/apis/apps/v1/deployments?allowWatchBookmarks=true&resourceVersion=453&timeout=9m59s&timeoutSeconds=599&watch=true
+-------------------
+This is the req header map[Accept:[application/json, */*] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:437	query params not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+I1222 12:00:09.798447 2573386 controller.go:182] "Starting workers" count=2
+I1222 12:00:09.798584 2573386 controller.go:188] "Started workers"
+This is the req url POST : https://192.168.49.2:8443/apis/apps/v1/namespaces/default/deployments
+-------------------
+This is the req header map[Accept:[application/json, */*] Content-Type:[application/json] Keploy-Header:[486] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:789		{"PID in proxy:": 2572412}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:790		{"Filtering in Proxy": false}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:795	Inside handleConnection of proxyServer	{"source port": 40724, "Time": 1703246409}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:810		{"DestIp4": 3232248066, "DestPort": 8443, "KernelPid": 2573386}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	hooks/loader.go:228	successfully removed entry from redirect proxy map	{"(Key)/SourcePort": 40724}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:880	received buffer	{"size": 904, "buffer": "UE9TVCAvYXBpcy9hcHBzL3YxL25hbWVzcGFjZXMvZGVmYXVsdC9kZXBsb3ltZW50cyBIVFRQLzEuMQ0KSG9zdDogMTkyLjE2OC40OS4yOjg0NDMNClVzZXItQWdlbnQ6IHNhbXBsZS1jb250cm9sbGVyL3YwLjAuMCAobGludXgvYXJtNjQpIGt1YmVybmV0ZXMvJEZvcm1hdA0KQ29udGVudC1MZW5ndGg6IDYxOQ0KQWNjZXB0OiBhcHBsaWNhdGlvbi9qc29uLCAqLyoNCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24vanNvbg0KS2VwbG95LUhlYWRlcjogNDg2DQpBY2NlcHQtRW5jb2Rpbmc6IGd6aXANCg0KeyJraW5kIjoiRGVwbG95bWVudCIsImFwaVZlcnNpb24iOiJhcHBzL3YxIiwibWV0YWRhdGEiOnsibmFtZSI6ImV4YW1wbGUtZm9vIiwibmFtZXNwYWNlIjoiZGVmYXVsdCIsImNyZWF0aW9uVGltZXN0YW1wIjpudWxsLCJvd25lclJlZmVyZW5jZXMiOlt7ImFwaVZlcnNpb24iOiJzYW1wbGVjb250cm9sbGVyLms4cy5pby92MWFscGhhMSIsImtpbmQiOiJGb28iLCJuYW1lIjoiZXhhbXBsZS1mb28iLCJ1aWQiOiJjNzhmNjY4Mi1jNWQ4LTRjNjItODViNi02Y2ZhZDhiZTY3YmMiLCJjb250cm9sbGVyIjp0cnVlLCJibG9ja093bmVyRGVsZXRpb24iOnRydWV9XX0sInNwZWMiOnsicmVwbGljYXMiOjEsInNlbGVjdG9yIjp7Im1hdGNoTGFiZWxzIjp7ImFwcCI6Im5naW54IiwiY29udHJvbGxlciI6ImV4YW1wbGUtZm9vIn19LCJ0ZW1wbGF0ZSI6eyJtZXRhZGF0YSI6eyJjcmVhdGlvblRpbWVzdGFtcCI6bnVsbCwibGFiZWxzIjp7ImFwcCI6Im5naW54IiwiY29udHJvbGxlciI6ImV4YW1wbGUtZm9vIn19LCJzcGVjIjp7ImNvbnRhaW5lcnMiOlt7Im5hbWUiOiJuZ2lueCIsImltYWdlIjoibmdpbng6bGF0ZXN0IiwicmVzb3VyY2VzIjp7fX1dfX0sInN0cmF0ZWd5Ijp7fX0sInN0YXR1cyI6e319Cg==", "connectionID": 4}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:881	the clientConnId: 4
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:906		{"Client IP Address": "192.168.5.15:40724", "Client ConnectionID": 4, "Destination IP Address": "192.168.49.2:8443", "Destination ConnectionID": 5, "isTLS": true}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:551	the content-length headerAudit-Id: 9b4e895a-dfae-48fe-963f-e8b3f2b88a14
+Cache-Control: no-cache, private
+Content-Length: 1954
+Content-Type: application/json
+Date: Mon, 18 Dec 2023 12:15:34 GMT
+X-Kubernetes-Pf-Flowschema-Uid: d2f10eb0-81a6-411b-b433-0a9327f0dbda
+X-Kubernetes-Pf-Prioritylevel-Uid: 5ae68e29-2bcf-4b91-9bf0-66f9f748d10e
+
+SAME REsourceVersion 487 486
+This is the req url PUT : https://192.168.49.2:8443/apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status
+-------------------
+This is the req header map[Accept:[application/json, */*] Content-Type:[application/json] Keploy-Header:[486] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:551	the content-length headerX-Kubernetes-Pf-Prioritylevel-Uid: 5ae68e29-2bcf-4b91-9bf0-66f9f748d10e
+Audit-Id: f540dec4-b240-4501-ab64-b27e4bbca704
+Cache-Control: no-cache, private
+Content-Length: 807
+Content-Type: application/json
+Date: Mon, 18 Dec 2023 12:15:34 GMT
+X-Kubernetes-Pf-Flowschema-Uid: d2f10eb0-81a6-411b-b433-0a9327f0dbda
+
+I1222 12:00:09.874685 2573386 controller.go:247] "Successfully synced" resourceName="default/example-foo"
+SAME REsourceVersion 487 486
+This is the req url PUT : https://192.168.49.2:8443/apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status
+-------------------
+This is the req header map[Accept:[application/json, */*] Content-Type:[application/json] Keploy-Header:[486] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[31mERROR[0m	httpparser/httpparser.go:445	Didn't match any prexisting http mock
+go.keploy.io/server/pkg/proxy/integrations/httpparser.decodeOutgoingHttp
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:445
+go.keploy.io/server/pkg/proxy/integrations/httpparser.(*HttpParser).ProcessOutgoing
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:49
+go.keploy.io/server/pkg/proxy.(*ProxySet).handleConnection
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:951
+go.keploy.io/server/pkg/proxy.(*ProxySet).startProxy.func1
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:594
+🐰 Keploy: 2023-12-22T12:00:09Z 	[31mERROR[0m	httpparser/httpparser.go:446	Cannot Find eligible mocks for the outgoing http call	{"request": "PUT /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status HTTP/1.1\r\nHost: 192.168.49.2:8443\r\nUser-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format\r\nContent-Length: 571\r\nAccept: application/json, */*\r\nContent-Type: application/json\r\nKeploy-Header: 486\r\nAccept-Encoding: gzip\r\n\r\n{\"kind\":\"Foo\",\"apiVersion\":\"samplecontroller.k8s.io/v1alpha1\",\"metadata\":{\"name\":\"example-foo\",\"namespace\":\"default\",\"uid\":\"c78f6682-c5d8-4c62-85b6-6cfad8be67bc\",\"resourceVersion\":\"486\",\"generation\":1,\"creationTimestamp\":\"2023-12-18T12:15:34Z\",\"managedFields\":[{\"manager\":\"kubectl-create\",\"operation\":\"Update\",\"apiVersion\":\"samplecontroller.k8s.io/v1alpha1\",\"time\":\"2023-12-18T12:15:34Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:spec\":{\".\":{},\"f:deploymentName\":{},\"f:replicas\":{}}}}]},\"spec\":{\"deploymentName\":\"example-foo\",\"replicas\":1},\"status\":{\"availableReplicas\":0}}\n"}
+go.keploy.io/server/pkg/proxy/integrations/httpparser.decodeOutgoingHttp
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:446
+go.keploy.io/server/pkg/proxy/integrations/httpparser.(*HttpParser).ProcessOutgoing
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:49
+go.keploy.io/server/pkg/proxy.(*ProxySet).handleConnection
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:951
+go.keploy.io/server/pkg/proxy.(*ProxySet).startProxy.func1
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:594
+E1222 12:00:09.888616 2573386 controller.go:252] error syncing 'default/example-foo': Put "https://192.168.49.2:8443/apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status": EOF, requeuing
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:964	time taken by proxy to execute the flow	{"Duration(ms)": 47}
+I1222 12:00:09.894071 2573386 event.go:376] "Event occurred" object="default/example-foo" fieldPath="" kind="Foo" apiVersion="samplecontroller.k8s.io/v1alpha1" type="Normal" reason="Synced" message="Foo synced successfully"
+SAME REsourceVersion 487 486
+This is the req url PUT : https://192.168.49.2:8443/apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status
+-------------------
+This is the req header map[Accept:[application/json, */*] Content-Type:[application/json] Keploy-Header:[486] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:789		{"PID in proxy:": 2572412}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:790		{"Filtering in Proxy": false}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:795	Inside handleConnection of proxyServer	{"source port": 40740, "Time": 1703246409}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:810		{"DestIp4": 3232248066, "DestPort": 8443, "KernelPid": 2573386}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	hooks/loader.go:228	successfully removed entry from redirect proxy map	{"(Key)/SourcePort": 40740}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:880	received buffer	{"size": 892, "buffer": "UFVUIC9hcGlzL3NhbXBsZWNvbnRyb2xsZXIuazhzLmlvL3YxYWxwaGExL25hbWVzcGFjZXMvZGVmYXVsdC9mb29zL2V4YW1wbGUtZm9vL3N0YXR1cyBIVFRQLzEuMQ0KSG9zdDogMTkyLjE2OC40OS4yOjg0NDMNClVzZXItQWdlbnQ6IHNhbXBsZS1jb250cm9sbGVyL3YwLjAuMCAobGludXgvYXJtNjQpIGt1YmVybmV0ZXMvJEZvcm1hdA0KQ29udGVudC1MZW5ndGg6IDU3MQ0KQWNjZXB0OiBhcHBsaWNhdGlvbi9qc29uLCAqLyoNCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24vanNvbg0KS2VwbG95LUhlYWRlcjogNDg2DQpBY2NlcHQtRW5jb2Rpbmc6IGd6aXANCg0KeyJraW5kIjoiRm9vIiwiYXBpVmVyc2lvbiI6InNhbXBsZWNvbnRyb2xsZXIuazhzLmlvL3YxYWxwaGExIiwibWV0YWRhdGEiOnsibmFtZSI6ImV4YW1wbGUtZm9vIiwibmFtZXNwYWNlIjoiZGVmYXVsdCIsInVpZCI6ImM3OGY2NjgyLWM1ZDgtNGM2Mi04NWI2LTZjZmFkOGJlNjdiYyIsInJlc291cmNlVmVyc2lvbiI6IjQ4NiIsImdlbmVyYXRpb24iOjEsImNyZWF0aW9uVGltZXN0YW1wIjoiMjAyMy0xMi0xOFQxMjoxNTozNFoiLCJtYW5hZ2VkRmllbGRzIjpbeyJtYW5hZ2VyIjoia3ViZWN0bC1jcmVhdGUiLCJvcGVyYXRpb24iOiJVcGRhdGUiLCJhcGlWZXJzaW9uIjoic2FtcGxlY29udHJvbGxlci5rOHMuaW8vdjFhbHBoYTEiLCJ0aW1lIjoiMjAyMy0xMi0xOFQxMjoxNTozNFoiLCJmaWVsZHNUeXBlIjoiRmllbGRzVjEiLCJmaWVsZHNWMSI6eyJmOnNwZWMiOnsiLiI6e30sImY6ZGVwbG95bWVudE5hbWUiOnt9LCJmOnJlcGxpY2FzIjp7fX19fV19LCJzcGVjIjp7ImRlcGxveW1lbnROYW1lIjoiZXhhbXBsZS1mb28iLCJyZXBsaWNhcyI6MX0sInN0YXR1cyI6eyJhdmFpbGFibGVSZXBsaWNhcyI6MH19Cg==", "connectionID": 6}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:881	the clientConnId: 6
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:906		{"Client IP Address": "192.168.5.15:40740", "Client ConnectionID": 6, "Destination IP Address": "192.168.49.2:8443", "Destination ConnectionID": 7, "isTLS": true}
+This is the req url POST : https://192.168.49.2:8443/api/v1/namespaces/default/events
+-------------------
+This is the req header map[Accept:[application/json, */*] Content-Type:[application/json] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:789		{"PID in proxy:": 2572412}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:790		{"Filtering in Proxy": false}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:795	Inside handleConnection of proxyServer	{"source port": 40752, "Time": 1703246409}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:810		{"DestIp4": 3232248066, "DestPort": 8443, "KernelPid": 2573386}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	hooks/loader.go:228	successfully removed entry from redirect proxy map	{"(Key)/SourcePort": 40752}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[31mERROR[0m	httpparser/httpparser.go:445	Didn't match any prexisting http mock
+go.keploy.io/server/pkg/proxy/integrations/httpparser.decodeOutgoingHttp
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:445
+go.keploy.io/server/pkg/proxy/integrations/httpparser.(*HttpParser).ProcessOutgoing
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:49
+go.keploy.io/server/pkg/proxy.(*ProxySet).handleConnection
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:951
+go.keploy.io/server/pkg/proxy.(*ProxySet).startProxy.func1
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:594
+🐰 Keploy: 2023-12-22T12:00:09Z 	[31mERROR[0m	httpparser/httpparser.go:446	Cannot Find eligible mocks for the outgoing http call	{"request": "PUT /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status HTTP/1.1\r\nHost: 192.168.49.2:8443\r\nUser-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format\r\nContent-Length: 571\r\nAccept: application/json, */*\r\nContent-Type: application/json\r\nKeploy-Header: 486\r\nAccept-Encoding: gzip\r\n\r\n{\"kind\":\"Foo\",\"apiVersion\":\"samplecontroller.k8s.io/v1alpha1\",\"metadata\":{\"name\":\"example-foo\",\"namespace\":\"default\",\"uid\":\"c78f6682-c5d8-4c62-85b6-6cfad8be67bc\",\"resourceVersion\":\"486\",\"generation\":1,\"creationTimestamp\":\"2023-12-18T12:15:34Z\",\"managedFields\":[{\"manager\":\"kubectl-create\",\"operation\":\"Update\",\"apiVersion\":\"samplecontroller.k8s.io/v1alpha1\",\"time\":\"2023-12-18T12:15:34Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:spec\":{\".\":{},\"f:deploymentName\":{},\"f:replicas\":{}}}}]},\"spec\":{\"deploymentName\":\"example-foo\",\"replicas\":1},\"status\":{\"availableReplicas\":0}}\n"}
+go.keploy.io/server/pkg/proxy/integrations/httpparser.decodeOutgoingHttp
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:446
+go.keploy.io/server/pkg/proxy/integrations/httpparser.(*HttpParser).ProcessOutgoing
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:49
+go.keploy.io/server/pkg/proxy.(*ProxySet).handleConnection
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:951
+go.keploy.io/server/pkg/proxy.(*ProxySet).startProxy.func1
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:594
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:964	time taken by proxy to execute the flow	{"Duration(ms)": 34}
+E1222 12:00:09.929991 2573386 controller.go:252] error syncing 'default/example-foo': Put "https://192.168.49.2:8443/apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status": EOF, requeuing
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:880	received buffer	{"size": 862, "buffer": "UE9TVCAvYXBpL3YxL25hbWVzcGFjZXMvZGVmYXVsdC9ldmVudHMgSFRUUC8xLjENCkhvc3Q6IDE5Mi4xNjguNDkuMjo4NDQzDQpVc2VyLUFnZW50OiBzYW1wbGUtY29udHJvbGxlci92MC4wLjAgKGxpbnV4L2FybTY0KSBrdWJlcm5ldGVzLyRGb3JtYXQNCkNvbnRlbnQtTGVuZ3RoOiA2MDgNCkFjY2VwdDogYXBwbGljYXRpb24vanNvbiwgKi8qDQpDb250ZW50LVR5cGU6IGFwcGxpY2F0aW9uL2pzb24NCkFjY2VwdC1FbmNvZGluZzogZ3ppcA0KDQp7ImtpbmQiOiJFdmVudCIsImFwaVZlcnNpb24iOiJ2MSIsIm1ldGFkYXRhIjp7Im5hbWUiOiJleGFtcGxlLWZvby4xN2EzMjU5NWU5ODlhZjAxIiwibmFtZXNwYWNlIjoiZGVmYXVsdCIsImNyZWF0aW9uVGltZXN0YW1wIjpudWxsfSwiaW52b2x2ZWRPYmplY3QiOnsia2luZCI6IkZvbyIsIm5hbWVzcGFjZSI6ImRlZmF1bHQiLCJuYW1lIjoiZXhhbXBsZS1mb28iLCJ1aWQiOiJjNzhmNjY4Mi1jNWQ4LTRjNjItODViNi02Y2ZhZDhiZTY3YmMiLCJhcGlWZXJzaW9uIjoic2FtcGxlY29udHJvbGxlci5rOHMuaW8vdjFhbHBoYTEiLCJyZXNvdXJjZVZlcnNpb24iOiI0ODYifSwicmVhc29uIjoiU3luY2VkIiwibWVzc2FnZSI6IkZvbyBzeW5jZWQgc3VjY2Vzc2Z1bGx5Iiwic291cmNlIjp7ImNvbXBvbmVudCI6InNhbXBsZS1jb250cm9sbGVyIn0sImZpcnN0VGltZXN0YW1wIjoiMjAyMy0xMi0yMlQxMjowMDowOVoiLCJsYXN0VGltZXN0YW1wIjoiMjAyMy0xMi0yMlQxMjowMDowOVoiLCJjb3VudCI6MSwidHlwZSI6Ik5vcm1hbCIsImV2ZW50VGltZSI6bnVsbCwicmVwb3J0aW5nQ29tcG9uZW50Ijoic2FtcGxlLWNvbnRyb2xsZXIiLCJyZXBvcnRpbmdJbnN0YW5jZSI6IiJ9Cg==", "connectionID": 8}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:881	the clientConnId: 8
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:906		{"Client IP Address": "192.168.5.15:40752", "Client ConnectionID": 8, "Destination IP Address": "192.168.49.2:8443", "Destination ConnectionID": 9, "isTLS": true}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+SAME REsourceVersion 487 486
+This is the req url PUT : https://192.168.49.2:8443/apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status
+-------------------
+This is the req header map[Accept:[application/json, */*] Content-Type:[application/json] Keploy-Header:[486] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:551	the content-length headerCache-Control: no-cache, private
+Content-Length: 1026
+Content-Type: application/json
+Date: Mon, 18 Dec 2023 12:15:34 GMT
+X-Kubernetes-Pf-Flowschema-Uid: d2f10eb0-81a6-411b-b433-0a9327f0dbda
+X-Kubernetes-Pf-Prioritylevel-Uid: 5ae68e29-2bcf-4b91-9bf0-66f9f748d10e
+Audit-Id: 8e59cd6f-aa45-40a5-a3f0-eae5148c48ed
+
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:789		{"PID in proxy:": 2572412}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:790		{"Filtering in Proxy": false}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:795	Inside handleConnection of proxyServer	{"source port": 40764, "Time": 1703246409}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:810		{"DestIp4": 3232248066, "DestPort": 8443, "KernelPid": 2573386}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	hooks/loader.go:228	successfully removed entry from redirect proxy map	{"(Key)/SourcePort": 40764}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[31mERROR[0m	httpparser/httpparser.go:445	Didn't match any prexisting http mock
+go.keploy.io/server/pkg/proxy/integrations/httpparser.decodeOutgoingHttp
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:445
+go.keploy.io/server/pkg/proxy/integrations/httpparser.(*HttpParser).ProcessOutgoing
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:49
+go.keploy.io/server/pkg/proxy.(*ProxySet).handleConnection
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:951
+go.keploy.io/server/pkg/proxy.(*ProxySet).startProxy.func1
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:594
+🐰 Keploy: 2023-12-22T12:00:09Z 	[31mERROR[0m	httpparser/httpparser.go:446	Cannot Find eligible mocks for the outgoing http call	{"request": "PUT /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status HTTP/1.1\r\nHost: 192.168.49.2:8443\r\nUser-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format\r\nContent-Length: 571\r\nAccept: application/json, */*\r\nContent-Type: application/json\r\nKeploy-Header: 486\r\nAccept-Encoding: gzip\r\n\r\n{\"kind\":\"Foo\",\"apiVersion\":\"samplecontroller.k8s.io/v1alpha1\",\"metadata\":{\"name\":\"example-foo\",\"namespace\":\"default\",\"uid\":\"c78f6682-c5d8-4c62-85b6-6cfad8be67bc\",\"resourceVersion\":\"486\",\"generation\":1,\"creationTimestamp\":\"2023-12-18T12:15:34Z\",\"managedFields\":[{\"manager\":\"kubectl-create\",\"operation\":\"Update\",\"apiVersion\":\"samplecontroller.k8s.io/v1alpha1\",\"time\":\"2023-12-18T12:15:34Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:spec\":{\".\":{},\"f:deploymentName\":{},\"f:replicas\":{}}}}]},\"spec\":{\"deploymentName\":\"example-foo\",\"replicas\":1},\"status\":{\"availableReplicas\":0}}\n"}
+go.keploy.io/server/pkg/proxy/integrations/httpparser.decodeOutgoingHttp
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:446
+go.keploy.io/server/pkg/proxy/integrations/httpparser.(*HttpParser).ProcessOutgoing
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:49
+go.keploy.io/server/pkg/proxy.(*ProxySet).handleConnection
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:951
+go.keploy.io/server/pkg/proxy.(*ProxySet).startProxy.func1
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:594
+E1222 12:00:09.951050 2573386 controller.go:252] error syncing 'default/example-foo': Put "https://192.168.49.2:8443/apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status": EOF, requeuing
+SAME REsourceVersion 487 492
+This is the req url PUT : https://192.168.49.2:8443/apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status
+-------------------
+This is the req header map[Accept:[application/json, */*] Content-Type:[application/json] Keploy-Header:[492] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:789		{"PID in proxy:": 2572412}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:790		{"Filtering in Proxy": false}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:795	Inside handleConnection of proxyServer	{"source port": 40770, "Time": 1703246409}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:810		{"DestIp4": 3232248066, "DestPort": 8443, "KernelPid": 2573386}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	hooks/loader.go:228	successfully removed entry from redirect proxy map	{"(Key)/SourcePort": 40770}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:880	received buffer	{"size": 1128, "buffer": "UFVUIC9hcGlzL3NhbXBsZWNvbnRyb2xsZXIuazhzLmlvL3YxYWxwaGExL25hbWVzcGFjZXMvZGVmYXVsdC9mb29zL2V4YW1wbGUtZm9vL3N0YXR1cyBIVFRQLzEuMQ0KSG9zdDogMTkyLjE2OC40OS4yOjg0NDMNClVzZXItQWdlbnQ6IHNhbXBsZS1jb250cm9sbGVyL3YwLjAuMCAobGludXgvYXJtNjQpIGt1YmVybmV0ZXMvJEZvcm1hdA0KQ29udGVudC1MZW5ndGg6IDgwNw0KQWNjZXB0OiBhcHBsaWNhdGlvbi9qc29uLCAqLyoNCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24vanNvbg0KS2VwbG95LUhlYWRlcjogNDkyDQpBY2NlcHQtRW5jb2Rpbmc6IGd6aXANCg0KeyJraW5kIjoiRm9vIiwiYXBpVmVyc2lvbiI6InNhbXBsZWNvbnRyb2xsZXIuazhzLmlvL3YxYWxwaGExIiwibWV0YWRhdGEiOnsibmFtZSI6ImV4YW1wbGUtZm9vIiwibmFtZXNwYWNlIjoiZGVmYXVsdCIsInVpZCI6ImM3OGY2NjgyLWM1ZDgtNGM2Mi04NWI2LTZjZmFkOGJlNjdiYyIsInJlc291cmNlVmVyc2lvbiI6IjQ5MiIsImdlbmVyYXRpb24iOjEsImNyZWF0aW9uVGltZXN0YW1wIjoiMjAyMy0xMi0xOFQxMjoxNTozNFoiLCJtYW5hZ2VkRmllbGRzIjpbeyJtYW5hZ2VyIjoia3ViZWN0bC1jcmVhdGUiLCJvcGVyYXRpb24iOiJVcGRhdGUiLCJhcGlWZXJzaW9uIjoic2FtcGxlY29udHJvbGxlci5rOHMuaW8vdjFhbHBoYTEiLCJ0aW1lIjoiMjAyMy0xMi0xOFQxMjoxNTozNFoiLCJmaWVsZHNUeXBlIjoiRmllbGRzVjEiLCJmaWVsZHNWMSI6eyJmOnNwZWMiOnsiLiI6e30sImY6ZGVwbG95bWVudE5hbWUiOnt9LCJmOnJlcGxpY2FzIjp7fX19fSx7Im1hbmFnZXIiOiJzYW1wbGUtY29udHJvbGxlciIsIm9wZXJhdGlvbiI6IlVwZGF0ZSIsImFwaVZlcnNpb24iOiJzYW1wbGVjb250cm9sbGVyLms4cy5pby92MWFscGhhMSIsInRpbWUiOiIyMDIzLTEyLTE4VDEyOjE1OjM0WiIsImZpZWxkc1R5cGUiOiJGaWVsZHNWMSIsImZpZWxkc1YxIjp7ImY6c3RhdHVzIjp7Ii4iOnt9LCJmOmF2YWlsYWJsZVJlcGxpY2FzIjp7fX19LCJzdWJyZXNvdXJjZSI6InN0YXR1cyJ9XX0sInNwZWMiOnsiZGVwbG95bWVudE5hbWUiOiJleGFtcGxlLWZvbyIsInJlcGxpY2FzIjoxfSwic3RhdHVzIjp7ImF2YWlsYWJsZVJlcGxpY2FzIjowfX0K", "connectionID": 11}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:881	the clientConnId: 11
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:906		{"Client IP Address": "192.168.5.15:40770", "Client ConnectionID": 11, "Destination IP Address": "192.168.49.2:8443", "Destination ConnectionID": 12, "isTLS": true}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:964	time taken by proxy to execute the flow	{"Duration(ms)": 28}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:551	the content-length headerContent-Length: 807
+Content-Type: application/json
+Date: Mon, 18 Dec 2023 12:16:28 GMT
+X-Kubernetes-Pf-Flowschema-Uid: d2f10eb0-81a6-411b-b433-0a9327f0dbda
+X-Kubernetes-Pf-Prioritylevel-Uid: 5ae68e29-2bcf-4b91-9bf0-66f9f748d10e
+Audit-Id: bd075326-f221-4e1a-a9d2-8cbf9007de90
+Cache-Control: no-cache, private
+
+I1222 12:00:09.971771 2573386 controller.go:247] "Successfully synced" resourceName="default/example-foo"
+I1222 12:00:09.972074 2573386 event.go:376] "Event occurred" object="default/example-foo" fieldPath="" kind="Foo" apiVersion="samplecontroller.k8s.io/v1alpha1" type="Normal" reason="Synced" message="Foo synced successfully"
+This is the req url PATCH : https://192.168.49.2:8443/api/v1/namespaces/default/events/example-foo.17a1ec1ae72ea368
+-------------------
+This is the req header map[Accept:[application/json, */*] Content-Type:[application/strategic-merge-patch+json] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+SAME REsourceVersion 487 492
+This is the req url PUT : https://192.168.49.2:8443/apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status
+-------------------
+This is the req header map[Accept:[application/json, */*] Content-Type:[application/json] Keploy-Header:[492] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+Inside updateFunc for informers
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:880	received buffer	{"size": 1128, "buffer": "UFVUIC9hcGlzL3NhbXBsZWNvbnRyb2xsZXIuazhzLmlvL3YxYWxwaGExL25hbWVzcGFjZXMvZGVmYXVsdC9mb29zL2V4YW1wbGUtZm9vL3N0YXR1cyBIVFRQLzEuMQ0KSG9zdDogMTkyLjE2OC40OS4yOjg0NDMNClVzZXItQWdlbnQ6IHNhbXBsZS1jb250cm9sbGVyL3YwLjAuMCAobGludXgvYXJtNjQpIGt1YmVybmV0ZXMvJEZvcm1hdA0KQ29udGVudC1MZW5ndGg6IDgwNw0KQWNjZXB0OiBhcHBsaWNhdGlvbi9qc29uLCAqLyoNCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24vanNvbg0KS2VwbG95LUhlYWRlcjogNDkyDQpBY2NlcHQtRW5jb2Rpbmc6IGd6aXANCg0KeyJraW5kIjoiRm9vIiwiYXBpVmVyc2lvbiI6InNhbXBsZWNvbnRyb2xsZXIuazhzLmlvL3YxYWxwaGExIiwibWV0YWRhdGEiOnsibmFtZSI6ImV4YW1wbGUtZm9vIiwibmFtZXNwYWNlIjoiZGVmYXVsdCIsInVpZCI6ImM3OGY2NjgyLWM1ZDgtNGM2Mi04NWI2LTZjZmFkOGJlNjdiYyIsInJlc291cmNlVmVyc2lvbiI6IjQ5MiIsImdlbmVyYXRpb24iOjEsImNyZWF0aW9uVGltZXN0YW1wIjoiMjAyMy0xMi0xOFQxMjoxNTozNFoiLCJtYW5hZ2VkRmllbGRzIjpbeyJtYW5hZ2VyIjoia3ViZWN0bC1jcmVhdGUiLCJvcGVyYXRpb24iOiJVcGRhdGUiLCJhcGlWZXJzaW9uIjoic2FtcGxlY29udHJvbGxlci5rOHMuaW8vdjFhbHBoYTEiLCJ0aW1lIjoiMjAyMy0xMi0xOFQxMjoxNTozNFoiLCJmaWVsZHNUeXBlIjoiRmllbGRzVjEiLCJmaWVsZHNWMSI6eyJmOnNwZWMiOnsiLiI6e30sImY6ZGVwbG95bWVudE5hbWUiOnt9LCJmOnJlcGxpY2FzIjp7fX19fSx7Im1hbmFnZXIiOiJzYW1wbGUtY29udHJvbGxlciIsIm9wZXJhdGlvbiI6IlVwZGF0ZSIsImFwaVZlcnNpb24iOiJzYW1wbGVjb250cm9sbGVyLms4cy5pby92MWFscGhhMSIsInRpbWUiOiIyMDIzLTEyLTE4VDEyOjE1OjM0WiIsImZpZWxkc1R5cGUiOiJGaWVsZHNWMSIsImZpZWxkc1YxIjp7ImY6c3RhdHVzIjp7Ii4iOnt9LCJmOmF2YWlsYWJsZVJlcGxpY2FzIjp7fX19LCJzdWJyZXNvdXJjZSI6InN0YXR1cyJ9XX0sInNwZWMiOnsiZGVwbG95bWVudE5hbWUiOiJleGFtcGxlLWZvbyIsInJlcGxpY2FzIjoxfSwic3RhdHVzIjp7ImF2YWlsYWJsZVJlcGxpY2FzIjowfX0K", "connectionID": 10}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:881	the clientConnId: 10
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:551	the content-length headerAudit-Id: 9aeb3dc0-da05-4514-80f0-5300a6c0880e
+Cache-Control: no-cache, private
+Content-Length: 1026
+Content-Type: application/json
+Date: Mon, 18 Dec 2023 12:16:28 GMT
+X-Kubernetes-Pf-Flowschema-Uid: d2f10eb0-81a6-411b-b433-0a9327f0dbda
+X-Kubernetes-Pf-Prioritylevel-Uid: 5ae68e29-2bcf-4b91-9bf0-66f9f748d10e
+
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:906		{"Client IP Address": "192.168.5.15:40764", "Client ConnectionID": 10, "Destination IP Address": "192.168.49.2:8443", "Destination ConnectionID": 13, "isTLS": true}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[31mERROR[0m	httpparser/httpparser.go:445	Didn't match any prexisting http mock
+go.keploy.io/server/pkg/proxy/integrations/httpparser.decodeOutgoingHttp
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:445
+go.keploy.io/server/pkg/proxy/integrations/httpparser.(*HttpParser).ProcessOutgoing
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:49
+go.keploy.io/server/pkg/proxy.(*ProxySet).handleConnection
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:951
+go.keploy.io/server/pkg/proxy.(*ProxySet).startProxy.func1
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:594
+🐰 Keploy: 2023-12-22T12:00:09Z 	[31mERROR[0m	httpparser/httpparser.go:446	Cannot Find eligible mocks for the outgoing http call	{"request": "PUT /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status HTTP/1.1\r\nHost: 192.168.49.2:8443\r\nUser-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format\r\nContent-Length: 807\r\nAccept: application/json, */*\r\nContent-Type: application/json\r\nKeploy-Header: 492\r\nAccept-Encoding: gzip\r\n\r\n{\"kind\":\"Foo\",\"apiVersion\":\"samplecontroller.k8s.io/v1alpha1\",\"metadata\":{\"name\":\"example-foo\",\"namespace\":\"default\",\"uid\":\"c78f6682-c5d8-4c62-85b6-6cfad8be67bc\",\"resourceVersion\":\"492\",\"generation\":1,\"creationTimestamp\":\"2023-12-18T12:15:34Z\",\"managedFields\":[{\"manager\":\"kubectl-create\",\"operation\":\"Update\",\"apiVersion\":\"samplecontroller.k8s.io/v1alpha1\",\"time\":\"2023-12-18T12:15:34Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:spec\":{\".\":{},\"f:deploymentName\":{},\"f:replicas\":{}}}},{\"manager\":\"sample-controller\",\"operation\":\"Update\",\"apiVersion\":\"samplecontroller.k8s.io/v1alpha1\",\"time\":\"2023-12-18T12:15:34Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:status\":{\".\":{},\"f:availableReplicas\":{}}},\"subresource\":\"status\"}]},\"spec\":{\"deploymentName\":\"example-foo\",\"replicas\":1},\"status\":{\"availableReplicas\":0}}\n"}
+go.keploy.io/server/pkg/proxy/integrations/httpparser.decodeOutgoingHttp
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:446
+go.keploy.io/server/pkg/proxy/integrations/httpparser.(*HttpParser).ProcessOutgoing
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:49
+go.keploy.io/server/pkg/proxy.(*ProxySet).handleConnection
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:951
+go.keploy.io/server/pkg/proxy.(*ProxySet).startProxy.func1
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:594
+E1222 12:00:09.989138 2573386 controller.go:252] error syncing 'default/example-foo': Put "https://192.168.49.2:8443/apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status": EOF, requeuing
+SAME REsourceVersion 489 492
+This is the req url PUT : https://192.168.49.2:8443/apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status
+-------------------
+This is the req header map[Accept:[application/json, */*] Content-Type:[application/json] Keploy-Header:[492] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:964	time taken by proxy to execute the flow	{"Duration(ms)": 41}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:09Z 	[31mERROR[0m	httpparser/httpparser.go:445	Didn't match any prexisting http mock
+go.keploy.io/server/pkg/proxy/integrations/httpparser.decodeOutgoingHttp
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:445
+go.keploy.io/server/pkg/proxy/integrations/httpparser.(*HttpParser).ProcessOutgoing
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:49
+go.keploy.io/server/pkg/proxy.(*ProxySet).handleConnection
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:951
+go.keploy.io/server/pkg/proxy.(*ProxySet).startProxy.func1
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:594
+🐰 Keploy: 2023-12-22T12:00:09Z 	[31mERROR[0m	httpparser/httpparser.go:446	Cannot Find eligible mocks for the outgoing http call	{"request": "PUT /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status HTTP/1.1\r\nHost: 192.168.49.2:8443\r\nUser-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format\r\nContent-Length: 807\r\nAccept: application/json, */*\r\nContent-Type: application/json\r\nKeploy-Header: 492\r\nAccept-Encoding: gzip\r\n\r\n{\"kind\":\"Foo\",\"apiVersion\":\"samplecontroller.k8s.io/v1alpha1\",\"metadata\":{\"name\":\"example-foo\",\"namespace\":\"default\",\"uid\":\"c78f6682-c5d8-4c62-85b6-6cfad8be67bc\",\"resourceVersion\":\"492\",\"generation\":1,\"creationTimestamp\":\"2023-12-18T12:15:34Z\",\"managedFields\":[{\"manager\":\"kubectl-create\",\"operation\":\"Update\",\"apiVersion\":\"samplecontroller.k8s.io/v1alpha1\",\"time\":\"2023-12-18T12:15:34Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:spec\":{\".\":{},\"f:deploymentName\":{},\"f:replicas\":{}}}},{\"manager\":\"sample-controller\",\"operation\":\"Update\",\"apiVersion\":\"samplecontroller.k8s.io/v1alpha1\",\"time\":\"2023-12-18T12:15:34Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:status\":{\".\":{},\"f:availableReplicas\":{}}},\"subresource\":\"status\"}]},\"spec\":{\"deploymentName\":\"example-foo\",\"replicas\":1},\"status\":{\"availableReplicas\":0}}\n"}
+go.keploy.io/server/pkg/proxy/integrations/httpparser.decodeOutgoingHttp
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:446
+go.keploy.io/server/pkg/proxy/integrations/httpparser.(*HttpParser).ProcessOutgoing
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:49
+go.keploy.io/server/pkg/proxy.(*ProxySet).handleConnection
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:951
+go.keploy.io/server/pkg/proxy.(*ProxySet).startProxy.func1
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:594
+E1222 12:00:09.993635 2573386 controller.go:252] error syncing 'default/example-foo': Put "https://192.168.49.2:8443/apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status": EOF, requeuing
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:964	time taken by proxy to execute the flow	{"Duration(ms)": 42}
+SAME REsourceVersion 489 492
+This is the req url PUT : https://192.168.49.2:8443/apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status
+-------------------
+This is the req header map[Accept:[application/json, */*] Content-Type:[application/json] Keploy-Header:[492] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:789		{"PID in proxy:": 2572412}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:790		{"Filtering in Proxy": false}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:795	Inside handleConnection of proxyServer	{"source port": 40778, "Time": 1703246409}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:810		{"DestIp4": 3232248066, "DestPort": 8443, "KernelPid": 2573386}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	hooks/loader.go:228	successfully removed entry from redirect proxy map	{"(Key)/SourcePort": 40778}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:880	received buffer	{"size": 1128, "buffer": "UFVUIC9hcGlzL3NhbXBsZWNvbnRyb2xsZXIuazhzLmlvL3YxYWxwaGExL25hbWVzcGFjZXMvZGVmYXVsdC9mb29zL2V4YW1wbGUtZm9vL3N0YXR1cyBIVFRQLzEuMQ0KSG9zdDogMTkyLjE2OC40OS4yOjg0NDMNClVzZXItQWdlbnQ6IHNhbXBsZS1jb250cm9sbGVyL3YwLjAuMCAobGludXgvYXJtNjQpIGt1YmVybmV0ZXMvJEZvcm1hdA0KQ29udGVudC1MZW5ndGg6IDgwNw0KQWNjZXB0OiBhcHBsaWNhdGlvbi9qc29uLCAqLyoNCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24vanNvbg0KS2VwbG95LUhlYWRlcjogNDkyDQpBY2NlcHQtRW5jb2Rpbmc6IGd6aXANCg0KeyJraW5kIjoiRm9vIiwiYXBpVmVyc2lvbiI6InNhbXBsZWNvbnRyb2xsZXIuazhzLmlvL3YxYWxwaGExIiwibWV0YWRhdGEiOnsibmFtZSI6ImV4YW1wbGUtZm9vIiwibmFtZXNwYWNlIjoiZGVmYXVsdCIsInVpZCI6ImM3OGY2NjgyLWM1ZDgtNGM2Mi04NWI2LTZjZmFkOGJlNjdiYyIsInJlc291cmNlVmVyc2lvbiI6IjQ5MiIsImdlbmVyYXRpb24iOjEsImNyZWF0aW9uVGltZXN0YW1wIjoiMjAyMy0xMi0xOFQxMjoxNTozNFoiLCJtYW5hZ2VkRmllbGRzIjpbeyJtYW5hZ2VyIjoia3ViZWN0bC1jcmVhdGUiLCJvcGVyYXRpb24iOiJVcGRhdGUiLCJhcGlWZXJzaW9uIjoic2FtcGxlY29udHJvbGxlci5rOHMuaW8vdjFhbHBoYTEiLCJ0aW1lIjoiMjAyMy0xMi0xOFQxMjoxNTozNFoiLCJmaWVsZHNUeXBlIjoiRmllbGRzVjEiLCJmaWVsZHNWMSI6eyJmOnNwZWMiOnsiLiI6e30sImY6ZGVwbG95bWVudE5hbWUiOnt9LCJmOnJlcGxpY2FzIjp7fX19fSx7Im1hbmFnZXIiOiJzYW1wbGUtY29udHJvbGxlciIsIm9wZXJhdGlvbiI6IlVwZGF0ZSIsImFwaVZlcnNpb24iOiJzYW1wbGVjb250cm9sbGVyLms4cy5pby92MWFscGhhMSIsInRpbWUiOiIyMDIzLTEyLTE4VDEyOjE1OjM0WiIsImZpZWxkc1R5cGUiOiJGaWVsZHNWMSIsImZpZWxkc1YxIjp7ImY6c3RhdHVzIjp7Ii4iOnt9LCJmOmF2YWlsYWJsZVJlcGxpY2FzIjp7fX19LCJzdWJyZXNvdXJjZSI6InN0YXR1cyJ9XX0sInNwZWMiOnsiZGVwbG95bWVudE5hbWUiOiJleGFtcGxlLWZvbyIsInJlcGxpY2FzIjoxfSwic3RhdHVzIjp7ImF2YWlsYWJsZVJlcGxpY2FzIjowfX0K", "connectionID": 14}
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:881	the clientConnId: 14
+🐰 Keploy: 2023-12-22T12:00:09Z 	[35mDEBUG[0m	proxy/proxy.go:906		{"Client IP Address": "192.168.5.15:40778", "Client ConnectionID": 14, "Destination IP Address": "192.168.49.2:8443", "Destination ConnectionID": 15, "isTLS": true}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[31mERROR[0m	httpparser/httpparser.go:445	Didn't match any prexisting http mock
+go.keploy.io/server/pkg/proxy/integrations/httpparser.decodeOutgoingHttp
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:445
+go.keploy.io/server/pkg/proxy/integrations/httpparser.(*HttpParser).ProcessOutgoing
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:49
+go.keploy.io/server/pkg/proxy.(*ProxySet).handleConnection
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:951
+go.keploy.io/server/pkg/proxy.(*ProxySet).startProxy.func1
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:594
+🐰 Keploy: 2023-12-22T12:00:10Z 	[31mERROR[0m	httpparser/httpparser.go:446	Cannot Find eligible mocks for the outgoing http call	{"request": "PUT /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status HTTP/1.1\r\nHost: 192.168.49.2:8443\r\nUser-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format\r\nContent-Length: 807\r\nAccept: application/json, */*\r\nContent-Type: application/json\r\nKeploy-Header: 492\r\nAccept-Encoding: gzip\r\n\r\n{\"kind\":\"Foo\",\"apiVersion\":\"samplecontroller.k8s.io/v1alpha1\",\"metadata\":{\"name\":\"example-foo\",\"namespace\":\"default\",\"uid\":\"c78f6682-c5d8-4c62-85b6-6cfad8be67bc\",\"resourceVersion\":\"492\",\"generation\":1,\"creationTimestamp\":\"2023-12-18T12:15:34Z\",\"managedFields\":[{\"manager\":\"kubectl-create\",\"operation\":\"Update\",\"apiVersion\":\"samplecontroller.k8s.io/v1alpha1\",\"time\":\"2023-12-18T12:15:34Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:spec\":{\".\":{},\"f:deploymentName\":{},\"f:replicas\":{}}}},{\"manager\":\"sample-controller\",\"operation\":\"Update\",\"apiVersion\":\"samplecontroller.k8s.io/v1alpha1\",\"time\":\"2023-12-18T12:15:34Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:status\":{\".\":{},\"f:availableReplicas\":{}}},\"subresource\":\"status\"}]},\"spec\":{\"deploymentName\":\"example-foo\",\"replicas\":1},\"status\":{\"availableReplicas\":0}}\n"}
+go.keploy.io/server/pkg/proxy/integrations/httpparser.decodeOutgoingHttp
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:446
+go.keploy.io/server/pkg/proxy/integrations/httpparser.(*HttpParser).ProcessOutgoing
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:49
+go.keploy.io/server/pkg/proxy.(*ProxySet).handleConnection
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:951
+go.keploy.io/server/pkg/proxy.(*ProxySet).startProxy.func1
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:594
+E1222 12:00:10.008170 2573386 controller.go:252] error syncing 'default/example-foo': Put "https://192.168.49.2:8443/apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status": EOF, requeuing
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:964	time taken by proxy to execute the flow	{"Duration(ms)": 11}
+SAME REsourceVersion 489 492
+This is the req url PUT : https://192.168.49.2:8443/apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status
+-------------------
+This is the req header map[Accept:[application/json, */*] Content-Type:[application/json] Keploy-Header:[492] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:789		{"PID in proxy:": 2572412}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:790		{"Filtering in Proxy": false}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:795	Inside handleConnection of proxyServer	{"source port": 40786, "Time": 1703246410}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:810		{"DestIp4": 3232248066, "DestPort": 8443, "KernelPid": 2573386}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	hooks/loader.go:228	successfully removed entry from redirect proxy map	{"(Key)/SourcePort": 40786}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:880	received buffer	{"size": 1128, "buffer": "UFVUIC9hcGlzL3NhbXBsZWNvbnRyb2xsZXIuazhzLmlvL3YxYWxwaGExL25hbWVzcGFjZXMvZGVmYXVsdC9mb29zL2V4YW1wbGUtZm9vL3N0YXR1cyBIVFRQLzEuMQ0KSG9zdDogMTkyLjE2OC40OS4yOjg0NDMNClVzZXItQWdlbnQ6IHNhbXBsZS1jb250cm9sbGVyL3YwLjAuMCAobGludXgvYXJtNjQpIGt1YmVybmV0ZXMvJEZvcm1hdA0KQ29udGVudC1MZW5ndGg6IDgwNw0KQWNjZXB0OiBhcHBsaWNhdGlvbi9qc29uLCAqLyoNCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24vanNvbg0KS2VwbG95LUhlYWRlcjogNDkyDQpBY2NlcHQtRW5jb2Rpbmc6IGd6aXANCg0KeyJraW5kIjoiRm9vIiwiYXBpVmVyc2lvbiI6InNhbXBsZWNvbnRyb2xsZXIuazhzLmlvL3YxYWxwaGExIiwibWV0YWRhdGEiOnsibmFtZSI6ImV4YW1wbGUtZm9vIiwibmFtZXNwYWNlIjoiZGVmYXVsdCIsInVpZCI6ImM3OGY2NjgyLWM1ZDgtNGM2Mi04NWI2LTZjZmFkOGJlNjdiYyIsInJlc291cmNlVmVyc2lvbiI6IjQ5MiIsImdlbmVyYXRpb24iOjEsImNyZWF0aW9uVGltZXN0YW1wIjoiMjAyMy0xMi0xOFQxMjoxNTozNFoiLCJtYW5hZ2VkRmllbGRzIjpbeyJtYW5hZ2VyIjoia3ViZWN0bC1jcmVhdGUiLCJvcGVyYXRpb24iOiJVcGRhdGUiLCJhcGlWZXJzaW9uIjoic2FtcGxlY29udHJvbGxlci5rOHMuaW8vdjFhbHBoYTEiLCJ0aW1lIjoiMjAyMy0xMi0xOFQxMjoxNTozNFoiLCJmaWVsZHNUeXBlIjoiRmllbGRzVjEiLCJmaWVsZHNWMSI6eyJmOnNwZWMiOnsiLiI6e30sImY6ZGVwbG95bWVudE5hbWUiOnt9LCJmOnJlcGxpY2FzIjp7fX19fSx7Im1hbmFnZXIiOiJzYW1wbGUtY29udHJvbGxlciIsIm9wZXJhdGlvbiI6IlVwZGF0ZSIsImFwaVZlcnNpb24iOiJzYW1wbGVjb250cm9sbGVyLms4cy5pby92MWFscGhhMSIsInRpbWUiOiIyMDIzLTEyLTE4VDEyOjE1OjM0WiIsImZpZWxkc1R5cGUiOiJGaWVsZHNWMSIsImZpZWxkc1YxIjp7ImY6c3RhdHVzIjp7Ii4iOnt9LCJmOmF2YWlsYWJsZVJlcGxpY2FzIjp7fX19LCJzdWJyZXNvdXJjZSI6InN0YXR1cyJ9XX0sInNwZWMiOnsiZGVwbG95bWVudE5hbWUiOiJleGFtcGxlLWZvbyIsInJlcGxpY2FzIjoxfSwic3RhdHVzIjp7ImF2YWlsYWJsZVJlcGxpY2FzIjowfX0K", "connectionID": 16}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:881	the clientConnId: 16
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:906		{"Client IP Address": "192.168.5.15:40786", "Client ConnectionID": 16, "Destination IP Address": "192.168.49.2:8443", "Destination ConnectionID": 17, "isTLS": true}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[31mERROR[0m	httpparser/httpparser.go:445	Didn't match any prexisting http mock
+go.keploy.io/server/pkg/proxy/integrations/httpparser.decodeOutgoingHttp
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:445
+go.keploy.io/server/pkg/proxy/integrations/httpparser.(*HttpParser).ProcessOutgoing
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:49
+go.keploy.io/server/pkg/proxy.(*ProxySet).handleConnection
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:951
+go.keploy.io/server/pkg/proxy.(*ProxySet).startProxy.func1
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:594
+🐰 Keploy: 2023-12-22T12:00:10Z 	[31mERROR[0m	httpparser/httpparser.go:446	Cannot Find eligible mocks for the outgoing http call	{"request": "PUT /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status HTTP/1.1\r\nHost: 192.168.49.2:8443\r\nUser-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format\r\nContent-Length: 807\r\nAccept: application/json, */*\r\nContent-Type: application/json\r\nKeploy-Header: 492\r\nAccept-Encoding: gzip\r\n\r\n{\"kind\":\"Foo\",\"apiVersion\":\"samplecontroller.k8s.io/v1alpha1\",\"metadata\":{\"name\":\"example-foo\",\"namespace\":\"default\",\"uid\":\"c78f6682-c5d8-4c62-85b6-6cfad8be67bc\",\"resourceVersion\":\"492\",\"generation\":1,\"creationTimestamp\":\"2023-12-18T12:15:34Z\",\"managedFields\":[{\"manager\":\"kubectl-create\",\"operation\":\"Update\",\"apiVersion\":\"samplecontroller.k8s.io/v1alpha1\",\"time\":\"2023-12-18T12:15:34Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:spec\":{\".\":{},\"f:deploymentName\":{},\"f:replicas\":{}}}},{\"manager\":\"sample-controller\",\"operation\":\"Update\",\"apiVersion\":\"samplecontroller.k8s.io/v1alpha1\",\"time\":\"2023-12-18T12:15:34Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:status\":{\".\":{},\"f:availableReplicas\":{}}},\"subresource\":\"status\"}]},\"spec\":{\"deploymentName\":\"example-foo\",\"replicas\":1},\"status\":{\"availableReplicas\":0}}\n"}
+go.keploy.io/server/pkg/proxy/integrations/httpparser.decodeOutgoingHttp
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:446
+go.keploy.io/server/pkg/proxy/integrations/httpparser.(*HttpParser).ProcessOutgoing
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:49
+go.keploy.io/server/pkg/proxy.(*ProxySet).handleConnection
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:951
+go.keploy.io/server/pkg/proxy.(*ProxySet).startProxy.func1
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:594
+E1222 12:00:10.054522 2573386 controller.go:252] error syncing 'default/example-foo': Put "https://192.168.49.2:8443/apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status": EOF, requeuing
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:964	time taken by proxy to execute the flow	{"Duration(ms)": 25}
+Inside updateFunc for informers
+SAME REsourceVersion 496 492
+This is the req url PUT : https://192.168.49.2:8443/apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status
+-------------------
+This is the req header map[Accept:[application/json, */*] Content-Type:[application/json] Keploy-Header:[492] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:789		{"PID in proxy:": 2572412}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:790		{"Filtering in Proxy": false}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:795	Inside handleConnection of proxyServer	{"source port": 40794, "Time": 1703246410}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:810		{"DestIp4": 3232248066, "DestPort": 8443, "KernelPid": 2573386}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	hooks/loader.go:228	successfully removed entry from redirect proxy map	{"(Key)/SourcePort": 40794}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:880	received buffer	{"size": 1128, "buffer": "UFVUIC9hcGlzL3NhbXBsZWNvbnRyb2xsZXIuazhzLmlvL3YxYWxwaGExL25hbWVzcGFjZXMvZGVmYXVsdC9mb29zL2V4YW1wbGUtZm9vL3N0YXR1cyBIVFRQLzEuMQ0KSG9zdDogMTkyLjE2OC40OS4yOjg0NDMNClVzZXItQWdlbnQ6IHNhbXBsZS1jb250cm9sbGVyL3YwLjAuMCAobGludXgvYXJtNjQpIGt1YmVybmV0ZXMvJEZvcm1hdA0KQ29udGVudC1MZW5ndGg6IDgwNw0KQWNjZXB0OiBhcHBsaWNhdGlvbi9qc29uLCAqLyoNCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24vanNvbg0KS2VwbG95LUhlYWRlcjogNDkyDQpBY2NlcHQtRW5jb2Rpbmc6IGd6aXANCg0KeyJraW5kIjoiRm9vIiwiYXBpVmVyc2lvbiI6InNhbXBsZWNvbnRyb2xsZXIuazhzLmlvL3YxYWxwaGExIiwibWV0YWRhdGEiOnsibmFtZSI6ImV4YW1wbGUtZm9vIiwibmFtZXNwYWNlIjoiZGVmYXVsdCIsInVpZCI6ImM3OGY2NjgyLWM1ZDgtNGM2Mi04NWI2LTZjZmFkOGJlNjdiYyIsInJlc291cmNlVmVyc2lvbiI6IjQ5MiIsImdlbmVyYXRpb24iOjEsImNyZWF0aW9uVGltZXN0YW1wIjoiMjAyMy0xMi0xOFQxMjoxNTozNFoiLCJtYW5hZ2VkRmllbGRzIjpbeyJtYW5hZ2VyIjoia3ViZWN0bC1jcmVhdGUiLCJvcGVyYXRpb24iOiJVcGRhdGUiLCJhcGlWZXJzaW9uIjoic2FtcGxlY29udHJvbGxlci5rOHMuaW8vdjFhbHBoYTEiLCJ0aW1lIjoiMjAyMy0xMi0xOFQxMjoxNTozNFoiLCJmaWVsZHNUeXBlIjoiRmllbGRzVjEiLCJmaWVsZHNWMSI6eyJmOnNwZWMiOnsiLiI6e30sImY6ZGVwbG95bWVudE5hbWUiOnt9LCJmOnJlcGxpY2FzIjp7fX19fSx7Im1hbmFnZXIiOiJzYW1wbGUtY29udHJvbGxlciIsIm9wZXJhdGlvbiI6IlVwZGF0ZSIsImFwaVZlcnNpb24iOiJzYW1wbGVjb250cm9sbGVyLms4cy5pby92MWFscGhhMSIsInRpbWUiOiIyMDIzLTEyLTE4VDEyOjE1OjM0WiIsImZpZWxkc1R5cGUiOiJGaWVsZHNWMSIsImZpZWxkc1YxIjp7ImY6c3RhdHVzIjp7Ii4iOnt9LCJmOmF2YWlsYWJsZVJlcGxpY2FzIjp7fX19LCJzdWJyZXNvdXJjZSI6InN0YXR1cyJ9XX0sInNwZWMiOnsiZGVwbG95bWVudE5hbWUiOiJleGFtcGxlLWZvbyIsInJlcGxpY2FzIjoxfSwic3RhdHVzIjp7ImF2YWlsYWJsZVJlcGxpY2FzIjowfX0K", "connectionID": 18}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:881	the clientConnId: 18
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:906		{"Client IP Address": "192.168.5.15:40794", "Client ConnectionID": 18, "Destination IP Address": "192.168.49.2:8443", "Destination ConnectionID": 19, "isTLS": true}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[31mERROR[0m	httpparser/httpparser.go:445	Didn't match any prexisting http mock
+go.keploy.io/server/pkg/proxy/integrations/httpparser.decodeOutgoingHttp
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:445
+go.keploy.io/server/pkg/proxy/integrations/httpparser.(*HttpParser).ProcessOutgoing
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:49
+go.keploy.io/server/pkg/proxy.(*ProxySet).handleConnection
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:951
+go.keploy.io/server/pkg/proxy.(*ProxySet).startProxy.func1
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:594
+🐰 Keploy: 2023-12-22T12:00:10Z 	[31mERROR[0m	httpparser/httpparser.go:446	Cannot Find eligible mocks for the outgoing http call	{"request": "PUT /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status HTTP/1.1\r\nHost: 192.168.49.2:8443\r\nUser-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format\r\nContent-Length: 807\r\nAccept: application/json, */*\r\nContent-Type: application/json\r\nKeploy-Header: 492\r\nAccept-Encoding: gzip\r\n\r\n{\"kind\":\"Foo\",\"apiVersion\":\"samplecontroller.k8s.io/v1alpha1\",\"metadata\":{\"name\":\"example-foo\",\"namespace\":\"default\",\"uid\":\"c78f6682-c5d8-4c62-85b6-6cfad8be67bc\",\"resourceVersion\":\"492\",\"generation\":1,\"creationTimestamp\":\"2023-12-18T12:15:34Z\",\"managedFields\":[{\"manager\":\"kubectl-create\",\"operation\":\"Update\",\"apiVersion\":\"samplecontroller.k8s.io/v1alpha1\",\"time\":\"2023-12-18T12:15:34Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:spec\":{\".\":{},\"f:deploymentName\":{},\"f:replicas\":{}}}},{\"manager\":\"sample-controller\",\"operation\":\"Update\",\"apiVersion\":\"samplecontroller.k8s.io/v1alpha1\",\"time\":\"2023-12-18T12:15:34Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:status\":{\".\":{},\"f:availableReplicas\":{}}},\"subresource\":\"status\"}]},\"spec\":{\"deploymentName\":\"example-foo\",\"replicas\":1},\"status\":{\"availableReplicas\":0}}\n"}
+go.keploy.io/server/pkg/proxy/integrations/httpparser.decodeOutgoingHttp
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:446
+go.keploy.io/server/pkg/proxy/integrations/httpparser.(*HttpParser).ProcessOutgoing
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:49
+go.keploy.io/server/pkg/proxy.(*ProxySet).handleConnection
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:951
+go.keploy.io/server/pkg/proxy.(*ProxySet).startProxy.func1
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:594
+E1222 12:00:10.090728 2573386 controller.go:252] error syncing 'default/example-foo': Put "https://192.168.49.2:8443/apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status": EOF, requeuing
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:964	time taken by proxy to execute the flow	{"Duration(ms)": 14}
+SAME REsourceVersion 496 492
+This is the req url PUT : https://192.168.49.2:8443/apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status
+-------------------
+This is the req header map[Accept:[application/json, */*] Content-Type:[application/json] Keploy-Header:[492] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:789		{"PID in proxy:": 2572412}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:790		{"Filtering in Proxy": false}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:795	Inside handleConnection of proxyServer	{"source port": 40800, "Time": 1703246410}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:810		{"DestIp4": 3232248066, "DestPort": 8443, "KernelPid": 2573386}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	hooks/loader.go:228	successfully removed entry from redirect proxy map	{"(Key)/SourcePort": 40800}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:880	received buffer	{"size": 1128, "buffer": "UFVUIC9hcGlzL3NhbXBsZWNvbnRyb2xsZXIuazhzLmlvL3YxYWxwaGExL25hbWVzcGFjZXMvZGVmYXVsdC9mb29zL2V4YW1wbGUtZm9vL3N0YXR1cyBIVFRQLzEuMQ0KSG9zdDogMTkyLjE2OC40OS4yOjg0NDMNClVzZXItQWdlbnQ6IHNhbXBsZS1jb250cm9sbGVyL3YwLjAuMCAobGludXgvYXJtNjQpIGt1YmVybmV0ZXMvJEZvcm1hdA0KQ29udGVudC1MZW5ndGg6IDgwNw0KQWNjZXB0OiBhcHBsaWNhdGlvbi9qc29uLCAqLyoNCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24vanNvbg0KS2VwbG95LUhlYWRlcjogNDkyDQpBY2NlcHQtRW5jb2Rpbmc6IGd6aXANCg0KeyJraW5kIjoiRm9vIiwiYXBpVmVyc2lvbiI6InNhbXBsZWNvbnRyb2xsZXIuazhzLmlvL3YxYWxwaGExIiwibWV0YWRhdGEiOnsibmFtZSI6ImV4YW1wbGUtZm9vIiwibmFtZXNwYWNlIjoiZGVmYXVsdCIsInVpZCI6ImM3OGY2NjgyLWM1ZDgtNGM2Mi04NWI2LTZjZmFkOGJlNjdiYyIsInJlc291cmNlVmVyc2lvbiI6IjQ5MiIsImdlbmVyYXRpb24iOjEsImNyZWF0aW9uVGltZXN0YW1wIjoiMjAyMy0xMi0xOFQxMjoxNTozNFoiLCJtYW5hZ2VkRmllbGRzIjpbeyJtYW5hZ2VyIjoia3ViZWN0bC1jcmVhdGUiLCJvcGVyYXRpb24iOiJVcGRhdGUiLCJhcGlWZXJzaW9uIjoic2FtcGxlY29udHJvbGxlci5rOHMuaW8vdjFhbHBoYTEiLCJ0aW1lIjoiMjAyMy0xMi0xOFQxMjoxNTozNFoiLCJmaWVsZHNUeXBlIjoiRmllbGRzVjEiLCJmaWVsZHNWMSI6eyJmOnNwZWMiOnsiLiI6e30sImY6ZGVwbG95bWVudE5hbWUiOnt9LCJmOnJlcGxpY2FzIjp7fX19fSx7Im1hbmFnZXIiOiJzYW1wbGUtY29udHJvbGxlciIsIm9wZXJhdGlvbiI6IlVwZGF0ZSIsImFwaVZlcnNpb24iOiJzYW1wbGVjb250cm9sbGVyLms4cy5pby92MWFscGhhMSIsInRpbWUiOiIyMDIzLTEyLTE4VDEyOjE1OjM0WiIsImZpZWxkc1R5cGUiOiJGaWVsZHNWMSIsImZpZWxkc1YxIjp7ImY6c3RhdHVzIjp7Ii4iOnt9LCJmOmF2YWlsYWJsZVJlcGxpY2FzIjp7fX19LCJzdWJyZXNvdXJjZSI6InN0YXR1cyJ9XX0sInNwZWMiOnsiZGVwbG95bWVudE5hbWUiOiJleGFtcGxlLWZvbyIsInJlcGxpY2FzIjoxfSwic3RhdHVzIjp7ImF2YWlsYWJsZVJlcGxpY2FzIjowfX0K", "connectionID": 20}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:881	the clientConnId: 20
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:906		{"Client IP Address": "192.168.5.15:40800", "Client ConnectionID": 20, "Destination IP Address": "192.168.49.2:8443", "Destination ConnectionID": 21, "isTLS": true}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:431	headers not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[31mERROR[0m	httpparser/httpparser.go:445	Didn't match any prexisting http mock
+go.keploy.io/server/pkg/proxy/integrations/httpparser.decodeOutgoingHttp
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:445
+go.keploy.io/server/pkg/proxy/integrations/httpparser.(*HttpParser).ProcessOutgoing
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:49
+go.keploy.io/server/pkg/proxy.(*ProxySet).handleConnection
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:951
+go.keploy.io/server/pkg/proxy.(*ProxySet).startProxy.func1
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:594
+🐰 Keploy: 2023-12-22T12:00:10Z 	[31mERROR[0m	httpparser/httpparser.go:446	Cannot Find eligible mocks for the outgoing http call	{"request": "PUT /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status HTTP/1.1\r\nHost: 192.168.49.2:8443\r\nUser-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format\r\nContent-Length: 807\r\nAccept: application/json, */*\r\nContent-Type: application/json\r\nKeploy-Header: 492\r\nAccept-Encoding: gzip\r\n\r\n{\"kind\":\"Foo\",\"apiVersion\":\"samplecontroller.k8s.io/v1alpha1\",\"metadata\":{\"name\":\"example-foo\",\"namespace\":\"default\",\"uid\":\"c78f6682-c5d8-4c62-85b6-6cfad8be67bc\",\"resourceVersion\":\"492\",\"generation\":1,\"creationTimestamp\":\"2023-12-18T12:15:34Z\",\"managedFields\":[{\"manager\":\"kubectl-create\",\"operation\":\"Update\",\"apiVersion\":\"samplecontroller.k8s.io/v1alpha1\",\"time\":\"2023-12-18T12:15:34Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:spec\":{\".\":{},\"f:deploymentName\":{},\"f:replicas\":{}}}},{\"manager\":\"sample-controller\",\"operation\":\"Update\",\"apiVersion\":\"samplecontroller.k8s.io/v1alpha1\",\"time\":\"2023-12-18T12:15:34Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:status\":{\".\":{},\"f:availableReplicas\":{}}},\"subresource\":\"status\"}]},\"spec\":{\"deploymentName\":\"example-foo\",\"replicas\":1},\"status\":{\"availableReplicas\":0}}\n"}
+go.keploy.io/server/pkg/proxy/integrations/httpparser.decodeOutgoingHttp
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:446
+go.keploy.io/server/pkg/proxy/integrations/httpparser.(*HttpParser).ProcessOutgoing
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/integrations/httpparser/httpparser.go:49
+go.keploy.io/server/pkg/proxy.(*ProxySet).handleConnection
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:951
+go.keploy.io/server/pkg/proxy.(*ProxySet).startProxy.func1
+	/Users/sarthak_1/Documents/Keploy/trash/gk_workspace/hermione/keploy/pkg/proxy/proxy.go:594
+E1222 12:00:10.116804 2573386 controller.go:252] error syncing 'default/example-foo': Put "https://192.168.49.2:8443/apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status": EOF, requeuing
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:964	time taken by proxy to execute the flow	{"Duration(ms)": 21}
+SAME REsourceVersion 496 553
+Inside updateFunc for informers
+SAME REsourceVersion 499 569
+E1222 12:00:10.255639 2573386 controller.go:252] error syncing 'default/example-foo-updated': Resource "example-foo" already exists and is not managed by Foo, requeuing
+I1222 12:00:10.255835 2573386 event.go:376] "Event occurred" object="default/example-foo-updated" fieldPath="" kind="Foo" apiVersion="samplecontroller.k8s.io/v1alpha1" type="Warning" reason="ErrResourceExists" message="Resource \"example-foo\" already exists and is not managed by Foo"
+This is the req url POST : https://192.168.49.2:8443/api/v1/namespaces/default/events
+-------------------
+This is the req header map[Accept:[application/json, */*] Content-Type:[application/json] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:789		{"PID in proxy:": 2572412}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:790		{"Filtering in Proxy": false}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:795	Inside handleConnection of proxyServer	{"source port": 40804, "Time": 1703246410}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:810		{"DestIp4": 3232248066, "DestPort": 8443, "KernelPid": 2573386}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	hooks/loader.go:228	successfully removed entry from redirect proxy map	{"(Key)/SourcePort": 40804}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:880	received buffer	{"size": 932, "buffer": "UE9TVCAvYXBpL3YxL25hbWVzcGFjZXMvZGVmYXVsdC9ldmVudHMgSFRUUC8xLjENCkhvc3Q6IDE5Mi4xNjguNDkuMjo4NDQzDQpVc2VyLUFnZW50OiBzYW1wbGUtY29udHJvbGxlci92MC4wLjAgKGxpbnV4L2FybTY0KSBrdWJlcm5ldGVzLyRGb3JtYXQNCkNvbnRlbnQtTGVuZ3RoOiA2NzgNCkFjY2VwdDogYXBwbGljYXRpb24vanNvbiwgKi8qDQpDb250ZW50LVR5cGU6IGFwcGxpY2F0aW9uL2pzb24NCkFjY2VwdC1FbmNvZGluZzogZ3ppcA0KDQp7ImtpbmQiOiJFdmVudCIsImFwaVZlcnNpb24iOiJ2MSIsIm1ldGFkYXRhIjp7Im5hbWUiOiJleGFtcGxlLWZvby11cGRhdGVkLjE3YTMyNTk2MDAzZWNjNWIiLCJuYW1lc3BhY2UiOiJkZWZhdWx0IiwiY3JlYXRpb25UaW1lc3RhbXAiOm51bGx9LCJpbnZvbHZlZE9iamVjdCI6eyJraW5kIjoiRm9vIiwibmFtZXNwYWNlIjoiZGVmYXVsdCIsIm5hbWUiOiJleGFtcGxlLWZvby11cGRhdGVkIiwidWlkIjoiZGI4YjM3ZWYtMjE2ZC00ZGQ4LTllNDEtZGQ5NzUwODUxYTYxIiwiYXBpVmVyc2lvbiI6InNhbXBsZWNvbnRyb2xsZXIuazhzLmlvL3YxYWxwaGExIiwicmVzb3VyY2VWZXJzaW9uIjoiNTY5In0sInJlYXNvbiI6IkVyclJlc291cmNlRXhpc3RzIiwibWVzc2FnZSI6IlJlc291cmNlIFwiZXhhbXBsZS1mb29cIiBhbHJlYWR5IGV4aXN0cyBhbmQgaXMgbm90IG1hbmFnZWQgYnkgRm9vIiwic291cmNlIjp7ImNvbXBvbmVudCI6InNhbXBsZS1jb250cm9sbGVyIn0sImZpcnN0VGltZXN0YW1wIjoiMjAyMy0xMi0yMlQxMjowMDoxMFoiLCJsYXN0VGltZXN0YW1wIjoiMjAyMy0xMi0yMlQxMjowMDoxMFoiLCJjb3VudCI6MSwidHlwZSI6Ildhcm5pbmciLCJldmVudFRpbWUiOm51bGwsInJlcG9ydGluZ0NvbXBvbmVudCI6InNhbXBsZS1jb250cm9sbGVyIiwicmVwb3J0aW5nSW5zdGFuY2UiOiIifQo=", "connectionID": 22}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:881	the clientConnId: 22
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:906		{"Client IP Address": "192.168.5.15:40804", "Client ConnectionID": 22, "Destination IP Address": "192.168.49.2:8443", "Destination ConnectionID": 23, "isTLS": true}
+SAME REsourceVersion 499 569
+E1222 12:00:10.261418 2573386 controller.go:252] error syncing 'default/example-foo-updated': Resource "example-foo" already exists and is not managed by Foo, requeuing
+I1222 12:00:10.261444 2573386 event.go:376] "Event occurred" object="default/example-foo-updated" fieldPath="" kind="Foo" apiVersion="samplecontroller.k8s.io/v1alpha1" type="Warning" reason="ErrResourceExists" message="Resource \"example-foo\" already exists and is not managed by Foo"
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+This is the req url PUT : https://192.168.49.2:8443/apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status
+-------------------
+This is the req header map[Accept:[application/json, */*] Content-Type:[application/json] Keploy-Header:[553] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:551	the content-length headerCache-Control: no-cache, private
+Content-Length: 1096
+Content-Type: application/json
+Date: Mon, 18 Dec 2023 12:16:42 GMT
+X-Kubernetes-Pf-Flowschema-Uid: d2f10eb0-81a6-411b-b433-0a9327f0dbda
+X-Kubernetes-Pf-Prioritylevel-Uid: 5ae68e29-2bcf-4b91-9bf0-66f9f748d10e
+Audit-Id: 54177f6b-d204-40ea-9822-51a501199e38
+
+This is the req url PATCH : https://192.168.49.2:8443/api/v1/namespaces/default/events/example-foo-updated.17a1ec2acccfef72
+-------------------
+This is the req header map[Accept:[application/json, */*] Content-Type:[application/strategic-merge-patch+json] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+SAME REsourceVersion 499 569
+E1222 12:00:10.272117 2573386 controller.go:252] error syncing 'default/example-foo-updated': Resource "example-foo" already exists and is not managed by Foo, requeuing
+I1222 12:00:10.272145 2573386 event.go:376] "Event occurred" object="default/example-foo-updated" fieldPath="" kind="Foo" apiVersion="samplecontroller.k8s.io/v1alpha1" type="Warning" reason="ErrResourceExists" message="Resource \"example-foo\" already exists and is not managed by Foo"
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:789		{"PID in proxy:": 2572412}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:790		{"Filtering in Proxy": false}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:795	Inside handleConnection of proxyServer	{"source port": 40810, "Time": 1703246410}
+Inside updateFunc for informers
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:810		{"DestIp4": 3232248066, "DestPort": 8443, "KernelPid": 2573386}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	hooks/loader.go:228	successfully removed entry from redirect proxy map	{"(Key)/SourcePort": 40810}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:789		{"PID in proxy:": 2572412}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:790		{"Filtering in Proxy": false}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:795	Inside handleConnection of proxyServer	{"source port": 40806, "Time": 1703246410}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:810		{"DestIp4": 3232248066, "DestPort": 8443, "KernelPid": 2573386}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	hooks/loader.go:228	successfully removed entry from redirect proxy map	{"(Key)/SourcePort": 40806}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:880	received buffer	{"size": 442, "buffer": "UEFUQ0ggL2FwaS92MS9uYW1lc3BhY2VzL2RlZmF1bHQvZXZlbnRzL2V4YW1wbGUtZm9vLXVwZGF0ZWQuMTdhMWVjMmFjY2NmZWY3MiBIVFRQLzEuMQ0KSG9zdDogMTkyLjE2OC40OS4yOjg0NDMNClVzZXItQWdlbnQ6IHNhbXBsZS1jb250cm9sbGVyL3YwLjAuMCAobGludXgvYXJtNjQpIGt1YmVybmV0ZXMvJEZvcm1hdA0KQ29udGVudC1MZW5ndGg6IDEyOA0KQWNjZXB0OiBhcHBsaWNhdGlvbi9qc29uLCAqLyoNCkNvbnRlbnQtVHlwZTogYXBwbGljYXRpb24vc3RyYXRlZ2ljLW1lcmdlLXBhdGNoK2pzb24NCkFjY2VwdC1FbmNvZGluZzogZ3ppcA0KDQp7ImNvdW50IjoyLCJsYXN0VGltZXN0YW1wIjoiMjAyMy0xMi0yMlQxMjowMDoxMFoiLCJtZXNzYWdlIjoiUmVzb3VyY2UgXCJleGFtcGxlLWZvb1wiIGFscmVhZHkgZXhpc3RzIGFuZCBpcyBub3QgbWFuYWdlZCBieSBGb28ifQ==", "connectionID": 24}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:881	the clientConnId: 24
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	proxy/proxy.go:906		{"Client IP Address": "192.168.5.15:40810", "Client ConnectionID": 24, "Destination IP Address": "192.168.49.2:8443", "Destination ConnectionID": 26, "isTLS": true}
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:551	the content-length headerAudit-Id: 85d9a133-dd3b-45d9-9ccf-d5dfff080e63
+Cache-Control: no-cache, private
+Content-Length: 1096
+Content-Type: application/json
+Date: Mon, 18 Dec 2023 12:16:42 GMT
+X-Kubernetes-Pf-Flowschema-Uid: d2f10eb0-81a6-411b-b433-0a9327f0dbda
+X-Kubernetes-Pf-Prioritylevel-Uid: 5ae68e29-2bcf-4b91-9bf0-66f9f748d10e
+
+This is the req url PATCH : https://192.168.49.2:8443/api/v1/namespaces/default/events/example-foo-updated.17a1ec2acccfef72
+-------------------
+This is the req header map[Accept:[application/json, */*] Content-Type:[application/strategic-merge-patch+json] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+SAME REsourceVersion 534 569
+E1222 12:00:10.292189 2573386 controller.go:252] error syncing 'default/example-foo-updated': Resource "example-foo" already exists and is not managed by Foo, requeuing
+I1222 12:00:10.292244 2573386 event.go:376] "Event occurred" object="default/example-foo-updated" fieldPath="" kind="Foo" apiVersion="samplecontroller.k8s.io/v1alpha1" type="Warning" reason="ErrResourceExists" message="Resource \"example-foo\" already exists and is not managed by Foo"
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:551	the content-length headerX-Kubernetes-Pf-Flowschema-Uid: d2f10eb0-81a6-411b-b433-0a9327f0dbda
+X-Kubernetes-Pf-Prioritylevel-Uid: 5ae68e29-2bcf-4b91-9bf0-66f9f748d10e
+Audit-Id: dfe8f85e-7d8c-46a3-9f8f-bd35e238a90a
+Cache-Control: no-cache, private
+Content-Length: 807
+Content-Type: application/json
+Date: Mon, 18 Dec 2023 12:16:28 GMT
+
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+I1222 12:00:10.305560 2573386 controller.go:247] "Successfully synced" resourceName="default/example-foo"
+SAME REsourceVersion 534 553
+I1222 12:00:10.305766 2573386 event.go:376] "Event occurred" object="default/example-foo" fieldPath="" kind="Foo" apiVersion="samplecontroller.k8s.io/v1alpha1" type="Normal" reason="Synced" message="Foo synced successfully"
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:551	the content-length headerAudit-Id: 4a966152-a3f7-4104-a401-d3797a3e25c9
+Cache-Control: no-cache, private
+Content-Length: 1096
+Content-Type: application/json
+Date: Mon, 18 Dec 2023 12:16:42 GMT
+X-Kubernetes-Pf-Flowschema-Uid: d2f10eb0-81a6-411b-b433-0a9327f0dbda
+X-Kubernetes-Pf-Prioritylevel-Uid: 5ae68e29-2bcf-4b91-9bf0-66f9f748d10e
+
+This is the req url PATCH : https://192.168.49.2:8443/api/v1/namespaces/default/events/example-foo-updated.17a1ec2acccfef72
+-------------------
+This is the req header map[Accept:[application/json, */*] Content-Type:[application/strategic-merge-patch+json] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:551	the content-length headerContent-Type: application/json
+Date: Mon, 18 Dec 2023 12:16:42 GMT
+X-Kubernetes-Pf-Flowschema-Uid: d2f10eb0-81a6-411b-b433-0a9327f0dbda
+X-Kubernetes-Pf-Prioritylevel-Uid: 5ae68e29-2bcf-4b91-9bf0-66f9f748d10e
+Audit-Id: 12994165-6a1d-47a2-9e24-68598519a26e
+Cache-Control: no-cache, private
+Content-Length: 1096
+
+This is the req url PATCH : https://192.168.49.2:8443/api/v1/namespaces/default/events/example-foo.17a1ec1ae72ea368
+-------------------
+This is the req header map[Accept:[application/json, */*] Content-Type:[application/strategic-merge-patch+json] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:551	the content-length headerCache-Control: no-cache, private
+Content-Length: 1026
+Content-Type: application/json
+Date: Mon, 18 Dec 2023 12:16:28 GMT
+X-Kubernetes-Pf-Flowschema-Uid: d2f10eb0-81a6-411b-b433-0a9327f0dbda
+X-Kubernetes-Pf-Prioritylevel-Uid: 5ae68e29-2bcf-4b91-9bf0-66f9f748d10e
+Audit-Id: e9e35b15-bf89-42fa-b959-7d85487d6ab1
+
+SAME REsourceVersion 534 569
+E1222 12:00:10.332335 2573386 controller.go:252] error syncing 'default/example-foo-updated': Resource "example-foo" already exists and is not managed by Foo, requeuing
+I1222 12:00:10.332392 2573386 event.go:376] "Event occurred" object="default/example-foo-updated" fieldPath="" kind="Foo" apiVersion="samplecontroller.k8s.io/v1alpha1" type="Warning" reason="ErrResourceExists" message="Resource \"example-foo\" already exists and is not managed by Foo"
+This is the req url PATCH : https://192.168.49.2:8443/api/v1/namespaces/default/events/example-foo-updated.17a1ec2acccfef72
+-------------------
+This is the req header map[Accept:[application/json, */*] Content-Type:[application/strategic-merge-patch+json] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:417	path not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:403	body not matching
+🐰 Keploy: 2023-12-22T12:00:10Z 	[35mDEBUG[0m	httpparser/httpparser.go:551	the content-length headerX-Kubernetes-Pf-Prioritylevel-Uid: 5ae68e29-2bcf-4b91-9bf0-66f9f748d10e
+Audit-Id: 43b20a83-5b31-47f8-b535-b8ac0efc3b90
+Cache-Control: no-cache, private
+Content-Length: 1096
+Content-Type: application/json
+Date: Mon, 18 Dec 2023 12:16:42 GMT
+X-Kubernetes-Pf-Flowschema-Uid: d2f10eb0-81a6-411b-b433-0a9327f0dbda
+
+This is the req url GET : https://192.168.49.2:8443/apis/apps/v1/deployments?allowWatchBookmarks=true&resourceVersion=619&timeout=8m22s&timeoutSeconds=502&watch=true
+-------------------
+This is the req header map[Accept:[application/json, */*] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+SAME REsourceVersion 534 569
+E1222 12:00:10.413027 2573386 controller.go:252] error syncing 'default/example-foo-updated': Resource "example-foo" already exists and is not managed by Foo, requeuing
+I1222 12:00:10.413160 2573386 event.go:376] "Event occurred" object="default/example-foo-updated" fieldPath="" kind="Foo" apiVersion="samplecontroller.k8s.io/v1alpha1" type="Warning" reason="ErrResourceExists" message="Resource \"example-foo\" already exists and is not managed by Foo"
+This is the req url PATCH : https://192.168.49.2:8443/api/v1/namespaces/default/events/example-foo-updated.17a1ec2acccfef72
+-------------------
+This is the req header map[Accept:[application/json, */*] Content-Type:[application/strategic-merge-patch+json] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+This is the req url GET : https://192.168.49.2:8443/apis/samplecontroller.k8s.io/v1alpha1/foos?allowWatchBookmarks=true&resourceVersion=610&timeout=6m53s&timeoutSeconds=413&watch=true
+-------------------
+This is the req header map[Accept:[application/json, */*] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+This is the req url PUT : https://192.168.49.2:8443/apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status
+-------------------
+This is the req header map[Accept:[application/json, */*] Content-Type:[application/json] Keploy-Header:[553] User-Agent:[sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format]]
+-------------------
+E1222 12:00:10.574036 2573386 controller.go:278] foo 'default/example-foo-updated' in work queue no longer exists
+I1222 12:00:10.574163 2573386 controller.go:247] "Successfully synced" resourceName="default/example-foo-updated"
+🐰 Keploy: 2023-12-22T12:00:14Z 	[35mDEBUG[0m	test/test.go:493	the userip of the user docker container	{"": ""}
+🐰 Keploy: 2023-12-22T12:00:14Z 	[34mINFO[0m	test/test.go:557	No testcases are recorded for the user application	{"for session": "test-set-1"}
+🐰 Keploy: 2023-12-22T12:00:14Z 	[34mINFO[0m	hooks/loader.go:328	keploy has initiated the shutdown of the user application.
+🐰 Keploy: 2023-12-22T12:00:14Z 	[35mDEBUG[0m	hooks/loader.go:331	the process state for the user process	{"state": "<nil>", "processState": "<nil>"}
+🐰 Keploy: 2023-12-22T12:00:14Z 	[34mINFO[0m	test/test.go:211	test run completed	{"passed overall": false}
+🐰 Keploy: 2023-12-22T12:00:14Z 	[34mINFO[0m	hooks/loader.go:384	Exiting keploy program gracefully.
+🐰 Keploy: 2023-12-22T12:00:14Z 	[35mDEBUG[0m	hooks/loader.go:373	File kdocker-compose.yaml doesn't exist
+🐰 Keploy: 2023-12-22T12:00:14Z 	[34mINFO[0m	test/test.go:266	keploy terminated user application
+🐰 Keploy: 2023-12-22T12:00:14Z 	[35mDEBUG[0m	proxy/proxy.go:876	received EOF, closing connection	{"error": "EOF", "connectionID": 25}
+🐰 Keploy: 2023-12-22T12:00:14Z 	[34mINFO[0m	hooks/loader.go:434	eBPF resources released successfully...
+🐰 Keploy: 2023-12-22T12:00:17Z 	[34mINFO[0m	proxy/proxy.go:1052	Dns server stopped
+🐰 Keploy: 2023-12-22T12:00:17Z 	[34mINFO[0m	proxy/proxy.go:1054	proxy stopped...

@@ -473,3 +473,7 @@ func Fuzzymatch(tcsMocks []*models.Mock, reqBuff []byte, h *hooks.Hook) (bool, *
 	}
 	return false, &models.Mock{}
 }
+
+func MockAssertion()  {
+	
+}

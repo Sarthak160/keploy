@@ -45,6 +45,9 @@ type TestOptions struct {
 	ProxyPort        uint32
 	GlobalNoise      models.GlobalNoise
 	TestsetNoise     models.TestsetNoise
+	MtlsCertPath     string
+	MtlsKeyPath      string
+	MtlsHostName     string
 }
 
 func NewTester(logger *zap.Logger) Tester {
@@ -89,7 +92,7 @@ func (t *tester) InitialiseTest(cfg *TestConfig) (InitialiseTestReturn, error) {
 		return returnVal, errors.New("Keploy was interupted by stopper")
 	default:
 		// start the proxy
-		returnVal.ProxySet = proxy.BootProxy(t.logger, proxy.Option{Port: cfg.Proxyport}, cfg.AppCmd, cfg.AppContainer, 0, "", cfg.PassThorughPorts, returnVal.LoadedHooks, context.Background())
+		returnVal.ProxySet = proxy.BootProxy(t.logger, proxy.Option{Port: cfg.Proxyport, MtlsCertPath: cfg.MtlsCertPath, MtlsKeyPath: cfg.MtlsKeyPath, MtlsHostName: cfg.MtlsHostName}, cfg.AppCmd, cfg.AppContainer, 0, "", cfg.PassThorughPorts, returnVal.LoadedHooks, context.Background())
 	}
 
 	// proxy update its state in the ProxyPorts map
@@ -162,6 +165,9 @@ func (t *tester) Test(path string, testReportPath string, appCmd string, options
 		Delay:            options.Delay,
 		PassThorughPorts: options.PassThorughPorts,
 		ApiTimeout:       options.ApiTimeout,
+		MtlsCertPath:     options.MtlsCertPath,
+		MtlsKeyPath:      options.MtlsKeyPath,
+		MtlsHostName:     options.MtlsHostName,
 	}
 	initialisedValues, err := t.InitialiseTest(cfg)
 	// Recover from panic and gracfully shutdown
@@ -201,7 +207,7 @@ func (t *tester) Test(path string, testReportPath string, appCmd string, options
 			break
 		}
 	}
-	
+
 	t.logger.Info("test run completed", zap.Bool("passed overall", result))
 
 	if !initialisedValues.AbortStopHooksForcefully {
@@ -433,6 +439,10 @@ func (t *tester) FetchTestResults(cfg *FetchTestResultsConfig) models.TestRunSta
 	return *cfg.Status
 }
 
+func (t *tester) RunMockAssertion() {
+
+}
+
 // testSet, path, testReportPath, appCmd, appContainer, appNetwork, delay, pid, ys, loadedHooks, testReportFS, testRunChan, apiTimeout, ctx
 func (t *tester) RunTestSet(testSet, path, testReportPath, appCmd, appContainer, appNetwork string, delay uint64, pid uint32, ys platform.TestCaseDB, loadedHooks *hooks.Hook, testReportFS yaml.TestReportFS, testRunChan chan string, apiTimeout uint64, ctx context.Context, noiseConfig models.GlobalNoise, serveTest bool) models.TestRunStatus {
 	cfg := &RunTestSetConfig{
@@ -456,7 +466,7 @@ func (t *tester) RunTestSet(testSet, path, testReportPath, appCmd, appContainer,
 	if initialisedValues.InitialStatus != "" {
 		return initialisedValues.InitialStatus
 	}
-	
+
 	isApplicationStopped := false
 	// Recover from panic and gracfully shutdown
 	defer loadedHooks.Recover(pkg.GenerateRandomID())
@@ -481,7 +491,7 @@ func (t *tester) RunTestSet(testSet, path, testReportPath, appCmd, appContainer,
 	var userIp string
 	userIp = initialisedValues.UserIP
 	t.logger.Debug("the userip of the user docker container", zap.Any("", userIp))
-	
+
 	var entTcs, nonKeployTcs []string
 	for _, tc := range initialisedValues.Tcs {
 		// Filter the TCS Mocks based on the test case's request and response timestamp such that mock's timestamps lies between the test's timestamp and then, set the TCS Mocks.
@@ -542,6 +552,10 @@ func (t *tester) RunTestSet(testSet, path, testReportPath, appCmd, appContainer,
 	}
 	if len(nonKeployTcs) > 0 {
 		t.logger.Warn("These testcases have not been recorded by Keploy, may not work properly with Keploy.", zap.Strings("non-keploy mocks:", nonKeployTcs))
+	}
+	if len(initialisedValues.Tcs) == 0 && len(nonKeployTcs) == 0 {
+		t.logger.Info("No testcases are recorded for the user application", zap.Any("for session", testSet))
+		return models.TestRunStatusFailed
 	}
 	resultsCfg := &FetchTestResultsConfig{
 		TestReportFS:   testReportFS,
@@ -713,7 +727,7 @@ func (t *tester) testHttp(tc models.TestCase, actualResponse *models.HttpResp, n
 func replaceHostToIP(currentURL string, ipAddress string) (string, error) {
 	// Parse the current URL
 	parsedURL, err := url.Parse(currentURL)
-	
+
 	if err != nil {
 		// Return the original URL if parsing fails
 		return currentURL, err

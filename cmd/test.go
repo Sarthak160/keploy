@@ -80,7 +80,7 @@ func (t *Test) getTestConfig(path *string, proxyPort *uint32, appCmd *string, te
 	}
 
 	globalScopeVal := noiseJSON.(map[string]interface{})["global"]
-	
+
 	bodyOrHeaderVal := globalScopeVal.(map[string]interface{})
 
 	(*globalNoise)["body"] = map[string][]string{}
@@ -103,7 +103,7 @@ func (t *Test) getTestConfig(path *string, proxyPort *uint32, appCmd *string, te
 
 	for testset := range testSetScopeVal.(map[string]interface{}) {
 		(*testSetNoise)[testset] = map[string]map[string][]string{}
-		
+
 		bodyOrHeaderVal := testSetScopeVal.(map[string]interface{})[testset].(map[string]interface{})
 
 		(*testSetNoise)[testset]["body"] = map[string][]string{}
@@ -197,6 +197,23 @@ func (t *Test) GetCmd() *cobra.Command {
 				t.logger.Error("failed to read the config path")
 				return err
 			}
+			//add flag for mtls cert path
+			mtlsCertPath, err := cmd.Flags().GetString("mtls-cert-path")
+			if err != nil {
+				t.logger.Error("failed to read the mtls cert path")
+				return err
+			}
+			//add flag for mtls key path
+			mtlsKeyPath, err := cmd.Flags().GetString("mtls-key-path")
+			if err != nil {
+				t.logger.Error("failed to read the mtls key path")
+				return err
+			}
+			mtlsHostName, err := cmd.Flags().GetString("mtls-host-name")
+			if err != nil {
+				t.logger.Error("failed to read the mtls host name")
+				return err
+			}
 
 			globalNoise := make(models.GlobalNoise)
 			testsetNoise := make(models.TestsetNoise)
@@ -277,16 +294,19 @@ func (t *Test) GetCmd() *cobra.Command {
 			t.logger.Debug("the configuration for mocking mongo connection", zap.Any("password", mongoPassword))
 
 			t.tester.Test(path, testReportPath, appCmd, test.TestOptions{
-				Testsets: testSets,
-				AppContainer: appContainer,
-				AppNetwork: networkName,
-				MongoPassword: mongoPassword,
-				Delay: delay,
+				Testsets:         testSets,
+				AppContainer:     appContainer,
+				AppNetwork:       networkName,
+				MongoPassword:    mongoPassword,
+				Delay:            delay,
 				PassThorughPorts: ports,
-				ApiTimeout: apiTimeout,
-				ProxyPort: proxyPort,
-				GlobalNoise: globalNoise,
-				TestsetNoise: testsetNoise,
+				ApiTimeout:       apiTimeout,
+				ProxyPort:        proxyPort,
+				GlobalNoise:      globalNoise,
+				TestsetNoise:     testsetNoise,
+				MtlsCertPath:     mtlsCertPath,
+				MtlsKeyPath:      mtlsKeyPath,
+				MtlsHostName:     mtlsHostName,
 			})
 
 			return nil
@@ -313,7 +333,11 @@ func (t *Test) GetCmd() *cobra.Command {
 	testCmd.Flags().String("config-path", ".", "Path to the local directory where keploy configuration file is stored")
 
 	testCmd.Flags().String("mongoPassword", "default123", "Authentication password for mocking MongoDB connection")
-
+	testCmd.Flags().String("mtls-cert-path", "", "Path to the local directory where mtls cert file is stored")
+	
+	testCmd.Flags().String("mtls-key-path", "", "Path to the local directory where mtls key file is stored")
+	
+	testCmd.Flags().String("mtls-host-name", "", "Host name for mtls")
 	testCmd.SilenceUsage = true
 	testCmd.SilenceErrors = true
 

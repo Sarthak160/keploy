@@ -52,6 +52,9 @@ type TestConfig struct {
 	Delay            uint64
 	PassThorughPorts []uint
 	ApiTimeout       uint64
+	MtlsCertPath     string
+	MtlsKeyPath      string
+	MtlsHostName     string
 }
 
 type RunTestSetConfig struct {
@@ -201,13 +204,13 @@ func LeftJoinNoise(globalNoise models.GlobalNoise, tsNoise models.GlobalNoise) m
 }
 
 func MatchesAnyRegex(str string, regexArray []string) (bool, string) {
-    for _, pattern := range regexArray {
-        re := regexp.MustCompile(pattern)
-        if re.MatchString(str) {
-            return true, pattern
-        }
-    }
-    return false, ""
+	for _, pattern := range regexArray {
+		re := regexp.MustCompile(pattern)
+		if re.MatchString(str) {
+			return true, pattern
+		}
+	}
+	return false, ""
 }
 
 func MapToArray(mp map[string][]string) []string {

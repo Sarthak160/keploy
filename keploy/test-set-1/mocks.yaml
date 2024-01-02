@@ -1,0 +1,2276 @@
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PUT
+        type: HTTP_CLIENT
+    req:
+        method: PUT
+        proto_major: 1
+        proto_minor: 1
+        url: /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo-2/status
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "812"
+            Content-Type: application/json
+            Keploy-Header: "4192"
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: |
+            {"kind":"Foo","apiVersion":"samplecontroller.k8s.io/v1alpha1","metadata":{"name":"example-foo-2","namespace":"default","uid":"14b799ef-7813-4306-8503-414a72078a1f","resourceVersion":"4192","generation":1,"creationTimestamp":"2024-01-01T05:14:28Z","managedFields":[{"manager":"kubectl-create","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:14:28Z","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}}},{"manager":"sample-controller","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:14:28Z","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"subresource":"status"}]},"spec":{"deploymentName":"example-foo-2","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 9c82002e-0b22-4ded-95fe-c8da524ae547
+            Cache-Control: no-cache, private
+            Content-Length: 812,812
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:14:56 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T05:14:28Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T05:14:28Z"},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"manager":"sample-controller","operation":"Update","subresource":"status","time":"2024-01-01T05:14:28Z"}],"name":"example-foo-2","namespace":"default","resourceVersion":"4192","uid":"14b799ef-7813-4306-8503-414a72078a1f"},"spec":{"deploymentName":"example-foo-2","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096896303
+    reqTimestampMock: 2024-01-01T08:14:56.298714585Z
+    resTimestampMock: 2024-01-01T08:14:56.302781181Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PUT
+        type: HTTP_CLIENT
+    req:
+        method: PUT
+        proto_major: 1
+        proto_minor: 1
+        url: /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "807"
+            Content-Type: application/json
+            Keploy-Header: "720"
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: |
+            {"kind":"Foo","apiVersion":"samplecontroller.k8s.io/v1alpha1","metadata":{"name":"example-foo","namespace":"default","uid":"582a3233-8a75-46fd-9c8b-fa314b05ff25","resourceVersion":"720","generation":1,"creationTimestamp":"2024-01-01T05:12:21Z","managedFields":[{"manager":"kubectl-create","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:12:21Z","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}}},{"manager":"sample-controller","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:12:21Z","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"subresource":"status"}]},"spec":{"deploymentName":"example-foo","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: dd94cfa6-ce95-42e4-a330-173408877cf0
+            Cache-Control: no-cache, private
+            Content-Length: 807,807
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:14:56 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T05:12:21Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T05:12:21Z"},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"manager":"sample-controller","operation":"Update","subresource":"status","time":"2024-01-01T05:12:21Z"}],"name":"example-foo","namespace":"default","resourceVersion":"720","uid":"582a3233-8a75-46fd-9c8b-fa314b05ff25"},"spec":{"deploymentName":"example-foo","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096896310
+    reqTimestampMock: 2024-01-01T08:14:56.305589721Z
+    resTimestampMock: 2024-01-01T08:14:56.310278236Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: POST
+        type: HTTP_CLIENT
+    req:
+        method: POST
+        proto_major: 1
+        proto_minor: 1
+        url: /api/v1/namespaces/default/events
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "613"
+            Content-Type: application/json
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: |
+            {"kind":"Event","apiVersion":"v1","metadata":{"name":"example-foo-2.17a62b193701d6d7","namespace":"default","creationTimestamp":null},"involvedObject":{"kind":"Foo","namespace":"default","name":"example-foo-2","uid":"14b799ef-7813-4306-8503-414a72078a1f","apiVersion":"samplecontroller.k8s.io/v1alpha1","resourceVersion":"4192"},"reason":"Synced","message":"Foo synced successfully","source":{"component":"sample-controller"},"firstTimestamp":"2024-01-01T08:14:56Z","lastTimestamp":"2024-01-01T08:14:56Z","count":1,"type":"Normal","eventTime":null,"reportingComponent":"sample-controller","reportingInstance":""}
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 201
+        header:
+            Audit-Id: 23d7b838-12d6-4e8c-8a0c-47ff8213f3a8
+            Cache-Control: no-cache, private
+            Content-Length: 1032,1032
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:14:56 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"kind":"Event","apiVersion":"v1","metadata":{"name":"example-foo-2.17a62b193701d6d7","namespace":"default","uid":"5887ce1e-ca81-44c6-94dc-1132fd6bc226","resourceVersion":"7192","creationTimestamp":"2024-01-01T08:14:56Z","managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"v1","time":"2024-01-01T08:14:56Z","fieldsType":"FieldsV1","fieldsV1":{"f:count":{},"f:firstTimestamp":{},"f:involvedObject":{},"f:lastTimestamp":{},"f:message":{},"f:reason":{},"f:reportingComponent":{},"f:source":{"f:component":{}},"f:type":{}}}]},"involvedObject":{"kind":"Foo","namespace":"default","name":"example-foo-2","uid":"14b799ef-7813-4306-8503-414a72078a1f","apiVersion":"samplecontroller.k8s.io/v1alpha1","resourceVersion":"4192"},"reason":"Synced","message":"Foo synced successfully","source":{"component":"sample-controller"},"firstTimestamp":"2024-01-01T08:14:56Z","lastTimestamp":"2024-01-01T08:14:56Z","count":1,"type":"Normal","eventTime":null,"reportingComponent":"sample-controller","reportingInstance":""}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096896326
+    reqTimestampMock: 2024-01-01T08:14:56.324270812Z
+    resTimestampMock: 2024-01-01T08:14:56.326515267Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PUT
+        type: HTTP_CLIENT
+    req:
+        method: PUT
+        proto_major: 1
+        proto_minor: 1
+        url: /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo-3/status
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "812"
+            Content-Type: application/json
+            Keploy-Header: "4654"
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: |
+            {"kind":"Foo","apiVersion":"samplecontroller.k8s.io/v1alpha1","metadata":{"name":"example-foo-3","namespace":"default","uid":"369e6f0c-1f36-4b0d-9fe8-28dac1b74009","resourceVersion":"4654","generation":1,"creationTimestamp":"2024-01-01T05:16:16Z","managedFields":[{"manager":"kubectl-create","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:16:16Z","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}}},{"manager":"sample-controller","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:16:17Z","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"subresource":"status"}]},"spec":{"deploymentName":"example-foo-3","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 28b19a07-a9dc-45d5-9241-daa3fb78e7e3
+            Cache-Control: no-cache, private
+            Content-Length: 812,812
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:14:56 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T05:16:16Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T05:16:16Z"},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"manager":"sample-controller","operation":"Update","subresource":"status","time":"2024-01-01T05:16:17Z"}],"name":"example-foo-3","namespace":"default","resourceVersion":"4654","uid":"369e6f0c-1f36-4b0d-9fe8-28dac1b74009"},"spec":{"deploymentName":"example-foo-3","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096896369
+    reqTimestampMock: 2024-01-01T08:14:56.365151476Z
+    resTimestampMock: 2024-01-01T08:14:56.369278409Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: POST
+        type: HTTP_CLIENT
+    req:
+        method: POST
+        proto_major: 1
+        proto_minor: 1
+        url: /api/v1/namespaces/default/events
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "608"
+            Content-Type: application/json
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: |
+            {"kind":"Event","apiVersion":"v1","metadata":{"name":"example-foo.17a62b1937a023a8","namespace":"default","creationTimestamp":null},"involvedObject":{"kind":"Foo","namespace":"default","name":"example-foo","uid":"582a3233-8a75-46fd-9c8b-fa314b05ff25","apiVersion":"samplecontroller.k8s.io/v1alpha1","resourceVersion":"720"},"reason":"Synced","message":"Foo synced successfully","source":{"component":"sample-controller"},"firstTimestamp":"2024-01-01T08:14:56Z","lastTimestamp":"2024-01-01T08:14:56Z","count":1,"type":"Normal","eventTime":null,"reportingComponent":"sample-controller","reportingInstance":""}
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 201
+        header:
+            Audit-Id: 901d22f1-e428-4efe-8aa0-ac6b70e5ff0e
+            Cache-Control: no-cache, private
+            Content-Length: 1027,1027
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:14:56 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"kind":"Event","apiVersion":"v1","metadata":{"name":"example-foo.17a62b1937a023a8","namespace":"default","uid":"995c0a12-a5d6-4612-894a-046b913db5b6","resourceVersion":"7193","creationTimestamp":"2024-01-01T08:14:56Z","managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"v1","time":"2024-01-01T08:14:56Z","fieldsType":"FieldsV1","fieldsV1":{"f:count":{},"f:firstTimestamp":{},"f:involvedObject":{},"f:lastTimestamp":{},"f:message":{},"f:reason":{},"f:reportingComponent":{},"f:source":{"f:component":{}},"f:type":{}}}]},"involvedObject":{"kind":"Foo","namespace":"default","name":"example-foo","uid":"582a3233-8a75-46fd-9c8b-fa314b05ff25","apiVersion":"samplecontroller.k8s.io/v1alpha1","resourceVersion":"720"},"reason":"Synced","message":"Foo synced successfully","source":{"component":"sample-controller"},"firstTimestamp":"2024-01-01T08:14:56Z","lastTimestamp":"2024-01-01T08:14:56Z","count":1,"type":"Normal","eventTime":null,"reportingComponent":"sample-controller","reportingInstance":""}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096896379
+    reqTimestampMock: 2024-01-01T08:14:56.372854309Z
+    resTimestampMock: 2024-01-01T08:14:56.378947198Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: POST
+        type: HTTP_CLIENT
+    req:
+        method: POST
+        proto_major: 1
+        proto_minor: 1
+        url: /api/v1/namespaces/default/events
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "613"
+            Content-Type: application/json
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: |
+            {"kind":"Event","apiVersion":"v1","metadata":{"name":"example-foo-3.17a62b193af49e6f","namespace":"default","creationTimestamp":null},"involvedObject":{"kind":"Foo","namespace":"default","name":"example-foo-3","uid":"369e6f0c-1f36-4b0d-9fe8-28dac1b74009","apiVersion":"samplecontroller.k8s.io/v1alpha1","resourceVersion":"4654"},"reason":"Synced","message":"Foo synced successfully","source":{"component":"sample-controller"},"firstTimestamp":"2024-01-01T08:14:56Z","lastTimestamp":"2024-01-01T08:14:56Z","count":1,"type":"Normal","eventTime":null,"reportingComponent":"sample-controller","reportingInstance":""}
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 201
+        header:
+            Audit-Id: f7f635f4-53d4-4cfe-b8a8-8a94501f290d
+            Cache-Control: no-cache, private
+            Content-Length: 1032,1032
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:14:56 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"kind":"Event","apiVersion":"v1","metadata":{"name":"example-foo-3.17a62b193af49e6f","namespace":"default","uid":"8801adda-b929-4250-b122-80ac4146dab6","resourceVersion":"7194","creationTimestamp":"2024-01-01T08:14:56Z","managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"v1","time":"2024-01-01T08:14:56Z","fieldsType":"FieldsV1","fieldsV1":{"f:count":{},"f:firstTimestamp":{},"f:involvedObject":{},"f:lastTimestamp":{},"f:message":{},"f:reason":{},"f:reportingComponent":{},"f:source":{"f:component":{}},"f:type":{}}}]},"involvedObject":{"kind":"Foo","namespace":"default","name":"example-foo-3","uid":"369e6f0c-1f36-4b0d-9fe8-28dac1b74009","apiVersion":"samplecontroller.k8s.io/v1alpha1","resourceVersion":"4654"},"reason":"Synced","message":"Foo synced successfully","source":{"component":"sample-controller"},"firstTimestamp":"2024-01-01T08:14:56Z","lastTimestamp":"2024-01-01T08:14:56Z","count":1,"type":"Normal","eventTime":null,"reportingComponent":"sample-controller","reportingInstance":""}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096896385
+    reqTimestampMock: 2024-01-01T08:14:56.38275652Z
+    resTimestampMock: 2024-01-01T08:14:56.385840639Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PUT
+        type: HTTP_CLIENT
+    req:
+        method: PUT
+        proto_major: 1
+        proto_minor: 1
+        url: /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "807"
+            Content-Type: application/json
+            Keploy-Header: "720"
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: |
+            {"kind":"Foo","apiVersion":"samplecontroller.k8s.io/v1alpha1","metadata":{"name":"example-foo","namespace":"default","uid":"582a3233-8a75-46fd-9c8b-fa314b05ff25","resourceVersion":"720","generation":1,"creationTimestamp":"2024-01-01T05:12:21Z","managedFields":[{"manager":"kubectl-create","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:12:21Z","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}}},{"manager":"sample-controller","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:12:21Z","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"subresource":"status"}]},"spec":{"deploymentName":"example-foo","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 0e55ff26-bf27-44f5-95da-51b2ac0ce4e3
+            Cache-Control: no-cache, private
+            Content-Length: 807,807
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:15:26 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T05:12:21Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T05:12:21Z"},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"manager":"sample-controller","operation":"Update","subresource":"status","time":"2024-01-01T05:12:21Z"}],"name":"example-foo","namespace":"default","resourceVersion":"720","uid":"582a3233-8a75-46fd-9c8b-fa314b05ff25"},"spec":{"deploymentName":"example-foo","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096926246
+    reqTimestampMock: 2024-01-01T08:15:26.23899045Z
+    resTimestampMock: 2024-01-01T08:15:26.245133338Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PUT
+        type: HTTP_CLIENT
+    req:
+        method: PUT
+        proto_major: 1
+        proto_minor: 1
+        url: /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo-2/status
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "812"
+            Content-Type: application/json
+            Keploy-Header: "4192"
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: |
+            {"kind":"Foo","apiVersion":"samplecontroller.k8s.io/v1alpha1","metadata":{"name":"example-foo-2","namespace":"default","uid":"14b799ef-7813-4306-8503-414a72078a1f","resourceVersion":"4192","generation":1,"creationTimestamp":"2024-01-01T05:14:28Z","managedFields":[{"manager":"kubectl-create","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:14:28Z","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}}},{"manager":"sample-controller","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:14:28Z","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"subresource":"status"}]},"spec":{"deploymentName":"example-foo-2","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 5d1f3657-067d-4249-99c7-be6ca553eed0
+            Cache-Control: no-cache, private
+            Content-Length: 812,812
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:15:26 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T05:14:28Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T05:14:28Z"},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"manager":"sample-controller","operation":"Update","subresource":"status","time":"2024-01-01T05:14:28Z"}],"name":"example-foo-2","namespace":"default","resourceVersion":"4192","uid":"14b799ef-7813-4306-8503-414a72078a1f"},"spec":{"deploymentName":"example-foo-2","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096926255
+    reqTimestampMock: 2024-01-01T08:15:26.237772767Z
+    resTimestampMock: 2024-01-01T08:15:26.255279886Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PATCH
+        type: HTTP_CLIENT
+    req:
+        method: PATCH
+        proto_major: 1
+        proto_minor: 1
+        url: /api/v1/namespaces/default/events/example-foo.17a62b1937a023a8
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "86"
+            Content-Type: application/strategic-merge-patch+json
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: '{"count":2,"lastTimestamp":"2024-01-01T08:15:26Z","message":"Foo synced successfully"}'
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: be585d27-f6df-43fa-9c38-d4a0e92e6f83
+            Cache-Control: no-cache, private
+            Content-Length: 1027,1027
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:15:26 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"kind":"Event","apiVersion":"v1","metadata":{"name":"example-foo.17a62b1937a023a8","namespace":"default","uid":"995c0a12-a5d6-4612-894a-046b913db5b6","resourceVersion":"7308","creationTimestamp":"2024-01-01T08:14:56Z","managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"v1","time":"2024-01-01T08:15:26Z","fieldsType":"FieldsV1","fieldsV1":{"f:count":{},"f:firstTimestamp":{},"f:involvedObject":{},"f:lastTimestamp":{},"f:message":{},"f:reason":{},"f:reportingComponent":{},"f:source":{"f:component":{}},"f:type":{}}}]},"involvedObject":{"kind":"Foo","namespace":"default","name":"example-foo","uid":"582a3233-8a75-46fd-9c8b-fa314b05ff25","apiVersion":"samplecontroller.k8s.io/v1alpha1","resourceVersion":"720"},"reason":"Synced","message":"Foo synced successfully","source":{"component":"sample-controller"},"firstTimestamp":"2024-01-01T08:14:56Z","lastTimestamp":"2024-01-01T08:15:26Z","count":2,"type":"Normal","eventTime":null,"reportingComponent":"sample-controller","reportingInstance":""}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096926265
+    reqTimestampMock: 2024-01-01T08:15:26.255509335Z
+    resTimestampMock: 2024-01-01T08:15:26.265582734Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PUT
+        type: HTTP_CLIENT
+    req:
+        method: PUT
+        proto_major: 1
+        proto_minor: 1
+        url: /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo-3/status
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "812"
+            Content-Type: application/json
+            Keploy-Header: "4654"
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: |
+            {"kind":"Foo","apiVersion":"samplecontroller.k8s.io/v1alpha1","metadata":{"name":"example-foo-3","namespace":"default","uid":"369e6f0c-1f36-4b0d-9fe8-28dac1b74009","resourceVersion":"4654","generation":1,"creationTimestamp":"2024-01-01T05:16:16Z","managedFields":[{"manager":"kubectl-create","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:16:16Z","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}}},{"manager":"sample-controller","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:16:17Z","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"subresource":"status"}]},"spec":{"deploymentName":"example-foo-3","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 15fea0d8-1af3-493d-a5be-f3378911a398
+            Cache-Control: no-cache, private
+            Content-Length: 812,812
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:15:26 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T05:16:16Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T05:16:16Z"},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"manager":"sample-controller","operation":"Update","subresource":"status","time":"2024-01-01T05:16:17Z"}],"name":"example-foo-3","namespace":"default","resourceVersion":"4654","uid":"369e6f0c-1f36-4b0d-9fe8-28dac1b74009"},"spec":{"deploymentName":"example-foo-3","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096926272
+    reqTimestampMock: 2024-01-01T08:15:26.259778871Z
+    resTimestampMock: 2024-01-01T08:15:26.272477405Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PATCH
+        type: HTTP_CLIENT
+    req:
+        method: PATCH
+        proto_major: 1
+        proto_minor: 1
+        url: /api/v1/namespaces/default/events/example-foo-2.17a62b193701d6d7
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "86"
+            Content-Type: application/strategic-merge-patch+json
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: '{"count":2,"lastTimestamp":"2024-01-01T08:15:26Z","message":"Foo synced successfully"}'
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: ddf5d68d-3693-4f8b-b540-b796d5cc6089
+            Cache-Control: no-cache, private
+            Content-Length: 1032,1032
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:15:26 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"kind":"Event","apiVersion":"v1","metadata":{"name":"example-foo-2.17a62b193701d6d7","namespace":"default","uid":"5887ce1e-ca81-44c6-94dc-1132fd6bc226","resourceVersion":"7309","creationTimestamp":"2024-01-01T08:14:56Z","managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"v1","time":"2024-01-01T08:15:26Z","fieldsType":"FieldsV1","fieldsV1":{"f:count":{},"f:firstTimestamp":{},"f:involvedObject":{},"f:lastTimestamp":{},"f:message":{},"f:reason":{},"f:reportingComponent":{},"f:source":{"f:component":{}},"f:type":{}}}]},"involvedObject":{"kind":"Foo","namespace":"default","name":"example-foo-2","uid":"14b799ef-7813-4306-8503-414a72078a1f","apiVersion":"samplecontroller.k8s.io/v1alpha1","resourceVersion":"4192"},"reason":"Synced","message":"Foo synced successfully","source":{"component":"sample-controller"},"firstTimestamp":"2024-01-01T08:14:56Z","lastTimestamp":"2024-01-01T08:15:26Z","count":2,"type":"Normal","eventTime":null,"reportingComponent":"sample-controller","reportingInstance":""}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096926277
+    reqTimestampMock: 2024-01-01T08:15:26.272418303Z
+    resTimestampMock: 2024-01-01T08:15:26.277354887Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PATCH
+        type: HTTP_CLIENT
+    req:
+        method: PATCH
+        proto_major: 1
+        proto_minor: 1
+        url: /api/v1/namespaces/default/events/example-foo-3.17a62b193af49e6f
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "86"
+            Content-Type: application/strategic-merge-patch+json
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: '{"count":2,"lastTimestamp":"2024-01-01T08:15:26Z","message":"Foo synced successfully"}'
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 1b7d2714-75d4-4a79-b60d-1d93e61d5fe0
+            Cache-Control: no-cache, private
+            Content-Length: 1032,1032
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:15:26 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"kind":"Event","apiVersion":"v1","metadata":{"name":"example-foo-3.17a62b193af49e6f","namespace":"default","uid":"8801adda-b929-4250-b122-80ac4146dab6","resourceVersion":"7310","creationTimestamp":"2024-01-01T08:14:56Z","managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"v1","time":"2024-01-01T08:15:26Z","fieldsType":"FieldsV1","fieldsV1":{"f:count":{},"f:firstTimestamp":{},"f:involvedObject":{},"f:lastTimestamp":{},"f:message":{},"f:reason":{},"f:reportingComponent":{},"f:source":{"f:component":{}},"f:type":{}}}]},"involvedObject":{"kind":"Foo","namespace":"default","name":"example-foo-3","uid":"369e6f0c-1f36-4b0d-9fe8-28dac1b74009","apiVersion":"samplecontroller.k8s.io/v1alpha1","resourceVersion":"4654"},"reason":"Synced","message":"Foo synced successfully","source":{"component":"sample-controller"},"firstTimestamp":"2024-01-01T08:14:56Z","lastTimestamp":"2024-01-01T08:15:26Z","count":2,"type":"Normal","eventTime":null,"reportingComponent":"sample-controller","reportingInstance":""}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096926284
+    reqTimestampMock: 2024-01-01T08:15:26.281201038Z
+    resTimestampMock: 2024-01-01T08:15:26.283801039Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PUT
+        type: HTTP_CLIENT
+    req:
+        method: PUT
+        proto_major: 1
+        proto_minor: 1
+        url: /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "807"
+            Content-Type: application/json
+            Keploy-Header: "720"
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: |
+            {"kind":"Foo","apiVersion":"samplecontroller.k8s.io/v1alpha1","metadata":{"name":"example-foo","namespace":"default","uid":"582a3233-8a75-46fd-9c8b-fa314b05ff25","resourceVersion":"720","generation":1,"creationTimestamp":"2024-01-01T05:12:21Z","managedFields":[{"manager":"kubectl-create","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:12:21Z","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}}},{"manager":"sample-controller","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:12:21Z","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"subresource":"status"}]},"spec":{"deploymentName":"example-foo","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 3edbaad3-05b3-42d7-b46b-67906ba72880
+            Cache-Control: no-cache, private
+            Content-Length: 807,807
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:15:56 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T05:12:21Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T05:12:21Z"},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"manager":"sample-controller","operation":"Update","subresource":"status","time":"2024-01-01T05:12:21Z"}],"name":"example-foo","namespace":"default","resourceVersion":"720","uid":"582a3233-8a75-46fd-9c8b-fa314b05ff25"},"spec":{"deploymentName":"example-foo","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096956221
+    reqTimestampMock: 2024-01-01T08:15:56.218060206Z
+    resTimestampMock: 2024-01-01T08:15:56.220928703Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PUT
+        type: HTTP_CLIENT
+    req:
+        method: PUT
+        proto_major: 1
+        proto_minor: 1
+        url: /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo-2/status
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "812"
+            Content-Type: application/json
+            Keploy-Header: "4192"
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: |
+            {"kind":"Foo","apiVersion":"samplecontroller.k8s.io/v1alpha1","metadata":{"name":"example-foo-2","namespace":"default","uid":"14b799ef-7813-4306-8503-414a72078a1f","resourceVersion":"4192","generation":1,"creationTimestamp":"2024-01-01T05:14:28Z","managedFields":[{"manager":"kubectl-create","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:14:28Z","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}}},{"manager":"sample-controller","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:14:28Z","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"subresource":"status"}]},"spec":{"deploymentName":"example-foo-2","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 6bef43b6-dc5d-46dd-86b3-c1a4bb70af52
+            Cache-Control: no-cache, private
+            Content-Length: 812,812
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:15:56 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T05:14:28Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T05:14:28Z"},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"manager":"sample-controller","operation":"Update","subresource":"status","time":"2024-01-01T05:14:28Z"}],"name":"example-foo-2","namespace":"default","resourceVersion":"4192","uid":"14b799ef-7813-4306-8503-414a72078a1f"},"spec":{"deploymentName":"example-foo-2","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096956234
+    reqTimestampMock: 2024-01-01T08:15:56.218319331Z
+    resTimestampMock: 2024-01-01T08:15:56.234766942Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PATCH
+        type: HTTP_CLIENT
+    req:
+        method: PATCH
+        proto_major: 1
+        proto_minor: 1
+        url: /api/v1/namespaces/default/events/example-foo.17a62b1937a023a8
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "86"
+            Content-Type: application/strategic-merge-patch+json
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: '{"count":3,"lastTimestamp":"2024-01-01T08:15:56Z","message":"Foo synced successfully"}'
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: d18ec167-ab15-42e5-bd44-1ecc55bfdae9
+            Cache-Control: no-cache, private
+            Content-Length: 1027,1027
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:15:56 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"kind":"Event","apiVersion":"v1","metadata":{"name":"example-foo.17a62b1937a023a8","namespace":"default","uid":"995c0a12-a5d6-4612-894a-046b913db5b6","resourceVersion":"7578","creationTimestamp":"2024-01-01T08:14:56Z","managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"v1","time":"2024-01-01T08:15:56Z","fieldsType":"FieldsV1","fieldsV1":{"f:count":{},"f:firstTimestamp":{},"f:involvedObject":{},"f:lastTimestamp":{},"f:message":{},"f:reason":{},"f:reportingComponent":{},"f:source":{"f:component":{}},"f:type":{}}}]},"involvedObject":{"kind":"Foo","namespace":"default","name":"example-foo","uid":"582a3233-8a75-46fd-9c8b-fa314b05ff25","apiVersion":"samplecontroller.k8s.io/v1alpha1","resourceVersion":"720"},"reason":"Synced","message":"Foo synced successfully","source":{"component":"sample-controller"},"firstTimestamp":"2024-01-01T08:14:56Z","lastTimestamp":"2024-01-01T08:15:56Z","count":3,"type":"Normal","eventTime":null,"reportingComponent":"sample-controller","reportingInstance":""}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096956235
+    reqTimestampMock: 2024-01-01T08:15:56.235627329Z
+    resTimestampMock: 2024-01-01T08:15:56.235653125Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PUT
+        type: HTTP_CLIENT
+    req:
+        method: PUT
+        proto_major: 1
+        proto_minor: 1
+        url: /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo-3/status
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "812"
+            Content-Type: application/json
+            Keploy-Header: "4654"
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: |
+            {"kind":"Foo","apiVersion":"samplecontroller.k8s.io/v1alpha1","metadata":{"name":"example-foo-3","namespace":"default","uid":"369e6f0c-1f36-4b0d-9fe8-28dac1b74009","resourceVersion":"4654","generation":1,"creationTimestamp":"2024-01-01T05:16:16Z","managedFields":[{"manager":"kubectl-create","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:16:16Z","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}}},{"manager":"sample-controller","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:16:17Z","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"subresource":"status"}]},"spec":{"deploymentName":"example-foo-3","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 91229a95-0225-4741-b46b-ddf9803c3e12
+            Cache-Control: no-cache, private
+            Content-Length: 812,812
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:15:56 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T05:16:16Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T05:16:16Z"},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"manager":"sample-controller","operation":"Update","subresource":"status","time":"2024-01-01T05:16:17Z"}],"name":"example-foo-3","namespace":"default","resourceVersion":"4654","uid":"369e6f0c-1f36-4b0d-9fe8-28dac1b74009"},"spec":{"deploymentName":"example-foo-3","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096956239
+    reqTimestampMock: 2024-01-01T08:15:56.234700682Z
+    resTimestampMock: 2024-01-01T08:15:56.239120634Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PATCH
+        type: HTTP_CLIENT
+    req:
+        method: PATCH
+        proto_major: 1
+        proto_minor: 1
+        url: /api/v1/namespaces/default/events/example-foo-2.17a62b193701d6d7
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "86"
+            Content-Type: application/strategic-merge-patch+json
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: '{"count":3,"lastTimestamp":"2024-01-01T08:15:56Z","message":"Foo synced successfully"}'
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 296ce273-7e2d-4cb4-9fc0-8d6ace3f280b
+            Cache-Control: no-cache, private
+            Content-Length: 1032,1032
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:15:56 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"kind":"Event","apiVersion":"v1","metadata":{"name":"example-foo-2.17a62b193701d6d7","namespace":"default","uid":"5887ce1e-ca81-44c6-94dc-1132fd6bc226","resourceVersion":"7579","creationTimestamp":"2024-01-01T08:14:56Z","managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"v1","time":"2024-01-01T08:15:56Z","fieldsType":"FieldsV1","fieldsV1":{"f:count":{},"f:firstTimestamp":{},"f:involvedObject":{},"f:lastTimestamp":{},"f:message":{},"f:reason":{},"f:reportingComponent":{},"f:source":{"f:component":{}},"f:type":{}}}]},"involvedObject":{"kind":"Foo","namespace":"default","name":"example-foo-2","uid":"14b799ef-7813-4306-8503-414a72078a1f","apiVersion":"samplecontroller.k8s.io/v1alpha1","resourceVersion":"4192"},"reason":"Synced","message":"Foo synced successfully","source":{"component":"sample-controller"},"firstTimestamp":"2024-01-01T08:14:56Z","lastTimestamp":"2024-01-01T08:15:56Z","count":3,"type":"Normal","eventTime":null,"reportingComponent":"sample-controller","reportingInstance":""}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096956265
+    reqTimestampMock: 2024-01-01T08:15:56.242827264Z
+    resTimestampMock: 2024-01-01T08:15:56.263906236Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PATCH
+        type: HTTP_CLIENT
+    req:
+        method: PATCH
+        proto_major: 1
+        proto_minor: 1
+        url: /api/v1/namespaces/default/events/example-foo-3.17a62b193af49e6f
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "86"
+            Content-Type: application/strategic-merge-patch+json
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: '{"count":3,"lastTimestamp":"2024-01-01T08:15:56Z","message":"Foo synced successfully"}'
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 048021a3-729a-47f7-b2f7-c8f438c5cb15
+            Cache-Control: no-cache, private
+            Content-Length: 1032,1032
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:15:56 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"kind":"Event","apiVersion":"v1","metadata":{"name":"example-foo-3.17a62b193af49e6f","namespace":"default","uid":"8801adda-b929-4250-b122-80ac4146dab6","resourceVersion":"7580","creationTimestamp":"2024-01-01T08:14:56Z","managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"v1","time":"2024-01-01T08:15:56Z","fieldsType":"FieldsV1","fieldsV1":{"f:count":{},"f:firstTimestamp":{},"f:involvedObject":{},"f:lastTimestamp":{},"f:message":{},"f:reason":{},"f:reportingComponent":{},"f:source":{"f:component":{}},"f:type":{}}}]},"involvedObject":{"kind":"Foo","namespace":"default","name":"example-foo-3","uid":"369e6f0c-1f36-4b0d-9fe8-28dac1b74009","apiVersion":"samplecontroller.k8s.io/v1alpha1","resourceVersion":"4654"},"reason":"Synced","message":"Foo synced successfully","source":{"component":"sample-controller"},"firstTimestamp":"2024-01-01T08:14:56Z","lastTimestamp":"2024-01-01T08:15:56Z","count":3,"type":"Normal","eventTime":null,"reportingComponent":"sample-controller","reportingInstance":""}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096956285
+    reqTimestampMock: 2024-01-01T08:15:56.274160115Z
+    resTimestampMock: 2024-01-01T08:15:56.28369417Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PUT
+        type: HTTP_CLIENT
+    req:
+        method: PUT
+        proto_major: 1
+        proto_minor: 1
+        url: /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo-2/status
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "812"
+            Content-Type: application/json
+            Keploy-Header: "4192"
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: |
+            {"kind":"Foo","apiVersion":"samplecontroller.k8s.io/v1alpha1","metadata":{"name":"example-foo-2","namespace":"default","uid":"14b799ef-7813-4306-8503-414a72078a1f","resourceVersion":"4192","generation":1,"creationTimestamp":"2024-01-01T05:14:28Z","managedFields":[{"manager":"kubectl-create","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:14:28Z","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}}},{"manager":"sample-controller","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:14:28Z","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"subresource":"status"}]},"spec":{"deploymentName":"example-foo-2","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: c347dd6d-ea4f-45ff-80b0-698708c81e39
+            Cache-Control: no-cache, private
+            Content-Length: 812,812
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:16:26 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T05:14:28Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T05:14:28Z"},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"manager":"sample-controller","operation":"Update","subresource":"status","time":"2024-01-01T05:14:28Z"}],"name":"example-foo-2","namespace":"default","resourceVersion":"4192","uid":"14b799ef-7813-4306-8503-414a72078a1f"},"spec":{"deploymentName":"example-foo-2","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096986223
+    reqTimestampMock: 2024-01-01T08:16:26.222622666Z
+    resTimestampMock: 2024-01-01T08:16:26.222767179Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PUT
+        type: HTTP_CLIENT
+    req:
+        method: PUT
+        proto_major: 1
+        proto_minor: 1
+        url: /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo-3/status
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "812"
+            Content-Type: application/json
+            Keploy-Header: "4654"
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: |
+            {"kind":"Foo","apiVersion":"samplecontroller.k8s.io/v1alpha1","metadata":{"name":"example-foo-3","namespace":"default","uid":"369e6f0c-1f36-4b0d-9fe8-28dac1b74009","resourceVersion":"4654","generation":1,"creationTimestamp":"2024-01-01T05:16:16Z","managedFields":[{"manager":"kubectl-create","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:16:16Z","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}}},{"manager":"sample-controller","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:16:17Z","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"subresource":"status"}]},"spec":{"deploymentName":"example-foo-3","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 8da2f643-cb2a-4dcb-8e95-b9cdf2b615da
+            Cache-Control: no-cache, private
+            Content-Length: 812,812
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:16:26 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T05:16:16Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T05:16:16Z"},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"manager":"sample-controller","operation":"Update","subresource":"status","time":"2024-01-01T05:16:17Z"}],"name":"example-foo-3","namespace":"default","resourceVersion":"4654","uid":"369e6f0c-1f36-4b0d-9fe8-28dac1b74009"},"spec":{"deploymentName":"example-foo-3","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096986231
+    reqTimestampMock: 2024-01-01T08:16:26.231651034Z
+    resTimestampMock: 2024-01-01T08:16:26.231679829Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PUT
+        type: HTTP_CLIENT
+    req:
+        method: PUT
+        proto_major: 1
+        proto_minor: 1
+        url: /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "807"
+            Content-Type: application/json
+            Keploy-Header: "720"
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: |
+            {"kind":"Foo","apiVersion":"samplecontroller.k8s.io/v1alpha1","metadata":{"name":"example-foo","namespace":"default","uid":"582a3233-8a75-46fd-9c8b-fa314b05ff25","resourceVersion":"720","generation":1,"creationTimestamp":"2024-01-01T05:12:21Z","managedFields":[{"manager":"kubectl-create","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:12:21Z","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}}},{"manager":"sample-controller","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:12:21Z","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"subresource":"status"}]},"spec":{"deploymentName":"example-foo","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: e9c117d1-68b3-4d35-bf89-a265716ae3e4
+            Cache-Control: no-cache, private
+            Content-Length: 807,807
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:16:26 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T05:12:21Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T05:12:21Z"},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"manager":"sample-controller","operation":"Update","subresource":"status","time":"2024-01-01T05:12:21Z"}],"name":"example-foo","namespace":"default","resourceVersion":"720","uid":"582a3233-8a75-46fd-9c8b-fa314b05ff25"},"spec":{"deploymentName":"example-foo","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096986237
+    reqTimestampMock: 2024-01-01T08:16:26.231609239Z
+    resTimestampMock: 2024-01-01T08:16:26.236555506Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PATCH
+        type: HTTP_CLIENT
+    req:
+        method: PATCH
+        proto_major: 1
+        proto_minor: 1
+        url: /api/v1/namespaces/default/events/example-foo-2.17a62b193701d6d7
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "86"
+            Content-Type: application/strategic-merge-patch+json
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: '{"count":4,"lastTimestamp":"2024-01-01T08:16:26Z","message":"Foo synced successfully"}'
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: cb0e32e4-f032-4c9a-b0fb-9b4d073547a9
+            Cache-Control: no-cache, private
+            Content-Length: 1032,1032
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:16:26 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"kind":"Event","apiVersion":"v1","metadata":{"name":"example-foo-2.17a62b193701d6d7","namespace":"default","uid":"5887ce1e-ca81-44c6-94dc-1132fd6bc226","resourceVersion":"7692","creationTimestamp":"2024-01-01T08:14:56Z","managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"v1","time":"2024-01-01T08:16:26Z","fieldsType":"FieldsV1","fieldsV1":{"f:count":{},"f:firstTimestamp":{},"f:involvedObject":{},"f:lastTimestamp":{},"f:message":{},"f:reason":{},"f:reportingComponent":{},"f:source":{"f:component":{}},"f:type":{}}}]},"involvedObject":{"kind":"Foo","namespace":"default","name":"example-foo-2","uid":"14b799ef-7813-4306-8503-414a72078a1f","apiVersion":"samplecontroller.k8s.io/v1alpha1","resourceVersion":"4192"},"reason":"Synced","message":"Foo synced successfully","source":{"component":"sample-controller"},"firstTimestamp":"2024-01-01T08:14:56Z","lastTimestamp":"2024-01-01T08:16:26Z","count":4,"type":"Normal","eventTime":null,"reportingComponent":"sample-controller","reportingInstance":""}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096986253
+    reqTimestampMock: 2024-01-01T08:16:26.250737496Z
+    resTimestampMock: 2024-01-01T08:16:26.253628691Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PATCH
+        type: HTTP_CLIENT
+    req:
+        method: PATCH
+        proto_major: 1
+        proto_minor: 1
+        url: /api/v1/namespaces/default/events/example-foo-3.17a62b193af49e6f
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "86"
+            Content-Type: application/strategic-merge-patch+json
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: '{"count":4,"lastTimestamp":"2024-01-01T08:16:26Z","message":"Foo synced successfully"}'
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: a7a337eb-74e0-402e-aa1c-91398ae3134d
+            Cache-Control: no-cache, private
+            Content-Length: 1032,1032
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:16:26 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"kind":"Event","apiVersion":"v1","metadata":{"name":"example-foo-3.17a62b193af49e6f","namespace":"default","uid":"8801adda-b929-4250-b122-80ac4146dab6","resourceVersion":"7693","creationTimestamp":"2024-01-01T08:14:56Z","managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"v1","time":"2024-01-01T08:16:26Z","fieldsType":"FieldsV1","fieldsV1":{"f:count":{},"f:firstTimestamp":{},"f:involvedObject":{},"f:lastTimestamp":{},"f:message":{},"f:reason":{},"f:reportingComponent":{},"f:source":{"f:component":{}},"f:type":{}}}]},"involvedObject":{"kind":"Foo","namespace":"default","name":"example-foo-3","uid":"369e6f0c-1f36-4b0d-9fe8-28dac1b74009","apiVersion":"samplecontroller.k8s.io/v1alpha1","resourceVersion":"4654"},"reason":"Synced","message":"Foo synced successfully","source":{"component":"sample-controller"},"firstTimestamp":"2024-01-01T08:14:56Z","lastTimestamp":"2024-01-01T08:16:26Z","count":4,"type":"Normal","eventTime":null,"reportingComponent":"sample-controller","reportingInstance":""}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096986274
+    reqTimestampMock: 2024-01-01T08:16:26.26761212Z
+    resTimestampMock: 2024-01-01T08:16:26.274394815Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PATCH
+        type: HTTP_CLIENT
+    req:
+        method: PATCH
+        proto_major: 1
+        proto_minor: 1
+        url: /api/v1/namespaces/default/events/example-foo.17a62b1937a023a8
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "86"
+            Content-Type: application/strategic-merge-patch+json
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: '{"count":4,"lastTimestamp":"2024-01-01T08:16:26Z","message":"Foo synced successfully"}'
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 3b9c36f8-32f7-4342-9760-6e37400ccd1f
+            Cache-Control: no-cache, private
+            Content-Length: 1027,1027
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:16:26 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"kind":"Event","apiVersion":"v1","metadata":{"name":"example-foo.17a62b1937a023a8","namespace":"default","uid":"995c0a12-a5d6-4612-894a-046b913db5b6","resourceVersion":"7694","creationTimestamp":"2024-01-01T08:14:56Z","managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"v1","time":"2024-01-01T08:16:26Z","fieldsType":"FieldsV1","fieldsV1":{"f:count":{},"f:firstTimestamp":{},"f:involvedObject":{},"f:lastTimestamp":{},"f:message":{},"f:reason":{},"f:reportingComponent":{},"f:source":{"f:component":{}},"f:type":{}}}]},"involvedObject":{"kind":"Foo","namespace":"default","name":"example-foo","uid":"582a3233-8a75-46fd-9c8b-fa314b05ff25","apiVersion":"samplecontroller.k8s.io/v1alpha1","resourceVersion":"720"},"reason":"Synced","message":"Foo synced successfully","source":{"component":"sample-controller"},"firstTimestamp":"2024-01-01T08:14:56Z","lastTimestamp":"2024-01-01T08:16:26Z","count":4,"type":"Normal","eventTime":null,"reportingComponent":"sample-controller","reportingInstance":""}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096986296
+    reqTimestampMock: 2024-01-01T08:16:26.289269913Z
+    resTimestampMock: 2024-01-01T08:16:26.295504596Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        chunkedLength: '[2372 538 4744 5930 1307 7]'
+        chunkedTime: '[1704096896211 1704096896211 1704096896211 1704096896211 1704096896211 1704096896211]'
+        name: Http
+        operation: GET
+        type: HTTP_CLIENT
+    req:
+        method: GET
+        proto_major: 1
+        proto_minor: 1
+        url: /apis/apps/v1/deployments?limit=500&resourceVersion=0
+        url_params:
+            limit: "500"
+            resourceVersion: "0"
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: ""
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 011b2ac6-eed9-4b26-ad78-e16b8fecf7bc
+            Cache-Control: no-cache, private
+            Content-Length: "15730"
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:14:56 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"kind":"DeploymentList","apiVersion":"apps/v1","metadata":{"resourceVersion":"7191"},"items":[{"metadata":{"name":"example-foo","namespace":"default","uid":"69d9ad6c-cdc7-4b61-a3d7-e57c7df50431","resourceVersion":"6291","generation":1,"creationTimestamp":"2024-01-01T05:12:21Z","annotations":{"deployment.kubernetes.io/revision":"1"},"ownerReferences":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","name":"example-foo","uid":"582a3233-8a75-46fd-9c8b-fa314b05ff25","controller":true,"blockOwnerDeletion":true}],"managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"apps/v1","time":"2024-01-01T05:12:21Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:ownerReferences":{".":{},"k:{\"uid\":\"582a3233-8a75-46fd-9c8b-fa314b05ff25\"}":{}}},"f:spec":{"f:progressDeadlineSeconds":{},"f:replicas":{},"f:revisionHistoryLimit":{},"f:selector":{},"f:strategy":{"f:rollingUpdate":{".":{},"f:maxSurge":{},"f:maxUnavailable":{}},"f:type":{}},"f:template":{"f:metadata":{"f:labels":{".":{},"f:app":{},"f:controller":{}}},"f:spec":{"f:containers":{"k:{\"name\":\"nginx\"}":{".":{},"f:image":{},"f:imagePullPolicy":{},"f:name":{},"f:resources":{},"f:terminationMessagePath":{},"f:terminationMessagePolicy":{}}},"f:dnsPolicy":{},"f:restartPolicy":{},"f:schedulerName":{},"f:securityContext":{},"f:terminationGracePeriodSeconds":{}}}}}},{"manager":"kube-controller-manager","operation":"Update","apiVersion":"apps/v1","time":"2024-01-01T08:11:15Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:deployment.kubernetes.io/revision":{}}},"f:status":{"f:collisionCount":{},"f:conditions":{".":{},"k:{\"type\":\"Available\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:message":{},"f:reason":{},"f:status":{},"f:type":{}},"k:{\"type\":\"Progressing\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:message":{},"f:reason":{},"f:status":{},"f:type":{}}},"f:observedGeneration":{},"f:replicas":{},"f:unavailableReplicas":{},"f:updatedReplicas":{}}},"subresource":"status"}]},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"nginx","controller":"example-foo"}},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"nginx","controller":"example-foo"}},"spec":{"containers":[{"name":"nginx","image":"nginx:latest","resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{},"schedulerName":"default-scheduler"}},"strategy":{"type":"RollingUpdate","rollingUpdate":{"maxUnavailable":"25%","maxSurge":"25%"}},"revisionHistoryLimit":10,"progressDeadlineSeconds":600},"status":{"observedGeneration":1,"replicas":1,"updatedReplicas":1,"unavailableReplicas":1,"conditions":[{"type":"Available","status":"False","lastUpdateTime":"2024-01-01T05:12:22Z","lastTransitionTime":"2024-01-01T05:12:22Z","reason":"MinimumReplicasUnavailable","message":"Deployment does not have minimum availability."},{"type":"Progressing","status":"False","lastUpdateTime":"2024-01-01T08:11:15Z","lastTransitionTime":"2024-01-01T08:11:15Z","reason":"ProgressDeadlineExceeded","message":"ReplicaSet \"example-foo-7854c99894\" has timed out progressing."}],"collisionCount":1}},{"metadata":{"name":"example-foo-2","namespace":"default","uid":"1bfbb6de-39a5-4f9c-8457-3923a33eedf2","resourceVersion":"6812","generation":1,"creationTimestamp":"2024-01-01T05:14:28Z","annotations":{"deployment.kubernetes.io/revision":"1"},"ownerReferences":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","name":"example-foo-2","uid":"14b799ef-7813-4306-8503-414a72078a1f","controller":true,"blockOwnerDeletion":true}],"managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"apps/v1","time":"2024-01-01T05:14:28Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:ownerReferences":{".":{},"k:{\"uid\":\"14b799ef-7813-4306-8503-414a72078a1f\"}":{}}},"f:spec":{"f:progressDeadlineSeconds":{},"f:replicas":{},"f:revisionHistoryLimit":{},"f:selector":{},"f:strategy":{"f:rollingUpdate":{".":{},"f:maxSurge":{},"f:maxUnavailable":{}},"f:type":{}},"f:template":{"f:metadata":{"f:labels":{".":{},"f:app":{},"f:controller":{}}},"f:spec":{"f:containers":{"k:{\"name\":\"nginx\"}":{".":{},"f:image":{},"f:imagePullPolicy":{},"f:name":{},"f:resources":{},"f:terminationMessagePath":{},"f:terminationMessagePolicy":{}}},"f:dnsPolicy":{},"f:restartPolicy":{},"f:schedulerName":{},"f:securityContext":{},"f:terminationGracePeriodSeconds":{}}}}}},{"manager":"kube-controller-manager","operation":"Update","apiVersion":"apps/v1","time":"2024-01-01T08:13:21Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:deployment.kubernetes.io/revision":{}}},"f:status":{"f:conditions":{".":{},"k:{\"type\":\"Available\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:message":{},"f:reason":{},"f:status":{},"f:type":{}},"k:{\"type\":\"Progressing\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:message":{},"f:reason":{},"f:status":{},"f:type":{}}},"f:observedGeneration":{},"f:replicas":{},"f:unavailableReplicas":{},"f:updatedReplicas":{}}},"subresource":"status"}]},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"nginx","controller":"example-foo-2"}},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"nginx","controller":"example-foo-2"}},"spec":{"containers":[{"name":"nginx","image":"nginx:latest","resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{},"schedulerName":"default-scheduler"}},"strategy":{"type":"RollingUpdate","rollingUpdate":{"maxUnavailable":"25%","maxSurge":"25%"}},"revisionHistoryLimit":10,"progressDeadlineSeconds":600},"status":{"observedGeneration":1,"replicas":1,"updatedReplicas":1,"unavailableReplicas":1,"conditions":[{"type":"Available","status":"False","lastUpdateTime":"2024-01-01T05:14:28Z","lastTransitionTime":"2024-01-01T05:14:28Z","reason":"MinimumReplicasUnavailable","message":"Deployment does not have minimum availability."},{"type":"Progressing","status":"False","lastUpdateTime":"2024-01-01T08:13:21Z","lastTransitionTime":"2024-01-01T08:13:21Z","reason":"ProgressDeadlineExceeded","message":"ReplicaSet \"example-foo-2-9df686d96\" has timed out progressing."}]}},{"metadata":{"name":"example-foo-3","namespace":"default","uid":"07b19928-1fc3-4d75-8df7-e9d0fff06133","resourceVersion":"4664","generation":1,"creationTimestamp":"2024-01-01T05:16:16Z","annotations":{"deployment.kubernetes.io/revision":"1"},"ownerReferences":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","name":"example-foo-3","uid":"369e6f0c-1f36-4b0d-9fe8-28dac1b74009","controller":true,"blockOwnerDeletion":true}],"managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"apps/v1","time":"2024-01-01T05:16:16Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:ownerReferences":{".":{},"k:{\"uid\":\"369e6f0c-1f36-4b0d-9fe8-28dac1b74009\"}":{}}},"f:spec":{"f:progressDeadlineSeconds":{},"f:replicas":{},"f:revisionHistoryLimit":{},"f:selector":{},"f:strategy":{"f:rollingUpdate":{".":{},"f:maxSurge":{},"f:maxUnavailable":{}},"f:type":{}},"f:template":{"f:metadata":{"f:labels":{".":{},"f:app":{},"f:controller":{}}},"f:spec":{"f:containers":{"k:{\"name\":\"nginx\"}":{".":{},"f:image":{},"f:imagePullPolicy":{},"f:name":{},"f:resources":{},"f:terminationMessagePath":{},"f:terminationMessagePolicy":{}}},"f:dnsPolicy":{},"f:restartPolicy":{},"f:schedulerName":{},"f:securityContext":{},"f:terminationGracePeriodSeconds":{}}}}}},{"manager":"kube-controller-manager","operation":"Update","apiVersion":"apps/v1","time":"2024-01-01T05:16:17Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:deployment.kubernetes.io/revision":{}}},"f:status":{"f:conditions":{".":{},"k:{\"type\":\"Available\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:message":{},"f:reason":{},"f:status":{},"f:type":{}},"k:{\"type\":\"Progressing\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:message":{},"f:reason":{},"f:status":{},"f:type":{}}},"f:observedGeneration":{},"f:replicas":{},"f:unavailableReplicas":{},"f:updatedReplicas":{}}},"subresource":"status"}]},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"nginx","controller":"example-foo-3"}},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"nginx","controller":"example-foo-3"}},"spec":{"containers":[{"name":"nginx","image":"nginx:latest","resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{},"schedulerName":"default-scheduler"}},"strategy":{"type":"RollingUpdate","rollingUpdate":{"maxUnavailable":"25%","maxSurge":"25%"}},"revisionHistoryLimit":10,"progressDeadlineSeconds":600},"status":{"observedGeneration":1,"replicas":1,"updatedReplicas":1,"unavailableReplicas":1,"conditions":[{"type":"Available","status":"False","lastUpdateTime":"2024-01-01T05:16:17Z","lastTransitionTime":"2024-01-01T05:16:17Z","reason":"MinimumReplicasUnavailable","message":"Deployment does not have minimum availability."},{"type":"Progressing","status":"True","lastUpdateTime":"2024-01-01T05:16:17Z","lastTransitionTime":"2024-01-01T05:16:17Z","reason":"ReplicaSetUpdated","message":"ReplicaSet \"example-foo-3-7458b5cb55\" is progressing."}]}},{"metadata":{"name":"coredns","namespace":"kube-system","uid":"8919b6c7-65c6-4377-8cf6-2b36acb62ce4","resourceVersion":"406","generation":2,"creationTimestamp":"2024-01-01T05:09:00Z","labels":{"k8s-app":"kube-dns"},"annotations":{"deployment.kubernetes.io/revision":"1"},"managedFields":[{"manager":"minikube","operation":"Update","apiVersion":"apps/v1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{"f:replicas":{}}},"subresource":"scale"},{"manager":"kubeadm","operation":"Update","apiVersion":"apps/v1","time":"2024-01-01T05:09:00Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:labels":{".":{},"f:k8s-app":{}}},"f:spec":{"f:progressDeadlineSeconds":{},"f:revisionHistoryLimit":{},"f:selector":{},"f:strategy":{"f:rollingUpdate":{".":{},"f:maxSurge":{},"f:maxUnavailable":{}},"f:type":{}},"f:template":{"f:metadata":{"f:labels":{".":{},"f:k8s-app":{}}},"f:spec":{"f:affinity":{".":{},"f:podAntiAffinity":{".":{},"f:preferredDuringSchedulingIgnoredDuringExecution":{}}},"f:containers":{"k:{\"name\":\"coredns\"}":{".":{},"f:args":{},"f:image":{},"f:imagePullPolicy":{},"f:livenessProbe":{".":{},"f:failureThreshold":{},"f:httpGet":{".":{},"f:path":{},"f:port":{},"f:scheme":{}},"f:initialDelaySeconds":{},"f:periodSeconds":{},"f:successThreshold":{},"f:timeoutSeconds":{}},"f:name":{},"f:ports":{".":{},"k:{\"containerPort\":53,\"protocol\":\"TCP\"}":{".":{},"f:containerPort":{},"f:name":{},"f:protocol":{}},"k:{\"containerPort\":53,\"protocol\":\"UDP\"}":{".":{},"f:containerPort":{},"f:name":{},"f:protocol":{}},"k:{\"containerPort\":9153,\"protocol\":\"TCP\"}":{".":{},"f:containerPort":{},"f:name":{},"f:protocol":{}}},"f:readinessProbe":{".":{},"f:failureThreshold":{},"f:httpGet":{".":{},"f:path":{},"f:port":{},"f:scheme":{}},"f:periodSeconds":{},"f:successThreshold":{},"f:timeoutSeconds":{}},"f:resources":{".":{},"f:limits":{".":{},"f:memory":{}},"f:requests":{".":{},"f:cpu":{},"f:memory":{}}},"f:securityContext":{".":{},"f:allowPrivilegeEscalation":{},"f:capabilities":{".":{},"f:add":{},"f:drop":{}},"f:readOnlyRootFilesystem":{}},"f:terminationMessagePath":{},"f:terminationMessagePolicy":{},"f:volumeMounts":{".":{},"k:{\"mountPath\":\"/etc/coredns\"}":{".":{},"f:mountPath":{},"f:name":{},"f:readOnly":{}}}}},"f:dnsPolicy":{},"f:nodeSelector":{},"f:priorityClassName":{},"f:restartPolicy":{},"f:schedulerName":{},"f:securityContext":{},"f:serviceAccount":{},"f:serviceAccountName":{},"f:terminationGracePeriodSeconds":{},"f:tolerations":{},"f:volumes":{".":{},"k:{\"name\":\"config-volume\"}":{".":{},"f:configMap":{".":{},"f:defaultMode":{},"f:items":{},"f:name":{}},"f:name":{}}}}}}}},{"manager":"kube-controller-manager","operation":"Update","apiVersion":"apps/v1","time":"2024-01-01T05:09:14Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:deployment.kubernetes.io/revision":{}}},"f:status":{"f:availableReplicas":{},"f:conditions":{".":{},"k:{\"type\":\"Available\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:message":{},"f:reason":{},"f:status":{},"f:type":{}},"k:{\"type\":\"Progressing\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:message":{},"f:reason":{},"f:status":{},"f:type":{}}},"f:observedGeneration":{},"f:readyReplicas":{},"f:replicas":{},"f:updatedReplicas":{}}},"subresource":"status"}]},"spec":{"replicas":1,"selector":{"matchLabels":{"k8s-app":"kube-dns"}},"template":{"metadata":{"creationTimestamp":null,"labels":{"k8s-app":"kube-dns"}},"spec":{"volumes":[{"name":"config-volume","configMap":{"name":"coredns","items":[{"key":"Corefile","path":"Corefile"}],"defaultMode":420}}],"containers":[{"name":"coredns","image":"registry.k8s.io/coredns/coredns:v1.10.1","args":["-conf","/etc/coredns/Corefile"],"ports":[{"name":"dns","containerPort":53,"protocol":"UDP"},{"name":"dns-tcp","containerPort":53,"protocol":"TCP"},{"name":"metrics","containerPort":9153,"protocol":"TCP"}],"resources":{"limits":{"memory":"170Mi"},"requests":{"cpu":"100m","memory":"70Mi"}},"volumeMounts":[{"name":"config-volume","readOnly":true,"mountPath":"/etc/coredns"}],"livenessProbe":{"httpGet":{"path":"/health","port":8080,"scheme":"HTTP"},"initialDelaySeconds":60,"timeoutSeconds":5,"periodSeconds":10,"successThreshold":1,"failureThreshold":5},"readinessProbe":{"httpGet":{"path":"/ready","port":8181,"scheme":"HTTP"},"timeoutSeconds":1,"periodSeconds":10,"successThreshold":1,"failureThreshold":3},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"IfNotPresent","securityContext":{"capabilities":{"add":["NET_BIND_SERVICE"],"drop":["all"]},"readOnlyRootFilesystem":true,"allowPrivilegeEscalation":false}}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"Default","nodeSelector":{"kubernetes.io/os":"linux"},"serviceAccountName":"coredns","serviceAccount":"coredns","securityContext":{},"affinity":{"podAntiAffinity":{"preferredDuringSchedulingIgnoredDuringExecution":[{"weight":100,"podAffinityTerm":{"labelSelector":{"matchExpressions":[{"key":"k8s-app","operator":"In","values":["kube-dns"]}]},"topologyKey":"kubernetes.io/hostname"}}]}},"schedulerName":"default-scheduler","tolerations":[{"key":"CriticalAddonsOnly","operator":"Exists"},{"key":"node-role.kubernetes.io/control-plane","effect":"NoSchedule"}],"priorityClassName":"system-cluster-critical"}},"strategy":{"type":"RollingUpdate","rollingUpdate":{"maxUnavailable":1,"maxSurge":"25%"}},"revisionHistoryLimit":10,"progressDeadlineSeconds":600},"status":{"observedGeneration":2,"replicas":1,"updatedReplicas":1,"readyReplicas":1,"availableReplicas":1,"conditions":[{"type":"Available","status":"True","lastUpdateTime":"2024-01-01T05:09:12Z","lastTransitionTime":"2024-01-01T05:09:12Z","reason":"MinimumReplicasAvailable","message":"Deployment has minimum availability."},{"type":"Progressing","status":"True","lastUpdateTime":"2024-01-01T05:09:14Z","lastTransitionTime":"2024-01-01T05:09:12Z","reason":"NewReplicaSetAvailable","message":"ReplicaSet \"coredns-5dd5756b68\" has successfully progressed."}]}}]}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096986613
+    reqTimestampMock: 2024-01-01T08:14:56.201289734Z
+    resTimestampMock: 2024-01-01T08:14:56.210855363Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        chunkedLength: '[1727]'
+        chunkedTime: '[1704096896213]'
+        name: Http
+        operation: GET
+        type: HTTP_CLIENT
+    req:
+        method: GET
+        proto_major: 1
+        proto_minor: 1
+        url: /apis/samplecontroller.k8s.io/v1alpha1/foos?limit=500&resourceVersion=0
+        url_params:
+            limit: "500"
+            resourceVersion: "0"
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: ""
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 02a620e0-4e64-4dc6-b630-626f070b6ad7
+            Cache-Control: no-cache, private
+            Content-Length: "2560"
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:14:56 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"apiVersion":"samplecontroller.k8s.io/v1alpha1","items":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T05:12:21Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T05:12:21Z"},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"manager":"sample-controller","operation":"Update","subresource":"status","time":"2024-01-01T05:12:21Z"}],"name":"example-foo","namespace":"default","resourceVersion":"720","uid":"582a3233-8a75-46fd-9c8b-fa314b05ff25"},"spec":{"deploymentName":"example-foo","replicas":1},"status":{"availableReplicas":0}},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T05:14:28Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T05:14:28Z"},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"manager":"sample-controller","operation":"Update","subresource":"status","time":"2024-01-01T05:14:28Z"}],"name":"example-foo-2","namespace":"default","resourceVersion":"4192","uid":"14b799ef-7813-4306-8503-414a72078a1f"},"spec":{"deploymentName":"example-foo-2","replicas":1},"status":{"availableReplicas":0}},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T05:16:16Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T05:16:16Z"},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"manager":"sample-controller","operation":"Update","subresource":"status","time":"2024-01-01T05:16:17Z"}],"name":"example-foo-3","namespace":"default","resourceVersion":"4654","uid":"369e6f0c-1f36-4b0d-9fe8-28dac1b74009"},"spec":{"deploymentName":"example-foo-3","replicas":1},"status":{"availableReplicas":0}}],"kind":"FooList","metadata":{"continue":"","resourceVersion":"7191"}}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096986615
+    reqTimestampMock: 2024-01-01T08:14:56.204624622Z
+    resTimestampMock: 2024-01-01T08:14:56.211738267Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PUT
+        type: HTTP_CLIENT
+    req:
+        method: PUT
+        proto_major: 1
+        proto_minor: 1
+        url: /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo-3/status
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "812"
+            Content-Type: application/json
+            Keploy-Header: "4654"
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: |
+            {"kind":"Foo","apiVersion":"samplecontroller.k8s.io/v1alpha1","metadata":{"name":"example-foo-3","namespace":"default","uid":"369e6f0c-1f36-4b0d-9fe8-28dac1b74009","resourceVersion":"4654","generation":1,"creationTimestamp":"2024-01-01T05:16:16Z","managedFields":[{"manager":"kubectl-create","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:16:16Z","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}}},{"manager":"sample-controller","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:16:17Z","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"subresource":"status"}]},"spec":{"deploymentName":"example-foo-3","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 34627a8e-05a9-446e-b9ad-4852d8a46a3b
+            Cache-Control: no-cache, private
+            Content-Length: 812,812
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:16:27 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T05:16:16Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T05:16:16Z"},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"manager":"sample-controller","operation":"Update","subresource":"status","time":"2024-01-01T05:16:17Z"}],"name":"example-foo-3","namespace":"default","resourceVersion":"4654","uid":"369e6f0c-1f36-4b0d-9fe8-28dac1b74009"},"spec":{"deploymentName":"example-foo-3","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096987033
+    reqTimestampMock: 2024-01-01T08:16:27.032190626Z
+    resTimestampMock: 2024-01-01T08:16:27.033058709Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PUT
+        type: HTTP_CLIENT
+    req:
+        method: PUT
+        proto_major: 1
+        proto_minor: 1
+        url: /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo-4/status
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "812"
+            Content-Type: application/json
+            Keploy-Header: "7327"
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: |
+            {"kind":"Foo","apiVersion":"samplecontroller.k8s.io/v1alpha1","metadata":{"name":"example-foo-4","namespace":"default","uid":"057d991b-51be-4aaf-b897-9ae9de4e2e69","resourceVersion":"7327","generation":1,"creationTimestamp":"2024-01-01T08:15:31Z","managedFields":[{"manager":"kubectl-create","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T08:15:31Z","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}}},{"manager":"sample-controller","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T08:15:31Z","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"subresource":"status"}]},"spec":{"deploymentName":"example-foo-4","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 20c9141a-800f-4c50-86e4-8f46b9894bd4
+            Cache-Control: no-cache, private
+            Content-Length: 812,812
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:16:27 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T08:15:31Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T08:15:31Z"},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"manager":"sample-controller","operation":"Update","subresource":"status","time":"2024-01-01T08:15:31Z"}],"name":"example-foo-4","namespace":"default","resourceVersion":"7327","uid":"057d991b-51be-4aaf-b897-9ae9de4e2e69"},"spec":{"deploymentName":"example-foo-4","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096987041
+    reqTimestampMock: 2024-01-01T08:16:27.037148556Z
+    resTimestampMock: 2024-01-01T08:16:27.041192648Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PUT
+        type: HTTP_CLIENT
+    req:
+        method: PUT
+        proto_major: 1
+        proto_minor: 1
+        url: /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo-4/status
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "812"
+            Content-Type: application/json
+            Keploy-Header: "7327"
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: |
+            {"kind":"Foo","apiVersion":"samplecontroller.k8s.io/v1alpha1","metadata":{"name":"example-foo-4","namespace":"default","uid":"057d991b-51be-4aaf-b897-9ae9de4e2e69","resourceVersion":"7327","generation":1,"creationTimestamp":"2024-01-01T08:15:31Z","managedFields":[{"manager":"kubectl-create","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T08:15:31Z","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}}},{"manager":"sample-controller","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T08:15:31Z","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"subresource":"status"}]},"spec":{"deploymentName":"example-foo-4","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 71ed0754-8f61-4321-ae1f-c9e295b890e7
+            Cache-Control: no-cache, private
+            Content-Length: 812,812
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:16:27 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T08:15:31Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T08:15:31Z"},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"manager":"sample-controller","operation":"Update","subresource":"status","time":"2024-01-01T08:15:31Z"}],"name":"example-foo-4","namespace":"default","resourceVersion":"7327","uid":"057d991b-51be-4aaf-b897-9ae9de4e2e69"},"spec":{"deploymentName":"example-foo-4","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096987047
+    reqTimestampMock: 2024-01-01T08:16:27.044648185Z
+    resTimestampMock: 2024-01-01T08:16:27.04771931Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PATCH
+        type: HTTP_CLIENT
+    req:
+        method: PATCH
+        proto_major: 1
+        proto_minor: 1
+        url: /api/v1/namespaces/default/events/example-foo-3.17a62b193af49e6f
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "86"
+            Content-Type: application/strategic-merge-patch+json
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: '{"count":5,"lastTimestamp":"2024-01-01T08:16:27Z","message":"Foo synced successfully"}'
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 0d6e08c0-af87-48dd-9dbe-fa12e445202d
+            Cache-Control: no-cache, private
+            Content-Length: 1032,1032
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:16:27 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"kind":"Event","apiVersion":"v1","metadata":{"name":"example-foo-3.17a62b193af49e6f","namespace":"default","uid":"8801adda-b929-4250-b122-80ac4146dab6","resourceVersion":"7695","creationTimestamp":"2024-01-01T08:14:56Z","managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"v1","time":"2024-01-01T08:16:27Z","fieldsType":"FieldsV1","fieldsV1":{"f:count":{},"f:firstTimestamp":{},"f:involvedObject":{},"f:lastTimestamp":{},"f:message":{},"f:reason":{},"f:reportingComponent":{},"f:source":{"f:component":{}},"f:type":{}}}]},"involvedObject":{"kind":"Foo","namespace":"default","name":"example-foo-3","uid":"369e6f0c-1f36-4b0d-9fe8-28dac1b74009","apiVersion":"samplecontroller.k8s.io/v1alpha1","resourceVersion":"4654"},"reason":"Synced","message":"Foo synced successfully","source":{"component":"sample-controller"},"firstTimestamp":"2024-01-01T08:14:56Z","lastTimestamp":"2024-01-01T08:16:27Z","count":5,"type":"Normal","eventTime":null,"reportingComponent":"sample-controller","reportingInstance":""}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096987056
+    reqTimestampMock: 2024-01-01T08:16:27.051952879Z
+    resTimestampMock: 2024-01-01T08:16:27.056191157Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: POST
+        type: HTTP_CLIENT
+    req:
+        method: POST
+        proto_major: 1
+        proto_minor: 1
+        url: /api/v1/namespaces/default/events
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "613"
+            Content-Type: application/json
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: |
+            {"kind":"Event","apiVersion":"v1","metadata":{"name":"example-foo-4.17a62b2e577e1876","namespace":"default","creationTimestamp":null},"involvedObject":{"kind":"Foo","namespace":"default","name":"example-foo-4","uid":"057d991b-51be-4aaf-b897-9ae9de4e2e69","apiVersion":"samplecontroller.k8s.io/v1alpha1","resourceVersion":"7327"},"reason":"Synced","message":"Foo synced successfully","source":{"component":"sample-controller"},"firstTimestamp":"2024-01-01T08:16:27Z","lastTimestamp":"2024-01-01T08:16:27Z","count":1,"type":"Normal","eventTime":null,"reportingComponent":"sample-controller","reportingInstance":""}
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 201
+        header:
+            Audit-Id: fd3348a8-2ad9-44c6-b0a9-1660ea0325b2
+            Cache-Control: no-cache, private
+            Content-Length: 1032,1032
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:16:27 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"kind":"Event","apiVersion":"v1","metadata":{"name":"example-foo-4.17a62b2e577e1876","namespace":"default","uid":"d55c3f83-9942-4b83-ad4f-4e5cf079e580","resourceVersion":"7696","creationTimestamp":"2024-01-01T08:16:27Z","managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"v1","time":"2024-01-01T08:16:27Z","fieldsType":"FieldsV1","fieldsV1":{"f:count":{},"f:firstTimestamp":{},"f:involvedObject":{},"f:lastTimestamp":{},"f:message":{},"f:reason":{},"f:reportingComponent":{},"f:source":{"f:component":{}},"f:type":{}}}]},"involvedObject":{"kind":"Foo","namespace":"default","name":"example-foo-4","uid":"057d991b-51be-4aaf-b897-9ae9de4e2e69","apiVersion":"samplecontroller.k8s.io/v1alpha1","resourceVersion":"7327"},"reason":"Synced","message":"Foo synced successfully","source":{"component":"sample-controller"},"firstTimestamp":"2024-01-01T08:16:27Z","lastTimestamp":"2024-01-01T08:16:27Z","count":1,"type":"Normal","eventTime":null,"reportingComponent":"sample-controller","reportingInstance":""}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096987069
+    reqTimestampMock: 2024-01-01T08:16:27.059785957Z
+    resTimestampMock: 2024-01-01T08:16:27.06943154Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PATCH
+        type: HTTP_CLIENT
+    req:
+        method: PATCH
+        proto_major: 1
+        proto_minor: 1
+        url: /api/v1/namespaces/default/events/example-foo-4.17a62b2e577e1876
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "86"
+            Content-Type: application/strategic-merge-patch+json
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: '{"count":2,"lastTimestamp":"2024-01-01T08:16:27Z","message":"Foo synced successfully"}'
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: a9b84466-1d5e-4bab-b9fe-70763806502f
+            Cache-Control: no-cache, private
+            Content-Length: 1032,1032
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:16:27 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"kind":"Event","apiVersion":"v1","metadata":{"name":"example-foo-4.17a62b2e577e1876","namespace":"default","uid":"d55c3f83-9942-4b83-ad4f-4e5cf079e580","resourceVersion":"7697","creationTimestamp":"2024-01-01T08:16:27Z","managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"v1","time":"2024-01-01T08:16:27Z","fieldsType":"FieldsV1","fieldsV1":{"f:count":{},"f:firstTimestamp":{},"f:involvedObject":{},"f:lastTimestamp":{},"f:message":{},"f:reason":{},"f:reportingComponent":{},"f:source":{"f:component":{}},"f:type":{}}}]},"involvedObject":{"kind":"Foo","namespace":"default","name":"example-foo-4","uid":"057d991b-51be-4aaf-b897-9ae9de4e2e69","apiVersion":"samplecontroller.k8s.io/v1alpha1","resourceVersion":"7327"},"reason":"Synced","message":"Foo synced successfully","source":{"component":"sample-controller"},"firstTimestamp":"2024-01-01T08:16:27Z","lastTimestamp":"2024-01-01T08:16:27Z","count":2,"type":"Normal","eventTime":null,"reportingComponent":"sample-controller","reportingInstance":""}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704096987087
+    reqTimestampMock: 2024-01-01T08:16:27.07676682Z
+    resTimestampMock: 2024-01-01T08:16:27.08674706Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PUT
+        type: HTTP_CLIENT
+    req:
+        method: PUT
+        proto_major: 1
+        proto_minor: 1
+        url: /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo-3/status
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "812"
+            Content-Type: application/json
+            Keploy-Header: "4654"
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: |
+            {"kind":"Foo","apiVersion":"samplecontroller.k8s.io/v1alpha1","metadata":{"name":"example-foo-3","namespace":"default","uid":"369e6f0c-1f36-4b0d-9fe8-28dac1b74009","resourceVersion":"4654","generation":1,"creationTimestamp":"2024-01-01T05:16:16Z","managedFields":[{"manager":"kubectl-create","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:16:16Z","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}}},{"manager":"sample-controller","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:16:17Z","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"subresource":"status"}]},"spec":{"deploymentName":"example-foo-3","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: d6291a12-95cc-47d3-a2d9-9306032e8e4d
+            Cache-Control: no-cache, private
+            Content-Length: 812,812
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:16:56 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T05:16:16Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T05:16:16Z"},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"manager":"sample-controller","operation":"Update","subresource":"status","time":"2024-01-01T05:16:17Z"}],"name":"example-foo-3","namespace":"default","resourceVersion":"4654","uid":"369e6f0c-1f36-4b0d-9fe8-28dac1b74009"},"spec":{"deploymentName":"example-foo-3","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704097016223
+    reqTimestampMock: 2024-01-01T08:16:56.222611304Z
+    resTimestampMock: 2024-01-01T08:16:56.222687393Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PUT
+        type: HTTP_CLIENT
+    req:
+        method: PUT
+        proto_major: 1
+        proto_minor: 1
+        url: /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo-4/status
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "812"
+            Content-Type: application/json
+            Keploy-Header: "7327"
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: |
+            {"kind":"Foo","apiVersion":"samplecontroller.k8s.io/v1alpha1","metadata":{"name":"example-foo-4","namespace":"default","uid":"057d991b-51be-4aaf-b897-9ae9de4e2e69","resourceVersion":"7327","generation":1,"creationTimestamp":"2024-01-01T08:15:31Z","managedFields":[{"manager":"kubectl-create","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T08:15:31Z","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}}},{"manager":"sample-controller","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T08:15:31Z","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"subresource":"status"}]},"spec":{"deploymentName":"example-foo-4","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 5c3c6660-1f94-41ad-83db-caf998476571
+            Cache-Control: no-cache, private
+            Content-Length: 812,812
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:16:56 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T08:15:31Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T08:15:31Z"},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"manager":"sample-controller","operation":"Update","subresource":"status","time":"2024-01-01T08:15:31Z"}],"name":"example-foo-4","namespace":"default","resourceVersion":"7327","uid":"057d991b-51be-4aaf-b897-9ae9de4e2e69"},"spec":{"deploymentName":"example-foo-4","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704097016242
+    reqTimestampMock: 2024-01-01T08:16:56.236785701Z
+    resTimestampMock: 2024-01-01T08:16:56.242005411Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PUT
+        type: HTTP_CLIENT
+    req:
+        method: PUT
+        proto_major: 1
+        proto_minor: 1
+        url: /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo-2/status
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "812"
+            Content-Type: application/json
+            Keploy-Header: "4192"
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: |
+            {"kind":"Foo","apiVersion":"samplecontroller.k8s.io/v1alpha1","metadata":{"name":"example-foo-2","namespace":"default","uid":"14b799ef-7813-4306-8503-414a72078a1f","resourceVersion":"4192","generation":1,"creationTimestamp":"2024-01-01T05:14:28Z","managedFields":[{"manager":"kubectl-create","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:14:28Z","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}}},{"manager":"sample-controller","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:14:28Z","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"subresource":"status"}]},"spec":{"deploymentName":"example-foo-2","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: ee210738-29ca-4aac-af37-64594bcc7d47
+            Cache-Control: no-cache, private
+            Content-Length: 812,812
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:16:56 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T05:14:28Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T05:14:28Z"},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"manager":"sample-controller","operation":"Update","subresource":"status","time":"2024-01-01T05:14:28Z"}],"name":"example-foo-2","namespace":"default","resourceVersion":"4192","uid":"14b799ef-7813-4306-8503-414a72078a1f"},"spec":{"deploymentName":"example-foo-2","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704097016237
+    reqTimestampMock: 2024-01-01T08:16:56.231048787Z
+    resTimestampMock: 2024-01-01T08:16:56.236859415Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PATCH
+        type: HTTP_CLIENT
+    req:
+        method: PATCH
+        proto_major: 1
+        proto_minor: 1
+        url: /api/v1/namespaces/default/events/example-foo-3.17a62b193af49e6f
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "86"
+            Content-Type: application/strategic-merge-patch+json
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: '{"count":6,"lastTimestamp":"2024-01-01T08:16:56Z","message":"Foo synced successfully"}'
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 4c97ef58-56b6-466c-8978-91d042042bcf
+            Cache-Control: no-cache, private
+            Content-Length: 1032,1032
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:16:56 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"kind":"Event","apiVersion":"v1","metadata":{"name":"example-foo-3.17a62b193af49e6f","namespace":"default","uid":"8801adda-b929-4250-b122-80ac4146dab6","resourceVersion":"7804","creationTimestamp":"2024-01-01T08:14:56Z","managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"v1","time":"2024-01-01T08:16:56Z","fieldsType":"FieldsV1","fieldsV1":{"f:count":{},"f:firstTimestamp":{},"f:involvedObject":{},"f:lastTimestamp":{},"f:message":{},"f:reason":{},"f:reportingComponent":{},"f:source":{"f:component":{}},"f:type":{}}}]},"involvedObject":{"kind":"Foo","namespace":"default","name":"example-foo-3","uid":"369e6f0c-1f36-4b0d-9fe8-28dac1b74009","apiVersion":"samplecontroller.k8s.io/v1alpha1","resourceVersion":"4654"},"reason":"Synced","message":"Foo synced successfully","source":{"component":"sample-controller"},"firstTimestamp":"2024-01-01T08:14:56Z","lastTimestamp":"2024-01-01T08:16:56Z","count":6,"type":"Normal","eventTime":null,"reportingComponent":"sample-controller","reportingInstance":""}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704097016249
+    reqTimestampMock: 2024-01-01T08:16:56.24342443Z
+    resTimestampMock: 2024-01-01T08:16:56.24962896Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PUT
+        type: HTTP_CLIENT
+    req:
+        method: PUT
+        proto_major: 1
+        proto_minor: 1
+        url: /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "807"
+            Content-Type: application/json
+            Keploy-Header: "720"
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: |
+            {"kind":"Foo","apiVersion":"samplecontroller.k8s.io/v1alpha1","metadata":{"name":"example-foo","namespace":"default","uid":"582a3233-8a75-46fd-9c8b-fa314b05ff25","resourceVersion":"720","generation":1,"creationTimestamp":"2024-01-01T05:12:21Z","managedFields":[{"manager":"kubectl-create","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:12:21Z","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}}},{"manager":"sample-controller","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:12:21Z","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"subresource":"status"}]},"spec":{"deploymentName":"example-foo","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: bd7b9f0d-d720-458b-bd99-9732425a96e9
+            Cache-Control: no-cache, private
+            Content-Length: 807,807
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:16:56 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T05:12:21Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T05:12:21Z"},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"manager":"sample-controller","operation":"Update","subresource":"status","time":"2024-01-01T05:12:21Z"}],"name":"example-foo","namespace":"default","resourceVersion":"720","uid":"582a3233-8a75-46fd-9c8b-fa314b05ff25"},"spec":{"deploymentName":"example-foo","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704097016287
+    reqTimestampMock: 2024-01-01T08:16:56.285807235Z
+    resTimestampMock: 2024-01-01T08:16:56.28750615Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PATCH
+        type: HTTP_CLIENT
+    req:
+        method: PATCH
+        proto_major: 1
+        proto_minor: 1
+        url: /api/v1/namespaces/default/events/example-foo-2.17a62b193701d6d7
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "86"
+            Content-Type: application/strategic-merge-patch+json
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: '{"count":5,"lastTimestamp":"2024-01-01T08:16:56Z","message":"Foo synced successfully"}'
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 88309ff4-5eb6-4967-b707-193abd7e43b5
+            Cache-Control: no-cache, private
+            Content-Length: 1032,1032
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:16:56 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"kind":"Event","apiVersion":"v1","metadata":{"name":"example-foo-2.17a62b193701d6d7","namespace":"default","uid":"5887ce1e-ca81-44c6-94dc-1132fd6bc226","resourceVersion":"7805","creationTimestamp":"2024-01-01T08:14:56Z","managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"v1","time":"2024-01-01T08:16:56Z","fieldsType":"FieldsV1","fieldsV1":{"f:count":{},"f:firstTimestamp":{},"f:involvedObject":{},"f:lastTimestamp":{},"f:message":{},"f:reason":{},"f:reportingComponent":{},"f:source":{"f:component":{}},"f:type":{}}}]},"involvedObject":{"kind":"Foo","namespace":"default","name":"example-foo-2","uid":"14b799ef-7813-4306-8503-414a72078a1f","apiVersion":"samplecontroller.k8s.io/v1alpha1","resourceVersion":"4192"},"reason":"Synced","message":"Foo synced successfully","source":{"component":"sample-controller"},"firstTimestamp":"2024-01-01T08:14:56Z","lastTimestamp":"2024-01-01T08:16:56Z","count":5,"type":"Normal","eventTime":null,"reportingComponent":"sample-controller","reportingInstance":""}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704097016308
+    reqTimestampMock: 2024-01-01T08:16:56.30073952Z
+    resTimestampMock: 2024-01-01T08:16:56.308721346Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PATCH
+        type: HTTP_CLIENT
+    req:
+        method: PATCH
+        proto_major: 1
+        proto_minor: 1
+        url: /api/v1/namespaces/default/events/example-foo-4.17a62b2e577e1876
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "86"
+            Content-Type: application/strategic-merge-patch+json
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: '{"count":3,"lastTimestamp":"2024-01-01T08:16:56Z","message":"Foo synced successfully"}'
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: d5155a7c-1372-406e-a75d-2fd32cdf27b5
+            Cache-Control: no-cache, private
+            Content-Length: 1032,1032
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:16:56 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"kind":"Event","apiVersion":"v1","metadata":{"name":"example-foo-4.17a62b2e577e1876","namespace":"default","uid":"d55c3f83-9942-4b83-ad4f-4e5cf079e580","resourceVersion":"7806","creationTimestamp":"2024-01-01T08:16:27Z","managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"v1","time":"2024-01-01T08:16:56Z","fieldsType":"FieldsV1","fieldsV1":{"f:count":{},"f:firstTimestamp":{},"f:involvedObject":{},"f:lastTimestamp":{},"f:message":{},"f:reason":{},"f:reportingComponent":{},"f:source":{"f:component":{}},"f:type":{}}}]},"involvedObject":{"kind":"Foo","namespace":"default","name":"example-foo-4","uid":"057d991b-51be-4aaf-b897-9ae9de4e2e69","apiVersion":"samplecontroller.k8s.io/v1alpha1","resourceVersion":"7327"},"reason":"Synced","message":"Foo synced successfully","source":{"component":"sample-controller"},"firstTimestamp":"2024-01-01T08:16:27Z","lastTimestamp":"2024-01-01T08:16:56Z","count":3,"type":"Normal","eventTime":null,"reportingComponent":"sample-controller","reportingInstance":""}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704097016329
+    reqTimestampMock: 2024-01-01T08:16:56.315533129Z
+    resTimestampMock: 2024-01-01T08:16:56.329488843Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PATCH
+        type: HTTP_CLIENT
+    req:
+        method: PATCH
+        proto_major: 1
+        proto_minor: 1
+        url: /api/v1/namespaces/default/events/example-foo.17a62b1937a023a8
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "86"
+            Content-Type: application/strategic-merge-patch+json
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: '{"count":5,"lastTimestamp":"2024-01-01T08:16:56Z","message":"Foo synced successfully"}'
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 6430c1a1-6c76-4089-809d-058d67dca282
+            Cache-Control: no-cache, private
+            Content-Length: 1027,1027
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:16:56 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"kind":"Event","apiVersion":"v1","metadata":{"name":"example-foo.17a62b1937a023a8","namespace":"default","uid":"995c0a12-a5d6-4612-894a-046b913db5b6","resourceVersion":"7807","creationTimestamp":"2024-01-01T08:14:56Z","managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"v1","time":"2024-01-01T08:16:56Z","fieldsType":"FieldsV1","fieldsV1":{"f:count":{},"f:firstTimestamp":{},"f:involvedObject":{},"f:lastTimestamp":{},"f:message":{},"f:reason":{},"f:reportingComponent":{},"f:source":{"f:component":{}},"f:type":{}}}]},"involvedObject":{"kind":"Foo","namespace":"default","name":"example-foo","uid":"582a3233-8a75-46fd-9c8b-fa314b05ff25","apiVersion":"samplecontroller.k8s.io/v1alpha1","resourceVersion":"720"},"reason":"Synced","message":"Foo synced successfully","source":{"component":"sample-controller"},"firstTimestamp":"2024-01-01T08:14:56Z","lastTimestamp":"2024-01-01T08:16:56Z","count":5,"type":"Normal","eventTime":null,"reportingComponent":"sample-controller","reportingInstance":""}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704097016338
+    reqTimestampMock: 2024-01-01T08:16:56.333474547Z
+    resTimestampMock: 2024-01-01T08:16:56.338295645Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PUT
+        type: HTTP_CLIENT
+    req:
+        method: PUT
+        proto_major: 1
+        proto_minor: 1
+        url: /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo-2/status
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "812"
+            Content-Type: application/json
+            Keploy-Header: "4192"
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: |
+            {"kind":"Foo","apiVersion":"samplecontroller.k8s.io/v1alpha1","metadata":{"name":"example-foo-2","namespace":"default","uid":"14b799ef-7813-4306-8503-414a72078a1f","resourceVersion":"4192","generation":1,"creationTimestamp":"2024-01-01T05:14:28Z","managedFields":[{"manager":"kubectl-create","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:14:28Z","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}}},{"manager":"sample-controller","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:14:28Z","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"subresource":"status"}]},"spec":{"deploymentName":"example-foo-2","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: b4080f8b-74f9-4d75-a992-833b8d161e4e
+            Cache-Control: no-cache, private
+            Content-Length: 812,812
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:17:26 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T05:14:28Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T05:14:28Z"},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"manager":"sample-controller","operation":"Update","subresource":"status","time":"2024-01-01T05:14:28Z"}],"name":"example-foo-2","namespace":"default","resourceVersion":"4192","uid":"14b799ef-7813-4306-8503-414a72078a1f"},"spec":{"deploymentName":"example-foo-2","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704097046226
+    reqTimestampMock: 2024-01-01T08:17:26.221778628Z
+    resTimestampMock: 2024-01-01T08:17:26.225316433Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PUT
+        type: HTTP_CLIENT
+    req:
+        method: PUT
+        proto_major: 1
+        proto_minor: 1
+        url: /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo/status
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "807"
+            Content-Type: application/json
+            Keploy-Header: "720"
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: |
+            {"kind":"Foo","apiVersion":"samplecontroller.k8s.io/v1alpha1","metadata":{"name":"example-foo","namespace":"default","uid":"582a3233-8a75-46fd-9c8b-fa314b05ff25","resourceVersion":"720","generation":1,"creationTimestamp":"2024-01-01T05:12:21Z","managedFields":[{"manager":"kubectl-create","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:12:21Z","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}}},{"manager":"sample-controller","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:12:21Z","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"subresource":"status"}]},"spec":{"deploymentName":"example-foo","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 70c193f3-4ddd-4b96-9f2c-b24c86addfd6
+            Cache-Control: no-cache, private
+            Content-Length: 807,807
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:17:26 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T05:12:21Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T05:12:21Z"},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"manager":"sample-controller","operation":"Update","subresource":"status","time":"2024-01-01T05:12:21Z"}],"name":"example-foo","namespace":"default","resourceVersion":"720","uid":"582a3233-8a75-46fd-9c8b-fa314b05ff25"},"spec":{"deploymentName":"example-foo","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704097046226
+    reqTimestampMock: 2024-01-01T08:17:26.222028643Z
+    resTimestampMock: 2024-01-01T08:17:26.225778671Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PUT
+        type: HTTP_CLIENT
+    req:
+        method: PUT
+        proto_major: 1
+        proto_minor: 1
+        url: /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo-4/status
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "812"
+            Content-Type: application/json
+            Keploy-Header: "7327"
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: |
+            {"kind":"Foo","apiVersion":"samplecontroller.k8s.io/v1alpha1","metadata":{"name":"example-foo-4","namespace":"default","uid":"057d991b-51be-4aaf-b897-9ae9de4e2e69","resourceVersion":"7327","generation":1,"creationTimestamp":"2024-01-01T08:15:31Z","managedFields":[{"manager":"kubectl-create","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T08:15:31Z","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}}},{"manager":"sample-controller","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T08:15:31Z","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"subresource":"status"}]},"spec":{"deploymentName":"example-foo-4","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 74149318-9f3d-45be-9aca-738cec1b50f5
+            Cache-Control: no-cache, private
+            Content-Length: 812,812
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:17:26 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T08:15:31Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T08:15:31Z"},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"manager":"sample-controller","operation":"Update","subresource":"status","time":"2024-01-01T08:15:31Z"}],"name":"example-foo-4","namespace":"default","resourceVersion":"7327","uid":"057d991b-51be-4aaf-b897-9ae9de4e2e69"},"spec":{"deploymentName":"example-foo-4","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704097046232
+    reqTimestampMock: 2024-01-01T08:17:26.22912188Z
+    resTimestampMock: 2024-01-01T08:17:26.23221845Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PUT
+        type: HTTP_CLIENT
+    req:
+        method: PUT
+        proto_major: 1
+        proto_minor: 1
+        url: /apis/samplecontroller.k8s.io/v1alpha1/namespaces/default/foos/example-foo-3/status
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "812"
+            Content-Type: application/json
+            Keploy-Header: "4654"
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: |
+            {"kind":"Foo","apiVersion":"samplecontroller.k8s.io/v1alpha1","metadata":{"name":"example-foo-3","namespace":"default","uid":"369e6f0c-1f36-4b0d-9fe8-28dac1b74009","resourceVersion":"4654","generation":1,"creationTimestamp":"2024-01-01T05:16:16Z","managedFields":[{"manager":"kubectl-create","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:16:16Z","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}}},{"manager":"sample-controller","operation":"Update","apiVersion":"samplecontroller.k8s.io/v1alpha1","time":"2024-01-01T05:16:17Z","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"subresource":"status"}]},"spec":{"deploymentName":"example-foo-3","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 0408b71b-e1ae-4166-bc56-87cf5a89fb28
+            Cache-Control: no-cache, private
+            Content-Length: 812,812
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:17:26 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T05:16:16Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T05:16:16Z"},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"manager":"sample-controller","operation":"Update","subresource":"status","time":"2024-01-01T05:16:17Z"}],"name":"example-foo-3","namespace":"default","resourceVersion":"4654","uid":"369e6f0c-1f36-4b0d-9fe8-28dac1b74009"},"spec":{"deploymentName":"example-foo-3","replicas":1},"status":{"availableReplicas":0}}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704097046247
+    reqTimestampMock: 2024-01-01T08:17:26.244946957Z
+    resTimestampMock: 2024-01-01T08:17:26.244972709Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PATCH
+        type: HTTP_CLIENT
+    req:
+        method: PATCH
+        proto_major: 1
+        proto_minor: 1
+        url: /api/v1/namespaces/default/events/example-foo-2.17a62b193701d6d7
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "86"
+            Content-Type: application/strategic-merge-patch+json
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: '{"count":6,"lastTimestamp":"2024-01-01T08:17:26Z","message":"Foo synced successfully"}'
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 97b76deb-3b40-4628-bc91-5bd2756423e8
+            Cache-Control: no-cache, private
+            Content-Length: 1032,1032
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:17:26 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"kind":"Event","apiVersion":"v1","metadata":{"name":"example-foo-2.17a62b193701d6d7","namespace":"default","uid":"5887ce1e-ca81-44c6-94dc-1132fd6bc226","resourceVersion":"7899","creationTimestamp":"2024-01-01T08:14:56Z","managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"v1","time":"2024-01-01T08:17:26Z","fieldsType":"FieldsV1","fieldsV1":{"f:count":{},"f:firstTimestamp":{},"f:involvedObject":{},"f:lastTimestamp":{},"f:message":{},"f:reason":{},"f:reportingComponent":{},"f:source":{"f:component":{}},"f:type":{}}}]},"involvedObject":{"kind":"Foo","namespace":"default","name":"example-foo-2","uid":"14b799ef-7813-4306-8503-414a72078a1f","apiVersion":"samplecontroller.k8s.io/v1alpha1","resourceVersion":"4192"},"reason":"Synced","message":"Foo synced successfully","source":{"component":"sample-controller"},"firstTimestamp":"2024-01-01T08:14:56Z","lastTimestamp":"2024-01-01T08:17:26Z","count":6,"type":"Normal","eventTime":null,"reportingComponent":"sample-controller","reportingInstance":""}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704097046251
+    reqTimestampMock: 2024-01-01T08:17:26.245071549Z
+    resTimestampMock: 2024-01-01T08:17:26.251317232Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PATCH
+        type: HTTP_CLIENT
+    req:
+        method: PATCH
+        proto_major: 1
+        proto_minor: 1
+        url: /api/v1/namespaces/default/events/example-foo.17a62b1937a023a8
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "86"
+            Content-Type: application/strategic-merge-patch+json
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: '{"count":6,"lastTimestamp":"2024-01-01T08:17:26Z","message":"Foo synced successfully"}'
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: db1259e4-d335-4954-a944-ed13093960f0
+            Cache-Control: no-cache, private
+            Content-Length: 1027,1027
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:17:26 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"kind":"Event","apiVersion":"v1","metadata":{"name":"example-foo.17a62b1937a023a8","namespace":"default","uid":"995c0a12-a5d6-4612-894a-046b913db5b6","resourceVersion":"7900","creationTimestamp":"2024-01-01T08:14:56Z","managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"v1","time":"2024-01-01T08:17:26Z","fieldsType":"FieldsV1","fieldsV1":{"f:count":{},"f:firstTimestamp":{},"f:involvedObject":{},"f:lastTimestamp":{},"f:message":{},"f:reason":{},"f:reportingComponent":{},"f:source":{"f:component":{}},"f:type":{}}}]},"involvedObject":{"kind":"Foo","namespace":"default","name":"example-foo","uid":"582a3233-8a75-46fd-9c8b-fa314b05ff25","apiVersion":"samplecontroller.k8s.io/v1alpha1","resourceVersion":"720"},"reason":"Synced","message":"Foo synced successfully","source":{"component":"sample-controller"},"firstTimestamp":"2024-01-01T08:14:56Z","lastTimestamp":"2024-01-01T08:17:26Z","count":6,"type":"Normal","eventTime":null,"reportingComponent":"sample-controller","reportingInstance":""}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704097046292
+    reqTimestampMock: 2024-01-01T08:17:26.276085579Z
+    resTimestampMock: 2024-01-01T08:17:26.291387123Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PATCH
+        type: HTTP_CLIENT
+    req:
+        method: PATCH
+        proto_major: 1
+        proto_minor: 1
+        url: /api/v1/namespaces/default/events/example-foo-4.17a62b2e577e1876
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "86"
+            Content-Type: application/strategic-merge-patch+json
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: '{"count":4,"lastTimestamp":"2024-01-01T08:17:26Z","message":"Foo synced successfully"}'
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: a7fd6fef-02b8-476b-8561-7d4157cbafa0
+            Cache-Control: no-cache, private
+            Content-Length: 1032,1032
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:17:26 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"kind":"Event","apiVersion":"v1","metadata":{"name":"example-foo-4.17a62b2e577e1876","namespace":"default","uid":"d55c3f83-9942-4b83-ad4f-4e5cf079e580","resourceVersion":"7901","creationTimestamp":"2024-01-01T08:16:27Z","managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"v1","time":"2024-01-01T08:17:26Z","fieldsType":"FieldsV1","fieldsV1":{"f:count":{},"f:firstTimestamp":{},"f:involvedObject":{},"f:lastTimestamp":{},"f:message":{},"f:reason":{},"f:reportingComponent":{},"f:source":{"f:component":{}},"f:type":{}}}]},"involvedObject":{"kind":"Foo","namespace":"default","name":"example-foo-4","uid":"057d991b-51be-4aaf-b897-9ae9de4e2e69","apiVersion":"samplecontroller.k8s.io/v1alpha1","resourceVersion":"7327"},"reason":"Synced","message":"Foo synced successfully","source":{"component":"sample-controller"},"firstTimestamp":"2024-01-01T08:16:27Z","lastTimestamp":"2024-01-01T08:17:26Z","count":4,"type":"Normal","eventTime":null,"reportingComponent":"sample-controller","reportingInstance":""}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704097046303
+    reqTimestampMock: 2024-01-01T08:17:26.29634431Z
+    resTimestampMock: 2024-01-01T08:17:26.302380855Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        name: Http
+        operation: PATCH
+        type: HTTP_CLIENT
+    req:
+        method: PATCH
+        proto_major: 1
+        proto_minor: 1
+        url: /api/v1/namespaces/default/events/example-foo-3.17a62b193af49e6f
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            Content-Length: "86"
+            Content-Type: application/strategic-merge-patch+json
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: '{"count":7,"lastTimestamp":"2024-01-01T08:17:26Z","message":"Foo synced successfully"}'
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: dc75e27e-50b8-4157-9092-f4865d299f18
+            Cache-Control: no-cache, private
+            Content-Length: 1032,1032
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:17:26 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"kind":"Event","apiVersion":"v1","metadata":{"name":"example-foo-3.17a62b193af49e6f","namespace":"default","uid":"8801adda-b929-4250-b122-80ac4146dab6","resourceVersion":"7902","creationTimestamp":"2024-01-01T08:14:56Z","managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"v1","time":"2024-01-01T08:17:26Z","fieldsType":"FieldsV1","fieldsV1":{"f:count":{},"f:firstTimestamp":{},"f:involvedObject":{},"f:lastTimestamp":{},"f:message":{},"f:reason":{},"f:reportingComponent":{},"f:source":{"f:component":{}},"f:type":{}}}]},"involvedObject":{"kind":"Foo","namespace":"default","name":"example-foo-3","uid":"369e6f0c-1f36-4b0d-9fe8-28dac1b74009","apiVersion":"samplecontroller.k8s.io/v1alpha1","resourceVersion":"4654"},"reason":"Synced","message":"Foo synced successfully","source":{"component":"sample-controller"},"firstTimestamp":"2024-01-01T08:14:56Z","lastTimestamp":"2024-01-01T08:17:26Z","count":7,"type":"Normal","eventTime":null,"reportingComponent":"sample-controller","reportingInstance":""}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704097046318
+    reqTimestampMock: 2024-01-01T08:17:26.31485718Z
+    resTimestampMock: 2024-01-01T08:17:26.31838361Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        chunkedLength: '[1417 136]'
+        chunkedTime: '[1704096987026 1704097046410]'
+        name: Http
+        operation: GET
+        type: HTTP_CLIENT
+    req:
+        method: GET
+        proto_major: 1
+        proto_minor: 1
+        url: /apis/samplecontroller.k8s.io/v1alpha1/foos?allowWatchBookmarks=true&resourceVersion=7191&timeout=7m31s&timeoutSeconds=451&watch=true
+        url_params:
+            allowWatchBookmarks: "true"
+            resourceVersion: "7191"
+            timeout: 7m31s
+            timeoutSeconds: "451"
+            watch: "true"
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: ""
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 969fc461-1636-45a1-9483-064b827b64c3
+            Cache-Control: no-cache, private
+            Content-Length: "1540"
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:16:27 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"type":"ADDED","object":{"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T08:15:31Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T08:15:31Z"}],"name":"example-foo-4","namespace":"default","resourceVersion":"7325","uid":"057d991b-51be-4aaf-b897-9ae9de4e2e69"},"spec":{"deploymentName":"example-foo-4","replicas":1}}}
+            {"type":"MODIFIED","object":{"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"creationTimestamp":"2024-01-01T08:15:31Z","generation":1,"managedFields":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:spec":{".":{},"f:deploymentName":{},"f:replicas":{}}},"manager":"kubectl-create","operation":"Update","time":"2024-01-01T08:15:31Z"},{"apiVersion":"samplecontroller.k8s.io/v1alpha1","fieldsType":"FieldsV1","fieldsV1":{"f:status":{".":{},"f:availableReplicas":{}}},"manager":"sample-controller","operation":"Update","subresource":"status","time":"2024-01-01T08:15:31Z"}],"name":"example-foo-4","namespace":"default","resourceVersion":"7327","uid":"057d991b-51be-4aaf-b897-9ae9de4e2e69"},"spec":{"deploymentName":"example-foo-4","replicas":1},"status":{"availableReplicas":0}}}
+            {"type":"BOOKMARK","object":{"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","metadata":{"resourceVersion":"7898"}}}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704097059037
+    reqTimestampMock: 2024-01-01T08:16:27.021383641Z
+    resTimestampMock: 2024-01-01T08:16:27.026636849Z
+---
+version: api.keploy.io/v1beta1
+kind: Http
+name: mocks
+spec:
+    metadata:
+        chunkedLength: '[21112 286]'
+        chunkedTime: '[1704096987026 1704097047096]'
+        name: Http
+        operation: GET
+        type: HTTP_CLIENT
+    req:
+        method: GET
+        proto_major: 1
+        proto_minor: 1
+        url: /apis/apps/v1/deployments?allowWatchBookmarks=true&resourceVersion=7191&timeout=7m7s&timeoutSeconds=427&watch=true
+        url_params:
+            allowWatchBookmarks: "true"
+            resourceVersion: "7191"
+            timeout: 7m7s
+            timeoutSeconds: "427"
+            watch: "true"
+        header:
+            Accept: application/json, */*
+            Accept-Encoding: gzip
+            User-Agent: sample-controller/v0.0.0 (linux/arm64) kubernetes/$Format
+        body: ""
+        body_type: ""
+        timestamp: 0001-01-01T00:00:00Z
+    resp:
+        status_code: 200
+        header:
+            Audit-Id: 1122fb79-26c9-443e-918b-a914fca00784
+            Cache-Control: no-cache, private
+            Content-Length: "21342"
+            Content-Type: application/json
+            Date: Mon, 01 Jan 2024 08:16:27 GMT
+            X-Kubernetes-Pf-Flowschema-Uid: 38f2b516-5443-4592-8a49-05fc2cfe7f52
+            X-Kubernetes-Pf-Prioritylevel-Uid: 3c21f0eb-276b-4c60-a433-48ed93c308e9
+        body: |
+            {"type":"MODIFIED","object":{"kind":"Deployment","apiVersion":"apps/v1","metadata":{"name":"example-foo-3","namespace":"default","uid":"07b19928-1fc3-4d75-8df7-e9d0fff06133","resourceVersion":"7244","generation":1,"creationTimestamp":"2024-01-01T05:16:16Z","annotations":{"deployment.kubernetes.io/revision":"1"},"ownerReferences":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","name":"example-foo-3","uid":"369e6f0c-1f36-4b0d-9fe8-28dac1b74009","controller":true,"blockOwnerDeletion":true}],"managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"apps/v1","time":"2024-01-01T05:16:16Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:ownerReferences":{".":{},"k:{\"uid\":\"369e6f0c-1f36-4b0d-9fe8-28dac1b74009\"}":{}}},"f:spec":{"f:progressDeadlineSeconds":{},"f:replicas":{},"f:revisionHistoryLimit":{},"f:selector":{},"f:strategy":{"f:rollingUpdate":{".":{},"f:maxSurge":{},"f:maxUnavailable":{}},"f:type":{}},"f:template":{"f:metadata":{"f:labels":{".":{},"f:app":{},"f:controller":{}}},"f:spec":{"f:containers":{"k:{\"name\":\"nginx\"}":{".":{},"f:image":{},"f:imagePullPolicy":{},"f:name":{},"f:resources":{},"f:terminationMessagePath":{},"f:terminationMessagePolicy":{}}},"f:dnsPolicy":{},"f:restartPolicy":{},"f:schedulerName":{},"f:securityContext":{},"f:terminationGracePeriodSeconds":{}}}}}},{"manager":"kube-controller-manager","operation":"Update","apiVersion":"apps/v1","time":"2024-01-01T08:15:10Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:deployment.kubernetes.io/revision":{}}},"f:status":{"f:conditions":{".":{},"k:{\"type\":\"Available\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:message":{},"f:reason":{},"f:status":{},"f:type":{}},"k:{\"type\":\"Progressing\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:message":{},"f:reason":{},"f:status":{},"f:type":{}}},"f:observedGeneration":{},"f:replicas":{},"f:unavailableReplicas":{},"f:updatedReplicas":{}}},"subresource":"status"}]},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"nginx","controller":"example-foo-3"}},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"nginx","controller":"example-foo-3"}},"spec":{"containers":[{"name":"nginx","image":"nginx:latest","resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{},"schedulerName":"default-scheduler"}},"strategy":{"type":"RollingUpdate","rollingUpdate":{"maxUnavailable":"25%","maxSurge":"25%"}},"revisionHistoryLimit":10,"progressDeadlineSeconds":600},"status":{"observedGeneration":1,"replicas":1,"updatedReplicas":1,"unavailableReplicas":1,"conditions":[{"type":"Available","status":"False","lastUpdateTime":"2024-01-01T05:16:17Z","lastTransitionTime":"2024-01-01T05:16:17Z","reason":"MinimumReplicasUnavailable","message":"Deployment does not have minimum availability."},{"type":"Progressing","status":"False","lastUpdateTime":"2024-01-01T08:15:10Z","lastTransitionTime":"2024-01-01T08:15:10Z","reason":"ProgressDeadlineExceeded","message":"ReplicaSet \"example-foo-3-7458b5cb55\" has timed out progressing."}]}}}
+            {"type":"ADDED","object":{"kind":"Deployment","apiVersion":"apps/v1","metadata":{"name":"example-foo-4","namespace":"default","uid":"d41e7ee4-b69a-4d8b-af0c-fc7459798b57","resourceVersion":"7326","generation":1,"creationTimestamp":"2024-01-01T08:15:31Z","ownerReferences":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","name":"example-foo-4","uid":"057d991b-51be-4aaf-b897-9ae9de4e2e69","controller":true,"blockOwnerDeletion":true}],"managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"apps/v1","time":"2024-01-01T08:15:31Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:ownerReferences":{".":{},"k:{\"uid\":\"057d991b-51be-4aaf-b897-9ae9de4e2e69\"}":{}}},"f:spec":{"f:progressDeadlineSeconds":{},"f:replicas":{},"f:revisionHistoryLimit":{},"f:selector":{},"f:strategy":{"f:rollingUpdate":{".":{},"f:maxSurge":{},"f:maxUnavailable":{}},"f:type":{}},"f:template":{"f:metadata":{"f:labels":{".":{},"f:app":{},"f:controller":{}}},"f:spec":{"f:containers":{"k:{\"name\":\"nginx\"}":{".":{},"f:image":{},"f:imagePullPolicy":{},"f:name":{},"f:resources":{},"f:terminationMessagePath":{},"f:terminationMessagePolicy":{}}},"f:dnsPolicy":{},"f:restartPolicy":{},"f:schedulerName":{},"f:securityContext":{},"f:terminationGracePeriodSeconds":{}}}}}}]},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"nginx","controller":"example-foo-4"}},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"nginx","controller":"example-foo-4"}},"spec":{"containers":[{"name":"nginx","image":"nginx:latest","resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{},"schedulerName":"default-scheduler"}},"strategy":{"type":"RollingUpdate","rollingUpdate":{"maxUnavailable":"25%","maxSurge":"25%"}},"revisionHistoryLimit":10,"progressDeadlineSeconds":600},"status":{}}}
+            {"type":"MODIFIED","object":{"kind":"Deployment","apiVersion":"apps/v1","metadata":{"name":"example-foo-4","namespace":"default","uid":"d41e7ee4-b69a-4d8b-af0c-fc7459798b57","resourceVersion":"7330","generation":1,"creationTimestamp":"2024-01-01T08:15:31Z","annotations":{"deployment.kubernetes.io/revision":"1"},"ownerReferences":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","name":"example-foo-4","uid":"057d991b-51be-4aaf-b897-9ae9de4e2e69","controller":true,"blockOwnerDeletion":true}],"managedFields":[{"manager":"kube-controller-manager","operation":"Update","apiVersion":"apps/v1","time":"2024-01-01T08:15:31Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:deployment.kubernetes.io/revision":{}}},"f:status":{"f:conditions":{".":{},"k:{\"type\":\"Progressing\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:message":{},"f:reason":{},"f:status":{},"f:type":{}}}}},"subresource":"status"},{"manager":"sample-controller","operation":"Update","apiVersion":"apps/v1","time":"2024-01-01T08:15:31Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:ownerReferences":{".":{},"k:{\"uid\":\"057d991b-51be-4aaf-b897-9ae9de4e2e69\"}":{}}},"f:spec":{"f:progressDeadlineSeconds":{},"f:replicas":{},"f:revisionHistoryLimit":{},"f:selector":{},"f:strategy":{"f:rollingUpdate":{".":{},"f:maxSurge":{},"f:maxUnavailable":{}},"f:type":{}},"f:template":{"f:metadata":{"f:labels":{".":{},"f:app":{},"f:controller":{}}},"f:spec":{"f:containers":{"k:{\"name\":\"nginx\"}":{".":{},"f:image":{},"f:imagePullPolicy":{},"f:name":{},"f:resources":{},"f:terminationMessagePath":{},"f:terminationMessagePolicy":{}}},"f:dnsPolicy":{},"f:restartPolicy":{},"f:schedulerName":{},"f:securityContext":{},"f:terminationGracePeriodSeconds":{}}}}}}]},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"nginx","controller":"example-foo-4"}},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"nginx","controller":"example-foo-4"}},"spec":{"containers":[{"name":"nginx","image":"nginx:latest","resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{},"schedulerName":"default-scheduler"}},"strategy":{"type":"RollingUpdate","rollingUpdate":{"maxUnavailable":"25%","maxSurge":"25%"}},"revisionHistoryLimit":10,"progressDeadlineSeconds":600},"status":{"conditions":[{"type":"Progressing","status":"True","lastUpdateTime":"2024-01-01T08:15:31Z","lastTransitionTime":"2024-01-01T08:15:31Z","reason":"NewReplicaSetCreated","message":"Created new replica set \"example-foo-4-68df5b979d\""}]}}}
+            {"type":"MODIFIED","object":{"kind":"Deployment","apiVersion":"apps/v1","metadata":{"name":"example-foo-4","namespace":"default","uid":"d41e7ee4-b69a-4d8b-af0c-fc7459798b57","resourceVersion":"7339","generation":1,"creationTimestamp":"2024-01-01T08:15:31Z","annotations":{"deployment.kubernetes.io/revision":"1"},"ownerReferences":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","name":"example-foo-4","uid":"057d991b-51be-4aaf-b897-9ae9de4e2e69","controller":true,"blockOwnerDeletion":true}],"managedFields":[{"manager":"kube-controller-manager","operation":"Update","apiVersion":"apps/v1","time":"2024-01-01T08:15:31Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:deployment.kubernetes.io/revision":{}}},"f:status":{"f:conditions":{".":{},"k:{\"type\":\"Available\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:message":{},"f:reason":{},"f:status":{},"f:type":{}},"k:{\"type\":\"Progressing\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:message":{},"f:reason":{},"f:status":{},"f:type":{}}},"f:observedGeneration":{},"f:unavailableReplicas":{}}},"subresource":"status"},{"manager":"sample-controller","operation":"Update","apiVersion":"apps/v1","time":"2024-01-01T08:15:31Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:ownerReferences":{".":{},"k:{\"uid\":\"057d991b-51be-4aaf-b897-9ae9de4e2e69\"}":{}}},"f:spec":{"f:progressDeadlineSeconds":{},"f:replicas":{},"f:revisionHistoryLimit":{},"f:selector":{},"f:strategy":{"f:rollingUpdate":{".":{},"f:maxSurge":{},"f:maxUnavailable":{}},"f:type":{}},"f:template":{"f:metadata":{"f:labels":{".":{},"f:app":{},"f:controller":{}}},"f:spec":{"f:containers":{"k:{\"name\":\"nginx\"}":{".":{},"f:image":{},"f:imagePullPolicy":{},"f:name":{},"f:resources":{},"f:terminationMessagePath":{},"f:terminationMessagePolicy":{}}},"f:dnsPolicy":{},"f:restartPolicy":{},"f:schedulerName":{},"f:securityContext":{},"f:terminationGracePeriodSeconds":{}}}}}}]},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"nginx","controller":"example-foo-4"}},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"nginx","controller":"example-foo-4"}},"spec":{"containers":[{"name":"nginx","image":"nginx:latest","resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{},"schedulerName":"default-scheduler"}},"strategy":{"type":"RollingUpdate","rollingUpdate":{"maxUnavailable":"25%","maxSurge":"25%"}},"revisionHistoryLimit":10,"progressDeadlineSeconds":600},"status":{"observedGeneration":1,"unavailableReplicas":1,"conditions":[{"type":"Progressing","status":"True","lastUpdateTime":"2024-01-01T08:15:31Z","lastTransitionTime":"2024-01-01T08:15:31Z","reason":"NewReplicaSetCreated","message":"Created new replica set \"example-foo-4-68df5b979d\""},{"type":"Available","status":"False","lastUpdateTime":"2024-01-01T08:15:31Z","lastTransitionTime":"2024-01-01T08:15:31Z","reason":"MinimumReplicasUnavailable","message":"Deployment does not have minimum availability."}]}}}
+            {"type":"MODIFIED","object":{"kind":"Deployment","apiVersion":"apps/v1","metadata":{"name":"example-foo-4","namespace":"default","uid":"d41e7ee4-b69a-4d8b-af0c-fc7459798b57","resourceVersion":"7367","generation":1,"creationTimestamp":"2024-01-01T08:15:31Z","annotations":{"deployment.kubernetes.io/revision":"1"},"ownerReferences":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","name":"example-foo-4","uid":"057d991b-51be-4aaf-b897-9ae9de4e2e69","controller":true,"blockOwnerDeletion":true}],"managedFields":[{"manager":"kube-controller-manager","operation":"Update","apiVersion":"apps/v1","time":"2024-01-01T08:15:31Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:deployment.kubernetes.io/revision":{}}},"f:status":{"f:conditions":{".":{},"k:{\"type\":\"Available\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:message":{},"f:reason":{},"f:status":{},"f:type":{}},"k:{\"type\":\"Progressing\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:message":{},"f:reason":{},"f:status":{},"f:type":{}},"k:{\"type\":\"ReplicaFailure\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:message":{},"f:reason":{},"f:status":{},"f:type":{}}},"f:observedGeneration":{},"f:unavailableReplicas":{}}},"subresource":"status"},{"manager":"sample-controller","operation":"Update","apiVersion":"apps/v1","time":"2024-01-01T08:15:31Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:ownerReferences":{".":{},"k:{\"uid\":\"057d991b-51be-4aaf-b897-9ae9de4e2e69\"}":{}}},"f:spec":{"f:progressDeadlineSeconds":{},"f:replicas":{},"f:revisionHistoryLimit":{},"f:selector":{},"f:strategy":{"f:rollingUpdate":{".":{},"f:maxSurge":{},"f:maxUnavailable":{}},"f:type":{}},"f:template":{"f:metadata":{"f:labels":{".":{},"f:app":{},"f:controller":{}}},"f:spec":{"f:containers":{"k:{\"name\":\"nginx\"}":{".":{},"f:image":{},"f:imagePullPolicy":{},"f:name":{},"f:resources":{},"f:terminationMessagePath":{},"f:terminationMessagePolicy":{}}},"f:dnsPolicy":{},"f:restartPolicy":{},"f:schedulerName":{},"f:securityContext":{},"f:terminationGracePeriodSeconds":{}}}}}}]},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"nginx","controller":"example-foo-4"}},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"nginx","controller":"example-foo-4"}},"spec":{"containers":[{"name":"nginx","image":"nginx:latest","resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{},"schedulerName":"default-scheduler"}},"strategy":{"type":"RollingUpdate","rollingUpdate":{"maxUnavailable":"25%","maxSurge":"25%"}},"revisionHistoryLimit":10,"progressDeadlineSeconds":600},"status":{"observedGeneration":1,"unavailableReplicas":1,"conditions":[{"type":"Progressing","status":"True","lastUpdateTime":"2024-01-01T08:15:31Z","lastTransitionTime":"2024-01-01T08:15:31Z","reason":"NewReplicaSetCreated","message":"Created new replica set \"example-foo-4-68df5b979d\""},{"type":"Available","status":"False","lastUpdateTime":"2024-01-01T08:15:31Z","lastTransitionTime":"2024-01-01T08:15:31Z","reason":"MinimumReplicasUnavailable","message":"Deployment does not have minimum availability."},{"type":"ReplicaFailure","status":"True","lastUpdateTime":"2024-01-01T08:15:31Z","lastTransitionTime":"2024-01-01T08:15:31Z","reason":"FailedCreate","message":"Unauthorized"}]}}}
+            {"type":"MODIFIED","object":{"kind":"Deployment","apiVersion":"apps/v1","metadata":{"name":"example-foo-4","namespace":"default","uid":"d41e7ee4-b69a-4d8b-af0c-fc7459798b57","resourceVersion":"7417","generation":1,"creationTimestamp":"2024-01-01T08:15:31Z","annotations":{"deployment.kubernetes.io/revision":"1"},"ownerReferences":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","name":"example-foo-4","uid":"057d991b-51be-4aaf-b897-9ae9de4e2e69","controller":true,"blockOwnerDeletion":true}],"managedFields":[{"manager":"kube-controller-manager","operation":"Update","apiVersion":"apps/v1","time":"2024-01-01T08:15:31Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:deployment.kubernetes.io/revision":{}}},"f:status":{"f:conditions":{".":{},"k:{\"type\":\"Available\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:message":{},"f:reason":{},"f:status":{},"f:type":{}},"k:{\"type\":\"Progressing\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:message":{},"f:reason":{},"f:status":{},"f:type":{}}},"f:observedGeneration":{},"f:unavailableReplicas":{}}},"subresource":"status"},{"manager":"sample-controller","operation":"Update","apiVersion":"apps/v1","time":"2024-01-01T08:15:31Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:ownerReferences":{".":{},"k:{\"uid\":\"057d991b-51be-4aaf-b897-9ae9de4e2e69\"}":{}}},"f:spec":{"f:progressDeadlineSeconds":{},"f:replicas":{},"f:revisionHistoryLimit":{},"f:selector":{},"f:strategy":{"f:rollingUpdate":{".":{},"f:maxSurge":{},"f:maxUnavailable":{}},"f:type":{}},"f:template":{"f:metadata":{"f:labels":{".":{},"f:app":{},"f:controller":{}}},"f:spec":{"f:containers":{"k:{\"name\":\"nginx\"}":{".":{},"f:image":{},"f:imagePullPolicy":{},"f:name":{},"f:resources":{},"f:terminationMessagePath":{},"f:terminationMessagePolicy":{}}},"f:dnsPolicy":{},"f:restartPolicy":{},"f:schedulerName":{},"f:securityContext":{},"f:terminationGracePeriodSeconds":{}}}}}}]},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"nginx","controller":"example-foo-4"}},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"nginx","controller":"example-foo-4"}},"spec":{"containers":[{"name":"nginx","image":"nginx:latest","resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{},"schedulerName":"default-scheduler"}},"strategy":{"type":"RollingUpdate","rollingUpdate":{"maxUnavailable":"25%","maxSurge":"25%"}},"revisionHistoryLimit":10,"progressDeadlineSeconds":600},"status":{"observedGeneration":1,"unavailableReplicas":1,"conditions":[{"type":"Progressing","status":"True","lastUpdateTime":"2024-01-01T08:15:31Z","lastTransitionTime":"2024-01-01T08:15:31Z","reason":"NewReplicaSetCreated","message":"Created new replica set \"example-foo-4-68df5b979d\""},{"type":"Available","status":"False","lastUpdateTime":"2024-01-01T08:15:31Z","lastTransitionTime":"2024-01-01T08:15:31Z","reason":"MinimumReplicasUnavailable","message":"Deployment does not have minimum availability."}]}}}
+            {"type":"MODIFIED","object":{"kind":"Deployment","apiVersion":"apps/v1","metadata":{"name":"example-foo-4","namespace":"default","uid":"d41e7ee4-b69a-4d8b-af0c-fc7459798b57","resourceVersion":"7433","generation":1,"creationTimestamp":"2024-01-01T08:15:31Z","annotations":{"deployment.kubernetes.io/revision":"1"},"ownerReferences":[{"apiVersion":"samplecontroller.k8s.io/v1alpha1","kind":"Foo","name":"example-foo-4","uid":"057d991b-51be-4aaf-b897-9ae9de4e2e69","controller":true,"blockOwnerDeletion":true}],"managedFields":[{"manager":"sample-controller","operation":"Update","apiVersion":"apps/v1","time":"2024-01-01T08:15:31Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:ownerReferences":{".":{},"k:{\"uid\":\"057d991b-51be-4aaf-b897-9ae9de4e2e69\"}":{}}},"f:spec":{"f:progressDeadlineSeconds":{},"f:replicas":{},"f:revisionHistoryLimit":{},"f:selector":{},"f:strategy":{"f:rollingUpdate":{".":{},"f:maxSurge":{},"f:maxUnavailable":{}},"f:type":{}},"f:template":{"f:metadata":{"f:labels":{".":{},"f:app":{},"f:controller":{}}},"f:spec":{"f:containers":{"k:{\"name\":\"nginx\"}":{".":{},"f:image":{},"f:imagePullPolicy":{},"f:name":{},"f:resources":{},"f:terminationMessagePath":{},"f:terminationMessagePolicy":{}}},"f:dnsPolicy":{},"f:restartPolicy":{},"f:schedulerName":{},"f:securityContext":{},"f:terminationGracePeriodSeconds":{}}}}}},{"manager":"kube-controller-manager","operation":"Update","apiVersion":"apps/v1","time":"2024-01-01T08:15:32Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:deployment.kubernetes.io/revision":{}}},"f:status":{"f:conditions":{".":{},"k:{\"type\":\"Available\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:message":{},"f:reason":{},"f:status":{},"f:type":{}},"k:{\"type\":\"Progressing\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:message":{},"f:reason":{},"f:status":{},"f:type":{}}},"f:observedGeneration":{},"f:replicas":{},"f:unavailableReplicas":{},"f:updatedReplicas":{}}},"subresource":"status"}]},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"nginx","controller":"example-foo-4"}},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"nginx","controller":"example-foo-4"}},"spec":{"containers":[{"name":"nginx","image":"nginx:latest","resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{},"schedulerName":"default-scheduler"}},"strategy":{"type":"RollingUpdate","rollingUpdate":{"maxUnavailable":"25%","maxSurge":"25%"}},"revisionHistoryLimit":10,"progressDeadlineSeconds":600},"status":{"observedGeneration":1,"replicas":1,"updatedReplicas":1,"unavailableReplicas":1,"conditions":[{"type":"Available","status":"False","lastUpdateTime":"2024-01-01T08:15:31Z","lastTransitionTime":"2024-01-01T08:15:31Z","reason":"MinimumReplicasUnavailable","message":"Deployment does not have minimum availability."},{"type":"Progressing","status":"True","lastUpdateTime":"2024-01-01T08:15:32Z","lastTransitionTime":"2024-01-01T08:15:31Z","reason":"ReplicaSetUpdated","message":"ReplicaSet \"example-foo-4-68df5b979d\" is progressing."}]}}}
+            {"type":"BOOKMARK","object":{"kind":"Deployment","apiVersion":"apps/v1","metadata":{"resourceVersion":"7902","creationTimestamp":null},"spec":{"replicas":0,"selector":null,"template":{"metadata":{"creationTimestamp":null},"spec":{"containers":null}},"strategy":{}},"status":{}}}
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 0001-01-01T00:00:00Z
+    objects: []
+    created: 1704097059037
+    reqTimestampMock: 2024-01-01T08:16:27.025046156Z
+    resTimestampMock: 2024-01-01T08:16:27.025070575Z
