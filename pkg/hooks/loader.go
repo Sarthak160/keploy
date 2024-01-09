@@ -10,6 +10,7 @@ import (
 	"os/exec"
 	"os/signal"
 	"runtime"
+	"sort"
 	"strconv"
 	"strings"
 	"sync"
@@ -136,7 +137,14 @@ func (h *Hook) AppendMocks(m *models.Mock, ctx context.Context) error {
 }
 func (h *Hook) SetTcsMocks(m []*models.Mock) {
 	h.mu.Lock()
+	// sort the mocks according to reqTimestampMock
+	// so that the mocks are executed in the order of their creation
+	sort.Slice(m, func(i, j int) bool {
+		return m[i].Spec.ReqTimestampMock.UnixMilli() < m[j].Spec.ReqTimestampMock.UnixMilli()
+	})
+
 	h.tcsMocks = m
+
 	defer h.mu.Unlock()
 }
 

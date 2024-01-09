@@ -77,6 +77,9 @@ type ProxySet struct {
 	dockerAppCmd      bool
 	PassThroughPorts  []uint
 	MongoPassword     string // password to mock the mongo connection and pass the authentication requests
+	MtlsKeyPath       string
+	MtlsCertPath      string
+	MtlsHostName      string
 }
 
 type CustomConn struct {
@@ -315,7 +318,7 @@ func BootProxy(logger *zap.Logger, opt Option, appCmd, appContainer string, pid 
 	Register("grpc", grpcparser.NewGrpcParser(logger, h))
 	Register("postgres", postgresparser.NewPostgresParser(logger, h))
 	Register("mongo", mongoparser.NewMongoParser(logger, h, opt.MongoPassword))
-	Register("http", httpparser.NewHttpParser(logger, h))
+	Register("http", httpparser.NewHttpParser(logger, h, opt.BaseUrl))
 	Register("mysql", mysqlparser.NewMySqlParser(logger, h))
 	// assign default values if not provided
 	caPaths, err := getCaPaths()
@@ -420,6 +423,9 @@ func BootProxy(logger *zap.Logger, opt Option, appCmd, appContainer string, pid 
 		PassThroughPorts:  passThroughPorts,
 		hook:              h,
 		MongoPassword:     opt.MongoPassword,
+		MtlsCertPath:      opt.MtlsCertPath,
+		MtlsKeyPath:       opt.MtlsKeyPath,
+		MtlsHostName:      opt.MtlsHostName,
 	}
 
 	//setting the proxy port field in hook
@@ -857,6 +863,7 @@ func (ps *ProxySet) handleConnection(conn net.Conn, port uint32, ctx context.Con
 		// attempt to read the conn until buffer is either filled or connection is closed
 		var buffer []byte
 		buffer, err = util.ReadBytes(conn)
+		
 		if err != nil && err != io.EOF {
 			ps.logger.Error("failed to read the request message in proxy", zap.Error(err), zap.Any("proxy port", port))
 			return
@@ -883,16 +890,31 @@ func (ps *ProxySet) handleConnection(conn net.Conn, port uint32, ctx context.Con
 			actualAddress = fmt.Sprintf("[%v]:%v", util.ToIPv6AddressStr(destInfo.DestIp6), destInfo.DestPort)
 		}
 
+		// also add a host name as well to filter out if it's tha same IP
+		certFile := ps.MtlsCertPath
+		keyFile := ps.MtlsKeyPath
+		cert, err := tls.LoadX509KeyPair(certFile, keyFile)
+		if err != nil && models.GetMode() != models.MODE_TEST && ps.MtlsHostName != ""{
+			ps.logger.Error("failed to load the certificate and key pair", zap.Error(err))
+		}
+
 		//Dialing for tls connection
 		destConnId := getNextID()
 		logger := ps.logger.With(zap.Any("Client IP Address", conn.RemoteAddr().String()), zap.Any("Client ConnectionID", clientConnId), zap.Any("Destination IP Address", actualAddress), zap.Any("Destination ConnectionID", destConnId))
 		if isTLS {
 			logger.Debug("", zap.Any("isTLS", isTLS))
 			config := &tls.Config{
-				InsecureSkipVerify: false,
+				InsecureSkipVerify: true,
 				ServerName:         destinationUrl,
+				Certificates:       []tls.Certificate{cert},
 			}
-			dst, err = tls.Dial("tcp", fmt.Sprintf("%v:%v", destinationUrl, destInfo.DestPort), config)
+
+			if ps.MtlsHostName != "" {
+				dst, err = tls.Dial("tcp", ps.MtlsHostName, config)
+			} else {
+				dst, err = tls.Dial("tcp", fmt.Sprintf("%v:%v", destinationUrl, destInfo.DestPort), config)
+			}
+
 			if err != nil && models.GetMode() != models.MODE_TEST {
 				logger.Error("failed to dial the connection to destination server", zap.Error(err), zap.Any("proxy port", port), zap.Any("server address", actualAddress))
 				conn.Close()
@@ -1001,6 +1023,7 @@ func (ps *ProxySet) callNext(requestBuffer []byte, clientConn, destConn net.Conn
 }
 
 func (ps *ProxySet) StopProxyServer() {
+	time.Sleep(5 * time.Second)
 	ps.connMutex.Lock()
 	for _, clientConn := range ps.clientConnections {
 		clientConn.Close()

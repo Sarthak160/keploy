@@ -211,7 +211,7 @@ func encodePostgresOutgoing(requestBuffer []byte, clientConn, destConn net.Conn,
 
 				if !isStartupPacket(buffer) && len(buffer) > 5 {
 					bufferCopy := buffer
-					for i := 0; i < len(bufferCopy); {
+					for i := 0; i < len(bufferCopy)-5; {
 						logger.Debug("Inside the if condition")
 						pg.BackendWrapper.MsgType = buffer[i]
 						pg.BackendWrapper.BodyLen = int(binary.BigEndian.Uint32(buffer[i+1:])) - 4
@@ -222,6 +222,7 @@ func encodePostgresOutgoing(requestBuffer []byte, clientConn, destConn net.Conn,
 						msg, err = pg.TranslateToReadableBackend(buffer[i:(i + pg.BackendWrapper.BodyLen + 5)])
 						if err != nil && buffer[i] != 112 {
 							logger.Error("failed to translate the request message to readable", zap.Error(err))
+							continue
 						}
 						if pg.BackendWrapper.MsgType == 'p' {
 							pg.BackendWrapper.PasswordMessage = *msg.(*pgproto3.PasswordMessage)
@@ -321,10 +322,14 @@ func encodePostgresOutgoing(requestBuffer []byte, clientConn, destConn net.Conn,
 					ps := make([]pgproto3.ParameterStatus, 0)
 					dataRows := []pgproto3.DataRow{}
 
-					for i := 0; i < len(bufferCopy); {
+					for i := 0; i < len(bufferCopy)-5; {
 						pg.FrontendWrapper.MsgType = buffer[i]
 						pg.FrontendWrapper.BodyLen = int(binary.BigEndian.Uint32(buffer[i+1:])) - 4
-						msg, err := pg.TranslateToReadableResponse(buffer[i:(i+pg.FrontendWrapper.BodyLen+5)], logger) // arre yeh index leta hai length nhi
+						if len(buffer) < (i + pg.FrontendWrapper.BodyLen + 5) {
+							logger.Error("failed to translate the postgres request message due to shorter network packet buffer")
+							break
+						}
+						msg, err := pg.TranslateToReadableResponse(buffer[i:(i+pg.FrontendWrapper.BodyLen+5)], logger)
 						if err != nil {
 							logger.Error("failed to translate the response message to readable", zap.Error(err))
 						}
@@ -512,202 +517,4 @@ func decodePostgresOutgoing(requestBuffer []byte, clientConn, destConn net.Conn,
 		pgRequests = [][]byte{}
 	}
 
-}
-
-func decodePostgresOutgoing2(requestBuffer []byte, clientConn, destConn net.Conn, h *hooks.Hook, logger *zap.Logger) error {
-	pgRequests := [][]byte{requestBuffer}
-	// tcsMocks := h.GetTcsMocks()
-	// change auth to md5 instead of scram
-	// ChangeAuthToMD5(tcsMocks, h, logger)
-
-	for {
-		tcsMocks := h.GetTcsMocks()
-		// Since protocol packets have to be parsed for checking stream end,
-		// clientConnection have deadline for read to determine the end of stream.
-		err := clientConn.SetReadDeadline(time.Now().Add(10 * time.Millisecond))
-		if err != nil {
-			logger.Error(hooks.Emoji+"failed to set the read deadline for the pg client connection", zap.Error(err))
-			return err
-		}
-
-		for {
-			buffer, err := util.ReadBytes(clientConn)
-			if netErr, ok := err.(net.Error); !(ok && netErr.Timeout()) && err != nil {
-
-				if err == io.EOF {
-					logger.Debug("EOF error received from client. Closing connection in postgres !!")
-					return err
-				}
-
-				logger.Error("failed to read the request message in proxy for postgres dependency", zap.Error(err))
-				// errChannel <- err
-				return err
-			}
-			if netErr, ok := err.(net.Error); ok && netErr.Timeout() {
-				logger.Debug("the timeout for the client read in pg")
-				break
-			}
-
-			pgRequests = append(pgRequests, buffer)
-		}
-
-		if len(pgRequests) == 0 {
-			logger.Debug("the postgres request buffer is empty")
-
-			continue
-		}
-		// fuzzy match gives the index for the best matched pg mock
-
-		matched, pgResponses := matchingReadablePG(tcsMocks, pgRequests, h)
-
-		if !matched {
-			logger.Error("failed to match the dependency call from user application", zap.Any("the number of mocks", len(tcsMocks)), zap.Any("request packets", len(pgRequests)), zap.Any("requestBuffer", pgRequests[0]))
-			return errors.New("failed to match the dependency call from user application")
-			// continue
-		}
-		for _, pgResponse := range pgResponses {
-			encoded, _ := PostgresDecoder(pgResponse.Payload)
-
-			_, err := clientConn.Write([]byte(encoded))
-			if err != nil {
-				logger.Error("failed to write request message to the client application", zap.Error(err))
-				// errChannel <- err
-				return err
-			}
-		}
-
-		// update for the next dependency call
-
-		pgRequests = [][]byte{}
-
-	}
-
-}
-
-func encodePostgresOutgoing2(requestBuffer []byte, clientConn, destConn net.Conn, h *hooks.Hook, logger *zap.Logger, ctx context.Context) error {
-
-	pgRequests := []models.Backend{}
-	bufStr := base64.StdEncoding.EncodeToString(requestBuffer)
-
-	if bufStr != "" {
-
-		pgRequests = append(pgRequests, models.Backend{
-			// Origin: models.FromClient,
-			// Message: []models.OutputBinary{
-			// 	{
-			// 		Type: "binary",
-			// 		Data: bufStr,
-			// 	},
-			// },
-			Identfier: "Clientrequest",
-			Payload:   bufStr,
-		})
-	}
-	_, err := destConn.Write(requestBuffer)
-	if err != nil {
-		logger.Error("failed to write request message to the destination server", zap.Error(err))
-		return err
-	}
-	pgResponses := []models.Frontend{}
-
-	clientBufferChannel := make(chan []byte)
-	destBufferChannel := make(chan []byte)
-	errChannel := make(chan error)
-	// read requests from client
-	go func() {
-		// Recover from panic and gracefully shutdown
-		defer h.Recover(pkg.GenerateRandomID())
-		defer utils.HandlePanic()
-		ReadBuffConn(clientConn, clientBufferChannel, errChannel, logger)
-	}()
-	// read response from destination
-	go func() {
-		// Recover from panic and gracefully shutdown
-		defer h.Recover(pkg.GenerateRandomID())
-		defer utils.HandlePanic()
-		ReadBuffConn(destConn, destBufferChannel, errChannel, logger)
-	}()
-
-	isPreviousChunkRequest := false
-	logger.Debug("the iteration for the pg request starts", zap.Any("pgReqs", len(pgRequests)), zap.Any("pgResps", len(pgResponses)))
-	for {
-
-		sigChan := make(chan os.Signal, 1)
-		signal.Notify(sigChan, os.Interrupt, syscall.SIGTERM)
-		select {
-		case <-sigChan:
-			if !isPreviousChunkRequest && len(pgRequests) > 0 && len(pgResponses) > 0 {
-				h.AppendMocks(&models.Mock{
-					Version: models.GetVersion(),
-					Name:    "mocks",
-					Kind:    models.Postgres,
-					Spec: models.MockSpec{
-						PostgresRequests:  pgRequests,
-						PostgresResponses: pgResponses,
-					},
-				}, ctx)
-				pgRequests = []models.Backend{}
-				pgResponses = []models.Frontend{}
-				clientConn.Close()
-				destConn.Close()
-				return nil
-			}
-		case buffer := <-clientBufferChannel:
-
-			// Write the request message to the destination
-			_, err := destConn.Write(buffer)
-			if err != nil {
-				logger.Error("failed to write request message to the destination server", zap.Error(err))
-				return err
-			}
-
-			logger.Debug("the iteration for the pg request ends with no of pgReqs:" + strconv.Itoa(len(pgRequests)) + " and pgResps: " + strconv.Itoa(len(pgResponses)))
-			if !isPreviousChunkRequest && len(pgRequests) > 0 && len(pgResponses) > 0 {
-				h.AppendMocks(&models.Mock{
-					Version: models.GetVersion(),
-					Name:    "mocks",
-					Kind:    models.Postgres,
-					Spec: models.MockSpec{
-						PostgresRequests:  pgRequests,
-						PostgresResponses: pgResponses,
-					},
-				}, ctx)
-				pgRequests = []models.Backend{}
-				pgResponses = []models.Frontend{}
-			}
-
-			bufStr := base64.StdEncoding.EncodeToString(buffer)
-			if bufStr != "" {
-
-				pgRequests = append(pgRequests, models.Backend{
-					Identfier: "ClientRequest",
-					Payload:   bufStr,
-				})
-			}
-
-			isPreviousChunkRequest = true
-		case buffer := <-destBufferChannel:
-			// Write the response message to the client
-			_, err := clientConn.Write(buffer)
-			if err != nil {
-				logger.Error("failed to write response to the client", zap.Error(err))
-				return err
-			}
-
-			bufStr := base64.StdEncoding.EncodeToString(buffer)
-			if bufStr != "" {
-
-				pgResponses = append(pgResponses, models.Frontend{
-					Identfier: "ServerResponse",
-					Payload:   bufStr,
-				})
-			}
-
-			logger.Debug("the iteration for the postgres response ends with no of postgresReqs:" + strconv.Itoa(len(pgRequests)) + " and pgResps: " + strconv.Itoa(len(pgResponses)))
-			isPreviousChunkRequest = false
-		case err := <-errChannel:
-			return err
-		}
-
-	}
 }

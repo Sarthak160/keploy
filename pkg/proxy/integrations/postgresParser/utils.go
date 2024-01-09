@@ -362,8 +362,7 @@ func ChangeAuthToMD5(tcsMocks []*models.Mock, h *hooks.Hook, log *zap.Logger) {
 			//just change it to more robust and after that write decoode encode logic for all
 			if encode[0] == 'p' {
 				log.Debug("CHANGING TO MD5 for Request and Response")
-				// mock.Spec.GenericRequests[requestIndex].Message[0].Data = "cAAAAChtZDUzNTc3MWY3N2YxMDA4YmEzMDRkYjlkMmJmODM3YmZlOQA="
-				// mock.Spec.GenericResponses[requestIndex].Message[0].Data = "UgAAAAgAAAAAUwAAABZhcHBsaWNhdGlvbl9uYW1lAABTAAAAGWNsaWVudF9lbmNvZGluZwBVVEY4AFMAAAAXRGF0ZVN0eWxlAElTTywgTURZAFMAAAAZaW50ZWdlcl9kYXRldGltZXMAb24AUwAAABtJbnRlcnZhbFN0eWxlAHBvc3RncmVzAFMAAAAUaXNfc3VwZXJ1c2VyAG9uAFMAAAAZc2VydmVyX2VuY29kaW5nAFVURjgAUwAAADJzZXJ2ZXJfdmVyc2lvbgAxMy41IChEZWJpYW4gMTMuNS0xLnBnZGcxMTArMSkAUwAAACNzZXNzaW9uX2F1dGhvcml6YXRpb24AcG9zdGdyZXMAUwAAACNzdGFuZGFyZF9jb25mb3JtaW5nX3N0cmluZ3MAb24AUwAAABVUaW1lWm9uZQBFdGMvVVRDAEsAAAAMAAAAX09sZl9aAAAABUk="
+
 				mock.Spec.PostgresRequests[requestIndex].PasswordMessage.Password = "md5fe4f2f657f01fa1dd9d111d5391e7c07"
 
 				mock.Spec.PostgresResponses[requestIndex].PacketTypes = []string{"R", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "S", "K", "Z"}
@@ -515,8 +514,4 @@ func matchingReadablePG(tcsMocks []*models.Mock, requestBuffers [][]byte, h *hoo
 	}
 
 	return false, nil
-}
-
-func CommonReadableMatch() {
-
 }

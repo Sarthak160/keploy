@@ -113,7 +113,7 @@ func modifyToSentryLogger(log *zap.Logger, client *sentry.Client) *zap.Logger {
 	cfg := zapsentry.Configuration{
 		Level:             zapcore.ErrorLevel, //when to send message to sentry
 		EnableBreadcrumbs: true,               // enable sending breadcrumbs to Sentry
-		BreadcrumbLevel:   zapcore.InfoLevel,  // at what level should we sent breadcrumbs to sentry
+		BreadcrumbLevel:   zapcore.DebugLevel,  // at what level should we sent breadcrumbs to sentry
 		Tags: map[string]string{
 			"component": "system",
 		},

@@ -4,4 +4,8 @@ package proxy
 type Option struct {
 	Port          uint32
 	MongoPassword string
+	MtlsCertPath  string
+	MtlsKeyPath   string
+	MtlsHostName  string
+	BaseUrl       string
 }
