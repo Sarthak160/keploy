@@ -68,7 +68,6 @@ func (p *PostgresParser) ProcessOutgoing(requestBuffer []byte, clientConn, destC
 	default:
 		p.logger.Info("Invalid mode detected while intercepting outgoing http call", zap.Any("mode", models.GetMode()))
 	}
-
 }
 
 // This is the encoding function for the streaming postgres wiremessage
@@ -172,6 +171,7 @@ func encodePostgresOutgoing(requestBuffer []byte, clientConn, destConn net.Conn,
 						ResTimestampMock:  resTimestampMock,
 						Metadata:          metadata,
 					},
+					ConnectionId: ctx.Value("connectionId").(string),
 				}, ctx)
 				pgRequests = []models.Backend{}
 				pgResponses = []models.Frontend{}
@@ -204,6 +204,7 @@ func encodePostgresOutgoing(requestBuffer []byte, clientConn, destConn net.Conn,
 						ResTimestampMock:  resTimestampMock,
 						Metadata:          metadata,
 					},
+					ConnectionId: ctx.Value("connectionId").(string),
 				}, ctx)
 				pgRequests = []models.Backend{}
 				pgResponses = []models.Frontend{}
@@ -463,6 +464,22 @@ func ReadBuffConn(conn net.Conn, bufferChannel chan []byte, errChannel chan erro
 // This is the decoding function for the postgres wiremessage
 func decodePostgresOutgoing(requestBuffer []byte, clientConn, destConn net.Conn, h *hooks.Hook, logger *zap.Logger, ctx context.Context) error {
 	pgRequests := [][]byte{requestBuffer}
+	// preferedConnectionIdFromMocks := "x"
+	ConnectionId := ctx.Value("connectionId").(string)
+	fmt.Println("CONNECTION ID", ConnectionId)
+	// stores the mapping between the prepared statements in the request buffer and the corresponding prepared statements in the mock.
+	// prepareStatementMap := make(map[string]string)
+	allMocks, err := h.GetConfigMocks()
+
+	if err != nil {
+		logger.Error("failed to get the mocks from the config", zap.Error(err))
+		return err
+	}
+	fmt.Println("LENGTH OF ALL MOCKS", len(allMocks))
+	prep := getRecordPrepStatement(allMocks)
+	if prep != nil {
+		fmt.Println("PREPARED STATEMENT", prep)
+	}
 
 	for {
 		// Since protocol packets have to be parsed for checking stream end,
@@ -497,7 +514,7 @@ func decodePostgresOutgoing(requestBuffer []byte, clientConn, destConn net.Conn,
 			continue
 		}
 
-		matched, pgResponses, err := matchingReadablePG(pgRequests, logger, h)
+		matched, pgResponses, err := matchingReadablePG(pgRequests, logger, h, ConnectionId, prep)
 		if err != nil {
 			return fmt.Errorf("error while matching tcs mocks %v", err)
 		}
@@ -529,4 +546,42 @@ func decodePostgresOutgoing(requestBuffer []byte, clientConn, destConn net.Conn,
 		pgRequests = [][]byte{}
 	}
 
+}
+
+type QueryData struct {
+	PrepIdentifier string `json:"PrepIdentifier" yaml:"PrepIdentifier"`
+	Query          string `json:"Query" yaml:"Query"`
+}
+
+type PrepMap map[string][]QueryData
+
+type TestPrepMap map[string][]QueryData
+
+func getRecordPrepStatement(allMocks []*models.Mock) PrepMap {
+	preparedstatement := make(PrepMap)
+	for _, v := range allMocks {
+		if v.Kind != "Postgres" {
+			continue
+		}
+		for _, req := range v.Spec.PostgresRequests {
+			var querydata []QueryData
+			if len(req.PacketTypes) > 0 && req.PacketTypes[0] != "p" && req.Identfier != "StartupRequest" {
+				p := 0
+				for _, header := range req.PacketTypes {
+					if header == "P" {
+						if strings.Contains(req.Parses[p].Name, "S_") {
+							querydata = append(querydata, QueryData{PrepIdentifier: req.Parses[p].Name, Query: req.Parses[p].Query})
+						}
+						p++
+					}
+				}
+			}
+			// also append the query data for the prepared statement
+			if len(querydata) > 0 {
+				preparedstatement[v.ConnectionId] = append(preparedstatement[v.ConnectionId], querydata...)
+			}
+		}
+
+	}
+	return preparedstatement
 }
