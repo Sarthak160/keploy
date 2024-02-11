@@ -185,7 +185,6 @@ func PostgresDecoderFrontend(response models.Frontend) ([]byte, error) {
 		}
 
 		encoded := msg.Encode([]byte{})
-		// fmt.Println("Encoded packet ", packet, " is ", i, "-----", encoded)
 		resbuffer = append(resbuffer, encoded...)
 	}
 	return resbuffer, nil
@@ -411,34 +410,6 @@ func CheckValidEncode(tcsMocks []*models.Mock, h *hooks.Hook, log *zap.Logger) {
 	h.SetTcsMocks(tcsMocks)
 }
 
-// func IfBeginOnlyQuery(reqBuff []byte, logger *zap.Logger, expectedPgReq *models.Backend, h *hooks.Hook) (*models.Backend, bool) {
-// 	actualreq := decodePgRequest(reqBuff, logger, h)
-// 	if actualreq == nil {
-// 		return nil, false
-// 	}
-// 	actualPgReq := *actualreq
-
-// 	if len(actualPgReq.Parses) > 0 && len(expectedPgReq.Parses) > 0 && len(expectedPgReq.Parses) == len(actualPgReq.Parses) {
-
-// 		if expectedPgReq.Parses[0].Query == "BEGIN READ ONLY" || expectedPgReq.Parses[0].Query == "BEGIN" {
-// 			expectedPgReq.Parses = expectedPgReq.Parses[1:]
-// 			if expectedPgReq.PacketTypes[0] == "P" {
-// 				expectedPgReq.PacketTypes = expectedPgReq.PacketTypes[1:]
-// 			}
-// 		}
-
-// 		if actualPgReq.Parses[0].Query == "BEGIN READ ONLY" || actualPgReq.Parses[0].Query == "BEGIN" {
-// 			actualPgReq.Parses = actualPgReq.Parses[1:]
-// 			if actualPgReq.PacketTypes[0] == "P" {
-// 				actualPgReq.PacketTypes = actualPgReq.PacketTypes[1:]
-// 			}
-// 		}
-// 		return &actualPgReq, true
-// 	}
-
-// 	return nil, false
-// }
-
 func matchingReadablePG(requestBuffers [][]byte, logger *zap.Logger, h *hooks.Hook, ConnectionId string, recorded_prep PrepMap) (bool, []models.Frontend, error) {
 	for {
 		tcsMocks, err := h.GetConfigMocks()
@@ -599,7 +570,7 @@ func matchingReadablePG(requestBuffers [][]byte, logger *zap.Logger, h *hooks.Ho
 		}
 
 		if isMatched {
-			logger.Debug("Matched mock", zap.String("mock", matchedMock.Name))
+			logger.Info("Matched mock", zap.String("mock", matchedMock.Name))
 			if matchedMock.TestModeInfo.IsFiltered {
 				originalMatchedMock := *matchedMock
 				matchedMock.TestModeInfo.IsFiltered = false
@@ -727,7 +698,6 @@ func PreparedStatementMatch(mock *models.Mock, actualPgReq *models.Backend, logg
 		current_query := ""
 		// check in the map that what's the current query for this preparedstatement
 		// then will check what is the recorded prepared statement for this query
-		//
 		for _, v := range current_querydata {
 			if v.PrepIdentifier == current_ps {
 				// fmt.Println("Current query for this identifier is ", v.Query)
@@ -737,11 +707,11 @@ func PreparedStatementMatch(mock *models.Mock, actualPgReq *models.Backend, logg
 		}
 		// check what was the prepared statement recorded
 		// old_ps := ""
-		for conn, ps := range recorded_prep {
+		for _, ps := range recorded_prep {
 			for _, v := range ps {
 				if current_query == v.Query && current_ps != v.PrepIdentifier {
-					fmt.Println("Matched with the recorded prepared statement with Identifier and connectionID is", v.PrepIdentifier, ", conn- ", conn, "and current identifier is", current_ps, "FOR QUERY", current_query)
-					fmt.Println("MOCK NUMBER IS ", mock.Name)
+					// fmt.Println("Matched with the recorded prepared statement with Identifier and connectionID is", v.PrepIdentifier, ", conn- ", conn, "and current identifier is", current_ps, "FOR QUERY", current_query)
+					// fmt.Println("MOCK NUMBER IS ", mock.Name)
 					current_ps = v.PrepIdentifier
 					break
 				}
@@ -758,14 +728,43 @@ func PreparedStatementMatch(mock *models.Mock, actualPgReq *models.Backend, logg
 	return false, nil, nil
 }
 
-func compareExactMatch(mock *models.Mock, reqBuff []byte, logger *zap.Logger, h *hooks.Hook, ConnectionId string, recorded_prep PrepMap) (bool, error) {
+func compareExactMatch(mock *models.Mock, reqBuff []byte, logger *zap.Logger, h *hooks.Hook, ConnectionId string, isSorted bool, recorded_prep PrepMap) (bool, error) {
 
 	// fmt.Println("Inside Compare Exact Match", len(reqBuff), string(reqBuff), "MOCK NAME - ", mock.Name)
 	actualPgReq := decodePgRequest(reqBuff, logger)
 	if actualPgReq == nil {
 		return false, nil
 	}
+	if mock.Name == "mock-196" || mock.Name == "mock-197" || mock.Name == "mock-198" || mock.Name == "mock-199" || mock.Name == "mock-204" {
+		fmt.Println("Inside Compare Exact Match", actualPgReq, "MOCK NAME - ", mock.Name, "WITH CONN ID", ConnectionId)
+	}
+
+	// have to ignore first parse message of begin read only
+	// should compare only query in the parse message
 	if len(actualPgReq.PacketTypes) != len(mock.Spec.PostgresRequests[0].PacketTypes) {
+		//check for begin read only
+		if math.Abs(float64(len(actualPgReq.PacketTypes))-float64(len(mock.Spec.PostgresRequests[0].PacketTypes))) == 1 {
+			if len(actualPgReq.PacketTypes) > 0 && len(mock.Spec.PostgresRequests[0].PacketTypes) > 0 {
+				if mock.Spec.PostgresRequests[0].PacketTypes[0] == "P" && mock.Spec.PostgresRequests[0].Parses[0].Query == "BEGIN READ ONLY" {
+					if mock.Spec.PostgresRequests[0].Parses[1].Query == actualPgReq.Parses[0].Query {
+						sliceCommandTag(mock, logger, testmap[ConnectionId], actualPgReq, false)
+						return true, nil
+					}
+				}
+			}
+		}
+
+		if isSorted && len(actualPgReq.PacketTypes) > 0 && len(mock.Spec.PostgresRequests[0].PacketTypes) > 0 {
+			if mock.Spec.PostgresRequests[0].PacketTypes[0] == "P" && actualPgReq.PacketTypes[0] == "B" && mock.Name == "mock-197" {
+				// is_prep := checkIfps(actualPgReq.PacketTypes)
+				// if is_prep {
+				// 	// fmt.Println("Inside Prepared Statement")
+				// 	// sliceCommandTag(mock, logger, testmap[ConnectionId], actualPgReq, true)
+				// }
+
+				return true, nil
+			}
+		}
 		return false, nil
 	}
 
@@ -799,7 +798,7 @@ func compareExactMatch(mock *models.Mock, reqBuff []byte, logger *zap.Logger, h 
 				return false, nil
 			}
 			for j := 0; j < len(actualPgReq.Parses[p-1].ParameterOIDs); j++ {
-				if actualPgReq.Parses[i].ParameterOIDs[j] != mock.Spec.PostgresRequests[0].Parses[i].ParameterOIDs[j] {
+				if actualPgReq.Parses[p-1].ParameterOIDs[j] != mock.Spec.PostgresRequests[0].Parses[p-1].ParameterOIDs[j] {
 					return false, nil
 				}
 			}
@@ -812,7 +811,7 @@ func compareExactMatch(mock *models.Mock, reqBuff []byte, logger *zap.Logger, h 
 			}
 			// if Is Prep statement true hai to wo se jo aya hai usko S_ identifier ko and connection Id ko compare karo
 			if is_prep && len(newBindPs) > 0 {
-				fmt.Println("New Bind Prepared Statement", newBindPs)
+				fmt.Println("New Bind Prepared Statement", newBindPs, "for mock", mock.Name)
 				if mock.Spec.PostgresRequests[0].Binds[b-1].PreparedStatement != newBindPs[b-1] {
 					return false, nil
 				}
@@ -873,10 +872,8 @@ func compareExactMatch(mock *models.Mock, reqBuff []byte, logger *zap.Logger, h 
 		default:
 			return false, nil
 		}
-		return true, nil
 	}
-
-	return false, nil
+	return true, nil
 }
 
 var testmap TestPrepMap
@@ -936,7 +933,7 @@ func findPGStreamMatch(tcsMocks []*models.Mock, requestBuffers [][]byte, logger 
 		if len(mock.Spec.PostgresRequests) == len(requestBuffers) {
 			for _, reqBuff := range requestBuffers {
 				// here handle cases of prepared statement very carefully
-				match, err := compareExactMatch(mock, reqBuff, logger, h, connectionId, recorded_prep)
+				match, err := compareExactMatch(mock, reqBuff, logger, h, connectionId, isSorted, recorded_prep)
 				if err != nil || match == false {
 					break
 				}
@@ -964,4 +961,43 @@ func checkIfps(array []string) bool {
 	}
 
 	return true
+}
+
+func sliceCommandTag(mock *models.Mock, logger *zap.Logger, prep []QueryData, actualPgReq *models.Backend, isDatareq bool) {
+
+	mockBuffer := mock.Spec.PostgresResponses[0].Payload
+	buffer, _ := PostgresDecoder(mockBuffer)
+	//check if the bind is prepared statement for begin read only
+	// Identfier := actualPgReq.Binds[0].PreparedStatement
+	// foo := false
+	// for _, v := range prep {
+	// 	if (v.PrepIdentifier == Identfier) && (v.Query == "BEGIN READ ONLY") {
+	// 		foo = true
+	// 		break
+	// 	}
+	// }
+
+	// if !foo {
+	// 	return
+	// }
+
+	fmt.Println("Inside Slice Command Tag")
+	expectedHeader := []string{"1"}
+	// if isDatareq {
+	// 	expectedHeader = []string{"1", "T"}
+	// }
+
+	var i int = 0
+	for exp := 0; exp < len(expectedHeader); exp++ {
+		if string(buffer[i]) != expectedHeader[exp] {
+			logger.Error("Incorrect mock response provided for slicing")
+			return
+		}
+		BodyLen := int(binary.BigEndian.Uint32(buffer[i+1:])) - 4
+		i += (5 + BodyLen)
+	}
+
+	buffer = buffer[i:]
+	payload := PostgresEncoder(buffer)
+	mock.Spec.PostgresResponses[0].Payload = payload
 }

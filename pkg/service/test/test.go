@@ -431,6 +431,7 @@ func (t *tester) InitialiseRunTestSet(cfg *RunTestSetConfig) InitialiseRunTestSe
 }
 
 func (t *tester) SimulateRequest(cfg *SimulateRequestConfig) {
+	// time.Sleep(2*time.Second)
 	switch cfg.Tc.Kind {
 	case models.HTTP:
 		started := time.Now().UTC()
