@@ -410,7 +410,7 @@ func SortMocks(tc *models.TestCase, m []*models.Mock, logger *zap.Logger) []*mod
 	sortedMocks := append(filteredMocks, unFilteredMocks...)
 	// logger.Info("sorted mocks after sorting accornding to the testcase timestamps", zap.Any("testcase", tc.Name), zap.Any("mocks", sortedMocks))
 	for _, v := range sortedMocks {
-		logger.Debug("sorted mocks", zap.Any("testcase", tc.Name), zap.Any("mocks", v))
+		logger.Debug("sorted mocks", zap.Any("testcase", tc.Name), zap.Any("mocks", v.Name))
 	}
 
 	return sortedMocks

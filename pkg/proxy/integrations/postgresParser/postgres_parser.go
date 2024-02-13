@@ -481,6 +481,8 @@ func decodePostgresOutgoing(requestBuffer []byte, clientConn, destConn net.Conn,
 		fmt.Println("PREPARED STATEMENT", prep)
 	}
 
+	decodePgResponse(nil,logger)
+
 	for {
 		// Since protocol packets have to be parsed for checking stream end,
 		// clientConnection have deadline for read to determine the end of stream.
