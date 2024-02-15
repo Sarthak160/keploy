@@ -349,7 +349,7 @@ func encodePostgresOutgoing(requestBuffer []byte, clientConn, destConn net.Conn,
 							pg.FrontendWrapper.CommandComplete = *msg.(*pgproto3.CommandComplete)
 							pg.FrontendWrapper.CommandCompletes = append(pg.FrontendWrapper.CommandCompletes, pg.FrontendWrapper.CommandComplete)
 						}
-						if pg.FrontendWrapper.DataRow.RowValues != nil {
+						if  pg.FrontendWrapper.MsgType == 'D' && pg.FrontendWrapper.DataRow.RowValues != nil {
 							// Create a new slice for each DataRow
 							valuesCopy := make([]string, len(pg.FrontendWrapper.DataRow.RowValues))
 							copy(valuesCopy, pg.FrontendWrapper.DataRow.RowValues)
@@ -481,7 +481,7 @@ func decodePostgresOutgoing(requestBuffer []byte, clientConn, destConn net.Conn,
 		fmt.Println("PREPARED STATEMENT", prep)
 	}
 
-	decodePgResponse(nil,logger)
+	decodePgResponse("", logger)
 
 	for {
 		// Since protocol packets have to be parsed for checking stream end,
@@ -567,12 +567,17 @@ func getRecordPrepStatement(allMocks []*models.Mock) PrepMap {
 		}
 		for _, req := range v.Spec.PostgresRequests {
 			var querydata []QueryData
+			ps_map := make(map[string]string)
 			if len(req.PacketTypes) > 0 && req.PacketTypes[0] != "p" && req.Identfier != "StartupRequest" {
 				p := 0
 				for _, header := range req.PacketTypes {
 					if header == "P" {
 						if strings.Contains(req.Parses[p].Name, "S_") {
-							querydata = append(querydata, QueryData{PrepIdentifier: req.Parses[p].Name, Query: req.Parses[p].Query})
+							ps_map[req.Parses[p].Query] = req.Parses[p].Name
+							querydata = append(querydata, QueryData{PrepIdentifier: req.Parses[p].Name,
+								Query: req.Parses[p].Query,
+							})
+
 						}
 						p++
 					}

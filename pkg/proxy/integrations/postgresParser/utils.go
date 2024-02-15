@@ -3,6 +3,8 @@ package postgresparser
 import (
 	"encoding/base64"
 	"encoding/binary"
+	"strconv"
+	"time"
 
 	"errors"
 	"fmt"
@@ -62,6 +64,7 @@ func PostgresDecoderFrontend(response models.Frontend) ([]byte, error) {
 			}
 			if response.DataRows[dtr].Values != nil {
 				fmt.Println("-----", response.DataRows[dtr].Values)
+				fmt.Println("-----", response.DataRows[dtr].RowValues)
 			}
 			dtr++
 		case string('E'):
@@ -427,48 +430,96 @@ func checkIfps(array []string) bool {
 	return true
 }
 
-func sliceCommandTag(mock *models.Mock, logger *zap.Logger, prep []QueryData, actualPgReq *models.Backend, isDatareq bool) {
+func sliceCommandTag(mock *models.Mock, logger *zap.Logger, prep []QueryData, actualPgReq *models.Backend, ps_case int) {
 
-	mockBuffer := mock.Spec.PostgresResponses[0].Payload
-	buffer, _ := PostgresDecoder(mockBuffer)
-	//check if the bind is prepared statement for begin read only
-	// Identfier := actualPgReq.Binds[0].PreparedStatement
-	// foo := false
-	// for _, v := range prep {
-	// 	if (v.PrepIdentifier == Identfier) && (v.Query == "BEGIN READ ONLY") {
-	// 		foo = true
-	// 		break
-	// 	}
-	// }
+	// mockBuffer := mock.Spec.PostgresResponses[0].Payload
+	// buffer, _ := PostgresDecoder(mockBuffer)
 
-	// if !foo {
-	// 	return
-	// }
-
-	fmt.Println("Inside Slice Command Tag")
-	expectedHeader := []string{"1"}
-	// if isDatareq {
-	// 	expectedHeader = []string{"1", "T"}
-	// }
-
-	var i int = 0
-	for exp := 0; exp < len(expectedHeader); exp++ {
-		if string(buffer[i]) != expectedHeader[exp] {
-			logger.Error("Incorrect mock response provided for slicing")
-			return
+	switch ps_case {
+	case 1:
+		// fmt.Println("Inside Parse Command Tag")
+		fmt.Println("Inside Slice Command Tag for ", ps_case)
+		mockPackets := mock.Spec.PostgresResponses[0].PacketTypes
+		for idx, v := range mockPackets {
+			if v == "1" {
+				mockPackets = append(mockPackets[:idx], mockPackets[idx+1:]...)
+			}
 		}
-		BodyLen := int(binary.BigEndian.Uint32(buffer[i+1:])) - 4
-		i += (5 + BodyLen)
+		mock.Spec.PostgresResponses[0].Payload = ""
+		mock.Spec.PostgresResponses[0].PacketTypes = mockPackets
+
+		// var i int = 0
+		// for exp := 0; exp < len(expectedHeader); exp++ {
+		// 	if string(buffer[i]) != expectedHeader[exp] {
+		// 		logger.Error("Incorrect mock response provided for slicing")
+		// 		return
+		// 	}
+		// 	BodyLen := int(binary.BigEndian.Uint32(buffer[i+1:])) - 4
+		// 	i += (5 + BodyLen)
+		// }
+		// buffer = buffer[i:]
+		// payload := PostgresEncoder(buffer)
+		// mock.Spec.PostgresResponses[0].Payload = payload
+		return
+	case 2:
+		// ["2", D, C, Z]
+		fmt.Println("Inside Slice Command Tag for ", ps_case)
+		mockPackets := mock.Spec.PostgresResponses[0].PacketTypes
+		for idx, v := range mockPackets {
+			if v == "1" || v == "T" {
+				mockPackets = append(mockPackets[:idx], mockPackets[idx+1:]...)
+			}
+		}
+		mock.Spec.PostgresResponses[0].Payload = ""
+		mock.Spec.PostgresResponses[0].PacketTypes = mockPackets
+		rsFormat := actualPgReq.Bind.ResultFormatCodes
+		fmt.Println("Result Format Codes for mock ", mock.Name,"*** ", len(rsFormat), rsFormat)
+
+		for idx, datarow := range mock.Spec.PostgresResponses[0].DataRows {
+			for column, row_value := range datarow.RowValues {
+				fmt.Println("datarow.RowValues", len(datarow.RowValues))
+				if rsFormat[column] == 1 {
+					// datarows := make([]byte, 4)
+					new_row, _ := getChandedDataRow(row_value)
+					logger.Info("New Row Value", zap.String("new_row", new_row))
+					mock.Spec.PostgresResponses[0].DataRows[idx].RowValues[column] = new_row
+				}
+			}
+		}
+		return
+	case 3:
+		fmt.Println("Inside Slice Command Tag for ", ps_case)
+		fmt.Println("Inside Execute Command Tag 3")
+		return
+	default:
 	}
 
-	buffer = buffer[i:]
-	payload := PostgresEncoder(buffer)
-	mock.Spec.PostgresResponses[0].Payload = payload
 }
 
-func decodePgResponse(buffer []byte, logger *zap.Logger) *models.Frontend {
+func getChandedDataRow(input string) (string, error) {
+	// Convert input1 (integer input as string) to integer
+	buffer := make([]byte, 4)
+	if intValue, err := strconv.Atoi(input); err == nil {
+		// Process integer input
+		fmt.Printf("Integer Input: %s\n", input)
+		fmt.Printf("Integer: %d\n", intValue)
+		binary.BigEndian.PutUint32(buffer, uint32(intValue))
+		return PostgresEncoder(buffer), nil
+	} else if dateValue, err := time.Parse("2006-01-02", input); err == nil {
+		// Perform additional operations on the date
+		epoch := time.Date(2000, 1, 1, 0, 0, 0, 0, time.UTC)
+		difference := dateValue.Sub(epoch).Hours() / 24
+		fmt.Printf("Difference in days from epoch: %.2f days\n", difference)
+		binary.BigEndian.PutUint32(buffer, uint32(difference))
+		return PostgresEncoder(buffer), nil
+	} else {
+		return "AAAAAA==", err
+	}
+}
 
-	bufStr := "MQAAAAQyAAAABFQAAAAyAAJpZAAAAEG0AAEAAAAXAAT/////AABuYW1lAAAAQbQAAgAABBP//wAAAQMAAEQAAAASAAIAAAABMQAAAANDYXRDAAAADVNFTEVDVCAxAFoAAAAFVA==" //PostgresEncoder(buffer)
+func decodePgResponse(bufStr string, logger *zap.Logger) *models.Frontend {
+
+	bufStr = "MQAAAAQyAAAABEMAAAAKQkVHSU4AMQAAAAQyAAAABFQAAAF/AA9pZAAAAGMuAAEAAAAXAAT/////AABiaXJ0aF9kYXRlAAAAYy4AAwAABDoABP////8AAG5hbWUAAABjLgACAAAEE///AAABAwAAaWQAAABjJQABAAAAFwAE/////wAAYWRkcmVzcwAAAGMlAAQAAAQT//8AAAEDAABjaXR5AAAAYyUABQAABBP//wAAAQMAAGZpcnN0X25hbWUAAABjJQACAAAEE///AAABAwAAbGFzdF9uYW1lAAAAYyUAAwAABBP//wAAAQMAAHRlbGVwaG9uZQAAAGMlAAYAAAQT//8AAAEDAABpZAAAAGNFAAEAAAAXAAT/////AABuYW1lAAAAY0UAAgAABBP//wAAAQMAAHBldF9pZAAAAGNhAAQAAAAXAAT/////AABpZAAAAGNhAAEAAAAXAAT/////AAB2aXNpdF9kYXRlAAAAY2EAAgAABDoABP////8AAGRlc2NyaXB0aW9uAAAAY2EAAwAABBP//wAAAQMAAEQAAACTAA8AAAABMQAAAAoyMDIxLTA3LTA3AAAABkRleHRlcgAAAAEzAAAAH0hOTyBBIC01MDQgU0VDVE9SLTIgQU5NT0wgQVBQVFQAAAAJTkVXIERFTEhJAAAABVJpdGlrAAAABEphaW4AAAAKOTk1ODE3ODU0OQAAAAExAAAAA0RvZ/////////////////////9DAAAADVNFTEVDVCAxAFoAAAAFVA==" //PostgresEncoder(buffer)
 	pg := NewFrontend()
 	buffer, err := PostgresDecoder(bufStr)
 	if err != nil {
@@ -499,17 +550,19 @@ func decodePgResponse(buffer []byte, logger *zap.Logger) *models.Frontend {
 				pg.FrontendWrapper.CommandComplete = *msg.(*pgproto3.CommandComplete)
 				pg.FrontendWrapper.CommandCompletes = append(pg.FrontendWrapper.CommandCompletes, pg.FrontendWrapper.CommandComplete)
 			}
-			if pg.FrontendWrapper.DataRow.RowValues != nil {
+			if pg.FrontendWrapper.MsgType == 'D' && pg.FrontendWrapper.DataRow.RowValues != nil {
 				// Create a new slice for each DataRow
 				valuesCopy := make([]string, len(pg.FrontendWrapper.DataRow.RowValues))
+				fmt.Println("Values Copy", valuesCopy, "----++=--- ", pg.FrontendWrapper.DataRow.RowValues)
 				copy(valuesCopy, pg.FrontendWrapper.DataRow.RowValues)
-
+				fmt.Println("Values Copy", valuesCopy)
 				row := pgproto3.DataRow{
 					RowValues: valuesCopy, // Use the copy of the values
 					Values:    pg.FrontendWrapper.DataRow.Values,
 				}
 				// fmt.Println("row is ", row)
 				dataRows = append(dataRows, row)
+				// newDataRows = append(newDataRows, string(row.Values[]))
 			}
 		}
 
@@ -564,10 +617,14 @@ func decodePgResponse(buffer []byte, logger *zap.Logger) *models.Frontend {
 		if err != nil {
 			logger.Info("failed to decode the response message in proxy for postgres dependency", zap.Error(err))
 		}
-		fmt.Println("DATA ROWS", dataRows)
+		fmt.Println("DATA ROWS 1", pg_mock.DataRows[0].RowValues)
+		fmt.Println("DATA ROWS 2", pg_mock.DataRows[0].Values)
+		// fmt.Println("DATA ROWS 3", pg_mock.DataRows[1].RowValues)
+		// fmt.Println("DATA ROWS 4", pg_mock.DataRows[1].Values)
+
 		if len(after_encoded) != len(buffer) {
 			logger.Info("the length of the encoded buffer is not equal to the length of the original buffer", zap.Any("after_encoded", len(after_encoded)), zap.Any("buffer", len(buffer)))
-			
+
 			// pg_mock.Payload = bufStr
 		}
 		return pg_mock

@@ -4,6 +4,7 @@ import (
 	"encoding/base64"
 	"fmt"
 	"math"
+	"reflect"
 	"strings"
 
 	"github.com/jackc/pgproto3/v2"
@@ -213,9 +214,22 @@ func PreparedStatementMatch(mock *models.Mock, actualPgReq *models.Backend, logg
 	if !ifps {
 		return false, nil, nil
 	}
+	// check if given mock is a prepared statement
+	ifpsMock := checkIfps(mock.Spec.PostgresRequests[0].PacketTypes)
+	if !ifpsMock {
+		return false, nil, nil
+	}
+
+	if len(mock.Spec.PostgresRequests[0].PacketTypes) != len(actualPgReq.PacketTypes) {
+		return false, nil, nil
+	}
+
 	// get all the binds from the actualPgReq
 	binds := actualPgReq.Binds
 	newBinPreparedStatement := make([]string, 0)
+	mockBinds := mock.Spec.PostgresRequests[0].Binds
+	mockConn := mock.ConnectionId
+	var foo bool = false
 	for _, bind := range binds {
 		current_ps := bind.PreparedStatement
 		current_querydata := testmap[ConnectionId]
@@ -229,27 +243,49 @@ func PreparedStatementMatch(mock *models.Mock, actualPgReq *models.Backend, logg
 				break
 			}
 		}
-		// check what was the prepared statement recorded
-		// old_ps := ""
-		for _, ps := range recorded_prep {
-			for _, v := range ps {
-				if current_query == v.Query && current_ps != v.PrepIdentifier {
-					// fmt.Println("Matched with the recorded prepared statement with Identifier and connectionID is", v.PrepIdentifier, ", conn- ", conn, "and current identifier is", current_ps, "FOR QUERY", current_query)
-					// fmt.Println("MOCK NUMBER IS ", mock.Name)
-					current_ps = v.PrepIdentifier
+
+		foo = false
+		for _, mb := range mockBinds {
+			// check if the query for mock ps (v.PreparedStatement) is same as the current query
+			for _, querydata := range recorded_prep[mockConn] {
+				if querydata.Query == current_query && mb.PreparedStatement == querydata.PrepIdentifier {
+					fmt.Println("Matched with the recorded prepared statement with Identifier and connectionID is", querydata.PrepIdentifier, ", conn- ", mockConn, "and current identifier is", current_ps, "FOR QUERY", current_query)
+					foo = true
 					break
 				}
 			}
-		}
+			if !foo {
+				return false, nil, nil
+			}
 
-		if strings.Contains(current_ps, "S_") && current_ps != "" {
-			newBinPreparedStatement = append(newBinPreparedStatement, current_ps)
 		}
 	}
-	if len(newBinPreparedStatement) > 0 && len(binds) == len(newBinPreparedStatement) {
+	if foo {
 		return true, newBinPreparedStatement, nil
 	}
+	// if len(newBinPreparedStatement) > 0 && len(binds) == len(newBinPreparedStatement) {
+	// 	return true, newBinPreparedStatement, nil
+	// }
 	return false, nil, nil
+
+	// check what was the prepared statement recorded
+	// old_ps := ""
+	// for _, ps := range recorded_prep {
+	// 	for _, v := range ps {
+	// 		if current_query == v.Query && current_ps != v.PrepIdentifier {
+	// 			// fmt.Println("Matched with the recorded prepared statement with Identifier and connectionID is", v.PrepIdentifier, ", conn- ", conn, "and current identifier is", current_ps, "FOR QUERY", current_query)
+	// 			// fmt.Println("MOCK NUMBER IS ", mock.Name)
+	// 			current_ps = v.PrepIdentifier
+	// 			break
+	// 		}
+	// 	}
+	// }
+
+	// if strings.Contains(current_ps, "S_") && current_ps != "" {
+	// 	newBinPreparedStatement = append(newBinPreparedStatement, current_ps)
+	// }
+	// }
+
 }
 
 func compareExactMatch(mock *models.Mock, actualPgReq *models.Backend, logger *zap.Logger, h *hooks.Hook, ConnectionId string, isSorted bool, recorded_prep PrepMap) (bool, error) {
@@ -299,10 +335,7 @@ func compareExactMatch(mock *models.Mock, actualPgReq *models.Backend, logger *z
 		}
 	}
 	// IsPreparedStatement(mock, actualPgReq, logger, ConnectionId)
-	is_prep, newBindPs, err := PreparedStatementMatch(mock, actualPgReq, logger, h, ConnectionId, recorded_prep)
-	if err != nil {
-		logger.Error("Error while matching prepared statements", zap.Error(err))
-	}
+
 	// this will give me the
 	var (
 		p, b, e int = 0, 0, 0
@@ -334,16 +367,16 @@ func compareExactMatch(mock *models.Mock, actualPgReq *models.Backend, logger *z
 				return false, nil
 			}
 			// if Is Prep statement true hai to wo se jo aya hai usko S_ identifier ko and connection Id ko compare karo
-			if is_prep && len(newBindPs) > 0 {
-				// fmt.Println("New Bind Prepared Statement", newBindPs, "for mock", mock.Name)
-				if mock.Spec.PostgresRequests[0].Binds[b-1].PreparedStatement != newBindPs[b-1] {
-					return false, nil
-				}
-			} else {
-				if actualPgReq.Binds[b-1].PreparedStatement != mock.Spec.PostgresRequests[0].Binds[b-1].PreparedStatement {
-					return false, nil
-				}
+			// if is_prep && len(newBindPs) > 0 {
+			// 	// fmt.Println("New Bind Prepared Statement", newBindPs, "for mock", mock.Name)
+			// 	if mock.Spec.PostgresRequests[0].Binds[b-1].PreparedStatement != newBindPs[b-1] {
+			// 		return false, nil
+			// 	}
+			// } else {
+			if actualPgReq.Binds[b-1].PreparedStatement != mock.Spec.PostgresRequests[0].Binds[b-1].PreparedStatement {
+				return false, nil
 			}
+			// }
 
 			if len(actualPgReq.Binds[b-1].ParameterFormatCodes) != len(mock.Spec.PostgresRequests[0].Binds[b-1].ParameterFormatCodes) {
 				return false, nil
@@ -453,7 +486,8 @@ func findPGStreamMatch(tcsMocks []*models.Mock, requestBuffers [][]byte, logger 
 	// matchedMockConnectionId := "y"
 	var newPrepareStatementMapAfterMatching map[string]string
 	// var isPrepareStatementMapMatched bool
-
+	match := false
+	// loop for the exact match of the request
 	for idx, mock := range tcsMocks {
 		if len(mock.Spec.PostgresRequests) == len(requestBuffers) {
 			for _, reqBuff := range requestBuffers {
@@ -464,8 +498,54 @@ func findPGStreamMatch(tcsMocks []*models.Mock, requestBuffers [][]byte, logger 
 
 				// here handle cases of prepared statement very carefully
 				match, err := compareExactMatch(mock, actualPgReq, logger, h, connectionId, isSorted, recorded_prep)
-				if err != nil || match == false {
-					if mock.Name == "mock-201" || mock.Name == "mock-202" || mock.Name == "mock-203" || mock.Name == "mock-205" || mock.Name == "mock-206" || mock.Name == "mock-207" || mock.Name == "mock-208" || mock.Name == "mock-209" || mock.Name == "mock-212" {
+				if err != nil {
+					logger.Error("Error while matching exact match", zap.Error(err))
+					continue
+				}
+				if match {
+					return idx, newPrepareStatementMapAfterMatching
+				}
+			}
+		}
+	}
+
+	// loop for the ps match of the request
+	if !match {
+		for idx, mock := range tcsMocks {
+			if len(mock.Spec.PostgresRequests) == len(requestBuffers) {
+				for _, reqBuff := range requestBuffers {
+					actualPgReq := decodePgRequest(reqBuff, logger)
+					if actualPgReq == nil {
+						return -1, nil
+					}
+					match, newBindPs, err := PreparedStatementMatch(mock, actualPgReq, logger, h, connectionId, recorded_prep)
+					if err != nil {
+						logger.Error("Error while matching prepared statements", zap.Error(err))
+					}
+
+					if match {
+						fmt.Println("New Bind Prepared Statement", newBindPs, "for mock", mock.Name)
+						fmt.Println(actualPgReq.Binds[0].PreparedStatement)
+						fmt.Println(actualPgReq.Binds[0].Parameters)
+						fmt.Println(actualPgReq.Binds[0].ParameterFormatCodes)
+						fmt.Println(actualPgReq.Binds[0].ResultFormatCodes)
+						return idx, newPrepareStatementMapAfterMatching
+					}
+				}
+			}
+		}
+	}
+
+	if !match {
+		for idx, mock := range tcsMocks {
+			if len(mock.Spec.PostgresRequests) == len(requestBuffers) {
+				for _, reqBuff := range requestBuffers {
+					actualPgReq := decodePgRequest(reqBuff, logger)
+					if actualPgReq == nil {
+						return -1, nil
+					}
+
+					if mock.Name == "mock-174" || mock.Name == "mock-175" || mock.Name == "mock-176" || mock.Name == "mock-177" || mock.Name == "mock-178" {
 						fmt.Println("TEST prep map", testmap)
 						// mock.Spec.PostgresRequests[0].
 						fmt.Println("Inside Compare Exact Match", actualPgReq, "MOCK NAME - ", mock.Name, "WITH CONN ID", connectionId)
@@ -475,42 +555,116 @@ func findPGStreamMatch(tcsMocks []*models.Mock, requestBuffers [][]byte, logger 
 					// should compare only query in the parse message
 					if len(actualPgReq.PacketTypes) != len(mock.Spec.PostgresRequests[0].PacketTypes) {
 						//check for begin read only
-						if math.Abs(float64(len(actualPgReq.PacketTypes))-float64(len(mock.Spec.PostgresRequests[0].PacketTypes))) == 1 {
-							if len(actualPgReq.PacketTypes) > 0 && len(mock.Spec.PostgresRequests[0].PacketTypes) > 0 {
-								if mock.Spec.PostgresRequests[0].PacketTypes[0] == "P" && mock.Spec.PostgresRequests[0].Parses[0].Query == "BEGIN READ ONLY" {
+						if len(actualPgReq.PacketTypes) > 0 && len(mock.Spec.PostgresRequests[0].PacketTypes) > 0 {
 
-									if mock.Spec.PostgresRequests[0].Parses[1].Query == actualPgReq.Parses[0].Query {
-										sliceCommandTag(mock, logger, testmap[connectionId], actualPgReq, false)
-										return idx, nil
-									}
-								}
-							}
-						}
+							// if (mock.Spec.PostgresRequests[0].PacketTypes[0] == "B" && actualPgReq.PacketTypes[0] == "P") || (mock.Spec.PostgresRequests[0].PacketTypes[0] == "P" && actualPgReq.PacketTypes[0] == "B") { //&& (mock.Name == "mock-197") {
+							// if (mock.Spec.PostgresRequests[0].PacketTypes[0] == "B" && actualPgReq.PacketTypes[0] == "P") || (mock.Spec.PostgresRequests[0].PacketTypes[0] == "P") { //mock.Spec.PostgresRequests[0].PacketTypes[0] == "P" && actualPgReq.PacketTypes[0] == "B" {
+							// if mock.Name == "mock-197" {
+							// 	fmt.Println("Inside Prepared Statement")
+							// }
+							// is_prep := checkIfps(actualPgReq.PacketTypes)
+							// if !is_prep {
+							// 	return -1, nil
+							// }
 
-						if isSorted && len(actualPgReq.PacketTypes) > 0 && len(mock.Spec.PostgresRequests[0].PacketTypes) > 0 {
+							ischanged := changeResToPS(mock, actualPgReq, logger, connectionId)
 
-							if ((mock.Spec.PostgresRequests[0].PacketTypes[0] == "B" && actualPgReq.PacketTypes[0] == "P") || (mock.Spec.PostgresRequests[0].PacketTypes[0] == "P" && actualPgReq.PacketTypes[0] == "B")) && (mock.Name == "mock-197" || mock.Name == "mock-198" || mock.Name == "mock-199" || mock.Name == "mock-202") {
-								// is_prep := checkIfps(actualPgReq.PacketTypes)
-								// if is_prep {
-								// 	// fmt.Println("Inside Prepared Statement")
-								// 	// sliceCommandTag(mock, logger, testmap[ConnectionId], actualPgReq, true)
-								// }
-								if mock.Name == "mock-207" {
-									fmt.Println("HHHHHHAAAAAA")
-								}
+							// if mock.Name == "mock-196" || mock.Name == "mock-197" || mock.Name == "mock-198" || mock.Name == "mock-199" || mock.Name == "mock-200" || mock.Name == "mock-201" || mock.Name == "mock-202" || mock.Name == "mock-203" {
+							// 	fmt.Println(mock.Name, "------")
+							// 	fmt.Println("PACKETS", actualPgReq.PacketTypes, "MOCK PACKETS", actualPgReq.PacketTypes)
+							// 	fmt.Println("ActualPgReq", actualPgReq, "MOCK REQ", mock.Spec.PostgresRequests[0])
+							// 	fmt.Println("TestMap", testmap)
+							// 	fmt.Println("ConnectionId", connectionId)
+							// 	fmt.Println("-------------------------------")
+							// 	fmt.Println("Ischanged ", ischanged)
+							// }
 
+							if ischanged {
 								return idx, nil
+							} else {
+								continue
 							}
 						}
 
 					}
-
-				}
-				if match {
-					return idx, newPrepareStatementMapAfterMatching
 				}
 			}
 		}
 	}
+
 	return mxIdx, newPrepareStatementMapAfterMatching
+}
+
+// check what are the queries for the given ps of actualPgReq
+// check if the execute query is present for that or not
+// mark that mock true and return the response by changing the res format like
+// postgres data types acc to result set format
+func changeResToPS(mock *models.Mock, actualPgReq *models.Backend, logger *zap.Logger, connectionId string) bool {
+	packets := actualPgReq.PacketTypes
+	mockPackets := mock.Spec.PostgresRequests[0].PacketTypes
+
+	// [P, B, E, P, B, D, E] => [B, E, B, E]
+	// write code that of packet is ["B", "E"] and mockPackets ["P", "B", "D", "E"] handle it in case1
+	// and if packet is [B, E, B, E] and mockPackets [P, B, E, P, B, D, E] handle it in case2
+
+	ischanged := false
+	// [P, B, E, P, B, D, E] -> [B, E, P, B, D, E] like mock - 196
+	if reflect.DeepEqual(packets, []string{"B", "E", "P", "B", "D", "E"}) && reflect.DeepEqual(mockPackets, []string{"P", "B", "E", "P", "B", "D", "E"}) {
+		fmt.Println("Handling Case 1 for mock", mock.Name)
+		// handleCase1(packets, mockPackets)
+		sliceCommandTag(mock, logger, testmap[connectionId], actualPgReq, 1)
+		return true
+	}
+
+	// case 2
+	var ps string
+	if reflect.DeepEqual(packets, []string{"B", "E"}) && reflect.DeepEqual(mockPackets, []string{"P", "B", "D", "E"}) {
+		fmt.Println("Handling Case 2 for mock", mock.Name)
+		ps = actualPgReq.Binds[0].PreparedStatement
+		for _, v := range testmap[connectionId] {
+			if v.Query == mock.Spec.PostgresRequests[0].Parses[0].Query && v.PrepIdentifier == ps {
+				ischanged = true
+				break
+			}
+		}
+	}
+
+	if ischanged {
+		if strings.Contains(ps, "S_") {
+			fmt.Println("Inside Prepared Statement")
+			sliceCommandTag(mock, logger, testmap[connectionId], actualPgReq, 2)
+		}
+		return true
+	}
+
+	// packets = []string{"B", "E", "B", "E"}
+	// mockPackets = []string{"P", "B", "E", "P", "B", "D", "E"}
+
+	// Case 3
+	if reflect.DeepEqual(packets, []string{"B", "E", "B", "E"}) && reflect.DeepEqual(mockPackets, []string{"P", "B", "E", "P", "B", "D", "E"}) {
+		fmt.Println("Handling Case 3 for mock", mock.Name)
+		ischanged1 := false
+		ps1 := actualPgReq.Binds[0].PreparedStatement
+		for _, v := range testmap[connectionId] {
+			if v.Query == mock.Spec.PostgresRequests[0].Parses[0].Query && v.PrepIdentifier == ps1 {
+				ischanged1 = true
+				break
+			}
+		}
+		ischanged2 := false
+		ps2 := actualPgReq.Binds[1].PreparedStatement
+		for _, v := range testmap[connectionId] {
+			if v.Query == mock.Spec.PostgresRequests[0].Parses[1].Query && v.PrepIdentifier == ps2 {
+				ischanged2 = true
+				break
+			}
+		}
+		if ischanged1 && ischanged2 {
+			sliceCommandTag(mock, logger, testmap[connectionId], actualPgReq, 2)
+		}
+
+	}
+
+	return false
+
 }
