@@ -8,6 +8,7 @@ import (
 	"reflect"
 	"strings"
 	"sync"
+	"time"
 
 	"github.com/agnivade/levenshtein"
 	"github.com/jackc/pgproto3/v2"
@@ -65,6 +66,8 @@ func IsValuePresent(connectionid string, value string) bool {
 }
 
 func matchingReadablePG(ctx context.Context, logger *zap.Logger, mutex *sync.Mutex, requestBuffers [][]byte, mockDb integrations.MockMemDb) (bool, []models.Frontend, error) {
+	mutex.Lock()
+	defer mutex.Unlock()
 	for {
 		select {
 		case <-ctx.Done():
@@ -77,21 +80,22 @@ func matchingReadablePG(ctx context.Context, logger *zap.Logger, mutex *sync.Mut
 			}
 
 			ConnectionID := ctx.Value(models.ClientConnectionIDKey).(string)
-
-			recordedPrep := getRecordPrepStatement(tcsMocks)
-			reqGoingOn := decodePgRequest(requestBuffers[0], logger)
-			if reqGoingOn != nil {
-				logger.Debug("PacketTypes", zap.Any("PacketTypes", reqGoingOn.PacketTypes))
-				// fmt.Println("REQUEST GOING ON - ", reqGoingOn)
-				logger.Debug("ConnectionId-", zap.String("ConnectionId", ConnectionID))
-				logger.Debug("TestMap*****", zap.Any("TestMap", testmap))
-			}
+			// mutex.Lock()
+			// recordedPrep := getRecordPrepStatement(tcsMocks)
+			// mutex.Unlock()
+			// reqGoingOn := decodePgRequest(requestBuffers[0], logger)
+			// if reqGoingOn != nil {
+			// 	logger.Debug("PacketTypes", zap.Any("PacketTypes", reqGoingOn.PacketTypes))
+			// 	// fmt.Println("REQUEST GOING ON - ", reqGoingOn)
+			// 	logger.Debug("ConnectionId-", zap.String("ConnectionId", ConnectionID))
+			// 	logger.Debug("TestMap*****", zap.Any("TestMap", testmap))
+			// }
 
 			// merge all the streaming requests into 1 for matching
-			newRq := mergePgRequests(requestBuffers, logger)
-			if len(newRq) > 0 {
-				requestBuffers = newRq
-			}
+			// newRq := mergePgRequests(requestBuffers, logger)
+			// if len(newRq) > 0 {
+			// 	requestBuffers = newRq
+			// }
 
 			var sortFlag = true
 			var sortedTcsMocks []*models.Mock
@@ -105,7 +109,7 @@ func matchingReadablePG(ctx context.Context, logger *zap.Logger, mutex *sync.Mut
 					continue
 				}
 
-				mutex.Lock()
+				// mutex.Lock()
 				if sortFlag {
 					if !mock.TestModeInfo.IsFiltered {
 						sortFlag = false
@@ -113,13 +117,13 @@ func matchingReadablePG(ctx context.Context, logger *zap.Logger, mutex *sync.Mut
 						sortedTcsMocks = append(sortedTcsMocks, mock)
 					}
 				}
-				mutex.Unlock()
+				// mutex.Unlock()
 
 				initMock := *mock
-				if len(mock.Spec.PostgresRequests) == len(requestBuffers) {
+				if len(initMock.Spec.PostgresRequests) == len(requestBuffers) {
 					for requestIndex, reqBuff := range requestBuffers {
 						bufStr := base64.StdEncoding.EncodeToString(reqBuff)
-						encodedMock, err := postgresDecoderBackend(mock.Spec.PostgresRequests[requestIndex])
+						encodedMock, err := postgresDecoderBackend(initMock.Spec.PostgresRequests[requestIndex])
 						if err != nil {
 							logger.Debug("Error while decoding postgres request", zap.Error(err))
 						}
@@ -130,16 +134,17 @@ func matchingReadablePG(ctx context.Context, logger *zap.Logger, mutex *sync.Mut
 								Payload: "Tg==",
 							}
 							return true, []models.Frontend{ssl}, nil
-						case mock.Spec.PostgresRequests[requestIndex].Identfier == "StartupRequest" && isStartupPacket(reqBuff) && mock.Spec.PostgresRequests[requestIndex].Payload != "AAAACATSFi8=" && mock.Spec.PostgresResponses[requestIndex].AuthType == 10:
-							logger.Debug("CHANGING TO MD5 for Response", zap.String("mock", mock.Name), zap.String("Req", bufStr))
+						case initMock.Spec.PostgresRequests[requestIndex].Identfier == "StartupRequest" && isStartupPacket(reqBuff) && initMock.Spec.PostgresRequests[requestIndex].Payload != "AAAACATSFi8=" && initMock.Spec.PostgresResponses[requestIndex].AuthType == 10:
+							logger.Debug("CHANGING TO MD5 for Response", zap.String("mock", initMock.Name), zap.String("Req", bufStr))
+							time.Sleep(100 * time.Millisecond)
 							initMock.Spec.PostgresResponses[requestIndex].AuthType = 5
 							err := mockDb.FlagMockAsUsed(&initMock)
 							if err != nil {
 								logger.Error("failed to flag mock as used", zap.Error(err))
 							}
 							return true, initMock.Spec.PostgresResponses, nil
-						case len(encodedMock) > 0 && encodedMock[0] == 'p' && mock.Spec.PostgresRequests[requestIndex].PacketTypes[0] == "p" && reqBuff[0] == 'p':
-							logger.Debug("CHANGING TO MD5 for Request and Response", zap.String("mock", mock.Name), zap.String("Req", bufStr))
+						case len(encodedMock) > 0 && encodedMock[0] == 'p' && initMock.Spec.PostgresRequests[requestIndex].PacketTypes[0] == "p" && reqBuff[0] == 'p':
+							logger.Debug("CHANGING TO MD5 for Request and Response", zap.String("mock", initMock.Name), zap.String("Req", bufStr))
 
 							initMock.Spec.PostgresRequests[requestIndex].PasswordMessage.Password = "md5fe4f2f657f01fa1dd9d111d5391e7c07"
 
@@ -217,7 +222,8 @@ func matchingReadablePG(ctx context.Context, logger *zap.Logger, mutex *sync.Mut
 			// give more priority to sorted like if you find more than 0.5 in sorted then return that
 			if len(sortedTcsMocks) > 0 {
 				sorted = true
-				idx1, newMock := findPGStreamMatch(sortedTcsMocks, requestBuffers, logger, sorted, ConnectionID, recordedPrep)
+
+				idx1, newMock := findPGStreamMatch(sortedTcsMocks, requestBuffers, logger, sorted, ConnectionID, nil)
 				if idx1 != -1 {
 					matched = true
 					matchedMock = tcsMocks[idx1]
@@ -227,17 +233,18 @@ func matchingReadablePG(ctx context.Context, logger *zap.Logger, mutex *sync.Mut
 					logger.Debug("Matched In Sorted PG Matching Stream", zap.String("mock", matchedMock.Name))
 				}
 
-				// idx = findBinaryStreamMatch(logger, sortedTcsMocks, requestBuffers, sorted)
-				// if idx != -1 && !matched {
-				// 	matched = true
-				// 	matchedMock = tcsMocks[idx]
-				// 	fmt.Println("Matched In Binary Matching for Sorted", matchedMock.Name)
-				// }
+				idx = findBinaryStreamMatch(logger, sortedTcsMocks, requestBuffers, sorted)
+				if idx != -1 && !matched {
+					matched = true
+					matchedMock = tcsMocks[idx]
+					fmt.Println("Matched In Binary Matching for Sorted", matchedMock.Name)
+				}
 			}
 
 			if !matched {
 				sorted = false
-				idx1, newMock := findPGStreamMatch(tcsMocks, requestBuffers, logger, sorted, ConnectionID, recordedPrep)
+
+				idx1, newMock := findPGStreamMatch(tcsMocks, requestBuffers, logger, sorted, ConnectionID, nil)
 				if idx1 != -1 {
 					matched = true
 					matchedMock = tcsMocks[idx1]
@@ -298,7 +305,7 @@ func findBinaryStreamMatch(logger *zap.Logger, tcsMocks []*models.Mock, requestB
 
 	for idx, mock := range tcsMocks {
 		// merging the mocks as well before comparing
-		mock.Spec.PostgresRequests = mergeMocks(mock.Spec.PostgresRequests, logger)
+		// mock.Spec.PostgresRequests = mergeMocks(mock.Spec.PostgresRequests, logger)
 
 		if len(mock.Spec.PostgresRequests) == len(requestBuffers) {
 			for requestIndex, reqBuf := range requestBuffers {
@@ -366,7 +373,7 @@ func findPGStreamMatch(tcsMocks []*models.Mock, requestBuffers [][]byte, logger 
 	// loop for the exact match of the request
 	for idx, mock := range tcsMocks {
 		// merging the mocks as well before comparing
-		mock.Spec.PostgresRequests = mergeMocks(mock.Spec.PostgresRequests, logger)
+		// mock.Spec.PostgresRequests = mergeMocks(mock.Spec.PostgresRequests, logger)
 
 		if len(mock.Spec.PostgresRequests) == len(requestBuffers) {
 			for _, reqBuff := range requestBuffers {
@@ -375,6 +382,7 @@ func findPGStreamMatch(tcsMocks []*models.Mock, requestBuffers [][]byte, logger 
 					return -1, nil
 				}
 				// here handle cases of prepared statement very carefully
+
 				match, err := compareExactMatch(mock, actualPgReq, logger)
 				if err != nil {
 					logger.Error("Error while matching exact match", zap.Error(err))
@@ -393,7 +401,7 @@ func findPGStreamMatch(tcsMocks []*models.Mock, requestBuffers [][]byte, logger 
 	if !match {
 		for idx, mock := range tcsMocks {
 			// merging the mocks as well before comparing
-			mock.Spec.PostgresRequests = mergeMocks(mock.Spec.PostgresRequests, logger)
+			// mock.Spec.PostgresRequests = mergeMocks(mock.Spec.PostgresRequests, logger)
 
 			if len(mock.Spec.PostgresRequests) == len(requestBuffers) {
 				for _, reqBuff := range requestBuffers {
@@ -402,13 +410,13 @@ func findPGStreamMatch(tcsMocks []*models.Mock, requestBuffers [][]byte, logger 
 						return -1, nil
 					}
 					// just matching the corresponding PS in this case there is no need to edit the mock
-					match, newBindPs, err := PreparedStatementMatch(mock, actualPgReq, logger, connectionID, recordedPrep)
-					if err != nil {
-						logger.Error("Error while matching prepared statements", zap.Error(err))
-					}
+					// match, newBindPs, err := PreparedStatementMatch(mock, actualPgReq, logger, connectionID, recordedPrep)
+					// if err != nil {
+					// 	logger.Error("Error while matching prepared statements", zap.Error(err))
+					// }
 
 					if match {
-						logger.Debug("New Bind Prepared Statement", zap.Any("New Bind Prepared Statement", newBindPs), zap.String("ConnectionId", connectionID), zap.String("Mock Name", mock.Name))
+						// logger.Debug("New Bind Prepared Statement", zap.Any("New Bind Prepared Statement", newBindPs), zap.String("ConnectionId", connectionID), zap.String("Mock Name", mock.Name))
 						return idx, nil
 					}
 					// just check the query
@@ -426,7 +434,7 @@ func findPGStreamMatch(tcsMocks []*models.Mock, requestBuffers [][]byte, logger 
 
 		for idx, mock := range tcsMocks {
 			// merging the mocks as well before comparing
-			mock.Spec.PostgresRequests = mergeMocks(mock.Spec.PostgresRequests, logger)
+			// mock.Spec.PostgresRequests = mergeMocks(mock.Spec.PostgresRequests, logger)
 
 			if len(mock.Spec.PostgresRequests) == len(requestBuffers) {
 				for _, reqBuff := range requestBuffers {
