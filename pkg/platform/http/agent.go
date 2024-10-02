@@ -469,15 +469,15 @@ func (a *AgentClient) Setup(ctx context.Context, cmd string, opts models.SetupOp
 	return clientID, nil
 }
 
-func (ag *AgentClient) getApp(id uint64) (*app.App, error) {
-	a, ok := ag.apps.Load(id)
+func (a *AgentClient) getApp(id uint64) (*app.App, error) {
+	ap, ok := a.apps.Load(id)
 	if !ok {
 		fmt.Printf("app with id:%v not found", id)
 		return nil, fmt.Errorf("app with id:%v not found", id)
 	}
 
 	// type assertion on the app
-	h, ok := a.(*app.App)
+	h, ok := ap.(*app.App)
 	if !ok {
 		return nil, fmt.Errorf("failed to type assert app with id:%v", id)
 	}

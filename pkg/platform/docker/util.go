@@ -291,7 +291,7 @@ func convertPathToUnixStyle(path string) string {
 	return unixPath
 }
 
-// Function to extract the inode of the PID namespace
+// ExtractPidNamespaceInode extracts the inode of the PID namespace of a given PID
 func ExtractPidNamespaceInode(pid int) (string, error) {
 	// Check the OS
 	if runtime.GOOS != "linux" {

@@ -15,7 +15,7 @@ type RegisterReq struct {
 }
 
 type AgentResp struct {
-	ClientId  int64 `json:"clientId"` // uuid of the app
+	ClientID  int64 `json:"clientId"` // uuid of the app
 	Error     error `json:"error"`
 	IsSuccess bool  `json:"isSuccess"`
 }

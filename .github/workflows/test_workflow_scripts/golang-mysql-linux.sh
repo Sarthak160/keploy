@@ -47,6 +47,8 @@ send_request() {
 
 for i in {1..2}; do
     app_name="urlShort_${i}"
+    sudo ./../../keployv2 agent &
+    sleep 5
     send_request &
     sudo -E env PATH="$PATH" ./../../keployv2 record -c "./urlShort" --generateGithubActions=false &> "${app_name}.txt"
     if grep "ERROR" "${app_name}.txt"; then
@@ -64,6 +66,8 @@ for i in {1..2}; do
     echo "Recorded test case and mocks for iteration ${i}"
 done
 
+sudo ./../../keployv2 agent &
+sleep 5
 # Start the gin-mongo app in test mode.
 sudo -E env PATH="$PATH" ./../../keployv2 test -c "./urlShort" --delay 7 --generateGithubActions=false &> test_logs.txt
 
