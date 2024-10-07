@@ -52,7 +52,6 @@ func (a *Agent) Setup(ctx context.Context, _ string, opts models.SetupOptions) e
 	select {
 	case <-ctx.Done():
 		fmt.Println("Context cancelled, stopping Setup")
-		fmt.Println("HERE KILL THE INIT CONTAINER")
 		err = a.dockerClient.ContainerStop(ctx, "keploy-init", container.StopOptions{})
 		if err != nil {
 			return fmt.Errorf("failed to stop the docker container: %w", err)

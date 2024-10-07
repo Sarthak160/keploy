@@ -35,6 +35,8 @@ go build -o ginApp
 
 echo "Keploy agent started"
 
+sudo ./../../keployv2 agent &
+sleep 10
 send_request(){
     sleep 10
     app_started=false
@@ -78,8 +80,7 @@ send_request(){
 for i in {1..2}; do
     echo "Starting iteration ${i}"
     app_name="javaApp_${i}"
-    sudo ./../../keployv2 agent &
-    sleep 5
+
     send_request &
     sudo -E env PATH="$PATH" ./../../keployv2 record -c "./ginApp" &> "${app_name}.txt" --debug
     if grep "ERROR" "${app_name}.txt"; then
@@ -97,12 +98,6 @@ done
 
 sleep 10
 echo "Starting the pipeline for test mode..."
-
-sudo ./../../keployv2 agent &
-
-echo "Keploy agent started for test mode"
-
-sleep 10
 
 # Start the gin-mongo app in test mode.
 sudo -E env PATH="$PATH" ./../../keployv2 test -c "./ginApp" --delay 7 &> test_logs.txt --debug

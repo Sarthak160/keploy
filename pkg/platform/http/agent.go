@@ -409,7 +409,7 @@ func (a *AgentClient) Setup(ctx context.Context, cmd string, opts models.SetupOp
 				}
 			}()
 			// TODO: Pass the binary name as an argument while go
-			agentCmd := exec.Command("sudo", "keployv2", "agent","--debug")
+			agentCmd := exec.Command("sudo", "keployv2", "agent")
 			agentCmd.SysProcAttr = &syscall.SysProcAttr{Setsid: true} // Detach the process
 
 			// Redirect the standard output and error to the log file
