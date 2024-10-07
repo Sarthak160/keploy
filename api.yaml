@@ -3,72 +3,56 @@ info:
   title: "Agent Service API"
   version: "1.0.0"
 paths:
-  /instrument:
+  /agent/health:
+    get:
+      summary: "Health check for the service"
+      responses:
+        '200':
+          description: "Service is healthy"
+          content:
+            application/json:
+              schema:
+                type: string
+
+  /agent/incoming:
     post:
-      summary: "Instrument the service"
+      summary: "Handle incoming requests"
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/InstrumentRequest'
+              $ref: '#/components/schemas/IncomingReq'
       responses:
         '200':
-          description: "Success"
+          description: "Incoming request processed successfully"
+          content:
+            application/json:
+              schema:
+                type: object
         '400':
           description: "Invalid request"
 
-  /incoming/{id}:
-    get:
-      summary: "Get incoming test cases"
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: "ID for the incoming request"
+  /agent/outgoing:
+    post:
+      summary: "Handle outgoing requests"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OutgoingReq'
       responses:
         '200':
-          description: "A stream of incoming test cases"
+          description: "Outgoing request processed successfully"
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/TestCase'
+                type: object
         '400':
-          description: "Invalid ID supplied"
-        '404':
-          description: "ID not found"
+          description: "Invalid request"
 
-  /outgoing/{id}:
-    get:
-      summary: "Get outgoing mocks"
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-          description: "ID for the outgoing request"
-      responses:
-        '200':
-          description: "A stream of outgoing mocks"
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Mock'
-        '400':
-          description: "Invalid ID supplied"
-        '404':
-          description: "ID not found"
-
-  /outgoing/mock:
+  /agent/mock:
     post:
       summary: "Mock outgoing requests"
       requestBody:
@@ -76,16 +60,18 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/MockOutgoingRequest'
+              $ref: '#/components/schemas/OutgoingReq'
       responses:
         '200':
-          description: "Success"
+          description: "Request mocked successfully"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentResp'
         '400':
           description: "Invalid request"
-        '404':
-          description: "ID not found"
 
-  /mocks:
+  /agent/setmocks:
     post:
       summary: "Set mocks for a given ID"
       requestBody:
@@ -93,19 +79,42 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SetMocksRequest'
+              $ref: '#/components/schemas/SetMocksReq'
       responses:
         '200':
           description: "Mocks set successfully"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentResp'
         '400':
           description: "Invalid request"
 
-  /consumed/{id}:
+  /agent/register:
+    post:
+      summary: "Register clients"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterReq'
+      responses:
+        '200':
+          description: "Client registered successfully"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentResp'
+        '400':
+          description: "Invalid request"
+
+  /agent/consumedmocks:
     get:
       summary: "Get consumed mocks"
       parameters:
         - name: id
-          in: path
+          in: query
           required: true
           schema:
             type: integer
@@ -127,36 +136,45 @@ paths:
 
 components:
   schemas:
-    InstrumentRequest:
+    IncomingReq:
       type: object
       properties:
-        platform:
-          type: string
-          enum: ["linux", "windows", "mac", "docker"]
-        network:
-          type: string
-        container:
-          type: string
-        selfTesting:
-          type: boolean
-        mode:
-          type: string
-
-    MockOutgoingRequest:
-      type: object
-      properties:
-        id:
+        incomingOptions:
+          $ref: '#/components/schemas/IncomingOptions'
+        clientId:
           type: integer
           format: int64
-        opts:
+
+    OutgoingReq:
+      type: object
+      properties:
+        outgoingOptions:
           $ref: '#/components/schemas/OutgoingOptions'
-
-    SetMocksRequest:
-      type: object
-      properties:
-        id:
+        clientId:
           type: integer
           format: int64
+
+    RegisterReq:
+      type: object
+      properties:
+        setupOptions:
+          $ref: '#/components/schemas/SetupOptions'
+
+    AgentResp:
+      type: object
+      properties:
+        clientId:
+          type: integer
+          format: int64
+        error:
+          type: string
+          nullable: true
+        isSuccess:
+          type: boolean
+
+    SetMocksReq:
+      type: object
+      properties:
         filtered:
           type: array
           items:
@@ -165,18 +183,26 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Mock'
-
-    TestCase:
-      type: object
-      properties:
-        // Define properties for TestCase model here
+        appId:
+          type: integer
+          format: int64
 
     Mock:
       type: object
       properties:
-        // Define properties for Mock model here
+        # Define properties for the Mock model here
 
     OutgoingOptions:
       type: object
       properties:
-        // Define properties for OutgoingOptions here
+        # Define properties for the OutgoingOptions model here
+
+    IncomingOptions:
+      type: object
+      properties:
+        # Define properties for the IncomingOptions model here
+
+    SetupOptions:
+      type: object
+      properties:
+        # Define properties for the SetupOptions model here
