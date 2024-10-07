@@ -91,9 +91,9 @@ func simulateInitialHandshake(ctx context.Context, logger *zap.Logger, clientCon
 		utils.LogError(logger, nil, "failed to assert mock handshake response packet")
 		return nil
 	}
-
+	// fmt.Println("Matching handshake response Database string...", req[0].Message.(*mysql.HandshakeResponse41Packet).Database)
 	// Match the handshake response from the client with the mock
-	logger.Debug("matching handshake response", zap.Any("actual", pkt), zap.Any("mock", req[0].PacketBundle))
+	logger.Info("matching handshake response", zap.Any("actual", pkt), zap.Any("mock", req[0].PacketBundle))
 	err = matchHanshakeResponse41(ctx, logger, req[0].PacketBundle, *pkt)
 	if err != nil {
 		utils.LogError(logger, err, "error while matching handshakeResponse41")

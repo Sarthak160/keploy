@@ -52,15 +52,14 @@ func New(logger *zap.Logger, client kdocker.Client, c *config.Config) *AgentClie
 		logger:       logger,
 		dockerClient: client,
 		client:       http.Client{},
-
-		conf: c,
+		conf:         c,
 	}
 }
 
 func (a *AgentClient) GetIncoming(ctx context.Context, id uint64, opts models.IncomingOptions) (<-chan *models.TestCase, error) {
 	requestBody := models.IncomingReq{
 		IncomingOptions: opts,
-		ClientId:        id,
+		ClientID:        id,
 	}
 
 	requestJSON, err := json.Marshal(requestBody)
@@ -132,7 +131,7 @@ func (a *AgentClient) GetIncoming(ctx context.Context, id uint64, opts models.In
 func (a *AgentClient) GetOutgoing(ctx context.Context, id uint64, opts models.OutgoingOptions) (<-chan *models.Mock, error) {
 	requestBody := models.OutgoingReq{
 		OutgoingOptions: opts,
-		ClientId:        id,
+		ClientID:        id,
 	}
 
 	requestJSON, err := json.Marshal(requestBody)
@@ -186,6 +185,11 @@ func (a *AgentClient) GetOutgoing(ctx context.Context, id uint64, opts models.Ou
 				return
 			case mockChan <- &mock:
 				// Send the decoded mock to the channel
+				fmt.Println("Sending mock to the channel")
+				fmt.Printf("Mock recieved at client: %v\n", mock)
+				// if mock.Spec.MySQLResponses {
+
+				// }
 			}
 		}
 	}()
@@ -197,7 +201,7 @@ func (a *AgentClient) MockOutgoing(ctx context.Context, id uint64, opts models.O
 	// make a request to the server to mock outgoing
 	requestBody := models.OutgoingReq{
 		OutgoingOptions: opts,
-		ClientId:        id,
+		ClientID:        id,
 	}
 
 	requestJSON, err := json.Marshal(requestBody)
@@ -361,6 +365,7 @@ func (a *AgentClient) Run(ctx context.Context, id uint64, _ models.RunOptions) m
 
 	select {
 	case <-runAppCtx.Done():
+		fmt.Println("Context is canceled in the run app function")
 		return models.AppError{AppErrorType: models.ErrCtxCanceled, Err: nil}
 	case appErr := <-appErrCh:
 		return appErr
@@ -379,9 +384,9 @@ func (a *AgentClient) Setup(ctx context.Context, cmd string, opts models.SetupOp
 
 	if !isAgentRunning {
 		// Start the keploy agent as a detached process and pipe the logs into a file
-		// if !isDockerCmd && !Linux {
-		// 	return 0, fmt.Errorf("keploy agent is not running, please start the agent first")
-		// }
+		if !isDockerCmd && runtime.GOOS != "linux" {
+			return 0, fmt.Errorf("Operating system not supported for this feature")
+		}
 		if isDockerCmd {
 			// run the docker container instead of the agent binary
 			go func() {
@@ -403,8 +408,8 @@ func (a *AgentClient) Setup(ctx context.Context, cmd string, opts models.SetupOp
 					utils.LogError(a.logger, err, "failed to close agent log file")
 				}
 			}()
-
-			agentCmd := exec.Command("sudo", "keployv2", "agent")
+			// TODO: Pass the binary name as an argument while go
+			agentCmd := exec.Command("sudo", "keployv2", "agent","--debug")
 			agentCmd.SysProcAttr = &syscall.SysProcAttr{Setsid: true} // Detach the process
 
 			// Redirect the standard output and error to the log file
@@ -453,7 +458,7 @@ func (a *AgentClient) Setup(ctx context.Context, cmd string, opts models.SetupOp
 	}
 
 	opts.ClientID = clientID
-	opts.AppInode = inode // why its required in case of native ?
+	opts.AppInode = inode 
 	// Register the client with the server
 	err = a.RegisterClient(ctx, opts)
 	if err != nil {
@@ -472,7 +477,6 @@ func (a *AgentClient) Setup(ctx context.Context, cmd string, opts models.SetupOp
 func (a *AgentClient) getApp(id uint64) (*app.App, error) {
 	ap, ok := a.apps.Load(id)
 	if !ok {
-		fmt.Printf("app with id:%v not found", id)
 		return nil, fmt.Errorf("app with id:%v not found", id)
 	}
 
@@ -571,22 +575,40 @@ func (a *AgentClient) Initcontainer(ctx context.Context, logger *zap.Logger, opt
 	// Start the init container to get the PID namespace inode
 	cmdCancel := func(cmd *exec.Cmd) func() error {
 		return func() error {
-			a.logger.Info("sending SIGINT to the container", zap.Any("cmd.Process.Pid", cmd.Process.Pid))
+			a.logger.Info("sending SIGINT to the Initcontainer", zap.Any("cmd.Process.Pid", cmd.Process.Pid))
 			err := utils.SendSignal(a.logger, -cmd.Process.Pid, syscall.SIGINT)
 			return err
 		}
 	}
-	cmd := fmt.Sprintf("docker run --network=%s --name keploy-init --rm alpine sleep infinity", a.conf.NetworkName)
+
+	//change the permissions of the init.sh file
+	// err := exec.Command("chmod", "+x", "initStop.sh").Run()
+	// if err != nil {
+	// 	a.logger.Error("failed to change the permissions of the initStop.sh file", zap.Error(err))
+	// 	return 0, err
+	// }
+
+	cmd := fmt.Sprintf("docker run --network=%s --name keploy-init --rm -v$(pwd)/initStop.sh:/initStop.sh alpine /initStop.sh", a.conf.NetworkName)
 
 	// execute the command
-	go func() {
+	//get the errorgroup from the context
+	grp, ok := ctx.Value(models.ErrGroupKey).(*errgroup.Group)
+	if !ok {
+		return 0, fmt.Errorf("failed to get errorgroup from the context")
+	}
+	
+	grp.Go(func() error {
+		println("Executing the init container command")
 		cmdErr := utils.ExecuteCommand(ctx, a.logger, cmd, cmdCancel, 25*time.Second)
-		if cmdErr.Err != nil {
+		if cmdErr.Err != nil && cmdErr.Type == utils.Init {
 			utils.LogError(a.logger, cmdErr.Err, "failed to execute init container command")
 		}
-	}()
 
-	time.Sleep(2 * time.Second)
+		println("Init container stopped")
+		return nil
+	})
+
+	time.Sleep(3 * time.Second)
 	// Get the PID of the container's first process
 	inspect, err := a.dockerClient.ContainerInspect(ctx, "keploy-init")
 	if err != nil {
@@ -615,8 +637,6 @@ func (a *AgentClient) isAgentRunning(ctx context.Context) bool {
 	if err != nil {
 		utils.LogError(a.logger, err, "failed to send request to the agent server")
 	}
-
-	fmt.Printf("THe url is %v\n", req.URL)
 
 	resp, err := a.client.Do(req)
 	if err != nil {

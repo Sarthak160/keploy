@@ -43,6 +43,7 @@ type Config struct {
 	Version               string       `json:"-" yaml:"-" mapstructure:"-"`
 	APIServerURL          string       `json:"-" yaml:"-" mapstructure:"-"`
 	GitHubClientID        string       `json:"-" yaml:"-" mapstructure:"-"`
+	BinaryName            string       `json:"-" yaml:"-" mapstructure:"-"`
 }
 
 type UtGen struct {
@@ -130,7 +131,7 @@ type Test struct {
 }
 
 type Agent struct {
-	IsDocker bool `json:"isDocker" yaml:"isDocker" mapstructure:"isDocker"`
+	IsDocker bool   `json:"isDocker" yaml:"isDocker" mapstructure:"isDocker"`
 	Port     uint32 `json:"port" yaml:"port" mapstructure:"port"`
 }
 

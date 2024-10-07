@@ -10,6 +10,7 @@ import (
 	"fmt"
 
 	"go.keploy.io/server/v2/pkg/core/proxy/integrations/mysql/utils"
+	"go.keploy.io/server/v2/pkg/core/proxy/integrations/util"
 	"go.keploy.io/server/v2/pkg/models/mysql"
 	"go.uber.org/zap"
 )
@@ -63,7 +64,7 @@ func DecodeHandshakeResponse41(_ context.Context, _ *zap.Logger, data []byte) (*
 	if packet.CapabilityFlags&mysql.CLIENT_CONNECT_WITH_DB != 0 {
 		idx = bytes.IndexByte(data, 0x00)
 		if idx != -1 {
-			packet.Database = string(data[:idx])
+			packet.Database = util.EncodeBase64(data[:idx])
 			data = data[idx+1:]
 		}
 	}
@@ -176,7 +177,9 @@ func EncodeHandshakeResponse41(_ context.Context, _ *zap.Logger, packet *mysql.H
 
 	// Write Database
 	if packet.CapabilityFlags&mysql.CLIENT_CONNECT_WITH_DB != 0 {
-		if _, err := buf.WriteString(packet.Database); err != nil {
+		connStr, _ := util.DecodeBase64(packet.Database)
+		fmt.Println("CONNECTION STRING", string(connStr))
+		if _, err := buf.WriteString(string(connStr)); err != nil {
 			return nil, fmt.Errorf("failed to write Database for HandshakeResponse41Packet: %w", err)
 		}
 		if err := buf.WriteByte(0x00); err != nil {

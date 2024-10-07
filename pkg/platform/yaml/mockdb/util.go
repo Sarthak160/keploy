@@ -2,6 +2,7 @@ package mockdb
 
 import (
 	"context"
+	"errors"
 	"strings"
 
 	"go.keploy.io/server/v2/pkg/models"
@@ -174,6 +175,7 @@ func EncodeMock(mock *models.Mock, logger *zap.Logger) (*yaml.NetworkTrafficDoc,
 		}
 	default:
 		logger.Debug("failed to marshal the mock input-output as yaml", zap.Any("type", mock.Kind))
+		return nil, errors.New("failed to marshal the mock input-output as yaml")
 	}
 
 	return &yamlDoc, nil

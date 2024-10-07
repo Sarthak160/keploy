@@ -10,7 +10,7 @@ type HandshakeV10Packet struct {
 	ProtocolVersion uint8  `yaml:"protocol_version" json:"protocol_version"`
 	ServerVersion   string `yaml:"server_version" json:"server_version"`
 	ConnectionID    uint32 `yaml:"connection_id" json:"connection_id"`
-	AuthPluginData  []byte `yaml:"auth_plugin_data,omitempty,flow" json:"auth_plugin_data,omitempty"`
+	AuthPluginData  []byte `yaml:"auth_plugin_data,omitempty,flow" json:"auth_plugin_data,omitempty,flow"`
 	Filler          byte   `yaml:"filler" json:"filler"`
 	CapabilityFlags uint32 `yaml:"capability_flags" json:"capability_flags"`
 	CharacterSet    uint8  `yaml:"character_set" json:"character_set"`
@@ -23,7 +23,7 @@ type HandshakeResponse41Packet struct {
 	CapabilityFlags      uint32            `yaml:"capability_flags" json:"capability_flags"`
 	MaxPacketSize        uint32            `yaml:"max_packet_size" json:"max_packet_size"`
 	CharacterSet         uint8             `yaml:"character_set" json:"character_set"`
-	Filler               [23]byte          `yaml:"filler,omitempty,flow" json:"filler,omitempty"`
+	Filler               [23]byte          `yaml:"filler,omitempty,flow" json:"filler,omitempty,flow"`
 	Username             string            `yaml:"username" json:"username"`
 	AuthResponse         []byte            `yaml:"auth_response,omitempty,flow" json:"auth_response,omitempty"`
 	Database             string            `yaml:"database" json:"database"`

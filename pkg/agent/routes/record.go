@@ -77,7 +77,7 @@ func (a *AgentRequest) HandleIncoming(w http.ResponseWriter, r *http.Request) {
 			// Stream each test case as JSON
 			fmt.Printf("Sending Test case: %v\n", t)
 			render.JSON(w, r, t)
-			flusher.Flush() // Immediately send data to the client
+			flusher.Flush()
 		}
 	}
 }
@@ -112,7 +112,6 @@ func (a *AgentRequest) HandleOutgoing(w http.ResponseWriter, r *http.Request) {
 			// Client closed the connection or context was cancelled
 			return
 		default:
-			// Stream each mock as JSON
 			render.JSON(w, r, m)
 			flusher.Flush()
 		}

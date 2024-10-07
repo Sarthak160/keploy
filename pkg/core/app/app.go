@@ -457,6 +457,7 @@ func (a *App) Run(ctx context.Context) models.AppError {
 	}
 	return a.run(ctx)
 }
+
 func (a *App) waitTillExit() {
 	timeout := time.NewTimer(30 * time.Second)
 	logTicker := time.NewTicker(1 * time.Second)
@@ -498,7 +499,7 @@ func (a *App) run(ctx context.Context) models.AppError {
 	cmdCancel := func(cmd *exec.Cmd) func() error {
 		return func() error {
 			if utils.IsDockerCmd(a.kind) {
-				a.logger.Debug("sending SIGINT to the container", zap.Any("cmd.Process.Pid", cmd.Process.Pid))
+				a.logger.Info("sending SIGINT to the app container", zap.Any("cmd.Process.Pid", cmd.Process.Pid))
 				err := utils.SendSignal(a.logger, -cmd.Process.Pid, syscall.SIGINT)
 				return err
 			}
