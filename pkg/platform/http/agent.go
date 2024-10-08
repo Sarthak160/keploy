@@ -384,9 +384,9 @@ func (a *AgentClient) Setup(ctx context.Context, cmd string, opts models.SetupOp
 
 	if !isAgentRunning {
 		// Start the keploy agent as a detached process and pipe the logs into a file
-		if !isDockerCmd && runtime.GOOS != "linux" {
-			return 0, fmt.Errorf("Operating system not supported for this feature")
-		}
+		// if !isDockerCmd && runtime.GOOS != "linux" {
+		// 	return 0, fmt.Errorf("Operating system not supported for this feature")
+		// }
 		if isDockerCmd {
 			// run the docker container instead of the agent binary
 			go func() {
