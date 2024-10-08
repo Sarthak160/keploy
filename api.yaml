@@ -1,0 +1,208 @@
+openapi: "3.0.0"
+info:
+  title: "Agent Service API"
+  version: "1.0.0"
+paths:
+  /agent/health:
+    get:
+      summary: "Health check for the service"
+      responses:
+        '200':
+          description: "Service is healthy"
+          content:
+            application/json:
+              schema:
+                type: string
+
+  /agent/incoming:
+    post:
+      summary: "Handle incoming requests"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IncomingReq'
+      responses:
+        '200':
+          description: "Incoming request processed successfully"
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: "Invalid request"
+
+  /agent/outgoing:
+    post:
+      summary: "Handle outgoing requests"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OutgoingReq'
+      responses:
+        '200':
+          description: "Outgoing request processed successfully"
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: "Invalid request"
+
+  /agent/mock:
+    post:
+      summary: "Mock outgoing requests"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OutgoingReq'
+      responses:
+        '200':
+          description: "Request mocked successfully"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentResp'
+        '400':
+          description: "Invalid request"
+
+  /agent/setmocks:
+    post:
+      summary: "Set mocks for a given ID"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetMocksReq'
+      responses:
+        '200':
+          description: "Mocks set successfully"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentResp'
+        '400':
+          description: "Invalid request"
+
+  /agent/register:
+    post:
+      summary: "Register clients"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterReq'
+      responses:
+        '200':
+          description: "Client registered successfully"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentResp'
+        '400':
+          description: "Invalid request"
+
+  /agent/consumedmocks:
+    get:
+      summary: "Get consumed mocks"
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+          description: "ID to fetch consumed mocks"
+      responses:
+        '200':
+          description: "List of consumed mocks"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '400':
+          description: "Invalid ID supplied"
+        '404':
+          description: "ID not found"
+
+components:
+  schemas:
+    IncomingReq:
+      type: object
+      properties:
+        incomingOptions:
+          $ref: '#/components/schemas/IncomingOptions'
+        clientId:
+          type: integer
+          format: int64
+
+    OutgoingReq:
+      type: object
+      properties:
+        outgoingOptions:
+          $ref: '#/components/schemas/OutgoingOptions'
+        clientId:
+          type: integer
+          format: int64
+
+    RegisterReq:
+      type: object
+      properties:
+        setupOptions:
+          $ref: '#/components/schemas/SetupOptions'
+
+    AgentResp:
+      type: object
+      properties:
+        clientId:
+          type: integer
+          format: int64
+        error:
+          type: string
+          nullable: true
+        isSuccess:
+          type: boolean
+
+    SetMocksReq:
+      type: object
+      properties:
+        filtered:
+          type: array
+          items:
+            $ref: '#/components/schemas/Mock'
+        unFiltered:
+          type: array
+          items:
+            $ref: '#/components/schemas/Mock'
+        appId:
+          type: integer
+          format: int64
+
+    Mock:
+      type: object
+      properties:
+        # Define properties for the Mock model here
+
+    OutgoingOptions:
+      type: object
+      properties:
+        # Define properties for the OutgoingOptions model here
+
+    IncomingOptions:
+      type: object
+      properties:
+        # Define properties for the IncomingOptions model here
+
+    SetupOptions:
+      type: object
+      properties:
+        # Define properties for the SetupOptions model here

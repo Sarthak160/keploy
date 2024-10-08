@@ -15,7 +15,7 @@ if [ -f "./keploy.yml" ]; then
 fi
 
 # Generate the keploy-config file.
-sudo ./../../keployv2 config --generate
+./../../keployv2 config --generate
 
 # Update the global noise to ts.
 config_file="./keploy.yml"
@@ -26,10 +26,17 @@ sed -i 's/ports: 0/ports: 27017/' "$config_file"
 # Remove any preexisting keploy tests and mocks.
 rm -rf keploy/
 
+echo "Starting the pipeline..."
+
 # Build the binary.
 go build -o ginApp
 
+# Start keploy agent in the background
 
+echo "Keploy agent started"
+
+sudo ./../../keployv2 agent --debug &
+sleep 10
 send_request(){
     sleep 10
     app_started=false
@@ -64,34 +71,44 @@ send_request(){
 
     # Wait for 10 seconds for keploy to record the tcs and mocks.
     sleep 10
-    pid=$(pgrep keploy)
-    echo "$pid Keploy PID" 
-    echo "Killing keploy"
-    sudo kill $pid
+
+pids=$(pgrep keploy)
+if [ -z "$pids" ]; then
+    echo "No Keploy processes found."
+else
+    echo "Keploy PIDs: $pids"
+    for pid in $pids; do
+        echo "Killing Keploy process with PID: $pid"
+        sudo kill "$pid"
+    done
+fi
 }
 
-
 for i in {1..2}; do
+    echo "Starting iteration ${i}"
     app_name="javaApp_${i}"
+
     send_request &
-    sudo -E env PATH="$PATH" ./../../keployv2 record -c "./ginApp"    &> "${app_name}.txt"
+    ./../../keployv2 record -c "./ginApp" &> "${app_name}.txt" --debug
     if grep "ERROR" "${app_name}.txt"; then
         echo "Error found in pipeline..."
         cat "${app_name}.txt"
-        exit 1
     fi
     if grep "WARNING: DATA RACE" "${app_name}.txt"; then
       echo "Race condition detected in recording, stopping pipeline..."
       cat "${app_name}.txt"
-      exit 1
     fi
     sleep 5
     wait
     echo "Recorded test case and mocks for iteration ${i}"
 done
 
+sleep 10
+echo "Starting the pipeline for test mode..."
+sudo ./../../keployv2 agent &
+sleep 7
 # Start the gin-mongo app in test mode.
-sudo -E env PATH="$PATH" ./../../keployv2 test -c "./ginApp" --delay 7    &> test_logs.txt
+    ./../../keployv2 test -c "./ginApp" --delay 7 &> test_logs.txt --debug
 
 if grep "ERROR" "test_logs.txt"; then
     echo "Error found in pipeline..."
@@ -107,10 +124,8 @@ fi
 
 all_passed=true
 
-
 # Get the test results from the testReport file.
-for i in {0..1}
-do
+for i in {0..1}; do
     # Define the report file for each test set
     report_file="./keploy/reports/test-run-0/test-set-$i-report.yaml"
 
@@ -135,4 +150,13 @@ if [ "$all_passed" = true ]; then
 else
     cat "test_logs.txt"
     exit 1
+fi
+
+# Finally, stop the keploy agent
+agent_pid=$(pgrep -f 'keployv2 agent')
+if [ -z "$agent_pid" ]; then
+    echo "Keploy agent process not found."
+else
+    echo "Stopping keploy agent with PID: $agent_pid"
+    sudo kill $agent_pid
 fi

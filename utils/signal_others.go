@@ -4,6 +4,7 @@ package utils
 
 import (
 	"context"
+	"fmt"
 	"os"
 	"os/exec"
 	"syscall"
@@ -29,15 +30,15 @@ func SendSignal(logger *zap.Logger, pid int, sig syscall.Signal) error {
 
 func ExecuteCommand(ctx context.Context, logger *zap.Logger, userCmd string, cancel func(cmd *exec.Cmd) func() error, waitDelay time.Duration) CmdError {
 	// Run the app as the user who invoked sudo
-	username := os.Getenv("SUDO_USER")
-
+	// username := os.Getenv("SUDO_USER")
+	fmt.Println("CNTEXT VALUE....", ctx)
 	cmd := exec.CommandContext(ctx, "sh", "-c", userCmd)
-	if username != "" {
-		// print all environment variables
-		logger.Debug("env inherited from the cmd", zap.Any("env", os.Environ()))
-		// Run the command as the user who invoked sudo to preserve the user environment variables and PATH
-		cmd = exec.CommandContext(ctx, "sudo", "-E", "-u", os.Getenv("SUDO_USER"), "env", "PATH="+os.Getenv("PATH"), "sh", "-c", userCmd)
-	}
+	// if username != "" {
+	// 	// print all environment variables
+	// 	logger.Debug("env inherited from the cmd", zap.Any("env", os.Environ()))
+	// 	// Run the command as the user who invoked sudo to preserve the user environment variables and PATH
+	// 	cmd = exec.CommandContext(ctx, "sudo", "-E", "-u", os.Getenv("SUDO_USER"), "env", "PATH="+os.Getenv("PATH"), "sh", "-c", userCmd)
+	// }
 
 	// Set the cancel function for the command
 	cmd.Cancel = cancel(cmd)

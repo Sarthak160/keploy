@@ -25,6 +25,7 @@ var version string
 var dsn string
 var apiServerURI = "http://localhost:8083"
 var gitHubClientID = "Iv23liFBvIVhL29i9BAp"
+var binaryName = "keploy"
 
 func main() {
 	// Uncomment the following code to enable pprof for debugging
@@ -85,6 +86,7 @@ func start(ctx context.Context) {
 	conf := config.New()
 	conf.APIServerURL = apiServerURI
 	conf.GitHubClientID = gitHubClientID
+	conf.BinaryName = binaryName
 	userDb := userDb.New(logger, conf)
 	conf.InstallationID, err = userDb.GetInstallationID(ctx)
 	if err != nil {
