@@ -35,7 +35,7 @@ go build -o ginApp
 
 echo "Keploy agent started"
 
-sudo ./../../keployv2 agent &
+sudo ./../../keployv2 agent --debug &
 sleep 10
 send_request(){
     sleep 10
