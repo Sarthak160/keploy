@@ -71,10 +71,17 @@ send_request(){
 
     # Wait for 10 seconds for keploy to record the tcs and mocks.
     sleep 10
-    pid=$(pgrep keploy)
-    echo "$pid Keploy PID" 
-    echo "Killing keploy"
-    sudo kill $pid
+
+pids=$(pgrep keploy)
+if [ -z "$pids" ]; then
+    echo "No Keploy processes found."
+else
+    echo "Keploy PIDs: $pids"
+    for pid in $pids; do
+        echo "Killing Keploy process with PID: $pid"
+        sudo kill "$pid"
+    done
+fi
 }
 
 for i in {1..2}; do
@@ -98,7 +105,8 @@ done
 
 sleep 10
 echo "Starting the pipeline for test mode..."
-
+sudo ./../../keployv2 agent &
+sleep 7
 # Start the gin-mongo app in test mode.
 sudo -E env PATH="$PATH" ./../../keployv2 test -c "./ginApp" --delay 7 &> test_logs.txt --debug
 
