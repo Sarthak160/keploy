@@ -57,6 +57,10 @@ type Proxy struct {
 }
 
 func New(logger *zap.Logger, info core.DestInfo, opts *config.Config) *Proxy {
+	if opts.Agent.IsDocker {
+		logger.Info("Running in docker environment proxy port will be set to 36789")
+		opts.ProxyPort = 36789
+	}
 	return &Proxy{
 		logger:       logger,
 		Port:         opts.ProxyPort, // default: 16789
@@ -89,7 +93,6 @@ func (p *Proxy) StartProxy(ctx context.Context, opts core.ProxyOptions) error {
 		utils.LogError(p.logger, err, "failed to initialize the integrations")
 		return err
 	}
-
 	// set up the CA for tls connections
 	err = SetupCA(ctx, p.logger)
 	if err != nil {
@@ -100,11 +103,14 @@ func (p *Proxy) StartProxy(ctx context.Context, opts core.ProxyOptions) error {
 	if !ok {
 		return errors.New("failed to get the error group from the context")
 	}
+	// Create a channel to signal readiness of each server
+	readyChan := make(chan error, 1)
 
 	// start the proxy server
 	g.Go(func() error {
 		defer utils.Recover(p.logger)
-		err := p.start(ctx)
+		err := p.start(ctx, readyChan)
+		readyChan <- err
 		if err != nil {
 			utils.LogError(p.logger, err, "error while running the proxy server")
 			return err
@@ -172,6 +178,11 @@ func (p *Proxy) StartProxy(ctx context.Context, opts core.ProxyOptions) error {
 			return err
 		}
 	})
+	// Wait for the proxy server to be ready or fail
+	err = <-readyChan
+	if err != nil {
+		return err
+	}
 	p.logger.Info("Keploy has taken control of the DNS resolution mechanism, your application may misbehave if you have provided wrong domain name in your application code.")
 
 	p.logger.Info(fmt.Sprintf("Proxy started at port:%v", p.Port))
@@ -179,17 +190,21 @@ func (p *Proxy) StartProxy(ctx context.Context, opts core.ProxyOptions) error {
 }
 
 // start function starts the proxy server on the idle local port
-func (p *Proxy) start(ctx context.Context) error {
+func (p *Proxy) start(ctx context.Context, readyChan chan<- error) error {
 
 	// It will listen on all the interfaces
 	listener, err := net.Listen("tcp", fmt.Sprintf(":%v", p.Port))
 	if err != nil {
 		utils.LogError(p.logger, err, fmt.Sprintf("failed to start proxy on port:%v", p.Port))
+		// Notify failure
+		readyChan <- err
 		return err
 	}
+
 	p.Listener = listener
 	p.logger.Debug(fmt.Sprintf("Proxy server is listening on %s", fmt.Sprintf(":%v", listener.Addr())))
-
+	// Signal that the server is ready
+	readyChan <- nil
 	defer func(listener net.Listener) {
 		err := listener.Close()
 
@@ -205,7 +220,7 @@ func (p *Proxy) start(ctx context.Context) error {
 		clientConnCancel()
 		err := clientConnErrGrp.Wait()
 		if err != nil {
-			p.logger.Debug("failed to handle the client connection", zap.Error(err))
+			p.logger.Info("failed to handle the client connection", zap.Error(err))
 		}
 		//closing all the mock channels (if any in record mode)
 		for _, mc := range p.sessions.GetAllMC() {
@@ -280,8 +295,7 @@ func (p *Proxy) handleConnection(ctx context.Context, srcConn net.Conn) error {
 	remoteAddr := srcConn.RemoteAddr().(*net.TCPAddr)
 	sourcePort := remoteAddr.Port
 
-	p.logger.Debug("Inside handleConnection of proxyServer", zap.Any("source port", sourcePort), zap.Any("Time", time.Now().Unix()))
-
+	p.logger.Info("Inside handleConnection of proxyServer", zap.Any("source port", sourcePort), zap.Any("Time", time.Now().Unix()))
 	destInfo, err := p.DestInfo.Get(ctx, uint16(sourcePort))
 	if err != nil {
 		utils.LogError(p.logger, err, "failed to fetch the destination info", zap.Any("Source port", sourcePort))
@@ -570,7 +584,6 @@ func (p *Proxy) Record(_ context.Context, id uint64, mocks chan<- *models.Mock, 
 		MC:              mocks,
 		OutgoingOptions: opts,
 	})
-
 	p.MockManagers.Store(id, NewMockManager(NewTreeDb(customComparator), NewTreeDb(customComparator), p.logger))
 
 	////set the new proxy ip:port for a new session
@@ -622,7 +635,6 @@ func (p *Proxy) SetMocks(_ context.Context, id uint64, filtered []*models.Mock, 
 		m.(*MockManager).SetFilteredMocks(filtered)
 		m.(*MockManager).SetUnFilteredMocks(unFiltered)
 	}
-
 	return nil
 }
 
