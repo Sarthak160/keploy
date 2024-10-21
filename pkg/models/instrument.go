@@ -1,6 +1,7 @@
 package models
 
 import (
+	"crypto/tls"
 	"time"
 
 	"go.keploy.io/server/v2/config"
@@ -10,15 +11,23 @@ type HookOptions struct {
 	Rules         []config.BypassRule
 	Mode          Mode
 	EnableTesting bool
+	IsDocker      bool
 }
 
 type OutgoingOptions struct {
 	Rules         []config.BypassRule
 	MongoPassword string
 	// TODO: role of SQLDelay should be mentioned in the comments.
-	SQLDelay       time.Duration // This is the same as Application delay.
-	FallBackOnMiss bool          // this enables to pass the request to the actual server if no mock is found during test mode.
-	Mocking        bool          // used to enable/disable mocking
+	SQLDelay       time.Duration      // This is the same as Application delay.
+	FallBackOnMiss bool               // this enables to pass the request to the actual server if no mock is found during test mode.
+	Mocking        bool               // used to enable/disable mocking
+	DstCfg         *ConditionalDstCfg `json:"-"`
+}
+
+type ConditionalDstCfg struct {
+	Addr   string // Destination Addr (ip:port)
+	Port   uint
+	TLSCfg *tls.Config
 }
 
 type IncomingOptions struct {
@@ -26,9 +35,17 @@ type IncomingOptions struct {
 }
 
 type SetupOptions struct {
+	ClientID      uint64
 	Container     string
 	DockerNetwork string
 	DockerDelay   uint64
+	ClientNsPid   uint32
+	ClientInode   uint64
+	AppInode      uint64
+	Cmd           string
+	IsDocker      bool
+	CommandType   string
+	Mode          Mode
 }
 
 type RunOptions struct {

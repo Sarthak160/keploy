@@ -10,7 +10,7 @@ import (
 
 type Config struct {
 	Path                  string       `json:"path" yaml:"path" mapstructure:"path"`
-	AppID                 uint64       `json:"appId" yaml:"appId" mapstructure:"appId"`
+	ClientID              uint64       `json:"clientID" yaml:"clientID" mapstructure:"clientID"`
 	AppName               string       `json:"appName" yaml:"appName" mapstructure:"appName"`
 	Command               string       `json:"command" yaml:"command" mapstructure:"command"`
 	Templatize            Templatize   `json:"templatize" yaml:"templatize" mapstructure:"templatize"`
@@ -37,12 +37,12 @@ type Config struct {
 	KeployNetwork         string       `json:"keployNetwork" yaml:"keployNetwork" mapstructure:"keployNetwork"`
 	CommandType           string       `json:"cmdType" yaml:"cmdType" mapstructure:"cmdType"`
 	Contract              Contract     `json:"contract" yaml:"contract" mapstructure:"contract"`
-
-	InCi           bool   `json:"inCi" yaml:"inCi" mapstructure:"inCi"`
-	InstallationID string `json:"-" yaml:"-" mapstructure:"-"`
-	Version        string `json:"-" yaml:"-" mapstructure:"-"`
-	APIServerURL   string `json:"-" yaml:"-" mapstructure:"-"`
-	GitHubClientID string `json:"-" yaml:"-" mapstructure:"-"`
+	Agent                 Agent        `json:"agent" yaml:"agent" mapstructure:"agent"`
+	InCi                  bool         `json:"inCi" yaml:"inCi" mapstructure:"inCi"`
+	InstallationID        string       `json:"-" yaml:"-" mapstructure:"-"`
+	Version               string       `json:"-" yaml:"-" mapstructure:"-"`
+	APIServerURL          string       `json:"-" yaml:"-" mapstructure:"-"`
+	GitHubClientID        string       `json:"-" yaml:"-" mapstructure:"-"`
 }
 
 type UtGen struct {
@@ -127,6 +127,11 @@ type Test struct {
 	DisableMockUpload   bool                `json:"disableMockUpload" yaml:"disableMockUpload" mapstructure:"disableMockUpload"`
 	UseLocalMock        bool                `json:"useLocalMock" yaml:"useLocalMock" mapstructure:"useLocalMock"`
 	UpdateTemplate      bool                `json:"updateTemplate" yaml:"updateTemplate" mapstructure:"updateTemplate"`
+}
+
+type Agent struct {
+	IsDocker bool   `json:"isDocker" yaml:"isDocker" mapstructure:"isDocker"`
+	Port     uint32 `json:"port" yaml:"port" mapstructure:"port"`
 }
 
 type Language string
