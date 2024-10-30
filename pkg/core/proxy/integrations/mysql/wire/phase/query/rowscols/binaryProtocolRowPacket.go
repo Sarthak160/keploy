@@ -255,14 +255,37 @@ func EncodeBinaryRow(_ context.Context, logger *zap.Logger, row *mysql.BinaryRow
 
 		columnEntry := row.Values[i]
 
+		fmt.Printf("ColumnEntry: %+v\n", columnEntry)
+		fmt.Printf("columnEntry.Value: %+v\n", columnEntry.Value)
+		fmt.Printf("Type of Value: %T\n", columnEntry.Value)
+
 		switch columnEntry.Type {
 		case mysql.FieldTypeLong:
 			var val any
 			if columnEntry.Unsigned {
-				val = uint32(columnEntry.Value.(int))
+				switch columnEntry.Value.(type) {
+				case float64:
+					columnEntry.Value = uint32(columnEntry.Value.(float64))
+				case int:
+					columnEntry.Value = uint32(columnEntry.Value.(int))
+				case int64:
+					columnEntry.Value = uint32(columnEntry.Value.(int64))
+				case uint:
+					columnEntry.Value = uint32(columnEntry.Value.(uint))
+				}
 			} else {
-				val = int32(columnEntry.Value.(int))
+				switch columnEntry.Value.(type) {
+				case float64:
+					columnEntry.Value = int32(columnEntry.Value.(float64))
+				case int:
+					columnEntry.Value = int32(columnEntry.Value.(int))
+				case int64:
+					columnEntry.Value = int32(columnEntry.Value.(int64))
+				case uint:
+					columnEntry.Value = int32(columnEntry.Value.(uint))
+				}
 			}
+			val = columnEntry.Value
 			if err := binary.Write(buf, binary.LittleEndian, val); err != nil {
 				return nil, fmt.Errorf("failed to write %T value: %w", val, err)
 			}
@@ -277,10 +300,29 @@ func EncodeBinaryRow(_ context.Context, logger *zap.Logger, row *mysql.BinaryRow
 		case mysql.FieldTypeTiny:
 			var val any
 			if columnEntry.Unsigned {
-				val = uint8(columnEntry.Value.(int))
+				switch columnEntry.Value.(type) {
+				case float64:
+					columnEntry.Value = uint8(columnEntry.Value.(float64))
+				case int:
+					columnEntry.Value = uint8(columnEntry.Value.(int))
+				case int64:
+					columnEntry.Value = uint8(columnEntry.Value.(int64))
+				case uint:
+					columnEntry.Value = uint8(columnEntry.Value.(uint))
+				}
 			} else {
-				val = int8(columnEntry.Value.(int))
+				switch columnEntry.Value.(type) {
+				case float64:
+					columnEntry.Value = int8(columnEntry.Value.(float64))
+				case int:
+					columnEntry.Value = int8(columnEntry.Value.(int))
+				case int64:
+					columnEntry.Value = int8(columnEntry.Value.(int64))
+				case uint:
+					columnEntry.Value = int8(columnEntry.Value.(uint))
+				}
 			}
+			val = columnEntry.Value
 			if err := binary.Write(buf, binary.LittleEndian, val); err != nil {
 				return nil, fmt.Errorf("failed to write %T value: %w", val, err)
 			}
@@ -288,21 +330,60 @@ func EncodeBinaryRow(_ context.Context, logger *zap.Logger, row *mysql.BinaryRow
 		case mysql.FieldTypeShort, mysql.FieldTypeYear:
 			var val any
 			if columnEntry.Unsigned {
-				val = uint16(columnEntry.Value.(int))
+				switch columnEntry.Value.(type) {
+				case float64:
+					columnEntry.Value = uint16(columnEntry.Value.(float64))
+				case int:
+					columnEntry.Value = uint16(columnEntry.Value.(int))
+				case int64:
+					columnEntry.Value = uint16(columnEntry.Value.(int64))
+				case uint:
+					columnEntry.Value = uint16(columnEntry.Value.(uint))
+				}
+
 			} else {
-				val = int16(columnEntry.Value.(int))
+				switch columnEntry.Value.(type) {
+				case float64:
+					columnEntry.Value = int16(columnEntry.Value.(float64))
+				case int:
+					columnEntry.Value = int16(columnEntry.Value.(int))
+				case int64:
+					columnEntry.Value = int16(columnEntry.Value.(int64))
+				case uint:
+					columnEntry.Value = int16(columnEntry.Value.(uint))
+				}
 			}
+			val = columnEntry.Value
 			if err := binary.Write(buf, binary.LittleEndian, val); err != nil {
 				return nil, fmt.Errorf("failed to write int16 value: %w", err)
 			}
 		case mysql.FieldTypeLongLong:
 			var val any
 			if columnEntry.Unsigned {
-				val = uint64(columnEntry.Value.(int))
+				switch columnEntry.Value.(type) {
+				case float64:
+					columnEntry.Value = uint64(columnEntry.Value.(float64))
+				case int:
+					columnEntry.Value = uint64(columnEntry.Value.(int))
+				case int64:
+					columnEntry.Value = uint64(columnEntry.Value.(int64))
+				case uint:
+					columnEntry.Value = uint64(columnEntry.Value.(uint))
+				}
 			} else {
-				val = int64(columnEntry.Value.(int))
-			}
 
+				switch columnEntry.Value.(type) {
+				case float64:
+					columnEntry.Value = int64(columnEntry.Value.(float64))
+				case int:
+					columnEntry.Value = int64(columnEntry.Value.(int))
+				case int64:
+					columnEntry.Value = int64(columnEntry.Value.(int64))
+				case uint:
+					columnEntry.Value = int64(columnEntry.Value.(uint))
+				}
+			}
+			val = columnEntry.Value
 			if err := binary.Write(buf, binary.LittleEndian, val); err != nil {
 				return nil, fmt.Errorf("failed to write %T value: %w", val, err)
 			}

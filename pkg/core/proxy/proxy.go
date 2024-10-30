@@ -60,6 +60,10 @@ type Proxy struct {
 }
 
 func New(logger *zap.Logger, info core.DestInfo, opts *config.Config) *Proxy {
+	if opts.Agent.IsDocker {
+		logger.Info("Running in docker environment proxy port will be set to 36789")
+		opts.ProxyPort = 36789
+	}
 	return &Proxy{
 		logger:       logger,
 		Port:         opts.ProxyPort, // default: 16789
@@ -92,7 +96,6 @@ func (p *Proxy) StartProxy(ctx context.Context, opts core.ProxyOptions) error {
 		utils.LogError(p.logger, err, "failed to initialize the integrations")
 		return err
 	}
-
 	// set up the CA for tls connections
 	err = pTls.SetupCA(ctx, p.logger)
 	if err != nil {
@@ -200,6 +203,7 @@ func (p *Proxy) start(ctx context.Context, readyChan chan<- error) error {
 		readyChan <- err
 		return err
 	}
+
 	p.Listener = listener
 	p.logger.Debug(fmt.Sprintf("Proxy server is listening on %s", fmt.Sprintf(":%v", listener.Addr())))
 	// Signal that the server is ready
@@ -219,7 +223,7 @@ func (p *Proxy) start(ctx context.Context, readyChan chan<- error) error {
 		clientConnCancel()
 		err := clientConnErrGrp.Wait()
 		if err != nil {
-			p.logger.Debug("failed to handle the client connection", zap.Error(err))
+			p.logger.Info("failed to handle the client connection", zap.Error(err))
 		}
 		//closing all the mock channels (if any in record mode)
 		for _, mc := range p.sessions.GetAllMC() {
@@ -294,8 +298,7 @@ func (p *Proxy) handleConnection(ctx context.Context, srcConn net.Conn) error {
 	remoteAddr := srcConn.RemoteAddr().(*net.TCPAddr)
 	sourcePort := remoteAddr.Port
 
-	p.logger.Debug("Inside handleConnection of proxyServer", zap.Any("source port", sourcePort), zap.Any("Time", time.Now().Unix()))
-
+	p.logger.Info("Inside handleConnection of proxyServer", zap.Any("source port", sourcePort), zap.Any("Time", time.Now().Unix()))
 	destInfo, err := p.DestInfo.Get(ctx, uint16(sourcePort))
 	if err != nil {
 		utils.LogError(p.logger, err, "failed to fetch the destination info", zap.Any("Source port", sourcePort))
@@ -590,7 +593,6 @@ func (p *Proxy) Record(_ context.Context, id uint64, mocks chan<- *models.Mock, 
 		MC:              mocks,
 		OutgoingOptions: opts,
 	})
-
 	p.MockManagers.Store(id, NewMockManager(NewTreeDb(customComparator), NewTreeDb(customComparator), p.logger))
 
 	////set the new proxy ip:port for a new session
@@ -642,7 +644,6 @@ func (p *Proxy) SetMocks(_ context.Context, id uint64, filtered []*models.Mock, 
 		m.(*MockManager).SetFilteredMocks(filtered)
 		m.(*MockManager).SetUnFilteredMocks(unFiltered)
 	}
-
 	return nil
 }
 

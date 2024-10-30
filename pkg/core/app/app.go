@@ -1,4 +1,4 @@
-//go:build linux
+//go:build !windows
 
 // Package app provides functionality for managing applications.
 package app
@@ -8,6 +8,7 @@ import (
 	"errors"
 	"fmt"
 	"os/exec"
+	"strings"
 	"syscall"
 	"time"
 
@@ -15,7 +16,6 @@ import (
 
 	"go.keploy.io/server/v2/pkg/models"
 
-	"github.com/docker/docker/api/types"
 	"github.com/docker/docker/api/types/events"
 	"github.com/docker/docker/api/types/filters"
 	"go.keploy.io/server/v2/pkg/platform/docker"
@@ -49,10 +49,9 @@ type App struct {
 	container        string
 	containerNetwork string
 	containerIPv4    chan string
-	keployNetwork    string
+	KeployNetwork    string
 	keployContainer  string
 	keployIPv4       string
-	inodeChan        chan uint64
 	EnableTesting    bool
 	Mode             models.Mode
 }
@@ -65,6 +64,7 @@ type Options struct {
 	DockerNetwork string
 }
 
+// Setup sets up the application for running.
 func (a *App) Setup(_ context.Context) error {
 
 	if utils.IsDockerCmd(a.kind) && isDetachMode(a.logger, a.cmd, a.kind) {
@@ -117,6 +117,14 @@ func (a *App) SetupDocker() error {
 		utils.LogError(a.logger, err, fmt.Sprintf("failed to inject network:%v to the keploy container", a.containerNetwork))
 		return err
 	}
+
+	// attaching the init container's PID namespace to the app container
+	err = a.attachInitPid(context.Background())
+	if err != nil {
+		utils.LogError(a.logger, err, "failed to attach init pid")
+		return err
+	}
+
 	return nil
 }
 
@@ -165,7 +173,7 @@ func (a *App) SetupCompose() error {
 	if info == nil {
 		info, err = a.docker.SetKeployNetwork(compose)
 		if err != nil {
-			utils.LogError(a.logger, nil, "failed to set default network in the compose file", zap.String("network", a.keployNetwork))
+			utils.LogError(a.logger, nil, "failed to set default network in the compose file", zap.String("network", a.KeployNetwork))
 			return err
 		}
 		composeChanged = true
@@ -180,24 +188,36 @@ func (a *App) SetupCompose() error {
 		composeChanged = true
 	}
 
-	a.keployNetwork = info.Name
-
-	ok, err = a.docker.NetworkExists(a.keployNetwork)
+	a.KeployNetwork = info.Name
+	fmt.Println("keployNetwork:", a.KeployNetwork)
+	ok, err = a.docker.NetworkExists(a.KeployNetwork)
 	if err != nil {
-		utils.LogError(a.logger, nil, "failed to find default network", zap.String("network", a.keployNetwork))
+		utils.LogError(a.logger, nil, "failed to find default network", zap.String("network", a.KeployNetwork))
 		return err
 	}
 
 	//if keploy-network doesn't exist locally then create it
 	if !ok {
-		err = a.docker.CreateNetwork(a.keployNetwork)
+		err = a.docker.CreateNetwork(a.KeployNetwork)
 		if err != nil {
-			utils.LogError(a.logger, nil, "failed to create default network", zap.String("network", a.keployNetwork))
+			utils.LogError(a.logger, nil, "failed to create default network", zap.String("network", a.KeployNetwork))
 			return err
 		}
 	}
 
+	//check if compose file has keploy-init container
+
+	// adding keploy init pid to the compose file
+	// err = a.docker.SetInitPid(compose)
+	// if err != nil {
+	// 	utils.LogError(a.logger, nil, "failed to set init pid in the compose file")
+	// 	return err
+	// }
+
 	if composeChanged {
+		fmt.Println("newPath:", newPath)
+		fmt.Println("composeChanged:", compose)
+
 		err = a.docker.WriteComposeFile(compose, newPath)
 		if err != nil {
 			utils.LogError(a.logger, nil, "failed to write the compose file", zap.String("path", newPath))
@@ -208,7 +228,7 @@ func (a *App) SetupCompose() error {
 	}
 
 	if a.containerNetwork == "" {
-		a.containerNetwork = a.keployNetwork
+		a.containerNetwork = a.KeployNetwork
 	}
 	err = a.injectNetwork(a.containerNetwork)
 	if err != nil {
@@ -233,7 +253,7 @@ func (a *App) injectNetwork(network string) error {
 		return err
 	}
 
-	a.keployNetwork = network
+	a.KeployNetwork = network
 
 	//sending new proxy ip to kernel, since dynamically injected new network has different ip for keploy.
 	inspect, err := a.docker.ContainerInspect(context.Background(), a.keployContainer)
@@ -248,7 +268,7 @@ func (a *App) injectNetwork(network string) error {
 	//TODO: check the logic for correctness
 	for n, settings := range keployNetworks {
 		if n == network {
-			a.keployIPv4 = settings.IPAddress
+			a.keployIPv4 = settings.IPAddress // TODO: keployIPv4 needs to be send to the agent
 			a.logger.Info("Successfully injected network to the keploy container", zap.Any("Keploy container", a.keployContainer), zap.Any("appNetwork", network), zap.String("keploy container ip", a.keployIPv4))
 			return nil
 		}
@@ -259,6 +279,28 @@ func (a *App) injectNetwork(network string) error {
 		//}
 	}
 	return fmt.Errorf("failed to find the network:%v in the keploy container", network)
+}
+
+// AttachInitPid modifies the existing Docker command to attach the init container's PID namespace
+func (a *App) attachInitPid(_ context.Context) error {
+	if a.cmd == "" {
+		return fmt.Errorf("no command provided to modify")
+	}
+
+	// Add the --pid=container:<initContainer> flag to the command
+	pidMode := fmt.Sprintf("--pid=container:%s", "keploy-init")
+	fmt.Println("pidMode:", pidMode)
+	// Inject the pidMode flag after 'docker run' in the command
+	parts := strings.SplitN(a.cmd, " ", 3) // Split by first two spaces to isolate "docker run"
+	if len(parts) < 3 {
+		return fmt.Errorf("invalid command structure: %s", a.cmd)
+	}
+
+	// Modify the command to insert the pidMode
+	a.cmd = fmt.Sprintf("%s %s %s %s", parts[0], parts[1], pidMode, parts[2])
+
+	fmt.Println("Modified command:", a.cmd)
+	return nil
 }
 
 func (a *App) extractMeta(ctx context.Context, e events.Message) (bool, error) {
@@ -290,8 +332,7 @@ func (a *App) extractMeta(ctx context.Context, e events.Message) (bool, error) {
 		return false, err
 	}
 
-	a.inodeChan <- inode
-	a.logger.Debug("container started and successfully extracted inode", zap.Any("inode", inode))
+	a.logger.Info("container started and successfully extracted inode", zap.Any("inode", inode))
 	if info.NetworkSettings == nil || info.NetworkSettings.Networks == nil {
 		a.logger.Debug("container network settings not available", zap.Any("containerDetails.NetworkSettings", info.NetworkSettings))
 		return false, nil
@@ -309,7 +350,6 @@ func (a *App) extractMeta(ctx context.Context, e events.Message) (bool, error) {
 func (a *App) getDockerMeta(ctx context.Context) <-chan error {
 	// listen for the docker daemon events
 	defer a.logger.Debug("exiting from goroutine of docker daemon event listener")
-
 	errCh := make(chan error, 1)
 	timer := time.NewTimer(time.Duration(a.containerDelay) * time.Second)
 	logTicker := time.NewTicker(1 * time.Second)
@@ -323,7 +363,7 @@ func (a *App) getDockerMeta(ctx context.Context) <-chan error {
 		filters.KeyValuePair{Key: "action", Value: "start"},
 	)
 
-	messages, errCh2 := a.docker.Events(ctx, types.EventsOptions{
+	messages, errCh2 := a.docker.Events(ctx, events.ListOptions{
 		Filters: eventFilter,
 	})
 
@@ -415,8 +455,7 @@ func (a *App) runDocker(ctx context.Context) models.AppError {
 	}
 }
 
-func (a *App) Run(ctx context.Context, inodeChan chan uint64) models.AppError {
-	a.inodeChan = inodeChan
+func (a *App) Run(ctx context.Context) models.AppError {
 
 	if utils.IsDockerCmd(a.kind) {
 		return a.runDocker(ctx)
