@@ -28,16 +28,14 @@ import (
 )
 
 func NewHooks(logger *zap.Logger, cfg *config.Config) *Hooks {
-	if cfg.Agent.IsDocker {
-		cfg.ProxyPort = 36789
-	}
+
 	return &Hooks{
 		logger:    logger,
 		sess:      agent.NewSessions(),
 		m:         sync.Mutex{},
 		proxyIP4:  "127.0.0.1",
 		proxyIP6:  [4]uint32{0000, 0000, 0000, 0001},
-		proxyPort: cfg.ProxyPort,
+		proxyPort: cfg.Agent.ProxyPort,
 		dnsPort:   cfg.DNSPort,
 		TestMap:   &sync.Map{},
 		isLoaded:  false,
@@ -416,18 +414,6 @@ func (h *Hooks) load(opts agent.HookCfg) error {
 
 	h.logger.Info("keploy initialized and probes added to the kernel.")
 
-	//sending keploy pid to kernel to get filtered
-	// inode, err := getSelfInodeNumber()
-	// if err != nil {
-	// 	utils.LogError(h.logger, err, "failed to get inode of the keploy process")
-	// 	return err
-	// }
-
-	// clientInfo.KeployClientInode = inode
-	// clientInfo.KeployClientNsPid = uint32(os.Getpid())
-	// clientInfo.IsKeployClientRegistered = uint32(0)
-	// h.logger.Info("Keploy Pid sent successfully...")
-
 	if opts.IsDocker {
 		h.proxyIP4 = opts.KeployIPV4
 		ipv6, err := ToIPv4MappedIPv6(opts.KeployIPV4)
@@ -485,6 +471,7 @@ func (h *Hooks) Record(ctx context.Context, clientID uint64, opts models.Incomin
 	tc := make(chan *models.TestCase, 1)
 	// create a sync map with key clientId and t as value
 	// this map will be used to store the test cases for each client
+	ctx = context.WithoutCancel(ctx)
 	h.TestMap.Store(clientID, tc)
 	if !h.isLoaded {
 		err := conn.ListenSocket(ctx, h.logger, clientID, h.TestMap, h.objects.SocketOpenEvents, h.objects.SocketDataEvents, h.objects.SocketCloseEvents, opts)
@@ -494,7 +481,6 @@ func (h *Hooks) Record(ctx context.Context, clientID uint64, opts models.Incomin
 		h.isLoaded = true
 	} else {
 		// read from the map
-		fmt.Println("Starting the socket listener....................")
 		t, ok := h.TestMap.Load(clientID)
 		if ok {
 			tc, ok = t.(chan *models.TestCase)

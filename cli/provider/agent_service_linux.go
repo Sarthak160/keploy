@@ -51,6 +51,14 @@ func GetAgent(ctx context.Context, cmd string, cfg *config.Config, logger *zap.L
 
 func GetAgentService(_ context.Context, c *config.Config, client docker.Client, logger *zap.Logger) (*CommonInternalServices, error) {
 
+	if c.Agent.IsDocker {
+		c.Agent.ProxyPort = 36789
+	}
+
+	if c.ProxyPort != 0 {
+		c.Agent.ProxyPort = c.ProxyPort
+	}
+	
 	h := hooks.NewHooks(logger, c)
 	p := proxy.New(logger, h, c)
 	//for keploy test bench

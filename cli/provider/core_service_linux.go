@@ -69,7 +69,9 @@ func GetCommonServices(_ context.Context, c *config.Config, logger *zap.Logger) 
 		}
 		c.Agent.IsDocker = true
 		c.Agent.Port = 8096
-
+		if c.ServerPort != 0 {
+			c.Agent.Port = c.ServerPort
+		}
 		//parse docker command only in case of docker start or docker run commands
 		if utils.CmdType(c.CommandType) != utils.DockerCompose {
 			cont, net, err := docker.ParseDockerCmd(c.Command, utils.CmdType(c.CommandType), client)
